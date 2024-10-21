@@ -17,7 +17,6 @@ public class GearDTO {
     private String material;
     private String type;
     private int weight;
-    private int color;
 
     // Hvis du ønsker at inkludere referencer til bicycles (hvis det giver mening)
     private Set<BicycleDTO> bicycles;
@@ -29,7 +28,6 @@ public class GearDTO {
         this.material = gear.getMaterial();
         this.type = gear.getType();
         this.weight = gear.getWeight();
-        this.color = gear.getColor();
         this.bicycles = gear.getBicycles().stream()
                  .map(BicycleDTO::new)
                  .collect(Collectors.toSet());

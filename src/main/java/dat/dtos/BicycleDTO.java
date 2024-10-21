@@ -4,10 +4,6 @@ import dat.entities.Bicycle;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import dat.dtos.FrameDTO;
-import dat.dtos.GearDTO;
-import dat.dtos.WheelDTO;
-import dat.dtos.SaddleDTO;
 
 @Getter
 @Setter
@@ -39,6 +35,14 @@ public class BicycleDTO {
         this.saddle = saddle;
     }
 
+    public BicycleDTO(String brand, String model, String size, int price, String description) {
+        this.brand = brand;
+        this.model = model;
+        this.size = size;
+        this.price = price;
+        this.description = description;
+    }
+
     // Constructor baseret på Bicycle-entitet
     public BicycleDTO(Bicycle bicycle) {
         this.id = bicycle.getId();
@@ -47,10 +51,18 @@ public class BicycleDTO {
         this.size = bicycle.getSize();
         this.price = bicycle.getPrice();
         this.description = bicycle.getDescription();
-        this.frame = new FrameDTO(bicycle.getFrame());
-        this.gear = new GearDTO(bicycle.getGear());
-        this.wheel = new WheelDTO(bicycle.getWheel());
-        this.saddle = new SaddleDTO(bicycle.getSaddle());
+        if(bicycle.getFrame() != null) {
+            this.frame = new FrameDTO(bicycle.getFrame());
+        }
+        if (bicycle.getGear() != null) {
+            this.gear = new GearDTO(bicycle.getGear());
+        }
+        if (bicycle.getWheel() != null) {
+            this.wheel = new WheelDTO(bicycle.getWheel());
+        }
+        if (bicycle.getSaddle() != null) {
+            this.saddle = new SaddleDTO(bicycle.getSaddle());
+        }
     }
 
     public Bicycle toEntity() {

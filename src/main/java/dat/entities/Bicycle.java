@@ -72,9 +72,24 @@ public class Bicycle {
         this.size = bicycleDTO.getSize();
         this.price = bicycleDTO.getPrice();
         this.description = bicycleDTO.getDescription();
-        this.frame = bicycleDTO.getFrame().toEntity();
-        this.gear = bicycleDTO.getGear().toEntity();
-        this.wheel = bicycleDTO.getWheel().toEntity();
-        this.saddle = bicycleDTO.getSaddle().toEntity();
+        if(bicycleDTO.getFrame() != null) {
+            this.frame = bicycleDTO.getFrame().toEntity();
+        }
+        if(bicycleDTO.getGear() != null) {
+            this.gear = bicycleDTO.getGear().toEntity();
+        }
+        if(bicycleDTO.getWheel() != null) {
+            this.wheel = bicycleDTO.getWheel().toEntity();
+        }
+        if(bicycleDTO.getSaddle() != null) {
+            this.saddle = bicycleDTO.getSaddle().toEntity();
+        }
+    }
+
+    public void addFrame(Frame frame) {
+        if (frame != null) {
+            this.frame = frame;
+            frame.getBicycles().add(this);
+        }
     }
 }

@@ -15,8 +15,9 @@ public class SaddleDTO {
     private Long id;
     private String brand;
     private String material;
+    private String model;
     private int weight;
-    private int color;
+
 
     // Hvis du ønsker at inkludere referencer til bicycles (hvis det giver mening)
     private Set<BicycleDTO> bicycles;
@@ -26,8 +27,8 @@ public class SaddleDTO {
         this.id = saddle.getId();
         this.brand = saddle.getBrand();
         this.material = saddle.getMaterial();
+        this.model = saddle.getModel();
         this.weight = saddle.getWeight();
-        this.color = saddle.getColor();
         this.bicycles = saddle.getBicycles().stream()
                 .map(BicycleDTO::new)
                 .collect(Collectors.toSet());

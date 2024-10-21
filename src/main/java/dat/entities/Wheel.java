@@ -38,6 +38,13 @@ public class Wheel {
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
+    public Wheel(String brand, String material, String type, int weight) {
+        this.brand = brand;
+        this.material = material;
+        this.type = type;
+        this.weight = weight;
+    }
+
     public Wheel(WheelDTO wheelDTO) {
         this.id = wheelDTO.getId();
         this.brand = wheelDTO.getBrand();

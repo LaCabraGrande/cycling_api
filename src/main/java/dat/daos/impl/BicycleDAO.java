@@ -27,7 +27,7 @@ public class BicycleDAO {
             Bicycle bicycle = new Bicycle(bicycleDTO);
             em.persist(bicycle);
             em.getTransaction().commit();
-            return new BicycleDTO(bicycle);  // Returner DTO
+            return new BicycleDTO(bicycle);
         }
     }
 
@@ -45,14 +45,14 @@ public class BicycleDAO {
         }
     }
 
-    public Bicycle addFrameToBicycle(int resellerId, int frameId) {
+    public Bicycle addFrameToBicycle(int bicycleId, int frameId) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Bicycle bicycle = em.find(Bicycle.class, resellerId);
+            Bicycle bicycle = em.find(Bicycle.class, bicycleId);
             Frame frame = em.find(Frame.class, frameId);
 
             if (bicycle != null && frame != null) {
-                bicycle.getFrame().add(frame);
+                bicycle.addFrame(frame);
                 frame.getBicycles().add(bicycle);
                 em.merge(bicycle);
                 em.merge(frame);
@@ -73,33 +73,42 @@ public class BicycleDAO {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             Bicycle bicycle = em.find(Bicycle.class, id);
-            bicycle.setName(bicycleDTO.getName());
-            bicycle.setAddress(bicycleDTO.getAddress());
-            bicycle.setPhone(bicycleDTO.getPhone());
-            Bicycle mergedReseller = em.merge(bicycle);
+            bicycle.setId(bicycleDTO.getId());
+            bicycle.setBrand(bicycleDTO.getBrand());
+            bicycle.setModel(bicycleDTO.getModel());
+            bicycle.setSize(bicycleDTO.getSize());
+            bicycle.setPrice(bicycleDTO.getPrice());
+            bicycle.setDescription(bicycleDTO.getDescription());
+            bicycle.setFrame(bicycleDTO.getFrame().toEntity());
+            bicycle.setGear(bicycleDTO.getGear().toEntity());
+            bicycle.setWheel(bicycleDTO.getWheel().toEntity());
+            bicycle.setSaddle(bicycleDTO.getSaddle().toEntity());
+
+            Bicycle mergedBicycle = em.merge(bicycle);
             em.getTransaction().commit();
-            return mergedReseller != null ? new BicycleDTO(mergedReseller) : null;
+            return mergedBicycle != null ? new BicycleDTO(mergedBicycle) : null;
         }
     }
 
-    public Bicycle deleteReseller(int id) {
+    public Bicycle delete(int id) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             Bicycle bicycle = em.find(Bicycle.class, id);
             if (bicycle != null) {
-                // Her fjerner jeg relationer til planter hvis Reselller har nogen tilknyttet
-                for (Frame frame : bicycle.getFrame()) {
-                    frame.getBicycles().remove(bicycle);
-                }
-                // Her clearer jeg sættet af planter
-                reseller.getPlants().clear();
+                // Fjern relation til frame
+                Frame frame = bicycle.getFrame();
+                frame.getBicycles().remove(bicycle);  // Fjerner her bicycle fra frame
+
+                // Her fjerner jeg den tilknyttede frame fra bicycle
+                bicycle.setFrame(null);
+
                 em.flush();  // Sørg for, at ændringerne bliver vedvarende i databasen før fjernelse
                 // Og til sidst sletter jeg reseller. En anden måde at bruge CascadeType.REMOVE i Reseller
                 // klassen på sættet af planter
-                em.remove(reseller);
+                em.remove(bicycle);
             }
             em.getTransaction().commit();
-            return reseller;
+            return bicycle;
         }
     }
 }

@@ -3,6 +3,7 @@ GET {{url}}/auth/test/
 
 ### Create a new user - this one will only get a USER role by default
 POST {{url}}/auth/register/
+Content-Type: application/json
 
 {
     "username": "user",

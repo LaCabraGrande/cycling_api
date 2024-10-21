@@ -13,7 +13,6 @@ public class SaddleRoute {
         return () -> {
             get("/", saddleController::getAll);
             get("/{id}", saddleController::getById);
-            get("/type/{type}",saddleController::getByType);
             post("/",saddleController::create);
             put("/{id}", saddleController::update);
             delete("/{id}",saddleController::delete);

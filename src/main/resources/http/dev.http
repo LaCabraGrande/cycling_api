@@ -1,8 +1,9 @@
 ### A simple get request to the test endpoint. No need for login
-GET {{url}}/auth/test/
+GET http://localhost:7070/api/auth/test/
 
 ### Create a new user - this one will only get a USER role by default
-POST {{url}}/auth/register/
+POST http://localhost:7070/api/auth/register/
+Content-Type: application/json
 
 {
     "username": "user",
@@ -10,7 +11,7 @@ POST {{url}}/auth/register/
 }
 
 ###
-POST {{url}}/auth/login/
+POST http://localhost:7070/api/auth/login/
 
 {
     "username": "user",
@@ -23,17 +24,17 @@ POST {{url}}/auth/login/
 %}
 
 ###
-GET {{url}}/protected/user_demo/
+GET http://localhost:7070/api/protected/user_demo/
 Accept: application/json
 Authorization: Bearer {{jwt_token}}
 
 ###
-GET {{url}}/protected/admin_demo/
+GET http://localhost:7070/api/protected/admin_demo/
 Accept: application/json
 Authorization: Bearer {{jwt_token}}
 
 ### Add admin role to user
-POST {{url}}/auth/user/addrole/
+POST http://localhost:7070/api/auth/user/addrole/
 Accept: application/json
 Authorization: Bearer {{jwt_token}}
 
@@ -44,55 +45,61 @@ Accept: application/json
 Authorization: Bearer {{jwt_token}}
 
 ###
-GET {{url}}/hotels
+GET http://localhost:7070/api/bicycles
+Accept: application/json
 
 ###
 
-GET {{url}}/hotels/2
+GET http://localhost:7070/api/bicycles/2
+Accept: application/json
 
 ###
 
-POST {{url}}/hotels
+POST http://localhost:7070/api/bicycles
 Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
 
 {
-  "hotelName": "Holiday Inn",
-  "hotelAddress": "Stuttgart",
-  "hotelType": "STANDARD"
+  "brand": "Trek",
+  "model": "Domane SL6",
+  "size": "56cm",
+  "price": 3500,
+  "description": "High-performance road bike"
 }
 
 ###
 
-PUT {{url}}/hotels/3
+PUT http://localhost:7070/api/bicycles/3
 Content-Type: application/json
 
 {
-  "hotelName": "Ritz Carlton",
-  "hotelAddress": "London City",
-  "hotelType": "LUXURY"
+  "brand": "Specialized",
+  "model": "Roubaix",
+  "size": "54cm",
+  "price": 4200,
+  "description": "Comfortable endurance bike"
 }
 
 ###
 
-DELETE {{url}}/hotels/5
+DELETE http://localhost:7070/api/bicycles/5
 
 ###
 
-// Room API
+// Frame API
 
-GET {{url}}/rooms
-
-###
-
-GET {{url}}/rooms/1
+GET http://localhost:7070/api/frames
 
 ###
 
-POST {{url}}/rooms/hotel/3
+GET http://localhost:7070/api/frames/1
+
+###
+
+POST http://localhost:7070/api/bicycles/3/frame/3
 Content-Type: application/json
 
 {
-  "roomNumber": 11,
-  "roomPrice": 1150,
-  "roomType": "SINGLE"
+  "bicycleId": 3,
+  "frameId": 3
 }

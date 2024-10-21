@@ -28,12 +28,11 @@ public class FrameDAO implements IDAO<FrameDTO> {
     @Override
     public FrameDTO getById(int id) {
         try (EntityManager em = emf.createEntityManager()) {
-            Frame plant = em.find(Frame.class, id);
-            //return new PlantDTO(plant);
-            return plant != null ? new FrameDTO(plant) : null;
+            Frame frame = em.find(Frame.class, id);
+            //
+            return frame != null ? new FrameDTO(frame) : null;
         }
     }
-
 
     @Override
     public List<FrameDTO> getAll() {
@@ -69,49 +68,43 @@ public class FrameDAO implements IDAO<FrameDTO> {
         }
     }
 
-    public Frame delete(int id) {
+    public FrameDTO delete(int id) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             Frame frame = em.find(Frame.class, id);
+            Frame deletedFrame = em.find(Frame.class, id);
             if (frame != null) {
                 // Fjern relationer til resellers
-                for (Bicycle bicycle : frame.getBicycles()) {
-                    if(bicycle.getFrame().contains(frame)) {
-                        bicycle.getFrame().remove(frame);  // Fjern planten fra reseller
-                    }
+                for (Bicycle b : frame.getBicycles()) {
+                    b.setFrame(null);
+                }
                 frame.getBicycles().clear();  // Ryd resellers sættet
+                em.merge(frame);  // Opdater frame i databasen
 
-                // Nu kan du slette planten
+                // Nu kan du slette framen
                 em.remove(frame);
+
             }
             em.getTransaction().commit();
-            return frame;
-        }
-    }
-
-    // Ekstra metode: Tilføj plante til forhandler
-    public Reseller addPlantToReseller(int resellerId, int plantId) {
-
-        try (EntityManager em = emf.createEntityManager()) {
-            Reseller reseller = em.find(Reseller.class, resellerId);
-            Plant plant = em.find(Plant.class, plantId);
-            if (reseller != null && plant != null) {
-                em.getTransaction().begin();
-                reseller.addPlant(plant);
-                em.merge(reseller);
-                em.getTransaction().commit();
-                return reseller;
-            }
+            return new FrameDTO(deletedFrame);
+        } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
 
-    // Ekstra metode: Hent planter fra en bestemt forhandler
-    public List<Plant> getPlantsByReseller(int resellerId) {
+    // Ekstra metode: Tilføj plante til forhandler
+    public Bicycle add(int bicycleId, int frameId) {
+
         try (EntityManager em = emf.createEntityManager()) {
-            Reseller reseller = em.find(Reseller.class, resellerId);
-            if (reseller != null) {
-                return List.copyOf(reseller.getPlants());
+            Bicycle bicycle = em.find(Bicycle.class, bicycleId);
+            Frame frame = em.find(Frame.class, frameId);
+            if (bicycle != null && frame != null) {
+                em.getTransaction().begin();
+                bicycle.addFrame(frame);
+                em.merge(bicycle);
+                em.getTransaction().commit();
+                return bicycle;
             }
             return null;
         }
@@ -119,8 +112,8 @@ public class FrameDAO implements IDAO<FrameDTO> {
 
     public boolean validatePrimaryKey(Integer integer) {
         try (EntityManager em = emf.createEntityManager()) {
-            Plant plant = em.find(Plant.class, integer);
-            return plant != null;
+            Frame frame = em.find(Frame.class, integer);
+            return frame != null;
         }
     }
 }

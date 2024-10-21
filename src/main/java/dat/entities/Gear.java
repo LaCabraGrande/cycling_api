@@ -23,6 +23,9 @@ public class Gear {
     @Column(name = "brand", nullable = true)
     private String brand;
 
+    @Column(name = "model", nullable = true)
+    private String model;
+
     @Column(name = "material", nullable = true)
     private String material;
 
@@ -33,8 +36,6 @@ public class Gear {
     @Column(name = "weight", nullable = true)
     private int weight;
 
-    @Column(name = "color", nullable = true)
-    private int color;
 
     @OneToMany(mappedBy = "frame")
     @JsonIgnore
@@ -42,13 +43,20 @@ public class Gear {
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
+    public Gear(String brand, String model, String material, String type, int weight) {
+        this.brand = brand;
+        this.model = model;
+        this.material = material;
+        this.type = type;
+        this.weight = weight;
+    }
+
     public Gear(GearDTO gearDTO) {
         this.id = gearDTO.getId();
         this.brand = gearDTO.getBrand();
         this.material = gearDTO.getMaterial();
         this.type = gearDTO.getType();
         this.weight = gearDTO.getWeight();
-        this.color = gearDTO.getColor();
     }
 
     public void addBicycle(Bicycle bicycle) {

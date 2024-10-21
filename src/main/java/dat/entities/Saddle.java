@@ -26,11 +26,11 @@ public class Saddle {
     @Column(name = "type", nullable = true)
     private String material;
 
+    @Column(name = "model", nullable = true)
+    private String model;
+
     @Column(name = "weight", nullable = true)
     private int weight;
-
-    @Column(name = "color", nullable = true)
-    private int color;
 
     @OneToMany(mappedBy = "frame")
     @JsonIgnore
@@ -38,12 +38,19 @@ public class Saddle {
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
+    public Saddle(String brand, String material, String model, int weight) {
+        this.brand = brand;
+        this.material = material;
+        this.model = model;
+        this.weight = weight;
+    }
+
     public Saddle(SaddleDTO saddleDTO) {
         this.id = saddleDTO.getId();
         this.brand = saddleDTO.getBrand();
         this.material = saddleDTO.getMaterial();
+        this.model = saddleDTO.getModel();
         this.weight = saddleDTO.getWeight();
-        this.color = saddleDTO.getColor();
     }
 
     public void addBicycle(Bicycle bicycle) {

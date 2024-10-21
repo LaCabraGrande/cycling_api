@@ -8,5 +8,5 @@ public interface IDAO<T> {
     T getById(int i);
     T add(T t);
     T update(int i, T t);
-    void delete(int i);
+    T delete(int i);
 }

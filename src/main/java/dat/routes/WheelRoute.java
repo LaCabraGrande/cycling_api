@@ -13,7 +13,6 @@ public class WheelRoute {
         return () -> {
             get("/", wheelController::getAll);
             get("/{id}", wheelController::getById);
-            get("/type/{type}", wheelController::getByType);
             post("/", wheelController::create);
             put("/{id}", wheelController::update);
             delete("/{id}", wheelController::delete);

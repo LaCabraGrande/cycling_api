@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-public class BicycleController implements IController<BicycleDTO, Integer> {
+public class BicycleController implements IController<BicycleDTO> {
 
     private final BicycleDAO bicycleDAO;
 

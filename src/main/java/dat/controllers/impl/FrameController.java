@@ -3,26 +3,27 @@ package dat.controllers.impl;
 import dat.config.HibernateConfig;
 import dat.controllers.IController;
 import dat.daos.impl.FrameDAO;
+import dat.dtos.FrameDTO;
+import dat.entities.Frame;
 import io.javalin.http.Context;
 import io.javalin.http.HttpResponseException;
 import io.javalin.http.NotFoundResponse;
 import jakarta.persistence.EntityManagerFactory;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Map;
 
-public class PlantControllerDB implements IController<PlantDTO> {
+public class FrameController implements IController<IController> {
 
-    private final FrameDAO plantDAO;
+    private final FrameDAO frameDAO;
 
-    public PlantControllerDB() {
+    public FrameController() {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
-        this.plantDAO = FrameDAO.getInstance(emf);
+        this.frameDAO = FrameDAO.getInstance(emf);
     }
 
     public void getAll(Context ctx) {
         try {
-            ctx.json(plantDAO.getAll());
+            ctx.json(frameDAO.getAll());
         } catch (Exception e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
@@ -36,9 +37,9 @@ public class PlantControllerDB implements IController<PlantDTO> {
     public void getById(Context ctx) {
         try {
             int id = Integer.parseInt(ctx.pathParam("id"));
-            PlantDTO plantDTO = plantDAO.getById(id);
+            FrameDTO frameDTO = frameDAO.getById(id);
             ctx.res().setStatus(200);
-            ctx.json(plantDTO, PlantDTO.class);
+            ctx.json(frameDTO, FrameDTO.class);
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
@@ -60,41 +61,13 @@ public class PlantControllerDB implements IController<PlantDTO> {
         }
     }
 
-    @Override
-    public void getByType(Context ctx) {
-        try {
-            String type = ctx.pathParam("type");
-            List<PlantDTO> plantDTOS = plantDAO.getAll().stream()
-                    .filter(p -> p.getPlantType().equalsIgnoreCase(type))
-                    .toList();
-
-            if (plantDTOS.isEmpty()) {
-                throw new NotFoundResponse("No plants found for type: " + type);
-            }
-
-            ctx.status(200).json(plantDTOS, PlantDTO.class);
-        } catch (NotFoundResponse e) {
-            ctx.status(404).json(Map.of(
-                    "status", 404,
-                    "message", e.getMessage(),
-                    "timestamp", LocalDateTime.now()
-            ));
-        } catch (Exception e) {
-            ctx.status(500).json(Map.of(
-                    "status", 500,
-                    "message", "Internal server error: " + e.getMessage(),
-                    "timestamp", LocalDateTime.now()
-            ));
-        }
-    }
-
     public void create(Context ctx) {
         try {
-            PlantDTO plantDTO = ctx.bodyAsClass(PlantDTO.class);
-            if (plantDTO == null) {
+            FrameDTO frameDTO = ctx.bodyAsClass(FrameDTO.class);
+            if (frameDTO == null) {
                 throw new HttpResponseException(400, "Invalid plant data provided.");
             }
-            PlantDTO newPlant = plantDAO.add(plantDTO);
+            FrameDTO newPlant = frameDAO.add(frameDTO);
             ctx.status(201).json(newPlant);
         } catch (HttpResponseException e) {
             ctx.status(400).json(Map.of(
@@ -115,9 +88,9 @@ public class PlantControllerDB implements IController<PlantDTO> {
     public void update(Context ctx) {
         try {
             int id = Integer.parseInt(ctx.pathParam("id"));
-            PlantDTO plantDTO = plantDAO.update(id, validateEntity(ctx) );
+            FrameDTO frameDTO = frameDAO.update(id, validateEntity(ctx) );
             ctx.res().setStatus(200);
-            ctx.json(plantDTO, PlantDTO.class);
+            ctx.json(frameDTO, FrameDTO.class);
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
@@ -142,11 +115,9 @@ public class PlantControllerDB implements IController<PlantDTO> {
     public void delete(Context ctx) {
         try {
             int id = Integer.parseInt(ctx.pathParam("id"));
-            Plant deletedPlant = plantDAO.delete(id);
-            if (deletedPlant == null) {
-                throw new NotFoundResponse("Plant with id " + id + " not found.");
-            }
-            ctx.status(200).json(deletedPlant);
+            Frame deletedFrame = frameDAO.delete(id).toEntity();
+
+            ctx.status(200).json(deletedFrame);
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
@@ -171,15 +142,15 @@ public class PlantControllerDB implements IController<PlantDTO> {
 
 
     public boolean validatePrimaryKey(Integer integer) {
-        return plantDAO.validatePrimaryKey(integer);
+        return frameDAO.validatePrimaryKey(integer);
     }
 
-    public PlantDTO validateEntity(Context ctx) {
-        return ctx.bodyValidator(PlantDTO.class)
-                .check(p -> p.getPlantType() != null && !p.getPlantType().isEmpty(), "Plant type must be set")
-                .check(p -> p.getPlantName() != null && !p.getPlantName().isEmpty(), "Plant name must be set")
-                .check(p -> p.getPlantHeight() != 0, "MaxHeight must be set")
-                .check(p -> p.getPlantPrice() != 0, "Price must be set")
+    public FrameDTO validateEntity(Context ctx) {
+        return ctx.bodyValidator(FrameDTO.class)
+                .check(p -> p.getType() != null && !p.getType().isEmpty(), "Plant type must be set")
+                .check(p -> p.getBrand() != null && !p.getBrand().isEmpty(), "Plant name must be set")
+                .check(p -> p.getMaterial() != null && !p.getMaterial().isEmpty(),  "MaxHeight must be set")
+                .check(p -> p.getWeight() != 0, "Price must be set")
                 .get();
     }
 }

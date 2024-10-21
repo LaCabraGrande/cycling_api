@@ -13,7 +13,6 @@ public class GearRoute {
         return () -> {
             get("/", gearController::getAll);
             get("/{id}", gearController::getById);
-            get("/type/{type}", gearController::getByType);
             post("/", gearController::create);
             put("/{id}",  gearController::update);
             delete("/{id}",  gearController::delete);

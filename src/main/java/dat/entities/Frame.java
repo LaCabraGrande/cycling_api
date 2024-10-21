@@ -41,6 +41,13 @@ public class Frame {
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
+    public Frame(String brand, String material, String type, int weight) {
+        this.brand = brand;
+        this.material = material;
+        this.type = type;
+        this.weight = weight;
+    }
+
     public Frame(FrameDTO frameDTO) {
         this.id = frameDTO.getId();
         this.brand = frameDTO.getBrand();
