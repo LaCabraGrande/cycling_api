@@ -1,0 +1,57 @@
+package dat.entities;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import dat.dtos.GearDTO;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Set;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "frame")
+public class Gear {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "brand", nullable = true)
+    private String brand;
+
+    @Column(name = "material", nullable = true)
+    private String material;
+
+    // her tænker jeg at type er en enum som kunne være elektronisk eller mekanisk
+    @Column(name = "type", nullable = true)
+    private String type;
+
+    @Column(name = "weight", nullable = true)
+    private int weight;
+
+    @Column(name = "color", nullable = true)
+    private int color;
+
+    @OneToMany(mappedBy = "frame")
+    @JsonIgnore
+    @ToString.Exclude
+    @JsonBackReference
+    private Set<Bicycle> bicycles;
+
+    public Gear(GearDTO gearDTO) {
+        this.id = gearDTO.getId();
+        this.brand = gearDTO.getBrand();
+        this.material = gearDTO.getMaterial();
+        this.type = gearDTO.getType();
+        this.weight = gearDTO.getWeight();
+        this.color = gearDTO.getColor();
+    }
+
+    public void addBicycle(Bicycle bicycle) {
+        this.bicycles.add(bicycle);
+    }
+}

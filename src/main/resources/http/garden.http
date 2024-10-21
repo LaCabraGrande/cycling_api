@@ -1,0 +1,100 @@
+
+### Retrieve all plants
+GET localhost:7070/api/plants
+
+### Retrieve a plant by id
+GET localhost:7070/api/plants/1
+
+### Post a plant to the database
+POST localhost:7070/api/plants
+Content-Type: application/json
+
+{
+  "plantType": "ROSE",
+  "plantName": "Albertine",
+  "plantHeight": 400,
+  "plantPrice": 199.50
+}
+
+### Post a plant to the database
+POST localhost:7070/api/plants
+Content-Type: application/json
+
+{
+  "plantType": "BUSH",
+  "plantName": "Aronia",
+  "plantHeight": 200,
+  "plantPrice": 169.50
+}
+
+### Update a plant in the database
+PUT localhost:7070/api/plants/12
+Content-Type: application/json
+
+{
+  "plantType": "BUSH",
+  "plantName": "Aronia",
+  "plantHeight": 350,
+  "plantPrice": 250.50
+}
+
+### Delete a plant from the database
+DELETE localhost:7070/api/plants/12
+
+
+### Retrieve all resellers
+GET http://localhost:7070/api/resellers
+
+### Retrieve a reseller by id
+GET http://localhost:7070/api/resellers/1
+
+### Post a reseller to the database
+POST http://localhost:7070/api/resellers
+Content-Type: application/json
+
+{
+  "name": "Hillerød Havecenter",
+  "address": "Kongevejen 321",
+  "phone": "23617271"
+}
+
+### Post a reseller to the database
+POST http://localhost:7070/api/resellers
+Content-Type: application/json
+
+{
+  "name": "Havecentret i Høng",
+  "address": "Holmegårds Alle 34",
+  "phone": "53317271"
+}
+
+### Add a plant to a reseller
+POST http://localhost:7070/api/resellers/3/plants/11
+Content-Type: application/json
+
+{
+  "resellerId": 3,
+  "plantId": 11
+}
+
+### Add a plant to a reseller
+POST http://localhost:7070/api/resellers/4/plants/12
+Content-Type: application/json
+
+{
+  "resellerId": 4,
+  "plantId": 12
+}
+
+### Update a reseller in the database
+PUT http://localhost:7070/api/resellers/4
+Content-Type: application/json
+
+{
+  "name": "Havecentret i Høng",
+  "address": "Holmegårds Alle 36",
+  "phone": "53317271"
+}
+
+### Delete a reseller from the database
+DELETE http://localhost:7070/api/resellers/4
