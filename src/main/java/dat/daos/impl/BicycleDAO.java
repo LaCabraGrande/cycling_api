@@ -2,6 +2,7 @@ package dat.daos.impl;
 
 import dat.dtos.BicycleDTO;
 import dat.entities.Bicycle;
+import dat.entities.Frame;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
@@ -30,34 +31,34 @@ public class BicycleDAO {
         }
     }
 
-    public ResellerDTO getResellerById(int id) {
+    public BicycleDTO getById(int id) {
         try (EntityManager em = emf.createEntityManager()) {
-            Reseller reseller = em.find(Reseller.class, id);
-            return reseller != null ? new ResellerDTO(reseller) : null;  // Returner DTO
+            Bicycle bicycle = em.find(Bicycle.class, id);
+            return bicycle != null ? new BicycleDTO(bicycle) : null;  // Returner DTO
         }
     }
 
-    public List<ResellerDTO> getAllResellers() {
+    public List<BicycleDTO> getAll() {
         try (EntityManager em = emf.createEntityManager()) {
-            TypedQuery<ResellerDTO> query = em.createQuery("SELECT new dat.dtos.ResellerDTO(r) FROM Reseller r", ResellerDTO.class);
+            TypedQuery<BicycleDTO> query = em.createQuery("SELECT new dat.dtos.BicycleDTO(r) FROM Bicycle r", BicycleDTO.class);
             return query.getResultList();
         }
     }
 
-    public Reseller addPlantToReseller(int resellerId, int plantId) {
+    public Bicycle addFrameToBicycle(int resellerId, int frameId) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Reseller reseller = em.find(Reseller.class, resellerId);
-            Plant plant = em.find(Plant.class, plantId);
+            Bicycle bicycle = em.find(Bicycle.class, resellerId);
+            Frame frame = em.find(Frame.class, frameId);
 
-            if (reseller != null && plant != null) {
-                reseller.getPlants().add(plant);
-                plant.getResellers().add(reseller);
-                em.merge(reseller);
-                em.merge(plant);
+            if (bicycle != null && frame != null) {
+                bicycle.getFrame().add(frame);
+                frame.getBicycles().add(bicycle);
+                em.merge(bicycle);
+                em.merge(frame);
 
                 em.getTransaction().commit();
-                return reseller;
+                return bicycle;
             } else {
                 em.getTransaction().rollback();
                 return null;  // Hvis enten reseller eller plant ikke findes returnerer jeg null
@@ -68,36 +69,27 @@ public class BicycleDAO {
         }
     }
 
-    public List<Plant> getPlantsByReseller(int resellerId) {
-        try (EntityManager em = emf.createEntityManager()) {
-            TypedQuery<Plant> query = em.createQuery(
-                    "SELECT p FROM Plant p JOIN p.resellers r WHERE r.id = :resellerId", Plant.class);
-            query.setParameter("resellerId", resellerId);
-            return query.getResultList();
-        }
-    }
-
-    public ResellerDTO updateReseller(int id, ResellerDTO resellerDTO) {
+    public BicycleDTO update(int id, BicycleDTO bicycleDTO) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Reseller reseller = em.find(Reseller.class, id);
-            reseller.setName(resellerDTO.getName());
-            reseller.setAddress(resellerDTO.getAddress());
-            reseller.setPhone(resellerDTO.getPhone());
-            Reseller mergedReseller = em.merge(reseller);
+            Bicycle bicycle = em.find(Bicycle.class, id);
+            bicycle.setName(bicycleDTO.getName());
+            bicycle.setAddress(bicycleDTO.getAddress());
+            bicycle.setPhone(bicycleDTO.getPhone());
+            Bicycle mergedReseller = em.merge(bicycle);
             em.getTransaction().commit();
-            return mergedReseller != null ? new ResellerDTO(mergedReseller) : null;
+            return mergedReseller != null ? new BicycleDTO(mergedReseller) : null;
         }
     }
 
-    public Reseller deleteReseller(int id) {
+    public Bicycle deleteReseller(int id) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Reseller reseller = em.find(Reseller.class, id);
-            if (reseller != null) {
+            Bicycle bicycle = em.find(Bicycle.class, id);
+            if (bicycle != null) {
                 // Her fjerner jeg relationer til planter hvis Reselller har nogen tilknyttet
-                for (Plant plant : reseller.getPlants()) {
-                    plant.getResellers().remove(reseller);
+                for (Frame frame : bicycle.getFrame()) {
+                    frame.getBicycles().remove(bicycle);
                 }
                 // Her clearer jeg sættet af planter
                 reseller.getPlants().clear();
