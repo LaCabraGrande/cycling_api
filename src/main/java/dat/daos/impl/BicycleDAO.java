@@ -100,6 +100,9 @@ public class BicycleDAO {
             if (bicycleDTO.getPrice() > 0) { // Antag at 0 ikke er en gyldig pris
                 bicycle.setPrice(bicycleDTO.getPrice());
             }
+            if (bicycleDTO.getWeight() > 0) { // Antag at 0 ikke er en gyldig vægt
+                bicycle.setWeight(bicycleDTO.getWeight());
+            }
             if (bicycleDTO.getDescription() != null) {
                 bicycle.setDescription(bicycleDTO.getDescription());
             }

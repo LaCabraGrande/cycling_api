@@ -15,6 +15,7 @@ public class BicycleDTO {
     private String model;
     private int size;
     private int price;
+    private double weight;
     private String description;
     private FrameDTO frame;
     private GearDTO gear;
@@ -22,12 +23,13 @@ public class BicycleDTO {
     private SaddleDTO saddle;
 
     // Constructor med alle felter
-    public BicycleDTO(int id, String brand, String model, int size, int price, String description, FrameDTO frame, GearDTO gear, WheelDTO wheel, SaddleDTO saddle) {
+    public BicycleDTO(int id, String brand, String model, int size, int price, double weight ,String description, FrameDTO frame, GearDTO gear, WheelDTO wheel, SaddleDTO saddle) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.price = price;
+        this.weight = weight;
         this.description = description;
         this.frame = frame;
         this.gear = gear;
@@ -35,11 +37,12 @@ public class BicycleDTO {
         this.saddle = saddle;
     }
 
-    public BicycleDTO(String brand, String model, int size, int price, String description) {
+    public BicycleDTO(String brand, String model, int size, int price, double weight, String description) {
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.price = price;
+        this.weight = weight;
         this.description = description;
     }
 
@@ -50,6 +53,7 @@ public class BicycleDTO {
         this.model = bicycle.getModel();
         this.size = bicycle.getSize();
         this.price = bicycle.getPrice();
+        this.weight = bicycle.getWeight();
         this.description = bicycle.getDescription();
 
         System.out.println("Constructing BicycleDTO, frame: " + bicycle.getFrame());

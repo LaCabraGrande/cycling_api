@@ -24,6 +24,7 @@ public class Bicycle {
     private String model;
     private int size;
     private int price;
+    private double weight;
     private String description;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -43,20 +44,22 @@ public class Bicycle {
     private Saddle saddle;
 
     // Constructor til oprettelse af ny Bicycle uden komponenter
-    public Bicycle(String brand, String model, int size, int price, String description) {
+    public Bicycle(String brand, String model, int size, int price, double weight, String description) {
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.price = price;
+        this.weight = weight;
         this.description = description;
     }
 
     // Constructor til oprettelse af ny Bicycle med komponenter
-    public Bicycle(String brand, String model, int size, int price, String description, Frame frame, Gear gear, Wheel wheel, Saddle saddle) {
+    public Bicycle(String brand, String model, int size, int price, double weight,String description, Frame frame, Gear gear, Wheel wheel, Saddle saddle) {
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.price = price;
+        this.weight = weight;
         this.description = description;
         this.frame = frame;
         this.gear = gear;
@@ -71,6 +74,7 @@ public class Bicycle {
         this.model = bicycleDTO.getModel();
         this.size = bicycleDTO.getSize();
         this.price = bicycleDTO.getPrice();
+        this.weight = bicycleDTO.getWeight();
         this.description = bicycleDTO.getDescription();
         if(bicycleDTO.getFrame() != null) {
             this.frame = bicycleDTO.getFrame().toEntity();

@@ -154,21 +154,21 @@ public class Populate {
             em.persist(gear15);
 
             // Opret fem cykler med tilhørende komponenter
-            Bicycle bicycle1 = new Bicycle("Trek", "Domane SL6", 56, 3500, "High-performance road bike", frame5, gear1, wheel1, saddle1);
-            Bicycle bicycle2 = new Bicycle("Canyon", "Ultimate CF SLX", 54, 4000, "Lightweight racing bike", frame1, gear1, wheel2, saddle2);
-            Bicycle bicycle3 = new Bicycle("Pinarello", "Dogma F12", 58, 5000, "Aero road bike", frame3, gear1, wheel1, saddle1);
-            Bicycle bicycle4 = new Bicycle("Giant", "TCR Advanced", 55, 3200, "Endurance race bike", frame7, gear1, wheel2, saddle2);
-            Bicycle bicycle5 = new Bicycle("Bianchi", "Oltre XR4", 57, 4800, "High-end performance bike", frame6, gear2, wheel1, saddle1);
-            Bicycle bicycle6 = new Bicycle("Specialized", "S-Works Tarmac SL7", 56, 8000, "Ultra-lightweight race bike", frame4, gear1, wheel1, saddle1);
-            Bicycle bicycle7 = new Bicycle("Colnago", "C64", 58, 7000, "Iconic Italian road bike", frame9, gear3, wheel1, saddle1);
-            Bicycle bicycle8 = new Bicycle("Cannondale", "SuperSix EVO", 54, 4000, "Racer with great aerodynamics", frame10, gear1, wheel1, saddle2);
-            Bicycle bicycle9 = new Bicycle("Felt", "FR FRD", 55, 6000, "High-performance road bike", frame8, gear2, wheel2, saddle1);
-            Bicycle bicycle10 = new Bicycle("Scott", "Foil RC", 56, 5500, "Aerodynamic racing bike", frame8, gear1, wheel1, saddle2);
-            Bicycle bicycle11 = new Bicycle("Canyon", "Aeroad CF SLX", 56, 4400, "Aerodynamic road bike", frame1, gear1, wheel1, saddle2);
-            Bicycle bicycle12 = new Bicycle("Trek", "Madone SLR 9", 58, 8500, "Lightweight and aerodynamic", frame5, gear3, wheel1, saddle1);
-            Bicycle bicycle13 = new Bicycle("Specialized", "Diverge Pro", 54, 3200, "Versatile gravel bike", frame4, gear2, wheel2, saddle3);
-            Bicycle bicycle14 = new Bicycle("Giant", "Defy Advanced", 55, 3000, "Comfortable endurance bike", frame7, gear6, wheel3, saddle4);
-            Bicycle bicycle15 = new Bicycle("BMC", "Teammachine SLR01", 56, 7000, "Ultimate racing machine", frame14, gear1, wheel1, saddle5);
+            Bicycle bicycle1 = new Bicycle("Trek", "Domane SL6", 56, 3500, 8.7, "High-performance road bike", frame5, gear1, wheel1, saddle1);
+            Bicycle bicycle2 = new Bicycle("Canyon", "Ultimate CF SLX", 54, 4000, 6.8, "Lightweight racing bike", frame1, gear1, wheel2, saddle2);
+            Bicycle bicycle3 = new Bicycle("Pinarello", "Dogma F12", 58, 5000, 7.6, "Aero road bike", frame3, gear1, wheel1, saddle1);
+            Bicycle bicycle4 = new Bicycle("Giant", "TCR Advanced", 55, 3200, 7.8, "Endurance race bike", frame7, gear1, wheel2, saddle2);
+            Bicycle bicycle5 = new Bicycle("Bianchi", "Oltre XR4", 57, 4800, 7.4, "High-end performance bike", frame6, gear2, wheel1, saddle1);
+            Bicycle bicycle6 = new Bicycle("Specialized", "S-Works Tarmac SL7", 56, 8000, 6.7, "Ultra-lightweight race bike", frame4, gear1, wheel1, saddle1);
+            Bicycle bicycle7 = new Bicycle("Colnago", "C64", 58, 7000, 7.2, "Iconic Italian road bike", frame9, gear3, wheel1, saddle1);
+            Bicycle bicycle8 = new Bicycle("Cannondale", "SuperSix EVO", 54, 4000, 7.5, "Racer with great aerodynamics", frame10, gear1, wheel1, saddle2);
+            Bicycle bicycle9 = new Bicycle("Felt", "FR FRD", 55, 6000, 6.9, "High-performance road bike", frame8, gear2, wheel2, saddle1);
+            Bicycle bicycle10 = new Bicycle("Scott", "Foil RC", 56, 5500, 7.6, "Aerodynamic racing bike", frame8, gear1, wheel1, saddle2);
+            Bicycle bicycle11 = new Bicycle("Canyon", "Aeroad CF SLX", 56, 4400, 7.3, "Aerodynamic road bike", frame1, gear1, wheel1, saddle2);
+            Bicycle bicycle12 = new Bicycle("Trek", "Madone SLR 9", 58, 8500, 7.7, "Lightweight and aerodynamic", frame5, gear3, wheel1, saddle1);
+            Bicycle bicycle13 = new Bicycle("Specialized", "Diverge Pro", 54, 3200, 8.2, "Versatile gravel bike", frame4, gear2, wheel2, saddle3);
+            Bicycle bicycle14 = new Bicycle("Giant", "Defy Advanced", 55, 3000, 7.9, "Comfortable endurance bike", frame7, gear6, wheel3, saddle4);
+            Bicycle bicycle15 = new Bicycle("BMC", "Teammachine SLR01", 56, 7000, 6.5, "Ultimate racing machine", frame14, gear1, wheel1, saddle5);
 
             em.persist(bicycle1);
             em.persist(bicycle2);
