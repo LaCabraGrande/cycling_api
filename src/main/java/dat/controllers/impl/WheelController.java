@@ -2,7 +2,7 @@ package dat.controllers.impl;
 
 import dat.config.HibernateConfig;
 import dat.controllers.IController;
-import dat.daos.impl.WheeelDAO;
+import dat.daos.impl.WheelDAO;
 import dat.dtos.WheelDTO;
 import dat.entities.Wheel;
 import io.javalin.http.Context;
@@ -38,7 +38,7 @@ public class WheelController implements IController<IController> {
     public void getById(Context ctx) {
         try {
             int id = Integer.parseInt(ctx.pathParam("id"));
-            WheeelDTO wheelDTO = wheelDAO.getById(id);
+            WheelDTO wheelDTO = wheelDAO.getById(id);
             ctx.res().setStatus(200);
             ctx.json(wheelDTO, WheelDTO.class);
         } catch (NumberFormatException e) {
