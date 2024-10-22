@@ -22,7 +22,7 @@ public class Bicycle {
 
     private String brand;
     private String model;
-    private String size;
+    private int size;
     private int price;
     private String description;
 
@@ -43,7 +43,7 @@ public class Bicycle {
     private Saddle saddle;
 
     // Constructor til oprettelse af ny Bicycle uden komponenter
-    public Bicycle(String brand, String model, String size, int price, String description) {
+    public Bicycle(String brand, String model, int size, int price, String description) {
         this.brand = brand;
         this.model = model;
         this.size = size;
@@ -52,7 +52,7 @@ public class Bicycle {
     }
 
     // Constructor til oprettelse af ny Bicycle med komponenter
-    public Bicycle(String brand, String model, String size, int price, String description, Frame frame, Gear gear, Wheel wheel, Saddle saddle) {
+    public Bicycle(String brand, String model, int size, int price, String description, Frame frame, Gear gear, Wheel wheel, Saddle saddle) {
         this.brand = brand;
         this.model = model;
         this.size = size;

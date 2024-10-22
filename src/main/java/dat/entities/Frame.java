@@ -35,17 +35,21 @@ public class Frame {
     @Column(name = "weight", nullable = true)
     private int weight;
 
+    @Column(name = "size", nullable = true)
+    private int size;
+
     @OneToMany(mappedBy = "frame")
     @JsonIgnore
     @ToString.Exclude
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
-    public Frame(String brand, String material, String type, int weight) {
+    public Frame(String brand, String material, String type, int weight, int size) {
         this.brand = brand;
         this.material = material;
         this.type = type;
         this.weight = weight;
+        this.size = size;
     }
 
     public Frame(FrameDTO frameDTO) {
@@ -54,6 +58,7 @@ public class Frame {
         this.material = frameDTO.getMaterial();
         this.type = frameDTO.getType();
         this.weight = frameDTO.getWeight();
+        this.size = frameDTO.getSize();
     }
 
     public void addBicycle(Bicycle bicycle) {

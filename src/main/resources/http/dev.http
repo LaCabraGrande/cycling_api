@@ -1,7 +1,7 @@
-### A simple get request to the test endpoint. No need for login
+### Her tester vi et simpelt endpoint
 GET http://localhost:7070/api/auth/test/
 
-### Create a new user - this one will only get a USER role by default
+### Her opretter vi en bruger med en user rolle
 POST http://localhost:7070/api/auth/register/
 Content-Type: application/json
 
@@ -10,7 +10,7 @@ Content-Type: application/json
     "password": "test123"
 }
 
-###
+### Her logger vi ind med brugeren
 POST http://localhost:7070/api/auth/login/
 
 {
@@ -23,17 +23,17 @@ POST http://localhost:7070/api/auth/login/
     console.log("JWT Token:", client.global.get("jwt_token"));
 %}
 
-###
+### Her henter vi en bruger med en user rolle
 GET http://localhost:7070/api/protected/user_demo/
 Accept: application/json
 Authorization: Bearer {{jwt_token}}
 
-###
+### Her henter vi en bruger med en admin rolle
 GET http://localhost:7070/api/protected/admin_demo/
 Accept: application/json
 Authorization: Bearer {{jwt_token}}
 
-### Add admin role to user
+### Her tilføjer vi en admin rolle til brugeren
 POST http://localhost:7070/api/auth/user/addrole/
 Accept: application/json
 Authorization: Bearer {{jwt_token}}
@@ -44,62 +44,235 @@ Authorization: Bearer {{jwt_token}}
 Accept: application/json
 Authorization: Bearer {{jwt_token}}
 
-###
+### Her henter vi alle cykler
 GET http://localhost:7070/api/bicycles
 Accept: application/json
 
-###
-
+### Her henter vi en cykel ud fra id på cyklen
 GET http://localhost:7070/api/bicycles/2
 Accept: application/json
 
-###
-
+### Her opretter vi en cykel
 POST http://localhost:7070/api/bicycles
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+    {
+    "brand": "Cervélo",
+    "model": "S5",
+    "size": 56,
+    "price": 8000,
+    "description": "High-performance aero road bike"
+    }
+
+### Her opdaterer vi en cykel ud fra id på cyklen
+PUT http://localhost:7070/api/bicycles/6
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "brand": "Specialized",
+  "model": "S-Works Tarmac SL7",
+  "size": 56,
+  "price": 7600,
+  "description": "Ultra-lightweight race bike"
+}
+
+### Her sletter vi en cykel ud fra id
+DELETE http://localhost:7070/api/bicycles/16
+Authorization: Bearer {{jwt_token}}
+
+// Frame API
+
+### Her henter vi alle frames
+GET http://localhost:7070/api/frames
+
+### Her henter vi en frame ud fra id
+GET http://localhost:7070/api/frames/1
+
+
+### Her opretter vi en frame
+POST http://localhost:7070/api/frames
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Trek",
-  "model": "Domane SL6",
-  "size": "56cm",
-  "price": 3500,
-  "description": "High-performance road bike"
+  "material": "Aluminium",
+  "type": "Rim",
+  "weight": 1500,
+  "size": 56
 }
 
-###
-
-PUT http://localhost:7070/api/bicycles/3
+### Her tilføjer vi en frame til en cykel og vi bruger cykel id og frame id
+POST http://localhost:7070/api/bicycles/15/frame/3
 Content-Type: application/json
-
-{
-  "brand": "Specialized",
-  "model": "Roubaix",
-  "size": "54cm",
-  "price": 4200,
-  "description": "Comfortable endurance bike"
-}
-
-###
-
-DELETE http://localhost:7070/api/bicycles/5
-
-###
-
-// Frame API
-
-GET http://localhost:7070/api/frames
-
-###
-
-GET http://localhost:7070/api/frames/1
-
-###
-
-POST http://localhost:7070/api/bicycles/3/frame/3
-Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
 
 {
   "bicycleId": 3,
   "frameId": 3
 }
+
+### Her opdaterer vi en frame ud fra id
+PUT http://localhost:7070/api/frames/3
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "brand": "Pinarello",
+  "material": "Carbon",
+  "type": "Disc",
+  "weight": 1150,
+  "size": 58
+}
+
+### Her sletter vi en frame ud fra id
+DELETE http://localhost:7070/api/frames/16
+Authorization: Bearer {{jwt_token}}
+
+### Saddles API
+
+### Her henter vi alle saddles
+GET http://localhost:7070/api/saddles
+
+### Her henter vi en saddle ud fra id
+GET http://localhost:7070/api/saddles/1
+
+### Her opretter vi en saddle
+POST http://localhost:7070/api/saddles
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "brand": "Specialized",
+  "model": "Power",
+  "size": 143,
+  "price": 150,
+  "description": "Comfortable saddle"
+}
+
+### Her tilføjer vi en saddle til en cykel og vi bruger cykel id og saddle id
+POST http://localhost:7070/api/bicycles/17/saddle/3
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "bicycleId": 3,
+  "saddleId": 3
+}
+
+### Her opdaterer vi en saddle ud fra id
+PUT http://localhost:7070/api/saddles/3
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "brand": "Specialized",
+  "model": "S-Works Power",
+  "size": 143,
+  "price": 200,
+  "description": "Lightweight saddle"
+}
+
+### Her sletter vi en saddle ud fra id
+DELETE http://localhost:7070/api/saddles/3
+Authorization: Bearer {{jwt_token}}
+
+### Wheels API
+
+### Her henter vi alle wheels
+GET http://localhost:7070/api/wheels
+
+### Her henter vi en wheel ud fra id
+GET http://localhost:7070/api/wheels/1
+
+### Her opretter vi en wheel
+POST http://localhost:7070/api/wheels
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "brand": "Zipp",
+  "model": "303 Firecrest",
+  "size": 700,
+  "price": 1500,
+  "description": "Aero carbon wheelset"
+}
+
+### Her tilføjer vi en wheel til en cykel og vi bruger cykel id og wheel id
+POST http://localhost:7070/api/bicycles/17/wheel/3
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "bicycleId": 3,
+  "wheelId": 3
+}
+
+### Her opdaterer vi en wheel ud fra id
+PUT http://localhost:7070/api/wheels/3
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "brand": "Zipp",
+  "model": "404 Firecrest",
+  "size": 700,
+  "price": 2000,
+  "description": "Aero carbon wheelset"
+}
+
+### Her sletter vi en wheel ud fra id
+DELETE http://localhost:7070/api/wheels/3
+Authorization: Bearer {{jwt_token}}
+
+### Gear API
+
+### Her henter vi alle gears
+GET http://localhost:7070/api/gears
+
+### Her henter vi en gear ud fra id
+GET http://localhost:7070/api/gears/1
+
+### Her opretter vi en gear
+POST http://localhost:7070/api/gears
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "brand": "Shimano",
+  "model": "Dura-Ace",
+  "size": 11,
+  "price": 1500,
+  "description": "High-performance groupset"
+}
+
+### Her tilføjer vi en gear til en cykel og vi bruger cykel id og gear id
+POST http://localhost:7070/api/bicycles/17/gear/3
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "bicycleId": 3,
+  "gearId": 3
+}
+
+### Her opdaterer vi en gear ud fra id
+PUT http://localhost:7070/api/gears/3
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "brand": "Shimano",
+  "model": "Dura-Ace Di2",
+  "size": 11,
+  "price": 2000,
+  "description": "Electronic groupset"
+}
+
+### Her sletter vi en gear ud fra id
+DELETE http://localhost:7070/api/gears/5
+Authorization: Bearer {{jwt_token}}
+
+

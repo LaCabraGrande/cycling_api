@@ -57,11 +57,11 @@ public class FrameDAO implements IDAO<FrameDTO> {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             Frame f = em.find(Frame.class, id);
-            f.setId(frameDTO.getId());
             f.setBrand(frameDTO.getBrand());
             f.setType(frameDTO.getType());
             f.setMaterial(frameDTO.getMaterial());
             f.setWeight(frameDTO.getWeight());
+            f.setSize(frameDTO.getSize());
             Frame mergedFrame = em.merge(f);
             em.getTransaction().commit();
             return mergedFrame != null ? new FrameDTO(mergedFrame) : null;

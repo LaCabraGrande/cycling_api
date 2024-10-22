@@ -17,10 +17,8 @@ public class SaddleDTO {
     private String material;
     private String model;
     private int weight;
+    private int width;
 
-
-    // Hvis du ønsker at inkludere referencer til bicycles (hvis det giver mening)
-    private Set<BicycleDTO> bicycles;
 
     // Constructor fra Saddle-entity til DTO
     public SaddleDTO(Saddle saddle) {
@@ -29,10 +27,9 @@ public class SaddleDTO {
         this.material = saddle.getMaterial();
         this.model = saddle.getModel();
         this.weight = saddle.getWeight();
-        this.bicycles = saddle.getBicycles().stream()
-                .map(BicycleDTO::new)
-                .collect(Collectors.toSet());
+        this.width = saddle.getWidth();
     }
+
     public Saddle toEntity() {
         return new Saddle(this);
     }

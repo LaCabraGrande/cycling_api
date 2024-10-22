@@ -16,9 +16,7 @@ public class WheelDTO {
     private String material;
     private String type;  // Hvis type er en enum, kan du ændre dette til den tilsvarende enum-type
     private int weight;
-
-    // Hvis du ønsker at inkludere referencer til bicycles (hvis det giver mening)
-    private Set<BicycleDTO> bicycles;
+    private int size;
 
     // Constructor fra Wheel-entity til DTO
     public WheelDTO(Wheel wheel) {
@@ -27,17 +25,10 @@ public class WheelDTO {
         this.material = wheel.getMaterial();
         this.type = wheel.getType();
         this.weight = wheel.getWeight();
-        this.bicycles = wheel.getBicycles().stream()
-                 .map(BicycleDTO::new)
-                 .collect(Collectors.toSet());
+        this.size = wheel.getSize();
     }
 
     public Wheel toEntity() {
         return new Wheel(this);
     }
-
-    public void addBicycle(BicycleDTO bicycleDTO) {
-        this.bicycles.add(bicycleDTO);
-    }
-
 }

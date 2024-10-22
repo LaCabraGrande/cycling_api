@@ -13,7 +13,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "frame")
+@Table(name = "gear")
 public class Gear {
 
     @Id
@@ -37,7 +37,7 @@ public class Gear {
     private int weight;
 
 
-    @OneToMany(mappedBy = "frame")
+    @OneToMany(mappedBy = "gear")
     @JsonIgnore
     @ToString.Exclude
     @JsonBackReference
@@ -54,6 +54,7 @@ public class Gear {
     public Gear(GearDTO gearDTO) {
         this.id = gearDTO.getId();
         this.brand = gearDTO.getBrand();
+        this.model = gearDTO.getModel();
         this.material = gearDTO.getMaterial();
         this.type = gearDTO.getType();
         this.weight = gearDTO.getWeight();

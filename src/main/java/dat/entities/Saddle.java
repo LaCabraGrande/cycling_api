@@ -13,7 +13,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "frame")
+@Table(name = "saddle")
 public class Saddle {
 
     @Id
@@ -32,17 +32,21 @@ public class Saddle {
     @Column(name = "weight", nullable = true)
     private int weight;
 
-    @OneToMany(mappedBy = "frame")
+    @Column(name = "size", nullable = true)
+    private int width;
+
+    @OneToMany(mappedBy = "saddle")
     @JsonIgnore
     @ToString.Exclude
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
-    public Saddle(String brand, String material, String model, int weight) {
+    public Saddle(String brand, String material, String model, int weight, int width) {
         this.brand = brand;
         this.material = material;
         this.model = model;
         this.weight = weight;
+        this.width = width;
     }
 
     public Saddle(SaddleDTO saddleDTO) {
@@ -51,6 +55,7 @@ public class Saddle {
         this.material = saddleDTO.getMaterial();
         this.model = saddleDTO.getModel();
         this.weight = saddleDTO.getWeight();
+        this.width = saddleDTO.getWidth();
     }
 
     public void addBicycle(Bicycle bicycle) {

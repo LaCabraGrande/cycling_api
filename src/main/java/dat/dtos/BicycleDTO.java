@@ -13,7 +13,7 @@ public class BicycleDTO {
     private int id;
     private String brand;
     private String model;
-    private String size;
+    private int size;
     private int price;
     private String description;
     private FrameDTO frame;
@@ -22,7 +22,7 @@ public class BicycleDTO {
     private SaddleDTO saddle;
 
     // Constructor med alle felter
-    public BicycleDTO(int id, String brand, String model, String size, int price, String description, FrameDTO frame, GearDTO gear, WheelDTO wheel, SaddleDTO saddle) {
+    public BicycleDTO(int id, String brand, String model, int size, int price, String description, FrameDTO frame, GearDTO gear, WheelDTO wheel, SaddleDTO saddle) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -35,7 +35,7 @@ public class BicycleDTO {
         this.saddle = saddle;
     }
 
-    public BicycleDTO(String brand, String model, String size, int price, String description) {
+    public BicycleDTO(String brand, String model, int size, int price, String description) {
         this.brand = brand;
         this.model = model;
         this.size = size;
@@ -51,22 +51,44 @@ public class BicycleDTO {
         this.size = bicycle.getSize();
         this.price = bicycle.getPrice();
         this.description = bicycle.getDescription();
-        if(bicycle.getFrame() != null) {
+
+        System.out.println("Constructing BicycleDTO, frame: " + bicycle.getFrame());
+        if (bicycle.getFrame() != null) {
             this.frame = new FrameDTO(bicycle.getFrame());
         }
+
+        System.out.println("Constructing BicycleDTO, gear: " + bicycle.getGear());
         if (bicycle.getGear() != null) {
             this.gear = new GearDTO(bicycle.getGear());
         }
+
+        System.out.println("Constructing BicycleDTO, wheel: " + bicycle.getWheel());
         if (bicycle.getWheel() != null) {
             this.wheel = new WheelDTO(bicycle.getWheel());
         }
+
+        System.out.println("Constructing BicycleDTO, saddle: " + bicycle.getSaddle());
         if (bicycle.getSaddle() != null) {
             this.saddle = new SaddleDTO(bicycle.getSaddle());
         }
     }
 
+
     public Bicycle toEntity() {
         return new Bicycle(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BicycleDTO)) return false;
+        BicycleDTO that = (BicycleDTO) o;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(id);
     }
 
 }

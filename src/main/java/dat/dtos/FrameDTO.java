@@ -17,9 +17,8 @@ public class FrameDTO {
     private String material;
     private String type;  // Hvis type er en enum, kan du ændre dette til den tilsvarende enum-type
     private int weight;
+    private int size;
 
-    // Hvis du ønsker at inkludere referencer til bicycles (hvis det giver mening)
-    private Set<BicycleDTO> bicycles;
 
     // Constructor fra Frame-entity til DTO
     public FrameDTO(Frame frame) {
@@ -28,9 +27,7 @@ public class FrameDTO {
         this.material = frame.getMaterial();
         this.type = frame.getType();
         this.weight = frame.getWeight();
-        this.bicycles = frame.getBicycles().stream()
-                 .map(BicycleDTO::new)
-                 .collect(Collectors.toSet());
+        this.size = frame.getSize();
     }
 
     public Frame toEntity() {

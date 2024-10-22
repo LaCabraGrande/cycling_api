@@ -8,6 +8,10 @@ import dat.entities.Bicycle;
 import io.javalin.http.Context;
 import io.javalin.http.NotFoundResponse;
 import jakarta.persistence.EntityManagerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +19,7 @@ import java.util.Map;
 public class BicycleController implements IController<BicycleDTO> {
 
     private final BicycleDAO bicycleDAO;
+    private static final Logger logger = LoggerFactory.getLogger(BicycleController.class);
 
     public BicycleController() {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
@@ -73,7 +78,8 @@ public class BicycleController implements IController<BicycleDTO> {
         try {
             List<BicycleDTO> bicycleDTOS = bicycleDAO.getAll();
             ctx.json(bicycleDTOS);
-        } catch (Throwable e) {
+        } catch (Exception e) {
+            logger.error("Unknown error occurred", e);
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
@@ -81,6 +87,7 @@ public class BicycleController implements IController<BicycleDTO> {
             ));
         }
     }
+
 
     public void addFrameToBicycle(Context ctx) {
         try {
