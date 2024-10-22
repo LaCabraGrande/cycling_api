@@ -35,7 +35,7 @@ public class BicycleController implements IController<BicycleDTO> {
         } catch (Exception e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
-                    "message", "Invalid reseller data",
+                    "message", "Invalid bicycle data",
                     "timestamp", LocalDateTime.now()
             ));
         } catch (Throwable e) {
@@ -56,14 +56,14 @@ public class BicycleController implements IController<BicycleDTO> {
             } else {
                 ctx.status(404).json(Map.of(
                         "status", 404,
-                        "message", "Reseller not found",
+                        "message", "Bicycle not found",
                         "timestamp", LocalDateTime.now()
                 ));
             }
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
-                    "message", "Invalid reseller ID",
+                    "message", "Invalid bicycle ID",
                     "timestamp", LocalDateTime.now()
             ));
         } catch (Throwable e) {
@@ -99,14 +99,14 @@ public class BicycleController implements IController<BicycleDTO> {
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
-                    "message", "Invalid reseller or plant ID",
+                    "message", "Invalid bicycle or frame ID",
                     "timestamp", LocalDateTime.now()
             ));
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage()); // Log fejlen
             ctx.status(404).json(Map.of(
                     "status", 404,
-                    "message", "Failed to add plant to reseller: " + e.getMessage(), // Inkluder undtagelsesbeskeden
+                    "message", "Failed to add frame to bicycle: " + e.getMessage(), // Inkluder undtagelsesbeskeden
                     "timestamp", LocalDateTime.now()
             ));
         } catch (Throwable e) {
@@ -126,12 +126,12 @@ public class BicycleController implements IController<BicycleDTO> {
             if (updatedBicycleDTO != null) {
                 ctx.json(updatedBicycleDTO);
             } else {
-                throw new NotFoundResponse("Reseller not found");
+                throw new NotFoundResponse("Bicycle not found");
             }
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
-                    "message", "Invalid reseller ID",
+                    "message", "Invalid bicycle ID",
                     "timestamp", LocalDateTime.now()
             ));
         } catch (NotFoundResponse e) {
@@ -156,12 +156,12 @@ public class BicycleController implements IController<BicycleDTO> {
             if (bicycle != null) {
                 ctx.status(204);
             } else {
-                throw new NotFoundResponse("Reseller not found");
+                throw new NotFoundResponse("Bicycle not found");
             }
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
-                    "message", "Invalid reseller ID",
+                    "message", "Invalid bicycle ID",
                     "timestamp", LocalDateTime.now()
             ));
         } catch (NotFoundResponse e) {
@@ -179,6 +179,7 @@ public class BicycleController implements IController<BicycleDTO> {
         }
     }
 
+    // Tænker at vi måske skal fjerne den her metode, da det ikke er en del af CRUD
     public void populate(Context ctx) {
         Populate populate = new Populate();
         populate.populateDatabase();

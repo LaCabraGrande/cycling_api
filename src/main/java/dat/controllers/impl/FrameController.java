@@ -43,7 +43,7 @@ public class FrameController implements IController<IController> {
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
-                    "message", "Invalid plant ID format.",
+                    "message", "Invalid frame ID format.",
                     "timestamp", LocalDateTime.now()
             ));
         } catch (NotFoundResponse e) {
@@ -65,10 +65,10 @@ public class FrameController implements IController<IController> {
         try {
             FrameDTO frameDTO = ctx.bodyAsClass(FrameDTO.class);
             if (frameDTO == null) {
-                throw new HttpResponseException(400, "Invalid plant data provided.");
+                throw new HttpResponseException(400, "Invalid frame data provided.");
             }
-            FrameDTO newPlant = frameDAO.add(frameDTO);
-            ctx.status(201).json(newPlant);
+            FrameDTO newFrame = frameDAO.add(frameDTO);
+            ctx.status(201).json(newFrame);
         } catch (HttpResponseException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
@@ -94,7 +94,7 @@ public class FrameController implements IController<IController> {
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
-                    "message", "Invalid plant ID format.",
+                    "message", "Invalid frame ID format.",
                     "timestamp", LocalDateTime.now()
             ));
         } catch (NotFoundResponse e) {
@@ -121,7 +121,7 @@ public class FrameController implements IController<IController> {
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
-                    "message", "Invalid plant ID format.",
+                    "message", "Invalid frame ID format.",
                     "timestamp", LocalDateTime.now()
             ));
         } catch (NotFoundResponse e) {
@@ -147,10 +147,11 @@ public class FrameController implements IController<IController> {
 
     public FrameDTO validateEntity(Context ctx) {
         return ctx.bodyValidator(FrameDTO.class)
-                .check(p -> p.getType() != null && !p.getType().isEmpty(), "Plant type must be set")
-                .check(p -> p.getBrand() != null && !p.getBrand().isEmpty(), "Plant name must be set")
-                .check(p -> p.getMaterial() != null && !p.getMaterial().isEmpty(),  "MaxHeight must be set")
-                .check(p -> p.getWeight() != 0, "Price must be set")
+                .check(p -> p.getType() != null && !p.getType().isEmpty(), "Frame type must be set")
+                .check(p -> p.getBrand() != null && !p.getBrand().isEmpty(), "Frame brand must be set")
+                .check(p -> p.getMaterial() != null && !p.getMaterial().isEmpty(),  "Frame material must be set")
+                .check(p -> p.getWeight() != 0, "Frame weight must be set")
+                .check(p -> p.getSize() != 0, "Frame size must be set")
                 .get();
     }
 }
