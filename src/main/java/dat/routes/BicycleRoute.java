@@ -13,8 +13,9 @@ public class BicycleRoute {
     protected EndpointGroup getRoutes() {
 
         return () -> {
-            get("/", bicycleController::getAll);
-            get("/{id}", bicycleController::getById);
+            get("/populate",  bicycleController::populate, Role.ANYONE);
+            get("/", bicycleController::getAll, Role.ANYONE);
+            get("/{id}", bicycleController::getById, Role.ANYONE);
             post("/", bicycleController::create, Role.USER);
             post("/{bicycleId}/frame/{frameId}", bicycleController::addFrameToBicycle, Role.USER);
             //post("/{bicycleId}/gear/{gearId}", bicycleController::addGearToBicycle);

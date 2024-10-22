@@ -43,8 +43,8 @@ public class ApplicationConfig {
         app.start(port);
 
         // Populer databasen efter serveren starter
-        Populate populate = new Populate();
-        populate.populateDatabase();  // Her fylder vi Databasen op med 2 Resellers og 10 Plants
+//        Populate populate = new Populate();
+//        populate.populateDatabase();  // Her fylder vi Databasen op med 2 Resellers og 10 Plants
 
         return app;
     }

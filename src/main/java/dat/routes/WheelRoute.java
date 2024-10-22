@@ -1,6 +1,7 @@
 package dat.routes;
 
 import dat.controllers.impl.WheelController;
+import dat.security.enums.Role;
 import io.javalin.apibuilder.EndpointGroup;
 import static io.javalin.apibuilder.ApiBuilder.*;
 
@@ -11,11 +12,11 @@ public class WheelRoute {
     protected EndpointGroup getRoutes() {
 
         return () -> {
-            get("/", wheelController::getAll);
-            get("/{id}", wheelController::getById);
-            post("/", wheelController::create);
-            put("/{id}", wheelController::update);
-            delete("/{id}", wheelController::delete);
+            get("/", wheelController::getAll, Role.ANYONE);
+            get("/{id}", wheelController::getById, Role.ANYONE);
+            post("/", wheelController::create, Role.USER);
+            put("/{id}", wheelController::update, Role.USER);
+            delete("/{id}", wheelController::delete, Role.USER);
         };
     }
 }

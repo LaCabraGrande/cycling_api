@@ -1,6 +1,7 @@
 package dat.routes;
 
 import dat.controllers.impl.SaddleController;
+import dat.security.enums.Role;
 import io.javalin.apibuilder.EndpointGroup;
 import static io.javalin.apibuilder.ApiBuilder.*;
 
@@ -11,11 +12,11 @@ public class SaddleRoute {
     protected EndpointGroup getRoutes() {
 
         return () -> {
-            get("/", saddleController::getAll);
-            get("/{id}", saddleController::getById);
-            post("/",saddleController::create);
-            put("/{id}", saddleController::update);
-            delete("/{id}",saddleController::delete);
+            get("/", saddleController::getAll, Role.ANYONE);
+            get("/{id}", saddleController::getById, Role.ANYONE);
+            post("/",saddleController::create, Role.USER);
+            put("/{id}", saddleController::update, Role.USER);
+            delete("/{id}",saddleController::delete, Role.USER);
         };
     }
 }

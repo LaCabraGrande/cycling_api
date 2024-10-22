@@ -1,6 +1,7 @@
 package dat.controllers.impl;
 
 import dat.config.HibernateConfig;
+import dat.config.Populate;
 import dat.controllers.IController;
 import dat.daos.impl.BicycleDAO;
 import dat.dtos.BicycleDTO;
@@ -178,4 +179,10 @@ public class BicycleController implements IController<BicycleDTO> {
         }
     }
 
+    public void populate(Context ctx) {
+        Populate populate = new Populate();
+        populate.populateDatabase();
+        ctx.res().setStatus(200);
+        ctx.json("{ \"message\": \"Database has been populated\" }");
+    }
 }

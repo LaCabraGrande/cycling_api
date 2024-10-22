@@ -12,8 +12,8 @@ public class FrameRoute {
     protected EndpointGroup getRoutes() {
 
         return () -> {
-            get("/", frameController::getAll);
-            get("/{id}", frameController::getById);
+            get("/", frameController::getAll, Role.ANYONE);
+            get("/{id}", frameController::getById, Role.ANYONE);
             post("/", frameController::create, Role.USER);
             put("/{id}", frameController::update, Role.USER);
             delete("/{id}", frameController::delete, Role.USER);
