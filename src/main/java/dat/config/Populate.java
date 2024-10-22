@@ -17,22 +17,21 @@ public class Populate {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
 
         // Opret rammer
-        Frame frame1 = new Frame("Canyon", "Carbon", "Disc", 1400, 56);
-        Frame frame2 = new Frame("Olmo", "Aluminium", "Rim", 1700, 54);
+        Frame frame1 = new Frame("Canyon", "Carbon", "Disc", 1200, 56);
+        Frame frame2 = new Frame("Olmo", "Aluminium", "Rim", 1600, 54);
         Frame frame3 = new Frame("Pinarello", "Carbon", "Disc", 1200, 58);
         Frame frame4 = new Frame("Specialized", "Titanium", "Rim", 1600, 55);
-        Frame frame5 = new Frame("Trek", "Carbon", "Disc", 1450, 56);
+        Frame frame5 = new Frame("Trek", "Carbon", "Disc", 1300, 56);  //
         Frame frame6 = new Frame("Bianchi", "Carbon", "Disc", 1350, 57);
-        Frame frame7 = new Frame("Giant", "Carbon", "Disc", 1300, 54);
-        Frame frame8 = new Frame("Scott", "Carbon", "Rim", 1500, 55);
-        Frame frame9 = new Frame("Colnago", "Carbon", "Disc", 1550, 58);
+        Frame frame7 = new Frame("Giant", "Carbon", "Disc", 1250, 54);
+        Frame frame8 = new Frame("Scott", "Carbon", "Rim", 1300, 55);
+        Frame frame9 = new Frame("Colnago", "Carbon", "Disc", 1400, 58);
         Frame frame10 = new Frame("Felt", "Carbon", "Rim", 1250, 56);
-        Frame frame11 = new Frame("Cannondale", "Carbon", "Disc", 1400, 56);
-        Frame frame12 = new Frame("Merida", "Aluminium", "Rim", 1650, 54);
+        Frame frame11 = new Frame("Cannondale", "Carbon", "Disc", 1300, 56);
+        Frame frame12 = new Frame("Merida", "Aluminium", "Rim", 1600, 54);
         Frame frame13 = new Frame("Salsa", "Steel", "Rim", 1800, 58);
-        Frame frame14 = new Frame("BMC", "Carbon", "Disc", 1500, 57);
-        Frame frame15 = new Frame("Raleigh", "Aluminium", "Rim", 1750, 54);
-
+        Frame frame14 = new Frame("BMC", "Carbon", "Disc", 1300, 57);
+        Frame frame15 = new Frame("Raleigh", "Aluminium", "Rim", 1650, 54);
 
         // Opret saddel
         Saddle saddle1 = new Saddle("Fizik", "Carbon", "Arione", 200, 140);
