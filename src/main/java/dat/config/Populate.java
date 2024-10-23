@@ -32,6 +32,32 @@ public class Populate {
         Frame frame13 = new Frame("Salsa", "Steel", "Rim", 1800, 58);
         Frame frame14 = new Frame("BMC", "Carbon", "Disc", 1300, 57);
         Frame frame15 = new Frame("Raleigh", "Aluminium", "Rim", 1650, 54);
+        Frame frame16 = new Frame("Marin", "Aluminium", "Disc", 1500, 55);
+        Frame frame17 = new Frame("Fuji", "Carbon", "Rim", 1450, 56);
+        Frame frame18 = new Frame("Niner", "Aluminium", "Rim", 1600, 54);
+        Frame frame19 = new Frame("Kona", "Steel", "Disc", 1700, 57);
+        Frame frame20 = new Frame("Orbea", "Carbon", "Disc", 1300, 58);
+        Frame frame21 = new Frame("Trek", "Domane SL 6", "Carbon", 2000,54);
+        Frame frame22 = new Frame("Specialized", "Allez", "Aluminium", 800, 56);
+        Frame frame23 = new Frame("Giant", "Defy Advanced 2", "Carbon", 1800, 58);
+        Frame frame24 = new Frame("Canyon", "Endurace CF SL", "Carbon", 2200, 56);
+        Frame frame25 = new Frame("Scott", "Addict RC 15", "Carbon", 3500, 54);
+        Frame frame26 = new Frame("Bianchi", "Oltre XR4", "Carbon", 4000, 56);
+        Frame frame27 = new Frame("Colnago", "C64", "Carbon",6000, 58);
+        Frame frame28 = new Frame("Cannondale", "Synapse Carbon", "Carbon", 2600, 56);
+        Frame frame29 = new Frame("Wilier", "Cento10 Pro", "Carbon", 3300, 54);
+        Frame frame30 = new Frame("BMC", "Teammachine SLR01", "Carbon", 4400, 58);
+        Frame frame31 = new Frame("Cervélo", "R5", "Carbon", 5000, 56);
+        Frame frame32 = new Frame("Giant", "TCR Advanced Pro", "Carbon", 2800, 54);
+        Frame frame33 = new Frame("Specialized", "S-Works Venge", "Carbon", 6000, 58);
+        Frame frame34 = new Frame("Trek", "Madone SLR", "Carbon", 7000, 56);
+        Frame frame35 = new Frame("Canyon", "Aeroad CF SLX", "Carbon", 4000, 54);
+        Frame frame36 = new Frame("Bianchi", "Specialissima", "Carbon", 4500, 58);
+        Frame frame37 = new Frame("Colnago", "Concept", "Carbon", 5500, 56);
+        Frame frame38 = new Frame("Cannondale", "SystemSix", "Carbon", 5000, 54);
+        Frame frame39 = new Frame("Wilier", "Zero SLR", "Carbon", 6000, 58);
+        Frame frame40 = new Frame("BMC", "Timemachine Road", "Carbon", 7000, 56);
+        Frame frame41 = new Frame("Cervélo", "S5", "Carbon", 8000, 54);
 
         // Opret saddel
         Saddle saddle1 = new Saddle("Fizik", "Carbon", "Arione", 200, 140);
@@ -49,6 +75,17 @@ public class Populate {
         Saddle saddle13 = new Saddle("Terry", "Synthetic", "Butterfly", 240, 150);
         Saddle saddle14 = new Saddle("Charge", "Synthetic", "Slice", 190, 140);
         Saddle saddle15 = new Saddle("Selle San Marco", "Leather", "Regale", 260, 145);
+        Saddle saddle16 = new Saddle("SDG", "Synthetic", "Fly", 220, 145);
+        Saddle saddle17 = new Saddle("Bontrager", "Synthetic", "Aeolus", 200, 142);
+        Saddle saddle18 = new Saddle("WTB", "Synthetic", "Volt", 180, 140);
+        Saddle saddle19 = new Saddle("Ergon", "Synthetic", "SME3", 160, 145);
+        Saddle saddle20 = new Saddle("SQlab", "Synthetic", "611", 190, 140);
+        Saddle saddle21 = new Saddle("Fabric", "Synthetic", "Line", 170, 145);
+        Saddle saddle22 = new Saddle("Prologo", "Synthetic", "Nago", 150, 140);
+        Saddle saddle23 = new Saddle("Selle Italia", "Synthetic", "SLR", 200, 145);
+        Saddle saddle24 = new Saddle("Fizik", "Synthetic", "Antares", 180, 140);
+        Saddle saddle25 = new Saddle("Brooks", "Leather", "Cambium", 250, 160);
+
 
         // Opret hjul (vægten repræsenterer et hjulsæt)
         Wheel wheel1 = new Wheel("Zipp", "Carbon", "Disc", 1400, 25);
@@ -66,6 +103,11 @@ public class Populate {
         Wheel wheel13 = new Wheel("Rim", "Aluminium", "Rim", 1100, 25);
         Wheel wheel14 = new Wheel("Deda", "Aluminium", "Rim", 1300, 22);
         Wheel wheel15 = new Wheel("Spin", "Carbon", "Disc", 1750, 30);
+        Wheel wheel16 = new Wheel("Reynolds", "Carbon", "Disc", 1600, 28);
+        Wheel wheel17 = new Wheel("Bora", "Carbon", "Rim", 1500, 25);
+        Wheel wheel18 = new Wheel("Fulcrum", "Aluminium", "Rim", 1200, 24);
+        Wheel wheel19 = new Wheel("Shimano", "Carbon", "Disc", 1600, 26);
+        Wheel wheel20 = new Wheel("Campagnolo", "Aluminium", "Rim", 1300, 23);
 
         // Opret gear
         Gear gear1 = new Gear("Shimano", "Ultegra", "Aluminium", "Electronic", 1422);
@@ -83,11 +125,30 @@ public class Populate {
         Gear gear13 = new Gear("Campagnolo", "Super Record", "Carbon", "Electronic", 1900);
         Gear gear14 = new Gear("Shimano", "XTR", "Aluminium", "Mechanical", 1750);
         Gear gear15 = new Gear("SRAM", "NX", "Aluminium", "Mechanical", 1350);
+        Gear gear16 = new Gear("Shimano", "SLX", "Aluminium", "Mechanical", 1500);
+        Gear gear17 = new Gear("SRAM", "GX", "Aluminium", "Mechanical", 1400);
+        Gear gear18 = new Gear("Campagnolo", "Athena", "Aluminium", "Mechanical", 1600);
+        Gear gear19 = new Gear("Shimano", "Deore", "Aluminium", "Mechanical", 1300);
+        Gear gear20 = new Gear("SRAM", "XX1", "Carbon", "Electronic", 1850);
+        Gear gear21 = new Gear("Shimano", "Alivio", "Aluminium", "Mechanical", 1200);
+        Gear gear22 = new Gear("Campagnolo", "Veloce", "Aluminium", "Mechanical", 1400);
+        Gear gear23 = new Gear("SRAM", "X01", "Carbon", "Electronic", 1800);
+        Gear gear24 = new Gear("Shimano", "Acera", "Aluminium", "Mechanical", 1250);
+        Gear gear25 = new Gear("Campagnolo", "Centaur", "Aluminium", "Mechanical", 1500);
+        Gear gear26 = new Gear("SRAM", "X1", "Aluminium", "Mechanical", 1450);
+        Gear gear27 = new Gear("Shimano", "Altus", "Aluminium", "Mechanical", 1200);
+        Gear gear28 = new Gear("Campagnolo", "Potenza", "Aluminium", "Mechanical", 1550);
+        Gear gear29 = new Gear("SRAM", "X01 Eagle", "Carbon", "Electronic", 1850);
+        Gear gear30 = new Gear("Shimano", "Tourney", "Aluminium", "Mechanical", 1100);
+        Gear gear31 = new Gear("Campagnolo", "Chorus", "Carbon", "Electronic", 1700);
+        Gear gear32 = new Gear("SRAM", "X01 Eagle AXS", "Carbon", "Electronic", 1900);
+        Gear gear33 = new Gear("Shimano", "Deore XT", "Aluminium", "Mechanical", 1400);
+
 
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
 
-            // Persistér alle komponenter først (rammer, saddel og hjul)
+            // Gemmer rammer
             em.persist(frame1);
             em.persist(frame2);
             em.persist(frame3);
@@ -103,7 +164,34 @@ public class Populate {
             em.persist(frame13);
             em.persist(frame14);
             em.persist(frame15);
+            em.persist(frame16);
+            em.persist(frame17);
+            em.persist(frame18);
+            em.persist(frame19);
+            em.persist(frame20);
+            em.persist(frame21);
+            em.persist(frame22);
+            em.persist(frame23);
+            em.persist(frame24);
+            em.persist(frame25);
+            em.persist(frame26);
+            em.persist(frame27);
+            em.persist(frame28);
+            em.persist(frame29);
+            em.persist(frame30);
+            em.persist(frame31);
+            em.persist(frame32);
+            em.persist(frame33);
+            em.persist(frame34);
+            em.persist(frame35);
+            em.persist(frame36);
+            em.persist(frame37);
+            em.persist(frame38);
+            em.persist(frame39);
+            em.persist(frame40);
+            em.persist(frame41);
 
+            // Gemmer saddel
             em.persist(saddle1);
             em.persist(saddle2);
             em.persist(saddle3);
@@ -119,7 +207,18 @@ public class Populate {
             em.persist(saddle13);
             em.persist(saddle14);
             em.persist(saddle15);
+            em.persist(saddle16);
+            em.persist(saddle17);
+            em.persist(saddle18);
+            em.persist(saddle19);
+            em.persist(saddle20);
+            em.persist(saddle21);
+            em.persist(saddle22);
+            em.persist(saddle23);
+            em.persist(saddle24);
+            em.persist(saddle25);
 
+            // Gemmer hjul
             em.persist(wheel1);
             em.persist(wheel2);
             em.persist(wheel3);
@@ -135,7 +234,13 @@ public class Populate {
             em.persist(wheel13);
             em.persist(wheel14);
             em.persist(wheel15);
+            em.persist(wheel16);
+            em.persist(wheel17);
+            em.persist(wheel18);
+            em.persist(wheel19);
+            em.persist(wheel20);
 
+            // Gemmer gear
             em.persist(gear1);
             em.persist(gear2);
             em.persist(gear3);
@@ -151,8 +256,26 @@ public class Populate {
             em.persist(gear13);
             em.persist(gear14);
             em.persist(gear15);
+            em.persist(gear16);
+            em.persist(gear17);
+            em.persist(gear18);
+            em.persist(gear19);
+            em.persist(gear20);
+            em.persist(gear21);
+            em.persist(gear22);
+            em.persist(gear23);
+            em.persist(gear24);
+            em.persist(gear25);
+            em.persist(gear26);
+            em.persist(gear27);
+            em.persist(gear28);
+            em.persist(gear29);
+            em.persist(gear30);
+            em.persist(gear31);
+            em.persist(gear32);
+            em.persist(gear33);
 
-            // Opret fem cykler med tilhørende komponenter
+            // Opretter cykler og tilføjer komponenter
             Bicycle bicycle1 = new Bicycle("Trek", "Domane SL6", 56, 3500, 8.7, "High-performance road bike", frame5, gear1, wheel1, saddle1);
             Bicycle bicycle2 = new Bicycle("Canyon", "Ultimate CF SLX", 54, 4000, 6.8, "Lightweight racing bike", frame1, gear1, wheel2, saddle2);
             Bicycle bicycle3 = new Bicycle("Pinarello", "Dogma F12", 58, 5000, 7.6, "Aero road bike", frame3, gear1, wheel1, saddle1);
@@ -168,6 +291,12 @@ public class Populate {
             Bicycle bicycle13 = new Bicycle("Specialized", "Diverge Pro", 54, 3200, 8.2, "Versatile gravel bike", frame4, gear2, wheel2, saddle3);
             Bicycle bicycle14 = new Bicycle("Giant", "Defy Advanced", 55, 3000, 7.9, "Comfortable endurance bike", frame7, gear6, wheel3, saddle4);
             Bicycle bicycle15 = new Bicycle("BMC", "Teammachine SLR01", 56, 7000, 6.5, "Ultimate racing machine", frame14, gear1, wheel1, saddle5);
+            Bicycle bicycle16 = new Bicycle("Cervélo", "R5", 58, 6500, 7.1, "Lightweight", frame15, gear1, wheel1, saddle6);
+            Bicycle bicycle17 = new Bicycle("Canyon", "Ultimate CF SL", 54, 2500, 8.5, "Lightweight", frame16, gear1, wheel1, saddle7);
+            Bicycle bicycle18 = new Bicycle("Trek", "Emonda SL", 55, 2800, 7.8, "Lightweight", frame17, gear1, wheel1, saddle8);
+            Bicycle bicycle19 = new Bicycle("Specialized", "Allez Sprint", 56, 2000, 8.2, "Lightweight", frame18, gear1, wheel1, saddle9);
+            Bicycle bicycle20 = new Bicycle("Giant", "Contend", 58, 1500, 8.7, "Lightweight", frame19, gear1, wheel1, saddle10);
+            Bicycle bicycle21 = new Bicycle("BMC", "Roadmachine", 56, 3500, 7.5, "Lightweight", frame20, gear1, wheel1, saddle11);
 
             em.persist(bicycle1);
             em.persist(bicycle2);
@@ -184,6 +313,12 @@ public class Populate {
             em.persist(bicycle13);
             em.persist(bicycle14);
             em.persist(bicycle15);
+            em.persist(bicycle16);
+            em.persist(bicycle17);
+            em.persist(bicycle18);
+            em.persist(bicycle19);
+            em.persist(bicycle20);
+            em.persist(bicycle21);
 
             em.getTransaction().commit();
         } catch (Exception e) {

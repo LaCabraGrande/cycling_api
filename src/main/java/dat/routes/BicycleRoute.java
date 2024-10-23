@@ -13,7 +13,7 @@ public class BicycleRoute {
     protected EndpointGroup getRoutes() {
 
         return () -> {
-            get("/populate",  bicycleController::populate, Role.ANYONE);
+            get("/populate", bicycleController::populate, Role.ANYONE);
             get("/", bicycleController::getAll, Role.ANYONE);
             get("/{id}", bicycleController::getById, Role.ANYONE);
             post("/", bicycleController::create, Role.USER);

@@ -44,7 +44,7 @@ public class ApplicationConfig {
 
         // Populer databasen efter serveren starter
 //        Populate populate = new Populate();
-//        populate.populateDatabase();  // Her fylder vi Databasen op med 2 Resellers og 10 Plants
+//        populate.populateDatabase();  // Her fylder vi Databasen op med data
 
         return app;
     }
