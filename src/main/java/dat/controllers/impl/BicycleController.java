@@ -1,7 +1,6 @@
 package dat.controllers.impl;
 
 import dat.config.HibernateConfig;
-import dat.config.Populate;
 import dat.controllers.IController;
 import dat.daos.impl.BicycleDAO;
 import dat.dtos.BicycleDTO;
@@ -11,11 +10,11 @@ import io.javalin.http.NotFoundResponse;
 import jakarta.persistence.EntityManagerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+
+import static dat.config.Populate.populateDatabase;
 
 public class BicycleController implements IController<BicycleDTO> {
 
@@ -133,7 +132,7 @@ public class BicycleController implements IController<BicycleDTO> {
             System.out.println("Error: " + e.getMessage());
             ctx.status(404).json(Map.of(
                     "status", 404,
-                    "message", "Failed to add frame to bicycle: " + e.getMessage(),
+                    "message", "Failed to add Gear to bicycle: " + e.getMessage(),
                     "timestamp", LocalDateTime.now()
             ));
         } catch (Throwable e) {
@@ -190,6 +189,37 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", "Failed to add wheel to bicycle: " + e.getMessage(),
+                    "timestamp", LocalDateTime.now()
+            ));
+        } catch (Throwable e) {
+            ctx.status(500).json(Map.of(
+                    "status", 500,
+                    "message", "Internal server error",
+                    "timestamp", LocalDateTime.now()
+            ));
+        }
+    }
+
+    public void addAllComponentsToBicycle(Context ctx) {
+        try {
+            int bicycleId = Integer.parseInt(ctx.pathParam("bicycleId"));
+            int frameId = Integer.parseInt(ctx.pathParam("frameId"));
+            int gearId = Integer.parseInt(ctx.pathParam("gearId"));
+            int saddleId = Integer.parseInt(ctx.pathParam("saddleId"));
+            int wheelId = Integer.parseInt(ctx.pathParam("wheelId"));
+            Bicycle bicycle = bicycleDAO.addAllComponentsToBicycle(bicycleId, frameId, gearId, saddleId, wheelId);
+            ctx.json(bicycle);
+        } catch (NumberFormatException e) {
+            ctx.status(400).json(Map.of(
+                    "status", 400,
+                    "message", "Invalid bicycle or component ID",
+                    "timestamp", LocalDateTime.now()
+            ));
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            ctx.status(404).json(Map.of(
+                    "status", 404,
+                    "message", "Failed to add components to bicycle: " + e.getMessage(),
                     "timestamp", LocalDateTime.now()
             ));
         } catch (Throwable e) {
@@ -264,9 +294,8 @@ public class BicycleController implements IController<BicycleDTO> {
 
     // Tænker at vi måske skal flytte den her metode, da det ikke er en del af CRUD
     public void populate(Context ctx) {
-        Populate populate = new Populate();
-        populate.populateDatabase();
+        populateDatabase();
         ctx.res().setStatus(200);
-        ctx.json("{ \"The Bicycle Database has been populated\" }");
+        ctx.json("{ \"Message\": \"The Bicycle Database has been populated\" }");
     }
 }

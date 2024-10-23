@@ -21,6 +21,7 @@ public class BicycleRoute {
             post("/{bicycleId}/gear/{gearId}", bicycleController::addGearToBicycle, Role.USER);
             post("/{bicycleId}/wheel/{wheelId}", bicycleController::addWheelToBicycle, Role.USER);
             post("/{bicycleId}/saddle/{saddleId}", bicycleController::addSaddleToBicycle, Role.USER);
+            post("/{bicycleId}/frame/{frameId}/gear/{gearId}/wheel/{wheelId}/saddle/{saddleId}", bicycleController::addAllComponentsToBicycle, Role.USER);
             put("/{id}", bicycleController::update, Role.USER);
             delete("/{id}", bicycleController::delete, Role.USER);
         };

@@ -137,7 +137,43 @@ public class BicycleDAO {
                 return bicycle;
             } else {
                 em.getTransaction().rollback();
-                return null;  // Hvis enten bicycle eller wheel ikke findes returnerer jeg null
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Bicycle addAllComponentsToBicycle(int bicycleId, int frameId, int gearId, int wheelId, int saddleId) {
+        try (EntityManager em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            Bicycle bicycle = em.find(Bicycle.class, bicycleId);
+            Frame frame = em.find(Frame.class, frameId);
+            Gear gear = em.find(Gear.class, gearId);
+            Wheel wheel = em.find(Wheel.class, wheelId);
+            Saddle saddle = em.find(Saddle.class, saddleId);
+
+            if (bicycle != null && frame != null && gear != null && wheel != null && saddle != null) {
+                bicycle.addFrame(frame);
+                frame.getBicycles().add(bicycle);
+                bicycle.addGear(gear);
+                gear.getBicycles().add(bicycle);
+                bicycle.addWheel(wheel);
+                wheel.getBicycles().add(bicycle);
+                bicycle.addSaddle(saddle);
+                saddle.getBicycles().add(bicycle);
+                em.merge(bicycle);
+                em.merge(frame);
+                em.merge(gear);
+                em.merge(wheel);
+                em.merge(saddle);
+
+                em.getTransaction().commit();
+                return bicycle;
+            } else {
+                em.getTransaction().rollback();
+                return null;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -151,12 +187,12 @@ public class BicycleDAO {
             Bicycle bicycle = em.find(Bicycle.class, id);
 
             if (bicycle == null) {
-                // Håndter, hvis cyklen ikke findes (f.eks. kast en undtagelse eller returnér null)
+                // TODO Håndter, hvis cyklen ikke findes (f.eks. kast en undtagelse eller returnér null)
                 em.getTransaction().rollback();
                 return null;
             }
 
-            // Opdater kun de felter, der er angivet i bicycleDTO
+            // Jeg opdaterer kun de felter, der er angivet i bicycleDTO
             if (bicycleDTO.getBrand() != null) {
                 bicycle.setBrand(bicycleDTO.getBrand());
             }
@@ -190,6 +226,7 @@ public class BicycleDAO {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             Bicycle bicycle = em.find(Bicycle.class, id);
+            // TODO Håndter, hvis cyklen ikke findes (f.eks. kast en undtagelse eller returnér null)
             if (bicycle != null) {
                 Frame frame = bicycle.getFrame();
                 if (frame != null) {

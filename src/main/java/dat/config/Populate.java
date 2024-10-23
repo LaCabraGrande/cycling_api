@@ -8,12 +8,12 @@ public class Populate {
 
     public static void main(String[] args) {
         // Opret en instans af Populate-klassen og kald populateDatabase()
-        Populate populate = new Populate();
-        populate.populateDatabase();
+//        Populate populate = new Populate();
+        populateDatabase();
     }
 
     // Metode til at populere databasen med cykler og komponenter
-    public void populateDatabase() {
+    public static void populateDatabase() {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
 
         // Opret rammer
@@ -37,27 +37,6 @@ public class Populate {
         Frame frame18 = new Frame("Niner", "Aluminium", "Rim", 1600, 54);
         Frame frame19 = new Frame("Kona", "Steel", "Disc", 1700, 57);
         Frame frame20 = new Frame("Orbea", "Carbon", "Disc", 1300, 58);
-        Frame frame21 = new Frame("Trek", "Domane SL 6", "Carbon", 2000,54);
-        Frame frame22 = new Frame("Specialized", "Allez", "Aluminium", 800, 56);
-        Frame frame23 = new Frame("Giant", "Defy Advanced 2", "Carbon", 1800, 58);
-        Frame frame24 = new Frame("Canyon", "Endurace CF SL", "Carbon", 2200, 56);
-        Frame frame25 = new Frame("Scott", "Addict RC 15", "Carbon", 3500, 54);
-        Frame frame26 = new Frame("Bianchi", "Oltre XR4", "Carbon", 4000, 56);
-        Frame frame27 = new Frame("Colnago", "C64", "Carbon",6000, 58);
-        Frame frame28 = new Frame("Cannondale", "Synapse Carbon", "Carbon", 2600, 56);
-        Frame frame29 = new Frame("Wilier", "Cento10 Pro", "Carbon", 3300, 54);
-        Frame frame30 = new Frame("BMC", "Teammachine SLR01", "Carbon", 4400, 58);
-        Frame frame31 = new Frame("Cervélo", "R5", "Carbon", 5000, 56);
-        Frame frame32 = new Frame("Giant", "TCR Advanced Pro", "Carbon", 2800, 54);
-        Frame frame33 = new Frame("Specialized", "S-Works Venge", "Carbon", 6000, 58);
-        Frame frame34 = new Frame("Trek", "Madone SLR", "Carbon", 7000, 56);
-        Frame frame35 = new Frame("Canyon", "Aeroad CF SLX", "Carbon", 4000, 54);
-        Frame frame36 = new Frame("Bianchi", "Specialissima", "Carbon", 4500, 58);
-        Frame frame37 = new Frame("Colnago", "Concept", "Carbon", 5500, 56);
-        Frame frame38 = new Frame("Cannondale", "SystemSix", "Carbon", 5000, 54);
-        Frame frame39 = new Frame("Wilier", "Zero SLR", "Carbon", 6000, 58);
-        Frame frame40 = new Frame("BMC", "Timemachine Road", "Carbon", 7000, 56);
-        Frame frame41 = new Frame("Cervélo", "S5", "Carbon", 8000, 54);
 
         // Opret saddel
         Saddle saddle1 = new Saddle("Fizik", "Carbon", "Arione", 200, 140);
@@ -169,27 +148,7 @@ public class Populate {
             em.persist(frame18);
             em.persist(frame19);
             em.persist(frame20);
-            em.persist(frame21);
-            em.persist(frame22);
-            em.persist(frame23);
-            em.persist(frame24);
-            em.persist(frame25);
-            em.persist(frame26);
-            em.persist(frame27);
-            em.persist(frame28);
-            em.persist(frame29);
-            em.persist(frame30);
-            em.persist(frame31);
-            em.persist(frame32);
-            em.persist(frame33);
-            em.persist(frame34);
-            em.persist(frame35);
-            em.persist(frame36);
-            em.persist(frame37);
-            em.persist(frame38);
-            em.persist(frame39);
-            em.persist(frame40);
-            em.persist(frame41);
+
 
             // Gemmer saddel
             em.persist(saddle1);
