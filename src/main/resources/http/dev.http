@@ -1,6 +1,10 @@
 ### Her tester vi et simpelt endpoint
 GET http://localhost:7070/api/auth/test/
 
+### Her fylder vi databasen med cykledata
+GET http://localhost:7070/api/bicycles/populate
+Content-Type: application/json
+
 ### Her opretter vi en bruger med en user rolle
 POST http://localhost:7070/api/auth/register/
 Content-Type: application/json
@@ -148,19 +152,19 @@ Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Specialized",
+  "material": "Carbon",
   "model": "Power",
-  "size": 143,
-  "price": 150,
-  "description": "Comfortable saddle"
+  "weight": 143,
+  "width": 150
 }
 
 ### Her tilføjer vi en saddle til en cykel og vi bruger cykel id og saddle id
-POST http://localhost:7070/api/bicycles/17/saddle/3
+POST http://localhost:7070/api/bicycles/14/saddle/3
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
 {
-  "bicycleId": 3,
+  "bicycleId": 14,
   "saddleId": 3
 }
 
@@ -171,10 +175,10 @@ Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Specialized",
+  "material": "Carbon",
   "model": "S-Works Power",
-  "size": 143,
-  "price": 200,
-  "description": "Lightweight saddle"
+  "weight": 143,
+  "width": 200
 }
 
 ### Her sletter vi en saddle ud fra id
@@ -203,7 +207,7 @@ Authorization: Bearer {{jwt_token}}
 }
 
 ### Her tilføjer vi en wheel til en cykel og vi bruger cykel id og wheel id
-POST http://localhost:7070/api/bicycles/17/wheel/3
+POST http://localhost:7070/api/bicycles/15/wheel/3
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
@@ -251,7 +255,7 @@ Authorization: Bearer {{jwt_token}}
 }
 
 ### Her tilføjer vi en gear til en cykel og vi bruger cykel id og gear id
-POST http://localhost:7070/api/bicycles/17/gear/3
+POST http://localhost:7070/api/bicycles/15/gear/3
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 

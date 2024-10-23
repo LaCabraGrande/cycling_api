@@ -89,7 +89,6 @@ public class BicycleController implements IController<BicycleDTO> {
         }
     }
 
-
     public void addFrameToBicycle(Context ctx) {
         try {
             int bicycleId = Integer.parseInt(ctx.pathParam("bicycleId"));
@@ -107,6 +106,90 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", "Failed to add frame to bicycle: " + e.getMessage(), // Inkluder undtagelsesbeskeden
+                    "timestamp", LocalDateTime.now()
+            ));
+        } catch (Throwable e) {
+            ctx.status(500).json(Map.of(
+                    "status", 500,
+                    "message", "Internal server error",
+                    "timestamp", LocalDateTime.now()
+            ));
+        }
+    }
+
+    public void addGearToBicycle(Context ctx) {
+        try {
+            int bicycleId = Integer.parseInt(ctx.pathParam("bicycleId"));
+            int gearId = Integer.parseInt(ctx.pathParam("gearId"));
+            Bicycle bicycle = bicycleDAO.addGearToBicycle(bicycleId, gearId);
+            ctx.json(bicycle);
+        } catch (NumberFormatException e) {
+            ctx.status(400).json(Map.of(
+                    "status", 400,
+                    "message", "Invalid bicycle or gear ID",
+                    "timestamp", LocalDateTime.now()
+            ));
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            ctx.status(404).json(Map.of(
+                    "status", 404,
+                    "message", "Failed to add frame to bicycle: " + e.getMessage(),
+                    "timestamp", LocalDateTime.now()
+            ));
+        } catch (Throwable e) {
+            ctx.status(500).json(Map.of(
+                    "status", 500,
+                    "message", "Internal server error",
+                    "timestamp", LocalDateTime.now()
+            ));
+        }
+    }
+
+    public void addSaddleToBicycle(Context ctx) {
+        try {
+            int bicycleId = Integer.parseInt(ctx.pathParam("bicycleId"));
+            int saddleId = Integer.parseInt(ctx.pathParam("saddleId"));
+            Bicycle bicycle = bicycleDAO.addSaddleToBicycle(bicycleId, saddleId);
+            ctx.json(bicycle);
+        } catch (NumberFormatException e) {
+            ctx.status(400).json(Map.of(
+                    "status", 400,
+                    "message", "Invalid bicycle or saddle ID",
+                    "timestamp", LocalDateTime.now()
+            ));
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            ctx.status(404).json(Map.of(
+                    "status", 404,
+                    "message", "Failed to add saddle to bicycle: " + e.getMessage(),
+                    "timestamp", LocalDateTime.now()
+            ));
+        } catch (Throwable e) {
+            ctx.status(500).json(Map.of(
+                    "status", 500,
+                    "message", "Internal server error",
+                    "timestamp", LocalDateTime.now()
+            ));
+        }
+    }
+
+    public void addWheelToBicycle(Context ctx) {
+        try {
+            int bicycleId = Integer.parseInt(ctx.pathParam("bicycleId"));
+            int wheelId = Integer.parseInt(ctx.pathParam("wheelId"));
+            Bicycle bicycle = bicycleDAO.addWheelToBicycle(bicycleId, wheelId);
+            ctx.json(bicycle);
+        } catch (NumberFormatException e) {
+            ctx.status(400).json(Map.of(
+                    "status", 400,
+                    "message", "Invalid bicycle or wheel ID",
+                    "timestamp", LocalDateTime.now()
+            ));
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            ctx.status(404).json(Map.of(
+                    "status", 404,
+                    "message", "Failed to add wheel to bicycle: " + e.getMessage(),
                     "timestamp", LocalDateTime.now()
             ));
         } catch (Throwable e) {
@@ -179,11 +262,11 @@ public class BicycleController implements IController<BicycleDTO> {
         }
     }
 
-    // Tænker at vi måske skal fjerne den her metode, da det ikke er en del af CRUD
+    // Tænker at vi måske skal flytte den her metode, da det ikke er en del af CRUD
     public void populate(Context ctx) {
         Populate populate = new Populate();
         populate.populateDatabase();
         ctx.res().setStatus(200);
-        ctx.json("{ \"message\": \"Database has been populated\" }");
+        ctx.json("{ \"The Bicycle Database has been populated\" }");
     }
 }

@@ -32,7 +32,7 @@ public class Saddle {
     @Column(name = "weight", nullable = true)
     private int weight;
 
-    @Column(name = "size", nullable = true)
+    @Column(name = "width", nullable = true)
     private int width;
 
     @OneToMany(mappedBy = "saddle")

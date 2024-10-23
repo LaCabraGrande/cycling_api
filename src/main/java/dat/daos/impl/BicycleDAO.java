@@ -73,6 +73,78 @@ public class BicycleDAO {
         }
     }
 
+    public Bicycle addGearToBicycle(int bicycleId, int gearId) {
+        try (EntityManager em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            Bicycle bicycle = em.find(Bicycle.class, bicycleId);
+            Gear gear = em.find(Gear.class, gearId);
+
+            if (bicycle != null && gear != null) {
+                bicycle.addGear(gear);
+                gear.getBicycles().add(bicycle);
+                em.merge(bicycle);
+                em.merge(gear);
+
+                em.getTransaction().commit();
+                return bicycle;
+            } else {
+                em.getTransaction().rollback();
+                return null;  // Hvis enten bicycle eller gear ikke findes returnerer jeg null
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Bicycle addSaddleToBicycle(int bicycleId, int saddleId) {
+        try (EntityManager em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            Bicycle bicycle = em.find(Bicycle.class, bicycleId);
+            Saddle saddle = em.find(Saddle.class, saddleId);
+
+            if (bicycle != null && saddle != null) {
+                bicycle.addSaddle(saddle);
+                saddle.getBicycles().add(bicycle);
+                em.merge(bicycle);
+                em.merge(saddle);
+
+                em.getTransaction().commit();
+                return bicycle;
+            } else {
+                em.getTransaction().rollback();
+                return null;  // Hvis enten bicycle eller saddle ikke findes returnerer jeg null
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Bicycle addWheelToBicycle(int bicycleId, int wheelId) {
+        try (EntityManager em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            Bicycle bicycle = em.find(Bicycle.class, bicycleId);
+            Wheel wheel = em.find(Wheel.class, wheelId);
+
+            if (bicycle != null && wheel != null) {
+                bicycle.addWheel(wheel);
+                wheel.getBicycles().add(bicycle);
+                em.merge(bicycle);
+                em.merge(wheel);
+
+                em.getTransaction().commit();
+                return bicycle;
+            } else {
+                em.getTransaction().rollback();
+                return null;  // Hvis enten bicycle eller wheel ikke findes returnerer jeg null
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public BicycleDTO update(int id, BicycleDTO bicycleDTO) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();

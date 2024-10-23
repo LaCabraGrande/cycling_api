@@ -141,7 +141,6 @@ public class SaddleController implements IController<IController> {
     }
 
 
-
     public boolean validatePrimaryKey(Integer integer) {
         return saddleDAO.validatePrimaryKey(integer);
     }
