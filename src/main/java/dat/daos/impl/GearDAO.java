@@ -1,9 +1,9 @@
 package dat.daos.impl;
 
 import dat.daos.IDAO;
-import dat.dtos.FrameDTO;
+import dat.dtos.GearDTO;
 import dat.entities.Bicycle;
-import dat.entities.Frame;
+import dat.entities.Gear;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class GearDAO implements IDAO<FrameDTO> {
+public class GearDAO implements IDAO<GearDTO> {
 
     private static GearDAO instance;
     private static EntityManagerFactory emf;
@@ -26,82 +26,77 @@ public class GearDAO implements IDAO<FrameDTO> {
     }
 
     @Override
-    public FrameDTO getById(int id) {
+    public GearDTO getById(int id) {
         try (EntityManager em = emf.createEntityManager()) {
-            Frame frame = em.find(Frame.class, id);
-            //
-            return frame != null ? new FrameDTO(frame) : null;
+            Gear gear = em.find(Gear.class, id);
+            return gear != null ? new GearDTO(gear) : null;
         }
     }
 
     @Override
-    public List<FrameDTO> getAll() {
+    public List<GearDTO> getAll() {
         try (EntityManager em = emf.createEntityManager()) {
-            TypedQuery<FrameDTO> query = em.createQuery("SELECT new dat.dtos.FrameDTO(p) FROM Frame p", FrameDTO.class);
+            TypedQuery<GearDTO> query = em.createQuery("SELECT new dat.dtos.GearDTO(g) FROM Gear g", GearDTO.class);
             return query.getResultList();
         }
     }
 
     @Override
-    public FrameDTO add(FrameDTO frameDTO) {
+    public GearDTO add(GearDTO gearDTO) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Frame frame = new Frame(frameDTO);
-            em.persist(frame);
+            Gear gear = new Gear(gearDTO);
+            em.persist(gear);
             em.getTransaction().commit();
-            return new FrameDTO(frame);
+            return new GearDTO(gear);
         }
     }
 
-    public FrameDTO update(int id, FrameDTO frameDTO) {
+    public GearDTO update(int id, GearDTO gearDTO) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Frame f = em.find(Frame.class, id);
-            f.setBrand(frameDTO.getBrand());
-            f.setType(frameDTO.getType());
-            f.setMaterial(frameDTO.getMaterial());
-            f.setWeight(frameDTO.getWeight());
-            f.setSize(frameDTO.getSize());
-            Frame mergedFrame = em.merge(f);
+            Gear g = em.find(Gear.class, id);
+            g.setBrand(gearDTO.getBrand());
+            g.setType(gearDTO.getType());
+            g.setMaterial(gearDTO.getMaterial());
+            g.setWeight(gearDTO.getWeight());
+            g.setModel(gearDTO.getModel());
+            Gear mergedGear = em.merge(g);
             em.getTransaction().commit();
-            return mergedFrame != null ? new FrameDTO(mergedFrame) : null;
+            return mergedGear != null ? new GearDTO(mergedGear) : null;
         }
     }
 
-    public FrameDTO delete(int id) {
+    public GearDTO delete(int id) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Frame frame = em.find(Frame.class, id);
-            Frame deletedFrame = em.find(Frame.class, id);
-            if (frame != null) {
-                // Fjern relationer til resellers
-                for (Bicycle b : frame.getBicycles()) {
-                    b.setFrame(null);
+            Gear gear = em.find(Gear.class, id);
+            Gear deletedGear = em.find(Gear.class, id);
+            if (gear != null) {
+                for (Bicycle b : gear.getBicycles()) {
+                    b.setGear(null);
                 }
-                frame.getBicycles().clear();  // Ryd resellers sættet
-                em.merge(frame);  // Opdater frame i databasen
-
-                // Nu kan du slette framen
-                em.remove(frame);
-
+                gear.getBicycles().clear();
+                em.merge(gear);
+                em.remove(gear);
             }
             em.getTransaction().commit();
-            return new FrameDTO(deletedFrame);
+            return new GearDTO(deletedGear);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    // Ekstra metode: Tilføj plante til forhandler
-    public Bicycle add(int bicycleId, int frameId) {
+    // Tilføj gear til bicycle
+    public Bicycle add(int bicycleId, int gearId) {
 
         try (EntityManager em = emf.createEntityManager()) {
             Bicycle bicycle = em.find(Bicycle.class, bicycleId);
-            Frame frame = em.find(Frame.class, frameId);
-            if (bicycle != null && frame != null) {
+            Gear gear = em.find(Gear.class, gearId);
+            if (bicycle != null && gear != null) {
                 em.getTransaction().begin();
-                bicycle.addFrame(frame);
+                bicycle.addGear(gear);
                 em.merge(bicycle);
                 em.getTransaction().commit();
                 return bicycle;
@@ -112,8 +107,8 @@ public class GearDAO implements IDAO<FrameDTO> {
 
     public boolean validatePrimaryKey(Integer integer) {
         try (EntityManager em = emf.createEntityManager()) {
-            Frame frame = em.find(Frame.class, integer);
-            return frame != null;
+            Gear gear = em.find(Gear.class, integer);
+            return gear != null;
         }
     }
 }

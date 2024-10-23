@@ -1,9 +1,9 @@
 package dat.daos.impl;
 
 import dat.daos.IDAO;
-import dat.dtos.FrameDTO;
+import dat.dtos.WheelDTO;
 import dat.entities.Bicycle;
-import dat.entities.Frame;
+import dat.entities.Wheel;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class WheelDAO implements IDAO<FrameDTO> {
+public class WheelDAO implements IDAO<WheelDTO> {
 
     private static WheelDAO instance;
     private static EntityManagerFactory emf;
@@ -26,82 +26,80 @@ public class WheelDAO implements IDAO<FrameDTO> {
     }
 
     @Override
-    public FrameDTO getById(int id) {
+    public WheelDTO getById(int id) {
         try (EntityManager em = emf.createEntityManager()) {
-            Frame frame = em.find(Frame.class, id);
+            Wheel wheel = em.find(Wheel.class, id);
             //
-            return frame != null ? new FrameDTO(frame) : null;
+            return wheel != null ? new WheelDTO(wheel) : null;
         }
     }
 
     @Override
-    public List<FrameDTO> getAll() {
+    public List<WheelDTO> getAll() {
         try (EntityManager em = emf.createEntityManager()) {
-            TypedQuery<FrameDTO> query = em.createQuery("SELECT new dat.dtos.FrameDTO(p) FROM Frame p", FrameDTO.class);
+            TypedQuery<WheelDTO> query = em.createQuery("SELECT new dat.dtos.WheelDTO(w) FROM Wheel w", WheelDTO.class);
             return query.getResultList();
         }
     }
 
     @Override
-    public FrameDTO add(FrameDTO frameDTO) {
+    public WheelDTO add(WheelDTO wheelDTO) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Frame frame = new Frame(frameDTO);
-            em.persist(frame);
+            Wheel wheel = new Wheel(wheelDTO);
+            em.persist(wheel);
             em.getTransaction().commit();
-            return new FrameDTO(frame);
+            return new WheelDTO(wheel);
         }
     }
 
-    public FrameDTO update(int id, FrameDTO frameDTO) {
+    public WheelDTO update(int id, WheelDTO wheelDTO) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Frame f = em.find(Frame.class, id);
-            f.setBrand(frameDTO.getBrand());
-            f.setType(frameDTO.getType());
-            f.setMaterial(frameDTO.getMaterial());
-            f.setWeight(frameDTO.getWeight());
-            f.setSize(frameDTO.getSize());
-            Frame mergedFrame = em.merge(f);
+            Wheel w = em.find(Wheel.class, id);
+            w.setBrand(wheelDTO.getBrand());
+            w.setType(wheelDTO.getType());
+            w.setMaterial(wheelDTO.getMaterial());
+            w.setWeight(wheelDTO.getWeight());
+            w.setSize(wheelDTO.getSize());
+            Wheel mergedWheel = em.merge(w);
             em.getTransaction().commit();
-            return mergedFrame != null ? new FrameDTO(mergedFrame) : null;
+            return mergedWheel != null ? new WheelDTO(mergedWheel) : null;
         }
     }
 
-    public FrameDTO delete(int id) {
+    public WheelDTO delete(int id) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Frame frame = em.find(Frame.class, id);
-            Frame deletedFrame = em.find(Frame.class, id);
-            if (frame != null) {
-                // Fjern relationer til resellers
-                for (Bicycle b : frame.getBicycles()) {
-                    b.setFrame(null);
+            Wheel wheel = em.find(Wheel.class, id);
+            Wheel deletedWheel = em.find(Wheel.class, id);
+            if (wheel != null) {
+                for (Bicycle b : wheel.getBicycles()) {
+                    b.setWheel(null);
                 }
-                frame.getBicycles().clear();  // Ryd resellers sættet
-                em.merge(frame);  // Opdater frame i databasen
+                wheel.getBicycles().clear();
+                em.merge(wheel);
 
-                // Nu kan du slette framen
-                em.remove(frame);
+                em.remove(wheel);
 
             }
             em.getTransaction().commit();
-            return new FrameDTO(deletedFrame);
+            return new WheelDTO(deletedWheel);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    // Ekstra metode: Tilføj plante til forhandler
-    public Bicycle add(int bicycleId, int frameId) {
+    // Ekstra metode: Tilføj wheel til forhandler
+    public Bicycle add(int bicycleId, int wheelId) {
 
         try (EntityManager em = emf.createEntityManager()) {
             Bicycle bicycle = em.find(Bicycle.class, bicycleId);
-            Frame frame = em.find(Frame.class, frameId);
-            if (bicycle != null && frame != null) {
+            Wheel wheel = em.find(Wheel.class, wheelId);
+            if (bicycle != null && wheel != null) {
                 em.getTransaction().begin();
-                bicycle.addFrame(frame);
+                bicycle.addWheel(wheel);
                 em.merge(bicycle);
                 em.getTransaction().commit();
                 return bicycle;
@@ -112,8 +110,8 @@ public class WheelDAO implements IDAO<FrameDTO> {
 
     public boolean validatePrimaryKey(Integer integer) {
         try (EntityManager em = emf.createEntityManager()) {
-            Frame frame = em.find(Frame.class, integer);
-            return frame != null;
+            Wheel wheel = em.find(Wheel.class, integer);
+            return wheel != null;
         }
     }
 }

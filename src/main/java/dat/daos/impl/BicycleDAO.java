@@ -1,10 +1,7 @@
 package dat.daos.impl;
 
 import dat.dtos.BicycleDTO;
-import dat.entities.Bicycle;
-import dat.entities.Frame;
-import dat.entities.Gear;
-import dat.entities.Wheel;
+import dat.entities.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
@@ -47,7 +44,7 @@ public class BicycleDAO {
             System.out.println("Results: " + results);
             return results;
         } catch (Exception e) {
-            e.printStackTrace();  // Add logging here for debugging
+            e.printStackTrace();
             throw new RuntimeException("Error fetching bicycles", e);
         }
     }
@@ -68,7 +65,7 @@ public class BicycleDAO {
                 return bicycle;
             } else {
                 em.getTransaction().rollback();
-                return null;  // Hvis enten reseller eller plant ikke findes returnerer jeg null
+                return null;  // Hvis enten bicycle eller frame ikke findes returnerer jeg null
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,13 +91,13 @@ public class BicycleDAO {
             if (bicycleDTO.getModel() != null) {
                 bicycle.setModel(bicycleDTO.getModel());
             }
-            if (bicycleDTO.getSize() > 0) { // Antag at 0 ikke er en gyldig størrelse
+            if (bicycleDTO.getSize() > 0) {
                 bicycle.setSize(bicycleDTO.getSize());
             }
-            if (bicycleDTO.getPrice() > 0) { // Antag at 0 ikke er en gyldig pris
+            if (bicycleDTO.getPrice() > 0) {
                 bicycle.setPrice(bicycleDTO.getPrice());
             }
-            if (bicycleDTO.getWeight() > 0) { // Antag at 0 ikke er en gyldig vægt
+            if (bicycleDTO.getWeight() > 0) {
                 bicycle.setWeight(bicycleDTO.getWeight());
             }
             if (bicycleDTO.getDescription() != null) {
@@ -112,46 +109,37 @@ public class BicycleDAO {
             em.getTransaction().commit();
             return new BicycleDTO(mergedBicycle);
         } catch (Exception e) {
-            e.printStackTrace(); // Log fejl (juster efter behov)
+            e.printStackTrace();
             return null;
         }
     }
-
 
     public Bicycle delete(int id) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             Bicycle bicycle = em.find(Bicycle.class, id);
             if (bicycle != null) {
-                // Fjern relation til frame
                 Frame frame = bicycle.getFrame();
                 if (frame != null) {
-                frame.getBicycles().remove(bicycle);  // Fjerner her bicycle fra frame
+                frame.getBicycles().remove(bicycle);
                 }
-                // Fjern relation til Gear
                 Gear gear = bicycle.getGear();
                 if (gear != null) {
-                    gear.getBicycles().remove(bicycle);  // Fjerner her bicycle fra gear
+                    gear.getBicycles().remove(bicycle);
                 }
-                // Fjern relation til Wheel
                 Wheel wheel = bicycle.getWheel();
                 if (wheel != null) {
-                    wheel.getBicycles().remove(bicycle);  // Fjerner her bicycle fra wheel
+                    wheel.getBicycles().remove(bicycle);
                 }
-                // Fjern relation til Saddle
-                dat.entities.Saddle saddle = bicycle.getSaddle();
+                Saddle saddle = bicycle.getSaddle();
                 if (saddle != null) {
-                    saddle.getBicycles().remove(bicycle);  // Fjerner her bicycle fra saddle
+                    saddle.getBicycles().remove(bicycle);
                 }
 
-
-                // Her fjerner jeg den tilknyttede frame fra bicycle
+                // Her fjerner jeg de tilknyttede frame,gear, wheel og saddle fra bicycle
                 bicycle.setFrame(null);
-                // Her fjerner jeg den tilknyttede gear fra bicycle
                 bicycle.setGear(null);
-                // Her fjerner jeg den tilknyttede wheel fra bicycle
                 bicycle.setWheel(null);
-                // Her fjerner jeg den tilknyttede saddle fra bicycle
                 bicycle.setSaddle(null);
                 em.flush();  // Sørg for, at ændringerne bliver vedvarende i databasen før fjernelse
                 // Og til sidst sletter jeg reseller. En anden måde at bruge CascadeType.REMOVE i Reseller

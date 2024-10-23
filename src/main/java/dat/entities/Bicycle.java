@@ -96,4 +96,25 @@ public class Bicycle {
             frame.getBicycles().add(this);
         }
     }
+
+    public void addWheel(Wheel wheel) {
+        if (wheel != null) {
+            this.wheel = wheel;
+            wheel.getBicycles().add(this);
+        }
+    }
+
+    public void addGear(Gear gear) {
+        if (gear != null) {
+            this.gear = gear;
+            gear.getBicycles().add(this);
+        }
+    }
+
+    public void addSaddle(Saddle saddle) {
+        if (saddle != null) {
+            this.saddle = saddle;
+            saddle.getBicycles().add(this);
+        }
+    }
 }

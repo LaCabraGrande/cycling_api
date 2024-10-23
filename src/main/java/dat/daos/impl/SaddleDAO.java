@@ -1,9 +1,9 @@
 package dat.daos.impl;
 
 import dat.daos.IDAO;
-import dat.dtos.FrameDTO;
+import dat.dtos.SaddleDTO;
 import dat.entities.Bicycle;
-import dat.entities.Frame;
+import dat.entities.Saddle;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
-public class SaddleDAO implements IDAO<FrameDTO> {
+public class SaddleDAO implements IDAO<SaddleDTO> {
 
     private static SaddleDAO instance;
     private static EntityManagerFactory emf;
@@ -26,82 +26,79 @@ public class SaddleDAO implements IDAO<FrameDTO> {
     }
 
     @Override
-    public FrameDTO getById(int id) {
+    public SaddleDTO getById(int id) {
         try (EntityManager em = emf.createEntityManager()) {
-            Frame frame = em.find(Frame.class, id);
-            //
-            return frame != null ? new FrameDTO(frame) : null;
+            Saddle saddle = em.find(Saddle.class, id);
+            return saddle != null ? new SaddleDTO(saddle) : null;
         }
     }
 
     @Override
-    public List<FrameDTO> getAll() {
+    public List<SaddleDTO> getAll() {
         try (EntityManager em = emf.createEntityManager()) {
-            TypedQuery<FrameDTO> query = em.createQuery("SELECT new dat.dtos.FrameDTO(p) FROM Frame p", FrameDTO.class);
+            TypedQuery<SaddleDTO> query = em.createQuery("SELECT new dat.dtos.SaddleDTO(s) FROM Saddle s", SaddleDTO.class);
             return query.getResultList();
         }
     }
 
     @Override
-    public FrameDTO add(FrameDTO frameDTO) {
+    public SaddleDTO add(SaddleDTO saddleDTO) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Frame frame = new Frame(frameDTO);
-            em.persist(frame);
+            Saddle saddle = new Saddle(saddleDTO);
+            em.persist(saddle);
             em.getTransaction().commit();
-            return new FrameDTO(frame);
+            return new SaddleDTO(saddle);
         }
     }
 
-    public FrameDTO update(int id, FrameDTO frameDTO) {
+    public SaddleDTO update(int id, SaddleDTO saddleDTO) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Frame f = em.find(Frame.class, id);
-            f.setBrand(frameDTO.getBrand());
-            f.setType(frameDTO.getType());
-            f.setMaterial(frameDTO.getMaterial());
-            f.setWeight(frameDTO.getWeight());
-            f.setSize(frameDTO.getSize());
-            Frame mergedFrame = em.merge(f);
+            Saddle s = em.find(Saddle.class, id);
+            s.setBrand(saddleDTO.getBrand());
+            s.setModel(saddleDTO.getModel());
+            s.setMaterial(saddleDTO.getMaterial());
+            s.setWeight(saddleDTO.getWeight());
+            s.setWidth(saddleDTO.getWidth());
+            Saddle mergedSaddle = em.merge(s);
             em.getTransaction().commit();
-            return mergedFrame != null ? new FrameDTO(mergedFrame) : null;
+            return mergedSaddle != null ? new SaddleDTO(mergedSaddle) : null;
         }
     }
 
-    public FrameDTO delete(int id) {
+    public SaddleDTO delete(int id) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Frame frame = em.find(Frame.class, id);
-            Frame deletedFrame = em.find(Frame.class, id);
-            if (frame != null) {
-                // Fjern relationer til resellers
-                for (Bicycle b : frame.getBicycles()) {
-                    b.setFrame(null);
+            Saddle saddle = em.find(Saddle.class, id);
+            Saddle deletedSaddle = em.find(Saddle.class, id);
+            if (saddle != null) {
+                for (Bicycle b : saddle.getBicycles()) {
+                    b.setSaddle(null);
                 }
-                frame.getBicycles().clear();  // Ryd resellers sættet
-                em.merge(frame);  // Opdater frame i databasen
+                saddle.getBicycles().clear();
+                em.merge(saddle);
 
-                // Nu kan du slette framen
-                em.remove(frame);
+                em.remove(saddle);
 
             }
             em.getTransaction().commit();
-            return new FrameDTO(deletedFrame);
+            return new SaddleDTO(deletedSaddle);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    // Ekstra metode: Tilføj plante til forhandler
-    public Bicycle add(int bicycleId, int frameId) {
+    // Tilføj saddle til bicycle
+    public Bicycle add(int bicycleId, int saddleId) {
 
         try (EntityManager em = emf.createEntityManager()) {
             Bicycle bicycle = em.find(Bicycle.class, bicycleId);
-            Frame frame = em.find(Frame.class, frameId);
-            if (bicycle != null && frame != null) {
+            Saddle saddle = em.find(Saddle.class, saddleId);
+            if (bicycle != null && saddle != null) {
                 em.getTransaction().begin();
-                bicycle.addFrame(frame);
+                bicycle.addSaddle(saddle);
                 em.merge(bicycle);
                 em.getTransaction().commit();
                 return bicycle;
@@ -112,8 +109,8 @@ public class SaddleDAO implements IDAO<FrameDTO> {
 
     public boolean validatePrimaryKey(Integer integer) {
         try (EntityManager em = emf.createEntityManager()) {
-            Frame frame = em.find(Frame.class, integer);
-            return frame != null;
+            Saddle saddle = em.find(Saddle.class, integer);
+            return saddle != null;
         }
     }
 }

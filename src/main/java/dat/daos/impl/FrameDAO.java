@@ -74,16 +74,12 @@ public class FrameDAO implements IDAO<FrameDTO> {
             Frame frame = em.find(Frame.class, id);
             Frame deletedFrame = em.find(Frame.class, id);
             if (frame != null) {
-                // Fjern relationer til resellers
                 for (Bicycle b : frame.getBicycles()) {
                     b.setFrame(null);
                 }
-                frame.getBicycles().clear();  // Ryd resellers sættet
-                em.merge(frame);  // Opdater frame i databasen
-
-                // Nu kan du slette framen
+                frame.getBicycles().clear();
+                em.merge(frame);
                 em.remove(frame);
-
             }
             em.getTransaction().commit();
             return new FrameDTO(deletedFrame);
@@ -93,7 +89,7 @@ public class FrameDAO implements IDAO<FrameDTO> {
         }
     }
 
-    // Ekstra metode: Tilføj plante til forhandler
+    // Tilføj frame til bicycle
     public Bicycle add(int bicycleId, int frameId) {
 
         try (EntityManager em = emf.createEntityManager()) {
