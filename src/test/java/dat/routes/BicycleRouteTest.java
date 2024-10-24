@@ -5,6 +5,7 @@ import dat.config.HibernateConfig;
 import dat.config.Populate;
 import dat.daos.impl.BicycleDAO;
 import dat.dtos.BicycleDTO;
+import dat.entities.Bicycle;
 import io.javalin.Javalin;
 import io.restassured.http.ContentType;
 import jakarta.persistence.EntityManager;
@@ -87,8 +88,8 @@ class BicycleRouteTest {
                         .statusCode(200)
                         .extract()
                         .as(BicycleDTO[].class);
-//        assertEquals(3, bicycleDTOS.size());
-//        assertThat(bicycle, arrayContainingInAnyOrder(b1, b2, b3));
+        assertEquals(3, bicycleDTOS.size());
+        assertThat(bicycle, arrayContainingInAnyOrder(b1, b2, b3));
     }
 
     @Test
@@ -105,4 +106,23 @@ class BicycleRouteTest {
                         .as(BicycleDTO.class);
         assertThat(bicycle, equalTo(b1));
     }
+
+    @Test
+    void testAddBicycle() {
+        BicycleDTO b4 = new BicycleDTO("Bicycle4", "test", 1, 1, 1, "test god");
+        BicycleDTO bicycleDTO =
+                given()
+                        .contentType(ContentType.JSON)
+                        .body(b4)
+                        .when()
+                        .post(BASE_URL + "/bicycles/")
+                        .then()
+                        .log().all()
+                        .statusCode(201)
+                        .extract()
+                        .as(BicycleDTO.class);
+        assertThat(bicycleDTO, equalTo(b4));
+    }
+
+
 }
