@@ -294,8 +294,13 @@ public class BicycleController implements IController<BicycleDTO> {
 
     // Tænker at vi måske skal flytte den her metode, da det ikke er en del af CRUD
     public void populate(Context ctx) {
-        populateDatabase();
-        ctx.res().setStatus(200);
-        ctx.json("{ \"Message\": \"The Bicycle Database has been populated\" }");
+        try {
+            populateDatabase();
+            ctx.res().setStatus(200);
+            ctx.json(Map.of("Message", "The Bicycle Database has been populated"));
+        } catch (Exception e) {
+            ctx.res().setStatus(500);
+            ctx.json(Map.of("error", "An error occurred while populating The Bicycle Database"));
+        }
     }
 }
