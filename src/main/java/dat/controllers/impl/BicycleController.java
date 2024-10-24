@@ -11,6 +11,7 @@ import jakarta.persistence.EntityManagerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -35,13 +36,13 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", "Invalid bicycle data",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Throwable e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -51,25 +52,28 @@ public class BicycleController implements IController<BicycleDTO> {
             int id = Integer.parseInt(ctx.pathParam("id"));
             BicycleDTO bicycleDTO = bicycleDAO.getById(id);
             if (bicycleDTO != null) {
-                ctx.json(bicycleDTO);
+                ctx.json(bicycleDTO);  // Sends the bicycleDTO as JSON
             } else {
-                ctx.status(404).json(Map.of(
-                        "status", 404,
-                        "message", "Bicycle not found",
-                        "timestamp", LocalDateTime.now()
-                ));
+                throw new NotFoundResponse("Bicycle ID not found");  // Exception is thrown
             }
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
-                    "message", "Invalid bicycle ID",
-                    "timestamp", LocalDateTime.now()
+                    "message", "Invalid bicycle ID, wrong format",
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
-        } catch (Throwable e) {
+        } catch (NotFoundResponse e) {
+            ctx.status(404).json(Map.of(
+                    "status", 404,
+                    "message", e.getMessage(),
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        }
+        catch (Exception e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -83,7 +87,7 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -98,20 +102,20 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", "Invalid bicycle or frame ID",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage()); // Log fejlen
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", "Failed to add frame to bicycle: " + e.getMessage(), // Inkluder undtagelsesbeskeden
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Throwable e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -126,20 +130,20 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", "Invalid bicycle or gear ID",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", "Failed to add Gear to bicycle: " + e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Throwable e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -154,20 +158,20 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", "Invalid bicycle or saddle ID",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", "Failed to add saddle to bicycle: " + e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Throwable e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -182,20 +186,20 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", "Invalid bicycle or wheel ID",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", "Failed to add wheel to bicycle: " + e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Throwable e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -213,20 +217,20 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", "Invalid bicycle or component ID",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", "Failed to add components to bicycle: " + e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Throwable e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -245,19 +249,19 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", "Invalid bicycle ID",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (NotFoundResponse e) {
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Throwable e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -275,21 +279,25 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", "Invalid bicycle ID",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (NotFoundResponse e) {
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Throwable e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
+    }
+
+    public boolean validatePrimaryKey(Integer integer) {
+        return bicycleDAO.validatePrimaryKey(integer);
     }
 
     // Tænker at vi måske skal flytte den her metode, da det ikke er en del af CRUD
@@ -302,7 +310,7 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error: " + e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }

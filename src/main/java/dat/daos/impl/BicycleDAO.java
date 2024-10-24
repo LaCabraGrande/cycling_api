@@ -44,7 +44,6 @@ public class BicycleDAO {
             System.out.println("Results: " + results);
             return results;
         } catch (Exception e) {
-            e.printStackTrace();
             throw new RuntimeException("Error fetching bicycles", e);
         }
     }
@@ -68,8 +67,7 @@ public class BicycleDAO {
                 return null;  // Hvis enten bicycle eller frame ikke findes returnerer jeg null
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("Error adding frame to bicycle", e);
         }
     }
 
@@ -92,8 +90,7 @@ public class BicycleDAO {
                 return null;  // Hvis enten bicycle eller gear ikke findes returnerer jeg null
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("Error adding gear to bicycle", e);
         }
     }
 
@@ -116,8 +113,7 @@ public class BicycleDAO {
                 return null;  // Hvis enten bicycle eller saddle ikke findes returnerer jeg null
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("Error adding saddle to bicycle", e);
         }
     }
 
@@ -140,8 +136,7 @@ public class BicycleDAO {
                 return null;
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("Error adding wheel to bicycle", e);
         }
     }
 
@@ -176,8 +171,7 @@ public class BicycleDAO {
                 return null;
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("Error adding components to bicycle", e);
         }
     }
 
@@ -217,8 +211,7 @@ public class BicycleDAO {
             em.getTransaction().commit();
             return new BicycleDTO(mergedBicycle);
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("Error updating bicycle", e);
         }
     }
 
@@ -245,7 +238,7 @@ public class BicycleDAO {
                     saddle.getBicycles().remove(bicycle);
                 }
 
-                // Her fjerner jeg de tilknyttede frame,gear, wheel og saddle fra bicycle
+                // Her fjerner jeg de tilknyttede frame, gear, wheel og saddle fra bicycle
                 bicycle.setFrame(null);
                 bicycle.setGear(null);
                 bicycle.setWheel(null);
@@ -257,6 +250,16 @@ public class BicycleDAO {
             }
             em.getTransaction().commit();
             return bicycle;
+        }
+    }
+
+    public boolean validatePrimaryKey(Integer integer) {
+        try (EntityManager em = emf.createEntityManager()) {
+            Frame frame = em.find(Frame.class, integer);
+            return frame != null;
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error validating frame primary key", e);
         }
     }
 }

@@ -32,6 +32,9 @@ public class FrameDAO implements IDAO<FrameDTO> {
             //
             return frame != null ? new FrameDTO(frame) : null;
         }
+        catch (Exception e) {
+            throw new RuntimeException("Error fetching frame", e);
+        }
     }
 
     @Override
@@ -51,6 +54,9 @@ public class FrameDAO implements IDAO<FrameDTO> {
             em.getTransaction().commit();
             return new FrameDTO(frame);
         }
+        catch (Exception e) {
+            throw new RuntimeException("Error adding frame", e);
+        }
     }
 
     public FrameDTO update(int id, FrameDTO frameDTO) {
@@ -65,6 +71,9 @@ public class FrameDAO implements IDAO<FrameDTO> {
             Frame mergedFrame = em.merge(f);
             em.getTransaction().commit();
             return mergedFrame != null ? new FrameDTO(mergedFrame) : null;
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error updating frame", e);
         }
     }
 
@@ -84,8 +93,7 @@ public class FrameDAO implements IDAO<FrameDTO> {
             em.getTransaction().commit();
             return new FrameDTO(deletedFrame);
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("Error deleting frame", e);
         }
     }
 
@@ -104,12 +112,18 @@ public class FrameDAO implements IDAO<FrameDTO> {
             }
             return null;
         }
+        catch (Exception e) {
+            throw new RuntimeException("Error adding frame to bicycle", e);
+        }
     }
 
     public boolean validatePrimaryKey(Integer integer) {
         try (EntityManager em = emf.createEntityManager()) {
             Frame frame = em.find(Frame.class, integer);
             return frame != null;
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error validating frame primary key", e);
         }
     }
 }

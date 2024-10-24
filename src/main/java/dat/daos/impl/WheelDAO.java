@@ -32,6 +32,9 @@ public class WheelDAO implements IDAO<WheelDTO> {
             //
             return wheel != null ? new WheelDTO(wheel) : null;
         }
+        catch (Exception e) {
+            throw new RuntimeException("Error fetching wheel", e);
+        }
     }
 
     @Override
@@ -39,6 +42,9 @@ public class WheelDAO implements IDAO<WheelDTO> {
         try (EntityManager em = emf.createEntityManager()) {
             TypedQuery<WheelDTO> query = em.createQuery("SELECT new dat.dtos.WheelDTO(w) FROM Wheel w", WheelDTO.class);
             return query.getResultList();
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error fetching wheels", e);
         }
     }
 
@@ -50,6 +56,9 @@ public class WheelDAO implements IDAO<WheelDTO> {
             em.persist(wheel);
             em.getTransaction().commit();
             return new WheelDTO(wheel);
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error adding wheel", e);
         }
     }
 
@@ -65,6 +74,9 @@ public class WheelDAO implements IDAO<WheelDTO> {
             Wheel mergedWheel = em.merge(w);
             em.getTransaction().commit();
             return mergedWheel != null ? new WheelDTO(mergedWheel) : null;
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error updating wheel", e);
         }
     }
 
@@ -86,8 +98,7 @@ public class WheelDAO implements IDAO<WheelDTO> {
             em.getTransaction().commit();
             return new WheelDTO(deletedWheel);
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("Error deleting wheel", e);
         }
     }
 
@@ -106,12 +117,18 @@ public class WheelDAO implements IDAO<WheelDTO> {
             }
             return null;
         }
+        catch (Exception e) {
+            throw new RuntimeException("Error adding wheel to bicycle", e);
+        }
     }
 
     public boolean validatePrimaryKey(Integer integer) {
         try (EntityManager em = emf.createEntityManager()) {
             Wheel wheel = em.find(Wheel.class, integer);
             return wheel != null;
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error validating wheel primary key", e);
         }
     }
 }

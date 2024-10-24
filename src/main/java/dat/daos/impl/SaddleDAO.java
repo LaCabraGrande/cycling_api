@@ -31,6 +31,9 @@ public class SaddleDAO implements IDAO<SaddleDTO> {
             Saddle saddle = em.find(Saddle.class, id);
             return saddle != null ? new SaddleDTO(saddle) : null;
         }
+        catch (Exception e) {
+            throw new RuntimeException("Error fetching saddle", e);
+        }
     }
 
     @Override
@@ -38,6 +41,9 @@ public class SaddleDAO implements IDAO<SaddleDTO> {
         try (EntityManager em = emf.createEntityManager()) {
             TypedQuery<SaddleDTO> query = em.createQuery("SELECT new dat.dtos.SaddleDTO(s) FROM Saddle s", SaddleDTO.class);
             return query.getResultList();
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error fetching saddles", e);
         }
     }
 
@@ -49,6 +55,9 @@ public class SaddleDAO implements IDAO<SaddleDTO> {
             em.persist(saddle);
             em.getTransaction().commit();
             return new SaddleDTO(saddle);
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error adding saddle", e);
         }
     }
 
@@ -64,6 +73,9 @@ public class SaddleDAO implements IDAO<SaddleDTO> {
             Saddle mergedSaddle = em.merge(s);
             em.getTransaction().commit();
             return mergedSaddle != null ? new SaddleDTO(mergedSaddle) : null;
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error updating saddle", e);
         }
     }
 
@@ -85,8 +97,7 @@ public class SaddleDAO implements IDAO<SaddleDTO> {
             em.getTransaction().commit();
             return new SaddleDTO(deletedSaddle);
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("Error deleting saddle", e);
         }
     }
 
@@ -105,12 +116,18 @@ public class SaddleDAO implements IDAO<SaddleDTO> {
             }
             return null;
         }
+        catch (Exception e) {
+            throw new RuntimeException("Error adding saddle to bicycle", e);
+        }
     }
 
     public boolean validatePrimaryKey(Integer integer) {
         try (EntityManager em = emf.createEntityManager()) {
             Saddle saddle = em.find(Saddle.class, integer);
             return saddle != null;
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error validating saddle primary key", e);
         }
     }
 }

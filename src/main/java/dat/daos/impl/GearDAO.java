@@ -31,6 +31,9 @@ public class GearDAO implements IDAO<GearDTO> {
             Gear gear = em.find(Gear.class, id);
             return gear != null ? new GearDTO(gear) : null;
         }
+        catch (Exception e) {
+            throw new RuntimeException("Error fetching gear", e);
+        }
     }
 
     @Override
@@ -38,6 +41,9 @@ public class GearDAO implements IDAO<GearDTO> {
         try (EntityManager em = emf.createEntityManager()) {
             TypedQuery<GearDTO> query = em.createQuery("SELECT new dat.dtos.GearDTO(g) FROM Gear g", GearDTO.class);
             return query.getResultList();
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error fetching gears", e);
         }
     }
 
@@ -49,6 +55,9 @@ public class GearDAO implements IDAO<GearDTO> {
             em.persist(gear);
             em.getTransaction().commit();
             return new GearDTO(gear);
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error adding gear", e);
         }
     }
 
@@ -64,6 +73,9 @@ public class GearDAO implements IDAO<GearDTO> {
             Gear mergedGear = em.merge(g);
             em.getTransaction().commit();
             return mergedGear != null ? new GearDTO(mergedGear) : null;
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error updating gear", e);
         }
     }
 
@@ -83,8 +95,7 @@ public class GearDAO implements IDAO<GearDTO> {
             em.getTransaction().commit();
             return new GearDTO(deletedGear);
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("Error deleting gear", e);
         }
     }
 
@@ -103,12 +114,18 @@ public class GearDAO implements IDAO<GearDTO> {
             }
             return null;
         }
+        catch (Exception e) {
+            throw new RuntimeException("Error adding gear to bicycle", e);
+        }
     }
 
     public boolean validatePrimaryKey(Integer integer) {
         try (EntityManager em = emf.createEntityManager()) {
             Gear gear = em.find(Gear.class, integer);
             return gear != null;
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error validating gear primary key", e);
         }
     }
 }

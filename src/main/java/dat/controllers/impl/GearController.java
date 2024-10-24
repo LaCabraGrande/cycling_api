@@ -11,6 +11,7 @@ import io.javalin.http.NotFoundResponse;
 import jakarta.persistence.EntityManagerFactory;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 public class GearController implements IController<IController> {
@@ -29,7 +30,7 @@ public class GearController implements IController<IController> {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error: " + e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -45,19 +46,19 @@ public class GearController implements IController<IController> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", "Invalid gear ID format.",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (NotFoundResponse e) {
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Exception e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error: " + e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -74,13 +75,13 @@ public class GearController implements IController<IController> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Exception e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error: " + e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -96,19 +97,19 @@ public class GearController implements IController<IController> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", "Invalid gear ID format.",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (NotFoundResponse e) {
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Exception e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error: " + e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
@@ -123,19 +124,19 @@ public class GearController implements IController<IController> {
             ctx.status(400).json(Map.of(
                     "status", 400,
                     "message", "Invalid gear ID format.",
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (NotFoundResponse e) {
             ctx.status(404).json(Map.of(
                     "status", 404,
                     "message", e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         } catch (Exception e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error: " + e.getMessage(),
-                    "timestamp", LocalDateTime.now()
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
     }
