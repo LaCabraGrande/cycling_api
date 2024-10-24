@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -82,17 +84,29 @@ public class BicycleDTO {
         return new Bicycle(this);
     }
 
+    // Overrider equals til at sammenligne alle felter
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof BicycleDTO)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         BicycleDTO that = (BicycleDTO) o;
-        return id == that.id;
+        return id == that.id &&
+                size == that.size &&
+                price == that.price &&
+                Double.compare(that.weight, weight) == 0 &&
+                Objects.equals(brand, that.brand) &&
+                Objects.equals(model, that.model) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(frame, that.frame) &&
+                Objects.equals(gear, that.gear) &&
+                Objects.equals(wheel, that.wheel) &&
+                Objects.equals(saddle, that.saddle);
     }
 
+    // Overrider hashCode til at inkludere alle felter
     @Override
     public int hashCode() {
-        return Integer.hashCode(id);
+        return Objects.hash(id, brand, model, size, price, weight, description, frame, gear, wheel, saddle);
     }
 
 }
