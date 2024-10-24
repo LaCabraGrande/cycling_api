@@ -297,10 +297,14 @@ public class BicycleController implements IController<BicycleDTO> {
         try {
             populateDatabase();
             ctx.res().setStatus(200);
-            ctx.json(Map.of("Message", "The Bicycle Database has been populated"));
+            // Lav et korrekt JSON-objekt
+            Map<String, String> response = Map.of("Message", "The Bicycle Database has been populated");
+            ctx.json(response); // Brug det til ctx.json
         } catch (Exception e) {
             ctx.res().setStatus(500);
-            ctx.json(Map.of("error", "An error occurred while populating The Bicycle Database"));
+            Map<String, String> errorResponse = Map.of("error", "An error occurred while populating The Bicycle Database");
+            ctx.json(errorResponse); // Send et korrekt JSON-fejlsvar
         }
     }
+
 }
