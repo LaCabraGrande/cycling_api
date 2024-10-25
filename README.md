@@ -1,15 +1,16 @@
 
-This is a simple basic REST API used as a template for the exam.
-It is implemented using Javalin and JPA
+# Cycling API
 
 ### How to run
 
-1. Create a database in your local Postgres instance called garden
+1. Create a database in your local Postgres instance called bicycleapi
 2. Run the main method in the Main class to start the server on port 7070, to create the tables in the database and to
-   populate the database with some test data(happens in the ApplicationConfig class)
-3. See the routes in your browser at `http://localhost:7070/routes`
-4. Request the `http://localhost:7070/resellers` endpoint in your browser to see the list of Resellers and Plants
-5. Use the garden.http file to test the routes, GET/POST/PUT/DELETE requests are available
+   populate the database with some test data(happens in the ApplicationConfig class). You can also do it from the endpoint
+    `http://localhost:7070/api/bicycles/populate`.
+3. See the routes in your browser at `http://localhost:7070/api/routes`
+4. Request the `http://localhost:7070/api/bicycles/` endpoint in your browser to see the list of Bicycles and their parts
+5. Use the dev.http file to test the routes, GET/POST/PUT/DELETE requests are available. You will also find the security
+   routes in the file.
 
 
 ### How to test
@@ -22,7 +23,7 @@ netværksforbindelser. Derfor er enhedstest hurtigere, fordi de kan køres uden 
 I enhedstest bruger vi ofte mocks og stubs til at simulere de dele af koden, som vi ikke tester.
 
 Integrationstest tester derimod, hvordan flere dele af systemet arbejder sammen. I denne opgave fokuserer vi på, hvordan
-PlantCenterDAO interagerer med databasen, for at sikre at CRUD-operationer (oprette, læse, opdatere og slette) fungerer
+BicycleDAO interagerer med databasen, for at sikre at CRUD-operationer (oprette, læse, opdatere og slette) fungerer
 korrekt i en virkelighedsnær situation. Disse tests kræver oprettelse og sletning af testdata i databasen, hvilket gør
 dem langsommere end enhedstest, men de giver et mere præcist billede af, hvordan systemet vil opføre sig i praksis.
 
