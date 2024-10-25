@@ -37,3 +37,8 @@ Forskellen på enhedstest er, at REST-endpoint tests ser på hele systemet fra a
 De tester netværkskommunikation, hvordan data sendes og modtages, samt interaktionen med databasen. Det gør disse tests
 mere omfattende og derfor også langsommere og mere komplekse end enhedstest. Men de er vigtige for at sikre, at API'et
 fungerer korrekt i en situation, der minder om det virkelige liv.
+
+ER-Diagram:
+![Er-Diagram](ER-Diagram-For-Cycling_Api.png)
+
+
