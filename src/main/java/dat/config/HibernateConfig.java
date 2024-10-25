@@ -23,7 +23,7 @@ public class HibernateConfig {
         isTest = test;
     }
 
-    public static Boolean getTest() {
+    public static boolean getTest() {
         return isTest;
     }
 
