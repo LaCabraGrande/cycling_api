@@ -2,7 +2,6 @@ package dat.routes;
 
 import dat.config.ApplicationConfig;
 import dat.config.HibernateConfig;
-import dat.config.Populate;
 import dat.daos.impl.BicycleDAO;
 import dat.dtos.BicycleDTO;
 import dat.entities.Bicycle;

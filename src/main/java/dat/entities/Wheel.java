@@ -29,6 +29,9 @@ public class Wheel {
     @Column(name = "type", nullable = true)
     private String type;
 
+    @Column(name = "model", nullable = true)
+    private String model;
+
     @Column(name = "weight", nullable = true)
     private int weight;
 
@@ -41,10 +44,11 @@ public class Wheel {
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
-    public Wheel(String brand, String material, String type, int weight, int size) {
+    public Wheel(String brand, String material, String type, String model, int weight, int size) {
         this.brand = brand;
         this.material = material;
         this.type = type;
+        this.model = model;
         this.weight = weight;
         this.size = size;
     }
@@ -54,6 +58,7 @@ public class Wheel {
         this.brand = wheelDTO.getBrand();
         this.material = wheelDTO.getMaterial();
         this.type = wheelDTO.getType();
+        this.model = wheelDTO.getModel();
         this.weight = wheelDTO.getWeight();
         this.size = wheelDTO.getSize();
     }

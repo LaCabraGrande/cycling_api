@@ -69,6 +69,7 @@ public class WheelDAO implements IDAO<WheelDTO> {
             w.setBrand(wheelDTO.getBrand());
             w.setType(wheelDTO.getType());
             w.setMaterial(wheelDTO.getMaterial());
+            w.setModel(wheelDTO.getModel());
             w.setWeight(wheelDTO.getWeight());
             w.setSize(wheelDTO.getSize());
             Wheel mergedWheel = em.merge(w);

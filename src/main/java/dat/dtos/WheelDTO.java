@@ -15,6 +15,7 @@ public class WheelDTO {
     private String brand;
     private String material;
     private String type;  // Hvis type er en enum, kan du ændre dette til den tilsvarende enum-type
+    private String model;
     private int weight;
     private int size;
 
@@ -24,6 +25,7 @@ public class WheelDTO {
         this.brand = wheel.getBrand();
         this.material = wheel.getMaterial();
         this.type = wheel.getType();
+        this.model = wheel.getModel();
         this.weight = wheel.getWeight();
         this.size = wheel.getSize();
     }

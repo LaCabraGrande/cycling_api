@@ -152,6 +152,7 @@ public class WheelController implements IController<IController> {
                 .check(p -> p.getType() != null && !p.getType().isEmpty(), "Wheel type must be set")
                 .check(p -> p.getBrand() != null && !p.getBrand().isEmpty(), "Wheel brand must be set")
                 .check(p -> p.getMaterial() != null && !p.getMaterial().isEmpty(),  "Wheel material must be set")
+                .check(p -> p.getModel() != null && !p.getModel().isEmpty(), "Wheel model must be set")
                 .check(p -> p.getWeight() != 0, "Weight must be set")
                 .check(p -> p.getSize() != 0, "Size must be set")
                 .get();
