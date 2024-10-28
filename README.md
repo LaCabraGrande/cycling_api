@@ -65,8 +65,8 @@ Roles:
 -	Admin
 
 ## Request Body and Response Formats:
-(1)	Bike format (don’t provide ID, for POST)
--	Example for a Get bike:
+(1)	Bicycle format
+-	Eksempel på GetBicycleById:
 
 https://bicycle.thegreenway.dk/api/bicycles/1
 {
@@ -115,7 +115,7 @@ https://bicycle.thegreenway.dk/api/bicycles/1
 ## Errors:
 (e) All errors are reported using this format (with the HTTP-status code matching the number)
 
-Bicycle with wrong id (Id not exist) :
+Bicycle with wrong id (Id doesn't exist) :
 {"timestamp":"2024-10-25 07:24:34","status":404,"message":"Bicycle ID not found"}
 Bicycle with wrong id (Id in wrong format typed text) :
 {"timestamp":"2024-10-25 07:27:36","status":400,"message":"Invalid bicycle ID, wrong format"}
