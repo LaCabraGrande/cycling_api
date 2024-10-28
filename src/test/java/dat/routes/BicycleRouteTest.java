@@ -37,7 +37,7 @@ class BicycleRouteTest {
         app = ApplicationConfig.startServer(7070);
         HibernateConfig.setTest(true);
 
-        // Registrér en bruger
+        // Her registrerer vi en bruger
         given()
                 .contentType(ContentType.JSON)
                 .body("{\"username\": \"user\", \"password\": \"test123\"}")
@@ -46,7 +46,7 @@ class BicycleRouteTest {
                 .then()
                 .statusCode(201);  // Forventet 201 Created
 
-        // Log ind for at få JWT-token
+        // Her logger vi brugeren ind for at få et JWT-token
         jwtToken = given()
                 .contentType(ContentType.JSON)
                 .body("{\"username\": \"user\", \"password\": \"test123\"}")
@@ -57,15 +57,16 @@ class BicycleRouteTest {
                 .extract()
                 .path("token");
 
-        // Tilføj rolle til brugeren (superman, USER, eller hvad der kræves)
+        // Her tilføjer vi rollen superman til brugeren men vi kunne også have givet ham admin rollen så han har
+        // adgang til alle CRUD-operationer
         given()
                 .header("Authorization", "Bearer " + jwtToken)
                 .contentType(ContentType.JSON)
-                .body("{\"role\": \"superman\"}")  // eller Role.USER afhængig af rolle i systemet
+                .body("{\"role\": \"superman\"}")  // her giver vi useren superman rollen så han kan det hele
                 .when()
                 .post(BASE_URL + "/auth/user/addrole/")
                 .then()
-                .statusCode(200);  // Forventet succes
+                .statusCode(200);
     }
 
     @BeforeEach
