@@ -8,6 +8,7 @@ import static io.javalin.apibuilder.ApiBuilder.*;
 
 public class BicycleRoute {
 
+    // Her laver vi en instans af BicycleController som indeholder en Entitymanagerfactory
     private final BicycleController bicycleController = new BicycleController();
 
     protected EndpointGroup getRoutes() {

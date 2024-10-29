@@ -15,16 +15,22 @@ Github Repo: https://github.com/LaCabraGrande/cycling_api.git
 Deployed: https://bicycle.thegreenway.dk/api/routes
 
 ## Beskrivelse:
-Cycling API muliggør administration af cykler og deres komponenter med fulde CRUD-operationer. Brugere kan oprette og læse, mens administratorer kan opdatere og slette cykler og deres dele via dedikerede endpoints. API'en inkluderer solid fejlhåndtering, som giver meningsfulde svar på klientforespørgsler, hvilket gør det ideelt til applikationer, der kræver detaljeret cykelinformation og komponentadministration.
+Cycling API muliggør administration af cykler og deres komponenter med fulde CRUD-operationer. Brugere kan oprette og
+læse, mens administratorer kan opdatere og slette cykler og deres dele via dedikerede endpoints. API'en inkluderer solid
+fejlhåndtering, som giver meningsfulde svar på klientforespørgsler, hvilket gør det ideelt til applikationer, der kræver
+detaljeret cykelinformation og komponentadministration.
 
 
 ## Hvordan det kører
 
 - Opret en database i din lokale Postgres-instans kaldet bicycleapi.
-- Kør hovedmetoden i Main-klassen for at starte serveren på port 7070, oprette tabellerne i databasen og populere databasen med nogle testdata (sker i ApplicationConfig-klassen). Du kan også gøre det fra endpointet http://localhost:7070/api/bicycles/populate.
+- Kør hovedmetoden i Main-klassen for at starte serveren på port 7070, oprette tabellerne i databasen og populere
+  databasen med nogle testdata (sker i ApplicationConfig-klassen). Du kan også gøre det fra endpointet
+  http://localhost:7070/api/bicycles/populate.
 - Se ruterne i din browser på http://localhost:7070/api/routes.
 - Anmod om endpointet http://localhost:7070/api/bicycles/ i din browser for at se listen over cykler og deres dele.
-- Brug dev.http-filen til at teste ruterne. GET/POST/PUT/DELETE-anmodninger er tilgængelige, og du vil også finde sikkerhedsruterne i filen.
+- Brug dev.http-filen til at teste ruterne. GET/POST/PUT/DELETE-anmodninger er tilgængelige, og du vil også finde
+  sikkerhedsruterne i filen.
 
 ## Hvordan vi tester:
 
