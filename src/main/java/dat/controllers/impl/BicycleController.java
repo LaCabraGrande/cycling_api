@@ -1,5 +1,7 @@
 package dat.controllers.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import dat.config.HibernateConfig;
 import dat.controllers.IController;
 import dat.daos.impl.BicycleDAO;
@@ -21,6 +23,7 @@ public class BicycleController implements IController<BicycleDTO> {
 
     private final BicycleDAO bicycleDAO;
     private static final Logger logger = LoggerFactory.getLogger(BicycleController.class);
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper().registerModule(new JavaTimeModule());
 
     public BicycleController() {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
@@ -271,10 +274,13 @@ public class BicycleController implements IController<BicycleDTO> {
             int id = Integer.parseInt(ctx.pathParam("id"));
             Bicycle bicycle = bicycleDAO.delete(id);
             if (bicycle != null) {
-                ctx.status(204);
+                String jsonResponse = String.format("{\"Message\": \"Bicycle deleted\", \"bicycle\": %s}",
+                        OBJECT_MAPPER.writeValueAsString(bicycle));
+                ctx.status(200).json(jsonResponse);
             } else {
-                throw new NotFoundResponse("Bicycle not found");
+                throw new NotFoundResponse("Doctor not found");
             }
+
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
@@ -303,9 +309,17 @@ public class BicycleController implements IController<BicycleDTO> {
     // Tænker at vi måske skal flytte den her metode, da det ikke er en del af CRUD
     public void populate(Context ctx) {
         try {
-            populateDatabase();
-            ctx.res().setStatus(200);
-            ctx.json("{ \"Message\": \"The Bicycle Database has been populated\" }");
+            if(!bicycleDAO.getAll().isEmpty()) {
+                ctx.status(400).json(Map.of(
+                        "status", 400,
+                        "message", "The Bicycle Database is already populated",
+                        "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+                ));
+            } else {
+                populateDatabase();
+                ctx.res().setStatus(200);
+                ctx.json("{ \"Message\": \"The Bicycle Database has been populated\" }");
+            }
         } catch (Exception e) {
             ctx.status(500).json(Map.of(
                     "status", 500,

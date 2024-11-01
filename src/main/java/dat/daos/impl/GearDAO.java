@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
+//@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class GearDAO implements IDAO<GearDTO> {
 
     private static GearDAO instance;

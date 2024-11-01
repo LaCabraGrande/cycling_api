@@ -38,6 +38,7 @@ public class Frame {
     @Column(name = "size", nullable = true)
     private int size;
 
+    // skal læses som at et frame kan have mange cykler tilknyttet
     @OneToMany(mappedBy = "frame")
     @JsonIgnore
     @ToString.Exclude

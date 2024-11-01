@@ -2,7 +2,7 @@ package dat.routes;
 
 import dat.config.ApplicationConfig;
 import dat.config.HibernateConfig;
-import dat.daos.impl.BicycleDAO;
+import dat.daos.impl.*;
 import dat.dtos.BicycleDTO;
 import dat.entities.Bicycle;
 import io.javalin.Javalin;
@@ -25,8 +25,12 @@ class BicycleRouteTest {
 
     private static final EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryForTest();
     private static final BicycleDAO bicycleDAO = new BicycleDAO();
+    private static final GearDAO gearDAO = new GearDAO();
+    private static final SaddleDAO saddleDAO = new SaddleDAO();
+    private static final FrameDAO frameDAO = new FrameDAO();
+    private static final WheelDAO wheelDAO = new WheelDAO();
     private static final String BASE_URL = "http://localhost:7070/api";
-    private static Populator populator = new Populator(bicycleDAO, emf);
+    private static Populator populator = new Populator(bicycleDAO, frameDAO, gearDAO, wheelDAO, saddleDAO, emf);
     private Javalin app;
     private BicycleDTO b1, b2, b3;
     private List<BicycleDTO> bicycleDTOS;
@@ -71,7 +75,7 @@ class BicycleRouteTest {
 
     @BeforeEach
     void setUp() {
-        bicycleDTOS = populator.populate3bicyles();
+        bicycleDTOS = populator.populate3bicycles();
         b1 = bicycleDTOS.get(0);
         b2 = bicycleDTOS.get(1);
         b3 = bicycleDTOS.get(2);
@@ -215,7 +219,7 @@ class BicycleRouteTest {
                 .delete(BASE_URL + "/bicycles/" + b1.getId())
                 .then()
                 .log().all()
-                .statusCode(204);
+                .statusCode(200);
 
         List<Bicycle> bicycles = bicycleDAO.getAll().stream().map(BicycleDTO::toEntity).toList();
         assertEquals(2, bicycles.size());

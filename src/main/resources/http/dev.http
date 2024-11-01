@@ -85,7 +85,7 @@ Authorization: Bearer {{jwt_token}}
 }
 
 ### Her sletter vi en cykel ud fra id
-DELETE http://localhost:7070/api/bicycles/16
+DELETE http://localhost:7070/api/bicycles/15
 Authorization: Bearer {{jwt_token}}
 
 // Frame API

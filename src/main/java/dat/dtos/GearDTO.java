@@ -29,6 +29,8 @@ public class GearDTO {
         this.weight = gear.getWeight();
     }
 
+
+
     public Gear toEntity() {
         return new Gear(this);
     }

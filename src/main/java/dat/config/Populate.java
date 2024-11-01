@@ -390,6 +390,7 @@ public class Populate {
             em.persist(gear47);
             em.persist(gear48);
             em.persist(gear49);
+            em.persist(gear50);
 
 
             // Opretter cykler og tilføjer komponenter
@@ -453,8 +454,6 @@ public class Populate {
             Bicycle bicycle58 = new Bicycle("Canyon", "Strive", 54, 4200, 8.6, "All-mountain bike", frame16, gear5, wheel1, saddle3);
             Bicycle bicycle59 = new Bicycle("Colnago", "V3Rs Disc", 56, 8000, 6.9, "Aero road bike", frame9, gear2, wheel1, saddle6);
             Bicycle bicycle60 = new Bicycle("Bianchi", "Cameleonte", 54, 1100, 8.8, "Versatile city bike", frame6, gear4, wheel3, saddle7);
-
-
 
             em.persist(bicycle1);
             em.persist(bicycle2);
