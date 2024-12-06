@@ -40,9 +40,7 @@ public class BicycleDAO {
     public List<BicycleDTO> getAll() {
         try (EntityManager em = emf.createEntityManager()) {
             TypedQuery<BicycleDTO> query = em.createQuery("SELECT new dat.dtos.BicycleDTO(r) FROM Bicycle r", BicycleDTO.class);
-            List<BicycleDTO> results = query.getResultList();
-            System.out.println("Results: " + results);
-            return results;
+            return query.getResultList();
         } catch (Exception e) {
             throw new RuntimeException("Error fetching bicycles", e);
         }

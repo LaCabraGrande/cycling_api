@@ -1,9 +1,12 @@
 package dat.controllers.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import dat.config.HibernateConfig;
 import dat.controllers.IController;
 import dat.daos.impl.FrameDAO;
 import dat.dtos.FrameDTO;
+import dat.entities.Bicycle;
 import dat.entities.Frame;
 import io.javalin.http.Context;
 import io.javalin.http.HttpResponseException;
@@ -16,6 +19,7 @@ import java.util.Map;
 public class FrameController implements IController<IController> {
 
     private final FrameDAO frameDAO;
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper().registerModule(new JavaTimeModule());
 
     public FrameController() {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
@@ -114,11 +118,17 @@ public class FrameController implements IController<IController> {
     }
 
     public void delete(Context ctx) {
-        try {
-            int id = Integer.parseInt(ctx.pathParam("id"));
-            Frame deletedFrame = frameDAO.delete(id).toEntity();
 
-            ctx.status(200).json(deletedFrame);
+            try {
+                int id = Integer.parseInt(ctx.pathParam("id"));
+                Frame frame = frameDAO.delete(id).toEntity();
+                if (frame != null) {
+                    String jsonResponse = String.format("{\"Message\": \"Frame deleted\", \"frame\": %s}",
+                            OBJECT_MAPPER.writeValueAsString(frame));
+                    ctx.status(200).json(jsonResponse);
+                } else {
+                    throw new NotFoundResponse("Frame not found");
+                }
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,

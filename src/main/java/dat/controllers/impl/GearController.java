@@ -1,9 +1,12 @@
 package dat.controllers.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import dat.config.HibernateConfig;
 import dat.controllers.IController;
 import dat.daos.impl.GearDAO;
 import dat.dtos.GearDTO;
+import dat.entities.Frame;
 import dat.entities.Gear;
 import io.javalin.http.Context;
 import io.javalin.http.HttpResponseException;
@@ -17,6 +20,7 @@ import java.util.Map;
 public class GearController implements IController<IController> {
 
     private final GearDAO gearDAO;
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper().registerModule(new JavaTimeModule());
 
     public GearController() {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
@@ -117,9 +121,14 @@ public class GearController implements IController<IController> {
     public void delete(Context ctx) {
         try {
             int id = Integer.parseInt(ctx.pathParam("id"));
-            Gear deletedGear = gearDAO.delete(id).toEntity();
-
-            ctx.status(200).json(deletedGear);
+            Gear gear = gearDAO.delete(id).toEntity();
+            if (gear != null) {
+                String jsonResponse = String.format("{\"Message\": \"Gear deleted\", \"gear\": %s}",
+                        OBJECT_MAPPER.writeValueAsString(gear));
+                ctx.status(200).json(jsonResponse);
+            } else {
+                throw new NotFoundResponse("Gear not found");
+            }
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,

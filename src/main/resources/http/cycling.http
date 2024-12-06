@@ -1,5 +1,3 @@
-### Her tester vi et simpelt endpoint
-GET http://localhost:7070/api/auth/test/
 
 ### Her fylder vi databasen med cykledata
 GET http://localhost:7070/api/bicycles/populate
@@ -27,26 +25,19 @@ POST http://localhost:7070/api/auth/login/
     console.log("JWT Token:", client.global.get("jwt_token"));
 %}
 
-### Her henter vi en bruger med en user rolle
-GET http://localhost:7070/api/protected/user_demo/
-Accept: application/json
-Authorization: Bearer {{jwt_token}}
-
-### Her henter vi en bruger med en admin rolle
-GET http://localhost:7070/api/protected/admin_demo/
-Accept: application/json
-Authorization: Bearer {{jwt_token}}
-
 ### Her tilføjer vi en admin rolle til brugeren
 POST http://localhost:7070/api/auth/user/addrole/
 Accept: application/json
 Authorization: Bearer {{jwt_token}}
 
 {
-    "role": "superman"
+    "role": "admin"
 }
 Accept: application/json
 Authorization: Bearer {{jwt_token}}
+
+
+// Bicycles API
 
 ### Her henter vi alle cykler
 GET http://localhost:7070/api/bicycles
@@ -111,7 +102,7 @@ Authorization: Bearer {{jwt_token}}
 }
 
 ### Her tilføjer vi en frame til en cykel og vi bruger cykel id og frame id
-POST http://localhost:7070/api/bicycles/15/frame/3
+POST http://localhost:7070/api/bicycles/16/frame/3
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
@@ -137,7 +128,7 @@ Authorization: Bearer {{jwt_token}}
 DELETE http://localhost:7070/api/frames/16
 Authorization: Bearer {{jwt_token}}
 
-### Saddles API
+// Saddles API
 
 ### Her henter vi alle saddles
 GET http://localhost:7070/api/saddles
@@ -185,7 +176,7 @@ Authorization: Bearer {{jwt_token}}
 DELETE http://localhost:7070/api/saddles/3
 Authorization: Bearer {{jwt_token}}
 
-### Wheels API
+// Wheels API
 
 ### Her henter vi alle wheels
 GET http://localhost:7070/api/wheels
@@ -200,10 +191,11 @@ Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Zipp",
+  "material": "Carbon",
+  "type": "Disc",
   "model": "303 Firecrest",
-  "size": 700,
-  "price": 1500,
-  "description": "Aero carbon wheelset"
+  "weight": 1500,
+  "size": 25
 }
 
 ### Her tilføjer vi en wheel til en cykel og vi bruger cykel id og wheel id
@@ -223,17 +215,18 @@ Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Zipp",
-  "model": "404 Firecrest",
-  "size": 700,
-  "price": 2000,
-  "description": "Aero carbon wheelset"
+  "material": "Carbon",
+  "type": "Rim",
+  "model": "303 Firecrest",
+  "weight": 1500,
+  "size": 25
 }
 
 ### Her sletter vi en wheel ud fra id
 DELETE http://localhost:7070/api/wheels/3
 Authorization: Bearer {{jwt_token}}
 
-### Gear API
+// Gear API
 
 ### Her henter vi alle gears
 GET http://localhost:7070/api/gears
@@ -248,10 +241,10 @@ Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Shimano",
-  "model": "Dura-Ace",
-  "size": 11,
-  "price": 1500,
-  "description": "High-performance groupset"
+  "model": "105",
+  "material": "Aluminium",
+  "type": "Electronic",
+  "weight": 1450
 }
 
 ### Her tilføjer vi en gear til en cykel og vi bruger cykel id og gear id
@@ -271,10 +264,10 @@ Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Shimano",
-  "model": "Dura-Ace Di2",
-  "size": 11,
-  "price": 2000,
-  "description": "Electronic groupset"
+  "model": "105",
+  "material": "Aluminium",
+  "type": "Electronic",
+  "weight": 1650
 }
 
 ### Her sletter vi en gear ud fra id

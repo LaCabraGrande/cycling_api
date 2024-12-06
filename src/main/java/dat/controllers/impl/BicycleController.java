@@ -278,7 +278,7 @@ public class BicycleController implements IController<BicycleDTO> {
                         OBJECT_MAPPER.writeValueAsString(bicycle));
                 ctx.status(200).json(jsonResponse);
             } else {
-                throw new NotFoundResponse("Doctor not found");
+                throw new NotFoundResponse("Bicycle not found");
             }
 
         } catch (NumberFormatException e) {

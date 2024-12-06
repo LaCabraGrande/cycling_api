@@ -1,9 +1,12 @@
 package dat.controllers.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import dat.config.HibernateConfig;
 import dat.controllers.IController;
 import dat.daos.impl.SaddleDAO;
 import dat.dtos.SaddleDTO;
+import dat.entities.Gear;
 import dat.entities.Saddle;
 import io.javalin.http.Context;
 import io.javalin.http.HttpResponseException;
@@ -17,6 +20,7 @@ import java.util.Map;
 public class SaddleController implements IController<IController> {
 
     private final SaddleDAO saddleDAO;
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper().registerModule(new JavaTimeModule());
 
     public SaddleController() {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
@@ -117,9 +121,14 @@ public class SaddleController implements IController<IController> {
     public void delete(Context ctx) {
         try {
             int id = Integer.parseInt(ctx.pathParam("id"));
-            Saddle deletedSaddle = saddleDAO.delete(id).toEntity();
-
-            ctx.status(200).json(deletedSaddle);
+            Saddle saddle = saddleDAO.delete(id).toEntity();
+            if (saddle != null) {
+                String jsonResponse = String.format("{\"Message\": \"Saddle deleted\", \"saddle\": %s}",
+                        OBJECT_MAPPER.writeValueAsString(saddle));
+                ctx.status(200).json(jsonResponse);
+            } else {
+                throw new NotFoundResponse("Saddle not found");
+            }
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,

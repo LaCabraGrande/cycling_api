@@ -1,9 +1,12 @@
 package dat.controllers.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import dat.config.HibernateConfig;
 import dat.controllers.IController;
 import dat.daos.impl.WheelDAO;
 import dat.dtos.WheelDTO;
+import dat.entities.Gear;
 import dat.entities.Wheel;
 import io.javalin.http.Context;
 import io.javalin.http.HttpResponseException;
@@ -17,6 +20,7 @@ import java.util.Map;
 public class WheelController implements IController<IController> {
 
     private final WheelDAO wheelDAO;
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper().registerModule(new JavaTimeModule());
 
     public WheelController() {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
@@ -117,9 +121,14 @@ public class WheelController implements IController<IController> {
     public void delete(Context ctx) {
         try {
             int id = Integer.parseInt(ctx.pathParam("id"));
-            Wheel deletedWheel = wheelDAO.delete(id).toEntity();
-
-            ctx.status(200).json(deletedWheel);
+            Wheel wheel = wheelDAO.delete(id).toEntity();
+            if (wheel != null) {
+                String jsonResponse = String.format("{\"Message\": \"Wheel deleted\", \"wheel\": %s}",
+                        OBJECT_MAPPER.writeValueAsString(wheel));
+                ctx.status(200).json(jsonResponse);
+            } else {
+                throw new NotFoundResponse("Wheel not found");
+            }
         } catch (NumberFormatException e) {
             ctx.status(400).json(Map.of(
                     "status", 400,
