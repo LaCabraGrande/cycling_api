@@ -3,9 +3,6 @@ package dat.dtos;
 import dat.entities.Frame;
 import lombok.*;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -5,7 +5,10 @@ import dat.entities.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
+
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BicycleDAO {
 
@@ -45,6 +48,24 @@ public class BicycleDAO {
             throw new RuntimeException("Error fetching bicycles", e);
         }
     }
+
+    public List<BicycleDTO> filterByComponents(int saddleId, int frameId, int wheelId, int gearId) {
+        try {
+            List<BicycleDTO> allBicycles = getAll();
+            return allBicycles.stream()
+                    .filter(bicycle -> saddleId == 0 || bicycle.getSaddle().getId() == saddleId) // Filtrer på saddleId
+                    .filter(bicycle -> frameId == 0 || bicycle.getFrame().getId() == frameId) // Filtrer på frameId
+                    .filter(bicycle -> wheelId == 0 || bicycle.getWheel().getId() == wheelId) // Filtrer på wheelId
+                    .filter(bicycle -> gearId == 0 || bicycle.getGear().getId() == gearId) // Filtrer på gearId
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new RuntimeException("Error during filtering by components", e);
+        }
+    }
+
+
+
+
 
     public Bicycle addFrameToBicycle(int bicycleId, int frameId) {
         try (EntityManager em = emf.createEntityManager()) {

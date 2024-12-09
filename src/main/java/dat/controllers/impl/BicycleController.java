@@ -30,18 +30,12 @@ public class BicycleController implements IController<BicycleDTO> {
         this.bicycleDAO = BicycleDAO.getInstance(emf);
     }
 
-    public void create(Context ctx) {
+    public void getAll(Context ctx) {
         try {
-            BicycleDTO bicycleDTO = ctx.bodyAsClass(BicycleDTO.class);
-            BicycleDTO savedResellerDTO = bicycleDAO.add(bicycleDTO);
-            ctx.status(201).json(savedResellerDTO);
+            List<BicycleDTO> bicycleDTOS = bicycleDAO.getAll();
+            ctx.json(bicycleDTOS);
         } catch (Exception e) {
-            ctx.status(400).json(Map.of(
-                    "status", 400,
-                    "message", "Invalid bicycle data",
-                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-            ));
-        } catch (Throwable e) {
+            logger.error("Unknown error occurred", e);
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
@@ -81,12 +75,54 @@ public class BicycleController implements IController<BicycleDTO> {
         }
     }
 
-    public void getAll(Context ctx) {
+    public void filterByComponents(Context ctx) {
+        int saddleId = 0;
+        int frameId = 0;
+        int wheelId = 0;
+        int gearId = 0;
+
         try {
-            List<BicycleDTO> bicycleDTOS = bicycleDAO.getAll();
-            ctx.json(bicycleDTOS);
+            if (ctx.queryParam("saddleId") != null) {
+                saddleId = Integer.parseInt(ctx.queryParam("saddleId"));
+            }
+            if (ctx.queryParam("frameId") != null) {
+                frameId = Integer.parseInt(ctx.queryParam("frameId"));
+            }
+            if (ctx.queryParam("wheelId") != null) {
+                wheelId = Integer.parseInt(ctx.queryParam("wheelId"));
+            }
+            if (ctx.queryParam("gearId") != null) {
+                gearId = Integer.parseInt(ctx.queryParam("gearId"));
+            }
+        } catch (NumberFormatException e) {
+            ctx.status(400).result("Invalid query parameter. Parameters must be integers.");
+            return;
+        }
+
+        try {
+            List<BicycleDTO> filteredBicycles = bicycleDAO.filterByComponents(saddleId, frameId, wheelId, gearId);
+            ctx.json(filteredBicycles);
+        } catch (RuntimeException e) {
+            ctx.status(500).result("An error occurred while filtering bicycles: " + e.getMessage());
+        }
+    }
+
+
+
+
+
+    public void create(Context ctx) {
+        try {
+            BicycleDTO bicycleDTO = ctx.bodyAsClass(BicycleDTO.class);
+            BicycleDTO savedResellerDTO = bicycleDAO.add(bicycleDTO);
+            ctx.status(201).json(savedResellerDTO);
         } catch (Exception e) {
-            logger.error("Unknown error occurred", e);
+            ctx.status(400).json(Map.of(
+                    "status", 400,
+                    "message", "Invalid bicycle data",
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        } catch (Throwable e) {
             ctx.status(500).json(Map.of(
                     "status", 500,
                     "message", "Internal server error",
@@ -94,6 +130,7 @@ public class BicycleController implements IController<BicycleDTO> {
             ));
         }
     }
+
 
     public void addFrameToBicycle(Context ctx) {
         try {

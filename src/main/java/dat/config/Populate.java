@@ -395,7 +395,7 @@ public class Populate {
 
             // Opretter cykler og tilføjer komponenter
             Bicycle bicycle1 = new Bicycle("Trek", "Domane SL6", 56, 3500, 8.7, "High-performance road bike", frame5, gear1, wheel1, saddle1);
-            Bicycle bicycle2 = new Bicycle("Canyon", "Ultimate CF SLX", 54, 4000, 6.8, "Lightweight racing bike", frame1, gear1, wheel2, saddle2);
+            Bicycle bicycle2 = new Bicycle("Canyon", "Ultimate CF SLX", 54, 4000, 6.8, "Lightweight racing bike", frame1, gear1, wheel1, saddle1);
             Bicycle bicycle3 = new Bicycle("Pinarello", "Dogma F12", 58, 5000, 7.6, "Aero road bike", frame3, gear1, wheel1, saddle1);
             Bicycle bicycle4 = new Bicycle("Giant", "TCR Advanced", 55, 3200, 7.8, "Endurance race bike", frame7, gear1, wheel2, saddle2);
             Bicycle bicycle5 = new Bicycle("Bianchi", "Oltre XR4", 57, 4800, 7.4, "High-end performance bike", frame6, gear2, wheel1, saddle1);

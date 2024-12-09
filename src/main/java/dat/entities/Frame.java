@@ -40,9 +40,9 @@ public class Frame {
 
     // skal læses som at et frame kan have mange cykler tilknyttet
     @OneToMany(mappedBy = "frame")
-    @JsonIgnore
-    @ToString.Exclude
-    @JsonBackReference
+    //@JsonIgnore
+    //@ToString.Exclude
+    //@JsonBackReference
     private Set<Bicycle> bicycles;
 
     public Frame(String brand, String material, String type, int weight, int size) {
