@@ -104,10 +104,10 @@ class BicycleRouteTest {
         }
     }
 
-    @AfterAll
-    void closeDown() {
-        ApplicationConfig.stopServer(app);
-    }
+//    @AfterAll
+//    void closeDown() {
+//        ApplicationConfig.stopServer();
+//    }
 
     @Test
     void testGetAllBicycles() {
