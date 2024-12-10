@@ -1,12 +1,14 @@
 package dat.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dat.controllers.impl.ExceptionController;
 import dat.routes.Routes;
 import dat.security.controllers.AccessController;
 import dat.security.controllers.SecurityController;
 import dat.security.enums.Role;
 import dat.security.exceptions.ApiException;
 import dat.security.routes.SecurityRoutes;
+import dat.utils.ApiProps;
 import dat.utils.Utils;
 import io.javalin.Javalin;
 import io.javalin.config.JavalinConfig;
@@ -16,16 +18,16 @@ import org.slf4j.LoggerFactory;
 
 public class ApplicationConfig {
 
-    private static Routes routes = new Routes();
-    private static ObjectMapper jsonMapper = new Utils().getObjectMapper();
-    private static SecurityController securityController = SecurityController.getInstance();
-    private static AccessController accessController = new AccessController();
-    private static Logger logger = LoggerFactory.getLogger(ApplicationConfig.class);
+    private static final Routes routes = new Routes();
+    private static final ExceptionController exceptionController = new ExceptionController();
+    private static final AccessController accessController = new AccessController();
+    private static final Logger logger = LoggerFactory.getLogger(ApplicationConfig.class);
 
     public static void configuration(JavalinConfig config) {
         config.showJavalinBanner = false;
+        config.router.contextPath = ApiProps.API_CONTEXT;
         config.bundledPlugins.enableRouteOverview("/routes", Role.ANYONE);
-        config.router.contextPath = "/api"; // base path for all endpoints
+        config.bundledPlugins.enableDevLogging();
         config.router.apiBuilder(routes.getRoutes());
         config.router.apiBuilder(SecurityRoutes.getSecuredRoutes());
         config.router.apiBuilder(SecurityRoutes.getSecurityRoutes());
@@ -46,17 +48,16 @@ public class ApplicationConfig {
         ctx.status(204);
     }
 
-    public static Javalin startServer(int port) {
+    public static void startServer() {
         Javalin app = Javalin.create(ApplicationConfig::configuration);
-        app.beforeMatched(accessController::accessHandler);
-        app.beforeMatched(ctx -> accessController.accessHandler(ctx));
-        app.before(ApplicationConfig::corsHeaders);
-        app.options("/*", ApplicationConfig::corsHeadersOptions);
         app.exception(Exception.class, ApplicationConfig::generalExceptionHandler);
         app.exception(ApiException.class, ApplicationConfig::apiExceptionHandler);
-        app.start(port);
-
-        return app;
+        app.beforeMatched(accessController::accessHandler);
+        //app.beforeMatched(ctx -> accessController.accessHandler(ctx));
+        app.before(ApplicationConfig::corsHeaders);
+        app.options("/*", ApplicationConfig::corsHeadersOptions);
+        app.start(ApiProps.PORT);
+        //app.start(port);
     }
 
     public static void stopServer(Javalin app) {

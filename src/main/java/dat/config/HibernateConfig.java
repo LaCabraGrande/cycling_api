@@ -4,6 +4,7 @@ import dat.entities.*;
 import dat.routes.BicycleRoute;
 import dat.security.entities.Role;
 import dat.security.entities.User;
+import dat.utils.ApiProps;
 import dat.utils.Utils;
 import jakarta.persistence.EntityManagerFactory;
 import org.hibernate.SessionFactory;
@@ -102,21 +103,19 @@ public class HibernateConfig {
     }
 
     private static Properties setDevProperties(Properties props) {
-        String DBName = Utils.getPropertyValue("DB_NAME", "config.properties");
-        props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/" + DBName);
-        props.put("hibernate.connection.username", "postgres");
-        props.put("hibernate.connection.password", "postgres");
+        props.put("hibernate.connection.url", ApiProps.DB_URL);
+        props.put("hibernate.connection.username", ApiProps.DB_USERNAME);
+        props.put("hibernate.connection.password", ApiProps.DB_PASSWORD);
         props.put("hibernate.show_sql", "false");
         props.put("hibernate.format_sql", "false");
         return props;
     }
 
     private static Properties setTestProperties(Properties props) {
-        //props.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         props.put("hibernate.connection.driver_class", "org.testcontainers.jdbc.ContainerDatabaseDriver");
         props.put("hibernate.connection.url", "jdbc:tc:postgresql:15.3-alpine3.18:///test_db");
-        props.put("hibernate.connection.username", "postgres");
-        props.put("hibernate.connection.password", "postgres");
+        props.put("hibernate.connection.username", ApiProps.DB_USERNAME);
+        props.put("hibernate.connection.password", ApiProps.DB_PASSWORD);
         props.put("hibernate.archive.autodetection", "class");
         props.put("hibernate.show_sql", "false");
         props.put("hibernate.format_sql", "false");

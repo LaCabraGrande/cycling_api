@@ -38,7 +38,7 @@ class BicycleRouteTest {
 
     @BeforeAll
     void init() {
-        app = ApplicationConfig.startServer(7070);
+        ApplicationConfig.startServer();
         HibernateConfig.setTest(true);
 
         // Her registrerer vi en bruger
