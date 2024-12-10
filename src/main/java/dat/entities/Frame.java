@@ -25,6 +25,9 @@ public class Frame {
     @Column(name = "brand", nullable = true)
     private String brand;
 
+    @Column(name = "model", nullable = true)
+    private String model;
+
     @Column(name = "material", nullable = true)
     private String material;
 
@@ -45,8 +48,9 @@ public class Frame {
     //@JsonBackReference
     private Set<Bicycle> bicycles;
 
-    public Frame(String brand, String material, String type, int weight, int size) {
+    public Frame(String brand, String model, String material, String type, int weight, int size) {
         this.brand = brand;
+        this.model = model;
         this.material = material;
         this.type = type;
         this.weight = weight;
@@ -56,6 +60,7 @@ public class Frame {
     public Frame(FrameDTO frameDTO) {
         this.id = frameDTO.getId();
         this.brand = frameDTO.getBrand();
+        this.model = frameDTO.getModel();
         this.material = frameDTO.getMaterial();
         this.type = frameDTO.getType();
         this.weight = frameDTO.getWeight();
