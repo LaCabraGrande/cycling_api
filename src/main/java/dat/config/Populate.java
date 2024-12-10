@@ -90,6 +90,10 @@ public class Populate {
         Frame frame71 = new Frame("Giant", "ALUXX-Grade", "Aluminum", "Rim", 1250, 56);
         Frame frame72 = new Frame("Cervelo", "All-Carbon Tapered", "Carbon", "Disc", 1500, 56);
         Frame frame73 = new Frame("Pinarello", "Dogma F10", "Carbon", "Disc", 1200, 58);
+        Frame frame74 = new Frame("Colnago", "V3Rs", "Carbon", "Disc", 1400, 58);
+
+
+
 
 
 
@@ -129,7 +133,7 @@ public class Populate {
         Saddle saddle33 = new Saddle("Ritchey", "Carbon", "Comp", 240, 140);
         Saddle saddle34 = new Saddle("Fi'zi:k", "Carbon", "Arione 00", 350, 140);
         Saddle saddle35 = new Saddle("Brooks", "Leather", "Swift", 300, 160);
-        Saddle saddle36 = new Saddle("Prologo", "Carbon", "X10", 230, 145);
+        Saddle saddle36 = new Saddle("Colnago", "Carbon", "Prologo X10", 230, 145);
         Saddle saddle37 = new Saddle("Fabric", "Synthetic", "Shallow", 180, 130);
         Saddle saddle38 = new Saddle("SQlab", "Synthetic", "612", 200, 140);
         Saddle saddle39 = new Saddle("Selle San Marco", "Synthetic", "Concor", 250, 145);
@@ -195,7 +199,7 @@ public class Populate {
         Gear gear10 = new Gear("Campagnolo", "Athena", "Aluminium", "Mechanical", 1600);
         Gear gear11 = new Gear("SRAM", "Rival", "Aluminium", "Mechanical", 1500);
         Gear gear12 = new Gear("Campagnolo", "Super Record", "Carbon", "Electronic", 1900);
-        Gear gear13 = new Gear("Shimano", "XTR", "Aluminium", "Mechanical", 1750);
+        Gear gear13 = new Gear("Shimano", "105 R7000", "Aluminium", "Mechanical", 1250);
         Gear gear14 = new Gear("Shimano", "Ultegra R8100", "Aluminium", "Mechanical", 2520);
         Gear gear15 = new Gear("Shimano", "105 Di2 RD-R7170", "Aluminium", "Electronic", 2820);
         Gear gear16 = new Gear("Shimano", "105 R7100", "Aluminium", "Mechanical", 2620);
@@ -209,7 +213,7 @@ public class Populate {
         Gear gear24 = new Gear("Shimano", "Dura-Ace 9100", "Carbon", "Mechanical", 1750);
         Gear gear25 = new Gear("Campagnolo", "Athena EPS", "Carbon", "Electronic", 1800);
         Gear gear26 = new Gear("Campagnolo", "Record EPS", "Carbon", "Electronic", 1900);
-        Gear gear27 = new Gear("Shimano", "105 R7000", "Aluminium", "Mechanical", 1250);
+
 
 
         try (EntityManager em = emf.createEntityManager()) {
@@ -286,6 +290,11 @@ public class Populate {
             em.persist(frame68);
             em.persist(frame69);
             em.persist(frame70);
+            em.persist(frame71);
+            em.persist(frame72);
+            em.persist(frame73);
+            em.persist(frame74);
+
 
 
             // Gemmer saddel
@@ -404,7 +413,7 @@ public class Populate {
             em.persist(gear24);
             em.persist(gear25);
             em.persist(gear26);
-            em.persist(gear27);
+
 
             // Opretter cykler og tilføjer komponenter
             Bicycle bicycle1 = new Bicycle("Trek", "Domane SL6", 56, 3500, 9.3, "Endurance road bike", frame66, gear1, wheel41, saddle41);
@@ -429,24 +438,22 @@ public class Populate {
             Bicycle bicycle20 = new Bicycle("Giant", "Contend", 58, 1500, 8.7, "Lightweight", frame71, gear1, wheel1, saddle10);
             Bicycle bicycle21 = new Bicycle("BMC", "Roadmachine", 56, 3500, 7.5, "Lightweight", frame11, gear1, wheel1, saddle11);
             Bicycle bicycle22 = new Bicycle("Cervélo", "R3", 56, 4800, 7.0, "Versatile racing bike", frame26, gear2, wheel1, saddle6);
-            Bicycle bicycle23 = new Bicycle("Colnago", "V3Rs Disc", 56, 8000, 6.9, "Aero road bike", frame9, gear2, wheel1, saddle6);
-            Bicycle bicycle24 = new Bicycle("Colnago", "V3Rs", 54, 4200, 6.8, "Aerodynamic road bike", frame9, gear3, wheel1, saddle5);
-            Bicycle bicycle25 = new Bicycle("Colnago", "C59", 58, 6400, 6.5, "High-performance road bike", frame9, gear1, wheel1, saddle1);
-            Bicycle bicycle26 = new Bicycle("Colnago", "C64 Disc", 56, 7900, 7.0, "Premium road bike", frame9, gear2, wheel1, saddle5);
+            Bicycle bicycle23 = new Bicycle("Colnago", "V3Rs Disc", 56, 8000, 6.9, "Aero road bike", frame74, gear2, wheel1, saddle6);
+            Bicycle bicycle24 = new Bicycle("Cervélo", "S3", 56, 5500, 6.4, "Aero road bike", frame15, gear2, wheel1, saddle5);
+            Bicycle bicycle25 = new Bicycle("Colnago", "C59", 58, 6400, 6.5, "High-performance road bike", frame28, gear1, wheel1, saddle1);
+            Bicycle bicycle26 = new Bicycle("Colnago", "C64 Disc", 56, 7900, 7.0, "Premium road bike", frame29, gear2, wheel1, saddle5);
             Bicycle bicycle27 = new Bicycle("Cervélo", "S5", 54, 6500, 6.6, "Aerodynamic race bike", frame72, gear2, wheel1, saddle1);
             Bicycle bicycle28 = new Bicycle("Pinarello", "F10", 54, 7500, 6.7, "High-performance racing bike", frame73, gear2, wheel1, saddle5);
             Bicycle bicycle29 = new Bicycle("Pinarello", "Paris", 56, 5900, 7.3, "Touring bike", frame48, gear1, wheel1, saddle9);
-            Bicycle bicycle30 = new Bicycle("Scott", "Addict RC", 56, 6200, 7.0, "Performance road bike", frame8, gear1, wheel1, saddle2);
-            Bicycle bicycle31 = new Bicycle("Canyon", "Endurace", 55, 3200, 7.8, "Endurance road bike", frame7, gear3, wheel2, saddle4);
-            Bicycle bicycle32 = new Bicycle("Giant", "Defy Advanced Pro", 55, 4200, 7.1, "Endurance bike", frame7, gear3, wheel1, saddle6);
-            Bicycle bicycle33 = new Bicycle("Giant", "Explore", 55, 1500, 8.6, "Adventure bike", frame7, gear5, wheel3, saddle4);
-            Bicycle bicycle34 = new Bicycle("Giant", "Defy", 55, 3300, 7.5, "Endurance bike", frame7, gear3, wheel2, saddle4);
-            Bicycle bicycle35 = new Bicycle("Bianchi", "Impulso", 56, 2900, 7.9, "Versatile road bike", frame6, gear3, wheel1, saddle6);
-            Bicycle bicycle36 = new Bicycle("Specialized", "Roubaix", 58, 5000, 6.9, "Endurance road bike", frame4, gear1, wheel1, saddle2);
-            Bicycle bicycle37 = new Bicycle("Felt", "VR FRD", 55, 4200, 7.2, "Endurance road bike", frame8, gear2, wheel2, saddle3);
-            Bicycle bicycle38 = new Bicycle("Felt", "F5", 56, 2900, 8.2, "Lightweight racing bike", frame8, gear1, wheel2, saddle6);
-            Bicycle bicycle39 = new Bicycle("Trek", "Speed Concept", 56, 8500, 6.2, "Triathlon bike", frame17, gear1, wheel1, saddle8);
-            Bicycle bicycle40 = new Bicycle("Cervélo", "S3", 56, 5500, 6.4, "Aero road bike", frame15, gear2, wheel1, saddle5);
+            Bicycle bicycle30 = new Bicycle("Scott", "Addict RC", 56, 6200, 7.0, "Performance road bike", frame54, gear1, wheel1, saddle2);
+            Bicycle bicycle31 = new Bicycle("Canyon", "Endurace", 55, 3200, 7.8, "Endurance road bike", frame18, gear3, wheel2, saddle4);
+            Bicycle bicycle32 = new Bicycle("Giant", "Defy Advanced Pro", 55, 4200, 7.1, "Endurance bike", frame37, gear3, wheel1, saddle6);
+            Bicycle bicycle33 = new Bicycle("Felt", "F5", 56, 2900, 8.2, "Lightweight racing bike", frame32, gear1, wheel2, saddle6);
+            Bicycle bicycle34 = new Bicycle("Giant", "Defy", 55, 3300, 7.5, "Endurance bike", frame37, gear3, wheel2, saddle4);
+            Bicycle bicycle35 = new Bicycle("Bianchi", "Impulso", 56, 2900, 7.9, "Versatile road bike", frame8, gear3, wheel1, saddle6);
+            Bicycle bicycle36 = new Bicycle("Specialized", "Roubaix", 58, 5000, 6.9, "Endurance road bike", frame57, gear1, wheel1, saddle2);
+            Bicycle bicycle37 = new Bicycle("Felt", "VR FRD", 55, 4200, 7.2, "Endurance road bike", frame31, gear2, wheel2, saddle3);
+
 
 
 
@@ -487,9 +494,7 @@ public class Populate {
             em.persist(bicycle35);
             em.persist(bicycle36);
             em.persist(bicycle37);
-            em.persist(bicycle38);
-            em.persist(bicycle39);
-            em.persist(bicycle40);
+
 
 
             em.getTransaction().commit();
