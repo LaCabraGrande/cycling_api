@@ -101,7 +101,7 @@ public class Populate {
 
         // Opret saddel
         Saddle saddle1 = new Saddle("Fi'zi:k", "Synthetic", "Arione Classic", 225, 130);
-        Saddle saddle2 = new Saddle("Brooks", "Leather", "Classic", 350, 160);
+        Saddle saddle2 = new Saddle("Selle Italia", "Foam", "Flite Boost TM Superflow", 233, 135);
         Saddle saddle3 = new Saddle("Selle Italia", "Leather", "Flite", 300, 155);
         Saddle saddle4 = new Saddle("Specialized", "Foam", "Power", 250, 143);
         Saddle saddle5 = new Saddle("Prologo", "Foam", "Dimension", 220, 145);
@@ -131,7 +131,7 @@ public class Populate {
         Saddle saddle29 = new Saddle("Fi'zi:k", "Synthetic", "Antares 00", 140, 145);
         Saddle saddle30 = new Saddle("Selle Italia", "Carbon", "SLR Tekno", 400, 130);
         Saddle saddle31 = new Saddle("Bontrager", "Synthetic", "H1", 180, 138);
-        Saddle saddle32 = new Saddle("Prologo", "Foam", "Dimension", 300, 145);
+        Saddle saddle32 = new Saddle("Selle Italia", "Foam", "SLR TM", 233, 131);
         Saddle saddle33 = new Saddle("Ritchey", "Carbon", "Comp", 240, 140);
         Saddle saddle34 = new Saddle("Fi'zi:k", "Synthetic", "Arione 00", 140, 124);
         Saddle saddle35 = new Saddle("Brooks", "Leather", "Swift", 300, 160);
@@ -191,7 +191,7 @@ public class Populate {
         Saddle saddle89 = new Saddle("Selle Italia", "Foam", "Flite Boost Kit Carbonio Superslow MVDP", 162, 145);
         Saddle saddle90 = new Saddle("Selle Italia", "Foam", "Flite Boost Kit Carbonio Superslow", 157, 135);
         Saddle saddle91 = new Saddle("Selle Italia", "Foam", "Flite Boost Kit Carbonio", 173, 135);
-        Saddle saddle92 = new Saddle("Selle Italia", "Foam", "Flite Boost Pro Team Kit Carbonio Superslow 2023", 165, 135);
+        Saddle saddle92 = new Saddle("Selle Italia", "Foam", "Flite Boost TM", 247, 135);
         Saddle saddle93 = new Saddle("Selle Italia", "Foam", "SLR Boost TI 315 Superslow", 158, 130);
         Saddle saddle94 = new Saddle("Selle Italia", "Foam", "SLR Boost Endurance TI 316 Superslow", 202, 130);
         Saddle saddle95 = new Saddle("Selle Italia", "Foam", "SLR TI 316 Superslow", 185, 130);
@@ -201,9 +201,9 @@ public class Populate {
         Saddle saddle99 = new Saddle("Selle Italia", "Foam", "SLR Boost TM Superslow", 208, 130);
         Saddle saddle100 = new Saddle("Selle Italia", "Foam", "SLR Boost TM", 230, 130);
         Saddle saddle101 = new Saddle("Selle Italia", "Foam", "SLR TM Superslow", 205, 131);
-        Saddle saddle102 = new Saddle("Selle Italia", "Foam", "SLR TM", 233, 131);
-        Saddle saddle103 = new Saddle("Selle Italia", "Foam", "Flite Boost TM Superflow", 233, 135);
-        Saddle saddle104 = new Saddle("Selle Italia", "Foam", "Flite Boost TM", 247, 135);
+
+
+
 
 
         // Opret hjul med modeller
@@ -542,10 +542,6 @@ public class Populate {
             em.persist(saddle99);
             em.persist(saddle100);
             em.persist(saddle101);
-            em.persist(saddle102);
-            em.persist(saddle103);
-            em.persist(saddle104);
-
 
 
             // Gemmer hjul
@@ -704,13 +700,13 @@ public class Populate {
             Bicycle bicycle1 = new Bicycle("Trek", "Domane SL6", 56, 3500, 9.3, "Endurance road bike", frame66, gear1, wheel41, saddle41);
             Bicycle bicycle2 = new Bicycle("Canyon", "Ultimate CF SLX 9 Di2", 54, 9000, 6.8, "Lightweight racing bike", frame24, gear6, wheel106, saddle82);
             Bicycle bicycle3 = new Bicycle("Pinarello", "Dogma F12", 58, 10500, 7.6, "Aero road bike", frame47, gear26, wheel42, saddle1);
-            Bicycle bicycle4 = new Bicycle("Giant", "TCR Advanced", 55, 3200, 7.8, "Endurance race bike", frame36, gear1, wheel2, saddle2);
+            Bicycle bicycle4 = new Bicycle("Giant", "TCR Advanced", 55, 3200, 7.8, "Endurance race bike", frame36, gear1, wheel2, saddle5);
             Bicycle bicycle5 = new Bicycle("Bianchi", "Oltre XR4", 57, 6000, 7.0, "Road bike", frame9, gear1, wheel24, saddle1);
             Bicycle bicycle6 = new Bicycle("Specialized", "S-Works Tarmac SL7", 56, 8000, 6.7, "Ultra-lightweight race bike", frame61, gear3, wheel84, saddle1);
-            Bicycle bicycle7 = new Bicycle("Colnago", "C64", 58, 7000, 7.2, "Road bike", frame78, gear21, wheel64, saddle32);
-            Bicycle bicycle8 = new Bicycle("Cannondale", "SuperSix EVO", 54, 4000, 7.5, "Aero road bike", frame16, gear3, wheel107, saddle32);
+            Bicycle bicycle7 = new Bicycle("Colnago", "C64", 58, 7000, 7.2, "Road bike", frame78, gear21, wheel64, saddle5);
+            Bicycle bicycle8 = new Bicycle("Cannondale", "SuperSix EVO", 54, 4000, 7.5, "Aero road bike", frame16, gear3, wheel107, saddle5);
             Bicycle bicycle9 = new Bicycle("Felt", "FR FRD", 55, 6000, 6.9, "Road bike", frame31, gear2, wheel2, saddle1);
-            Bicycle bicycle10 = new Bicycle("Scott", "Foil RC", 56, 5500, 7.6, "Aero Road bike", frame55, gear1, wheel1, saddle2);
+            Bicycle bicycle10 = new Bicycle("Scott", "Foil RC", 56, 5500, 7.6, "Aero Road bike", frame55, gear1, wheel1, saddle5);
             Bicycle bicycle11 = new Bicycle("Canyon", "Aeroad CF SLX", 56, 4400, 7.3, "Aerodynamic road bike", frame17, gear1, wheel54, saddle82);
             Bicycle bicycle12 = new Bicycle("Trek", "Madone SLR 9", 58, 8500, 7.7, "Lightweight and aerodynamic", frame66, gear3, wheel1, saddle1);
             Bicycle bicycle13 = new Bicycle("BMC", "Teammachine SLR01", 56, 7000, 6.5, "Aero road bike", frame10, gear1, wheel1, saddle5);
@@ -726,8 +722,8 @@ public class Populate {
             Bicycle bicycle23 = new Bicycle("Colnago", "V3Rs Disc", 56, 8000, 6.9, "Aero road bike", frame74, gear2, wheel1, saddle6);
             Bicycle bicycle24 = new Bicycle("Cervélo", "S3", 56, 5500, 6.4, "Aero road bike", frame15, gear2, wheel1, saddle5);
             Bicycle bicycle25 = new Bicycle("Colnago", "C59", 58, 6400, 6.5, "Road bike", frame28, gear1, wheel1, saddle1);
-            Bicycle bicycle26 = new Bicycle("Colnago", "C64 Disc", 56, 7900, 7.0, "Premium road bike", frame29, gear2, wheel1, saddle5);
-            Bicycle bicycle27 = new Bicycle("Cervélo", "S5", 54, 6500, 6.6, "Aero road bike", frame72, gear2, wheel1, saddle1);
+            Bicycle bicycle26 = new Bicycle("Colnago", "C64 Disc", 56, 7900, 7.0, "Premium road bike", frame29, gear2, wheel1, saddle23);
+            Bicycle bicycle27 = new Bicycle("Cervélo", "S5", 54, 6500, 6.6, "Aero road bike", frame72, gear2, wheel1, saddle5);
             Bicycle bicycle28 = new Bicycle("Pinarello", "F10", 54, 7500, 6.7, "Aero road bike", frame73, gear2, wheel1, saddle5);
             Bicycle bicycle29 = new Bicycle("Pinarello", "Paris", 56, 5900, 7.3, "Touring bike", frame48, gear1, wheel1, saddle9);
             Bicycle bicycle30 = new Bicycle("Scott", "Addict RC", 56, 6200, 7.0, "Performance road bike", frame54, gear1, wheel1, saddle2);
