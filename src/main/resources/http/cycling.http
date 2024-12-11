@@ -134,6 +134,7 @@ Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Trek",
+  "model": "Madone",
   "material": "Aluminium",
   "type": "Rim",
   "weight": 1500,
@@ -157,6 +158,7 @@ Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Pinarello",
+  "model": "Dogma F12",
   "material": "Carbon",
   "type": "Disc",
   "weight": 1150,
