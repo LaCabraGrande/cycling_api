@@ -33,6 +33,55 @@ public class BicycleDAO {
         }
     }
 
+
+    public BicycleDTO createWithComponents(BicycleDTO bicycleDTO) {
+
+        try (EntityManager em = emf.createEntityManager()) {
+            System.out.println("Starting addWithComponents...");
+            em.getTransaction().begin();
+
+            // Fetch and print details for Frame
+            System.out.println("Fetching Frame from DTO...");
+            Frame frame = bicycleDTO.getFrame() != null ? em.find(Frame.class, bicycleDTO.getFrame().getId()) : null;
+            System.out.println("Frame fetched: " + (frame != null ? frame.getId() : "null"));
+
+            // Fetch and print details for Gear
+            System.out.println("Fetching Gear from DTO...");
+            Gear gear = bicycleDTO.getGear() != null ? em.find(Gear.class, bicycleDTO.getGear().getId()) : null;
+            System.out.println("Gear fetched: " + (gear != null ? gear.getId() : "null"));
+
+            // Fetch and print details for Wheel
+            System.out.println("Fetching Wheel from DTO...");
+            Wheel wheel = bicycleDTO.getWheel() != null ? em.find(Wheel.class, bicycleDTO.getWheel().getId()) : null;
+            System.out.println("Wheel fetched: " + (wheel != null ? wheel.getId() : "null"));
+
+            // Fetch and print details for Saddle
+            System.out.println("Fetching Saddle from DTO...");
+            Saddle saddle = bicycleDTO.getSaddle() != null ? em.find(Saddle.class, bicycleDTO.getSaddle().getId()) : null;
+            System.out.println("Saddle fetched: " + (saddle != null ? saddle.getId() : "null"));
+
+            // Create and persist the Bicycle entity
+            System.out.println("Creating Bicycle entity...");
+            Bicycle bicycle = new Bicycle(
+                    bicycleDTO.getBrand(),
+                    bicycleDTO.getModel(),
+                    bicycleDTO.getSize(),
+                    bicycleDTO.getPrice(),
+                    bicycleDTO.getWeight(),
+                    bicycleDTO.getDescription(),
+                    frame, gear, wheel, saddle
+            );
+            em.persist(bicycle);
+            em.getTransaction().commit();
+
+            System.out.println("Bicycle created with ID: " + bicycle.getId());
+            return new BicycleDTO(bicycle);
+        }
+    }
+
+
+
+
     public BicycleDTO getById(int id) {
         try (EntityManager em = emf.createEntityManager()) {
             Bicycle bicycle = em.find(Bicycle.class, id);

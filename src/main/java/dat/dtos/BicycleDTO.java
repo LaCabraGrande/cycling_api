@@ -25,7 +25,7 @@ public class BicycleDTO {
     private SaddleDTO saddle;
 
     // Constructor med alle felter
-    public BicycleDTO(int id, String brand, String model, int size, int price, double weight ,String description, FrameDTO frame, GearDTO gear, WheelDTO wheel, SaddleDTO saddle) {
+    public BicycleDTO(int id, String brand, String model, int size, int price, double weight , String description, FrameDTO frame, GearDTO gear, WheelDTO wheel, SaddleDTO saddle) {
         this.id = id;
         this.brand = brand;
         this.model = model;

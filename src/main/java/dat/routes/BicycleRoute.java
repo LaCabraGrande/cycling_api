@@ -19,6 +19,7 @@ public class BicycleRoute {
             get("/", bicycleController::getAll, Role.ANYONE);
             get("/{id}", bicycleController::getById, Role.ANYONE);
             post("/", bicycleController::create, Role.USER);
+            post("/withcomponents", bicycleController::createWithComponents, Role.USER);
             post("/{bicycleId}/frame/{frameId}", bicycleController::addFrameToBicycle, Role.USER);
             post("/{bicycleId}/gear/{gearId}", bicycleController::addGearToBicycle, Role.USER);
             post("/{bicycleId}/wheel/{wheelId}", bicycleController::addWheelToBicycle, Role.USER);

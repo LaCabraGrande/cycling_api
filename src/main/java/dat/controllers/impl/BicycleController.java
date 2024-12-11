@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import dat.config.HibernateConfig;
 import dat.controllers.IController;
-import dat.daos.impl.BicycleDAO;
-import dat.dtos.BicycleDTO;
+import dat.daos.impl.*;
+import dat.dtos.*;
 import dat.entities.Bicycle;
 import io.javalin.http.Context;
 import io.javalin.http.NotFoundResponse;
@@ -22,12 +22,21 @@ import static dat.config.Populate.populateDatabase;
 public class BicycleController implements IController<BicycleDTO> {
 
     private final BicycleDAO bicycleDAO;
+    private final FrameDAO frameDAO;
+    private final GearDAO gearDAO;
+    private final WheelDAO wheelDAO;
+    private final SaddleDAO saddleDAO;
+
     private static final Logger logger = LoggerFactory.getLogger(BicycleController.class);
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper().registerModule(new JavaTimeModule());
 
     public BicycleController() {
         EntityManagerFactory emf = HibernateConfig.getEntityManagerFactory();
         this.bicycleDAO = BicycleDAO.getInstance(emf);
+        this.frameDAO = FrameDAO.getInstance(emf);
+        this.gearDAO = GearDAO.getInstance(emf);
+        this.wheelDAO = WheelDAO.getInstance(emf);
+        this.saddleDAO = SaddleDAO.getInstance(emf);
     }
 
     public void getAll(Context ctx) {
@@ -128,6 +137,45 @@ public class BicycleController implements IController<BicycleDTO> {
                     "message", "Internal server error",
                     "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
+        }
+    }
+
+    public void createWithComponents(Context ctx) {
+        try {
+            BicycleCompleteDTO bicycleCompleteDTO = ctx.bodyAsClass(BicycleCompleteDTO.class);
+
+            int frameId = bicycleCompleteDTO.getFrameId();
+            int gearId = bicycleCompleteDTO.getGearId();
+            int wheelId = bicycleCompleteDTO.getWheelId();
+            int saddleId = bicycleCompleteDTO.getSaddleId();
+
+            // Hent entiteter fra DAO
+            FrameDTO frameDTO = frameDAO.getById(frameId);
+            GearDTO gearDTO = gearDAO.getById(gearId);
+            WheelDTO wheelDTO = wheelDAO.getById(wheelId);
+            SaddleDTO saddleDTO = saddleDAO.getById(saddleId);
+
+            // Opret BicycleDTO
+            BicycleDTO bicycleDTO = new BicycleDTO();
+            bicycleDTO.setBrand(bicycleCompleteDTO.getBrand());
+            bicycleDTO.setModel(bicycleCompleteDTO.getModel());
+            bicycleDTO.setSize(bicycleCompleteDTO.getSize());
+            bicycleDTO.setPrice(bicycleCompleteDTO.getPrice());
+            bicycleDTO.setWeight(bicycleCompleteDTO.getWeight());
+            bicycleDTO.setDescription(bicycleCompleteDTO.getDescription());
+            bicycleDTO.setFrame(frameDTO);
+            bicycleDTO.setGear(gearDTO);
+            bicycleDTO.setWheel(wheelDTO);
+            bicycleDTO.setSaddle(saddleDTO);
+
+            // Send til DAO
+            BicycleDTO savedBicycle = bicycleDAO.createWithComponents(bicycleDTO);
+
+            // Returner response
+            ctx.status(201).json(savedBicycle);
+        } catch (Exception e) {
+            ctx.status(500); // Internal Server Error
+            ctx.result("Error creating bicycle with components: " + e.getMessage());
         }
     }
 

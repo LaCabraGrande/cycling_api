@@ -54,7 +54,7 @@ public class Bicycle {
     }
 
     // Constructor til oprettelse af ny Bicycle med komponenter
-    public Bicycle(String brand, String model, int size, int price, double weight,String description, Frame frame, Gear gear, Wheel wheel, Saddle saddle) {
+    public Bicycle(String brand, String model, int size, int price, double weight, String description, Frame frame, Gear gear, Wheel wheel, Saddle saddle) {
         this.brand = brand;
         this.model = model;
         this.size = size;

@@ -62,8 +62,26 @@ Authorization: Bearer {{jwt_token}}
     "size": 56,
     "price": 8000,
     "weight": 7.5,
-    "description": "High-performance aero road bike"
+    "description": "Aero road bike"
     }
+
+### Her opretter vi en cykel og inkluderer ramme, hjul, gear og sadel
+POST http://localhost:7070/api/bicycles/withcomponents
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "brand": "Cervélo",
+  "model": "S5",
+  "size": 56,
+  "price": 8000,
+  "weight": 7.5,
+  "description": "Aero road bike",
+  "frameId": 1,
+  "wheelId": 1,
+  "gearId": 1,
+  "saddleId": 1
+}
 
 ### Her opdaterer vi en cykel ud fra id på cyklen
 PUT http://localhost:7070/api/bicycles/6
