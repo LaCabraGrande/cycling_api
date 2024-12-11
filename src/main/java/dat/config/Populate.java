@@ -93,10 +93,6 @@ public class Populate {
         Frame frame74 = new Frame("Colnago", "V3Rs", "Carbon", "Disc", 1400, 58);
 
 
-
-
-
-
         // Opret saddel
         Saddle saddle1 = new Saddle("Fi'zi:k", "Carbon", "Arione", 200, 140);
         Saddle saddle2 = new Saddle("Brooks", "Leather", "Classic", 350, 160);
@@ -143,13 +139,13 @@ public class Populate {
 
 
         // Opret hjul med modeller
-        Wheel wheel1 = new Wheel("Zipp", "Carbon", "Disc", "404 Firecrest", 1400, 25);
-        Wheel wheel2 = new Wheel("Mavic", "Aluminium", "Rim", "Ksyrium Pro", 1300, 23);
+        Wheel wheel1 = new Wheel("Zipp", "Carbon", "Disc", "404 Firecrest", 1559, 23);
+        Wheel wheel2 = new Wheel("Shimano", "Carbon", "Disc", "WH-R9270-C36", 1154, 21);
         Wheel wheel3 = new Wheel("DT Swiss", "Carbon", "Disc", "PRC 1400", 1600, 28);
-        Wheel wheel4 = new Wheel("Fulcrum", "Aluminium", "Rim", "Racing 3", 1200, 24);
-        Wheel wheel5 = new Wheel("Campagnolo", "Carbon", "Disc", "Bora Ultra", 1800, 30);
+        Wheel wheel4 = new Wheel("Fulcrum", "Aluminium", "Disc", "Racing 3", 1660, 19);
+        Wheel wheel5 = new Wheel("Campagnolo", "Carbon", "Disc", "Shamal", 1585, 21);
         Wheel wheel6 = new Wheel("Shimano", "Aluminium", "Rim", "WH-RS100", 900, 20);
-        Wheel wheel7 = new Wheel("Vision", "Carbon", "Disc", "Metron 40", 1500, 26);
+        Wheel wheel7 = new Wheel("Reynolds", "Carbon", "Disc", "Blacklabel 80 Pro", 1625, 21);
         Wheel wheel8 = new Wheel("Easton", "Carbon", "Rim", "EA90", 1700, 22);
         Wheel wheel9 = new Wheel("Aero", "Aluminium", "Disc", "Aero 50", 1400, 23);
         Wheel wheel10 = new Wheel("Nokon", "Carbon", "Disc", "F5", 1450, 27);
@@ -158,32 +154,109 @@ public class Populate {
         Wheel wheel13 = new Wheel("Rim", "Aluminium", "Rim", "Rim 400", 1100, 25);
         Wheel wheel14 = new Wheel("Deda", "Aluminium", "Rim", "Zero 100", 1300, 22);
         Wheel wheel15 = new Wheel("Spinergy", "Carbon", "Disc", "FCC 32", 1597, 18);
-        Wheel wheel16 = new Wheel("Reynolds", "Carbon", "Disc", "ASSAULT", 1600, 28);
+        Wheel wheel16 = new Wheel("Reynolds", "Carbon", "Disc", "Blacklabel 25 Pro", 1251, 21);
         Wheel wheel17 = new Wheel("Bora", "Carbon", "Rim", "One", 1500, 25);
-        Wheel wheel18 = new Wheel("Fulcrum", "Aluminium", "Rim", "Racing 5", 1200, 24);
-        Wheel wheel19 = new Wheel("Shimano", "Carbon", "Disc", "Dura-Ace R9170", 1600, 26);
-        Wheel wheel20 = new Wheel("Campagnolo", "Aluminium", "Rim", "Zonda", 1300, 23);
-        Wheel wheel21 = new Wheel("Mavic", "Carbon", "Disc", "Cosmic Pro", 1550, 26);
+        Wheel wheel18 = new Wheel("Fulcrum", "Aluminium", "Rim", "Racing 5", 1660, 20);
+        Wheel wheel19 = new Wheel("Shimano", "Carbon", "Disc", "WH-RS710-C46", 1612, 21);
+        Wheel wheel20 = new Wheel("Campagnolo", "Aluminium", "Rim", "Zonda", 1540, 22);
+        Wheel wheel21 = new Wheel("Shimano", "Carbon", "Disc", "WH-R9270-C50", 1333, 21);
         Wheel wheel22 = new Wheel("DT Swiss", "Aluminium", "Rim", "M 1900", 1350, 24);
-        Wheel wheel23 = new Wheel("Zipp", "Carbon", "Rim", "303 Firecrest", 1700, 28);
-        Wheel wheel24 = new Wheel("Fulcrum", "Carbon", "Disc", "Racing Quattro", 1800, 29);
-        Wheel wheel25 = new Wheel("Shimano", "Aluminium", "Disc", "WH-RS500", 950, 22);
+        Wheel wheel23 = new Wheel("Zipp", "Carbon", "Disc", "303 Firecrest", 1372, 21);
+        Wheel wheel24 = new Wheel("Fulcrum", "Carbon", "Disc", "Racing 4", 1870, 22);
+        Wheel wheel25 = new Wheel("Shimano", "Carbon", "Disc", "WH-RS710-C32", 1504, 21);
         Wheel wheel26 = new Wheel("Fulcrum", "Aluminium", "Rim", "Racing Zero", 1490, 23);
         Wheel wheel27 = new Wheel("Easton", "Carbon", "Disc", "EA90", 1400, 26);
         Wheel wheel28 = new Wheel("Syncros", "Carbon", "Rim", "Aero 60", 1650, 25);
-        Wheel wheel29 = new Wheel("Shimano", "Carbon", "Disc", "Dura-Ace R9270", 1350, 21);
+        Wheel wheel29 = new Wheel("Shimano", "Carbon", "Disc", "WH-R8170-C60", 1649, 21);
         Wheel wheel30 = new Wheel("HED", "Aluminium", "Rim", "HED Jet", 1300, 24);
-        Wheel wheel31 = new Wheel("Roval", "Aluminium", "Disc", "Alpinist", 1200, 23);
-        Wheel wheel32 = new Wheel("Campagnolo", "Carbon", "Rim", "Bullet", 1750, 30);
-        Wheel wheel33 = new Wheel("Reynolds", "Aluminium", "Rim", "Attaque", 1400, 25);
-        Wheel wheel34 = new Wheel("Bora", "Aluminium", "Disc", "Bora WTO", 1300, 23);
+        Wheel wheel31 = new Wheel("Shimano", "Carbon", "Disc", "WH-R8170-C50", 1570, 21);
+        Wheel wheel32 = new Wheel("Campagnolo", "Aluminium", "Disc", "Zonda Disc", 1675, 22);
+        Wheel wheel33 = new Wheel("Reynolds", "Carbon", "Disc", "Blacklabel 46 Expert", 1397, 21);
+        Wheel wheel34 = new Wheel("Zipp", "Carbon", "Disc", "303 S Firecrest", 1530, 23);
         Wheel wheel35 = new Wheel("Spinergy", "Carbon", "Disc", "FCC 47", 1794, 23);
         Wheel wheel36 = new Wheel("Fulcrum", "Carbon", "Rim", "Racing 6", 1550, 27);
-        Wheel wheel37 = new Wheel("Shimano", "Carbon", "Rim", "Dura-Ace C50", 1500, 24);
-        Wheel wheel38 = new Wheel("Mavic", "Carbon", "Rim", "Cosmic SL", 1600, 26);
+        Wheel wheel37 = new Wheel("Shimano", "Aluminium", "Rim", "WH-RS500", 1649, 15);
+        Wheel wheel38 = new Wheel("Shimano", "Carbon", "Disc", "WH-R9270-C60", 1437, 21);
         Wheel wheel39 = new Wheel("DT Swiss", "Carbon", "Disc", "EX 1501", 1750, 30);
         Wheel wheel40 = new Wheel("Zipp", "Aluminium", "Rim", "302", 1400, 22);
         Wheel wheel41 = new Wheel("Bontrager", "Aluminium", "Rim", "Bontrager Paradigm Comp 25", 1400, 25);
+        Wheel wheel42 = new Wheel("Fulcrum", "Carbon", "Disc", "Sharq", 1440, 25);
+        Wheel wheel43 = new Wheel("Fulcrum", "Carbon", "Disc", "Speed 42", 1410, 23);
+        Wheel wheel44 = new Wheel("Fulcrum", "Carbon", "Disc", "Racing Wind 42", 1510, 23);
+        Wheel wheel45 = new Wheel("Fulcrum", "Carbon", "Disc", "Racing Wind 57", 1585, 23);
+        Wheel wheel46 = new Wheel("Fulcrum", "Aluminium", "Disc", "Racing 6", 1780, 20);
+        Wheel wheel47 = new Wheel("Fulcrum", "Aluminium", "Disc", "Rapid Red 5", 1760, 23);
+        Wheel wheel48 = new Wheel("Spinergy", "Carbon", "Disc", "ZTL Aero Bladed", 1415, 23);
+        Wheel wheel49 = new Wheel("Spinergy", "Carbon", "Disc", "FCC 47", 1590, 23);
+        Wheel wheel50 = new Wheel("Spinergy", "Aluminium", "Disc", "GX32", 1695, 19);
+        Wheel wheel51 = new Wheel("Deda", "Carbon", "Disc", "SL4", 1520, 19);
+        Wheel wheel52 = new Wheel("DT Swiss", "Carbon", "Disc", "ARC 1100", 1292, 28);
+        Wheel wheel53 = new Wheel("DT Swiss", "Aluminium", "Disc", "E 1900", 1390, 25);
+        Wheel wheel54 = new Wheel("DT Swiss", "Carbon", "Disc", "ARC 1400", 1371, 25);
+        Wheel wheel55 = new Wheel("DT Swiss", "Aluminium", "Disc", "AR 1600 Spline", 1657, 25);
+        Wheel wheel56 = new Wheel("DT Swiss", "Aluminium", "Disc", "AR 1800 Spline", 1691, 25);
+        Wheel wheel57 = new Wheel("DT Swiss", "Carbon", "Rim", "PRC 1400 Spline", 1486, 25);
+        Wheel wheel58 = new Wheel("DT Swiss", "Aluminium", "Disc", "PR 1600 Spline", 1565, 25);
+        Wheel wheel59 = new Wheel("DT Swiss", "Aluminium", "Disc", "P 1800 Spline", 1590, 25);
+        Wheel wheel60 = new Wheel("Bora", "Carbon", "Disc", "WTO 60", 1460, 23);
+        Wheel wheel61 = new Wheel("Bora", "Carbon", "Disc", "WTO 45", 1405, 23);
+        Wheel wheel62 = new Wheel("Bora", "Carbon", "Disc", "WTO 35", 1370, 23);
+        Wheel wheel63 = new Wheel("Bora", "Carbon", "Disc", "Ultra WTO 60", 1395, 23);
+        Wheel wheel64 = new Wheel("Bora", "Carbon", "Disc", "Ultra WTO 45", 1325, 23);
+        Wheel wheel65 = new Wheel("Bora", "Carbon", "Disc", "Ultra WTO 35", 1285, 23);
+        Wheel wheel66 = new Wheel("Bora", "Carbon", "Disc", "Hyperon Ultra", 1240, 21);
+        Wheel wheel67 = new Wheel("Bora", "Carbon", "Disc", "Hyperon", 1340, 21);
+        Wheel wheel68 = new Wheel("Bora", "Carbon", "Disc", "Ultra WTO 33", 1385, 21);
+        Wheel wheel69 = new Wheel("Bora", "Carbon", "Disc", "WTO 33", 1485, 19);
+        Wheel wheel70 = new Wheel("Bora", "Carbon", "Rim", "WTO 60", 1547, 19);
+        Wheel wheel71 = new Wheel("Bora", "Carbon", "Rim", "WTO 45", 1496, 19);
+        Wheel wheel72 = new Wheel("Bora", "Carbon", "Rim", "WTO 33", 1395, 19);
+        Wheel wheel73 = new Wheel("Bora", "Carbon", "Disc", "Ultra WTO 80", 1590, 21);
+        Wheel wheel74 = new Wheel("Campagnolo", "Aluminium", "Disc", "Scirocco Disc", 1740, 19);
+        Wheel wheel75 = new Wheel("Campagnolo", "Aluminium", "Rim", "Scirocco", 1950, 22);
+        Wheel wheel76 = new Wheel("Roval", "Carbon", "Disc", "Terra C", 1610, 25);
+        Wheel wheel77 = new Wheel("Roval", "Carbon", "Disc", "Terra CLX II", 1250, 25);
+        Wheel wheel78 = new Wheel("Roval", "Carbon", "Disc", "Terra CL", 1408, 25);
+        Wheel wheel79 = new Wheel("Roval", "Aluminium", "Disc", "Alpinist CLX", 1485, 20);
+        Wheel wheel80 = new Wheel("Roval", "Carbon", "Disc", "Alpinist CLX II", 1265, 21);
+        Wheel wheel81 = new Wheel("Roval", "Carbon", "Disc", "Alpinist CL II", 1375, 21);
+        Wheel wheel82 = new Wheel("Roval", "Carbon", "Disc", "Rapide C 38", 1600, 21);
+        Wheel wheel83 = new Wheel("Roval", "Carbon", "Disc", "Rapide CL II", 1590, 21);
+        Wheel wheel84 = new Wheel("Roval", "Carbon", "Disc", "Rapide CLX II", 1520, 21);
+        Wheel wheel85 = new Wheel("Zipp", "Carbon", "Disc", "454 NSW", 1428, 23);
+        Wheel wheel86 = new Wheel("Zipp", "Carbon", "Disc", "858 NSW", 1530, 23);
+        Wheel wheel87 = new Wheel("Zipp", "Carbon", "Disc", "808 Firecrest", 1635, 23);
+        Wheel wheel88 = new Wheel("Zipp", "Carbon", "Disc", "353 NSW", 1308, 25);
+        Wheel wheel89 = new Wheel("Shimano", "Carbon", "Disc", "WH-R8170-C36", 1488, 21);
+        Wheel wheel90 = new Wheel("Zipp", "Carbon", "Disc", "303 Firecrest 650B", 1520, 21);
+        Wheel wheel91 = new Wheel("Mavic", "Aluminium", "Disc", "Ksyrium SL Disc", 1575, 19);
+        Wheel wheel92 = new Wheel("Mavic", "Aluminium", "Disc", "Ksyrium 30 Disc", 1796, 19);
+        Wheel wheel93 = new Wheel("Mavic", "Aluminium", "Disc", "Aksium Disc", 1905, 17);
+        Wheel wheel94 = new Wheel("Mavic", "Aluminium", "Rim", "Ksyrium SL", 1480, 19);
+        Wheel wheel95 = new Wheel("Mavic", "Aluminium", "Rim", "Aksium", 1840, 17);
+        Wheel wheel96 = new Wheel("Mavic", "Carbon", "Disc", "Cosmic Ultimate 45 Disc", 1255, 19);
+        Wheel wheel97 = new Wheel("Mavic", "Carbon", "Disc", "Cosmic SLR 65 Disc", 1620, 19);
+        Wheel wheel98 = new Wheel("Mavic", "Carbon", "Disc", "Cosmic SLR 45 Disc", 1482, 23);
+        Wheel wheel99 = new Wheel("Mavic", "Carbon", "Disc", "Cosmic SLR 32 Disc", 1390, 21);
+        Wheel wheel100 = new Wheel("Mavic", "Carbon", "Disc", "Cosmic SL 65 Disc", 1649, 19);
+        Wheel wheel101 = new Wheel("Mavic", "Carbon", "Disc", "Cosmic SL 45 Disc", 1555, 23);
+        Wheel wheel102 = new Wheel("Mavic", "Carbon", "Disc", "Cosmic SL 32 Disc", 1475, 21);
+        Wheel wheel103 = new Wheel("Mavic", "Carbon", "Disc", "Cosmic S 42 Disc", 1660, 21);
+        Wheel wheel104 = new Wheel("Mavic", "Carbon", "Rim", "Cosmic S 40", 1764, 19);
+        Wheel wheel105 = new Wheel("Mavic", "Carbon", "Rim", "Cosmic SL 40", 1600, 19);
+        Wheel wheel106 = new Wheel("Shimano", "Carbon", "Disc", "WH-R9270-C36", 1154, 21);
+        Wheel wheel107 = new Wheel("Vision", "Carbon", "Disc", "Metron 60 SL Disc", 1490, 21);
+        Wheel wheel108 = new Wheel("Vision", "Carbon", "Disc", "Metron 30 SL Disc", 1370, 21);
+        Wheel wheel109 = new Wheel("Vision", "Carbon", "Disc", "Metron 40 SL Disc", 1420, 21);
+        Wheel wheel110 = new Wheel("Vision", "Carbon", "Disc", "Metron 45 SL Disc", 1390, 21);
+        Wheel wheel111 = new Wheel("Vision", "Carbon", "Disc", "Metron 37 SL Disc", 1290, 21);
+        Wheel wheel112 = new Wheel("Vision", "Carbon", "Disc", "Metron 81 SL Disc", 1660, 21);
+        Wheel wheel113 = new Wheel("Vision", "Carbon", "Disc", "Metron 55 SL Disc", 1540, 21);
+        Wheel wheel114 = new Wheel("Reynolds", "Carbon", "Disc", "Blacklabel 80 Expert", 1655, 21);
+        Wheel wheel115 = new Wheel("Reynolds", "Carbon", "Disc", "Blacklabel 60 Expert", 1540, 21);
+        Wheel wheel116 = new Wheel("Reynolds", "Carbon", "Disc", "Blacklabel 25 Expert", 1286, 21);
+        Wheel wheel117 = new Wheel("Reynolds", "Carbon", "Disc", "Blacklabel 46 Pro", 1397, 21);
+        Wheel wheel118 = new Wheel("Reynolds", "Carbon", "Disc", "Blacklabel 60 Pro", 1500, 21);
 
 
         // Opret gear
@@ -213,6 +286,7 @@ public class Populate {
         Gear gear24 = new Gear("Shimano", "Dura-Ace 9100", "Carbon", "Mechanical", 1750);
         Gear gear25 = new Gear("Campagnolo", "Athena EPS", "Carbon", "Electronic", 1800);
         Gear gear26 = new Gear("Campagnolo", "Record EPS", "Carbon", "Electronic", 1900);
+        Gear gear27 = new Gear("Shimano", "Dura-Ace Di2 RD-R9170", "Carbon", "Electronic", 2320);
 
 
 
@@ -384,6 +458,84 @@ public class Populate {
             em.persist(wheel39);
             em.persist(wheel40);
             em.persist(wheel41);
+            em.persist(wheel42);
+            em.persist(wheel43);
+            em.persist(wheel44);
+            em.persist(wheel45);
+            em.persist(wheel46);
+            em.persist(wheel47);
+            em.persist(wheel48);
+            em.persist(wheel49);
+            em.persist(wheel50);
+            em.persist(wheel51);
+            em.persist(wheel52);
+            em.persist(wheel53);
+            em.persist(wheel54);
+            em.persist(wheel55);
+            em.persist(wheel56);
+            em.persist(wheel57);
+            em.persist(wheel58);
+            em.persist(wheel59);
+            em.persist(wheel60);
+            em.persist(wheel61);
+            em.persist(wheel62);
+            em.persist(wheel63);
+            em.persist(wheel64);
+            em.persist(wheel65);
+            em.persist(wheel66);
+            em.persist(wheel67);
+            em.persist(wheel68);
+            em.persist(wheel69);
+            em.persist(wheel70);
+            em.persist(wheel71);
+            em.persist(wheel72);
+            em.persist(wheel73);
+            em.persist(wheel74);
+            em.persist(wheel75);
+            em.persist(wheel76);
+            em.persist(wheel77);
+            em.persist(wheel78);
+            em.persist(wheel79);
+            em.persist(wheel80);
+            em.persist(wheel81);
+            em.persist(wheel82);
+            em.persist(wheel83);
+            em.persist(wheel84);
+            em.persist(wheel85);
+            em.persist(wheel86);
+            em.persist(wheel87);
+            em.persist(wheel88);
+            em.persist(wheel89);
+            em.persist(wheel90);
+            em.persist(wheel91);
+            em.persist(wheel92);
+            em.persist(wheel93);
+            em.persist(wheel94);
+            em.persist(wheel95);
+            em.persist(wheel96);
+            em.persist(wheel97);
+            em.persist(wheel98);
+            em.persist(wheel99);
+            em.persist(wheel100);
+            em.persist(wheel101);
+            em.persist(wheel102);
+            em.persist(wheel103);
+            em.persist(wheel104);
+            em.persist(wheel105);
+            em.persist(wheel106);
+            em.persist(wheel107);
+            em.persist(wheel108);
+            em.persist(wheel109);
+            em.persist(wheel110);
+            em.persist(wheel111);
+            em.persist(wheel112);
+            em.persist(wheel113);
+            em.persist(wheel114);
+            em.persist(wheel115);
+            em.persist(wheel116);
+            em.persist(wheel117);
+            em.persist(wheel118);
+
 
 
             // Gemmer gear
@@ -418,7 +570,7 @@ public class Populate {
             // Opretter cykler og tilføjer komponenter
             Bicycle bicycle1 = new Bicycle("Trek", "Domane SL6", 56, 3500, 9.3, "Endurance road bike", frame66, gear1, wheel41, saddle41);
             Bicycle bicycle2 = new Bicycle("Canyon", "Ultimate CF SLX 9 Di2", 54, 9000, 6.8, "Lightweight racing bike", frame18, gear6, wheel28, saddle42);
-            Bicycle bicycle3 = new Bicycle("Pinarello", "Dogma F12", 58, 5000, 7.6, "Aero road bike", frame47, gear1, wheel1, saddle1);
+            Bicycle bicycle3 = new Bicycle("Pinarello", "Dogma F12", 58, 10500, 7.6, "Aero road bike", frame47, gear27, wheel42, saddle1);
             Bicycle bicycle4 = new Bicycle("Giant", "TCR Advanced", 55, 3200, 7.8, "Endurance race bike", frame36, gear1, wheel2, saddle2);
             Bicycle bicycle5 = new Bicycle("Bianchi", "Oltre XR4", 57, 4800, 7.4, "High-end performance bike", frame9, gear2, wheel1, saddle1);
             Bicycle bicycle6 = new Bicycle("Specialized", "S-Works Tarmac SL7", 56, 8000, 6.7, "Ultra-lightweight race bike", frame61, gear1, wheel1, saddle1);
@@ -453,7 +605,10 @@ public class Populate {
             Bicycle bicycle35 = new Bicycle("Bianchi", "Impulso", 56, 2900, 7.9, "Versatile road bike", frame8, gear3, wheel1, saddle6);
             Bicycle bicycle36 = new Bicycle("Specialized", "Roubaix", 58, 5000, 6.9, "Endurance road bike", frame57, gear1, wheel1, saddle2);
             Bicycle bicycle37 = new Bicycle("Felt", "VR FRD", 55, 4200, 7.2, "Endurance road bike", frame31, gear2, wheel2, saddle3);
-
+            Bicycle bicycle38 = new Bicycle("Pinarello", "Dogma F7", 58, 6000, 7.6, "Aero road bike", frame47, gear1, wheel42, saddle1);
+            Bicycle bicycle39 = new Bicycle("Giant", "TCR Advanced Pro", 54, 4000, 7.8, "Lightweight racing bike", frame36, gear1, wheel2, saddle2);
+            Bicycle bicycle40 = new Bicycle("Bianchi", "Oltre XR3", 57, 4800, 7.4, "High-end performance bike", frame9, gear2, wheel1, saddle1);
+            Bicycle bicycle41 = new Bicycle("Specialized", "S-Works Tarmac SL6", 56, 8000, 6.7, "Aero road bike", frame61, gear1, wheel1, saddle1);
 
 
 
