@@ -354,6 +354,64 @@ public class BicycleController implements IController<BicycleDTO> {
         }
     }
 
+    public void updateAllDetails(Context ctx) {
+        try {
+            int id = Integer.parseInt(ctx.pathParam("id"));
+            BicycleCompleteDTO bicycleCompleteDTO = ctx.bodyAsClass(BicycleCompleteDTO.class);
+
+            int frameId = bicycleCompleteDTO.getFrameId();
+            int gearId = bicycleCompleteDTO.getGearId();
+            int wheelId = bicycleCompleteDTO.getWheelId();
+            int saddleId = bicycleCompleteDTO.getSaddleId();
+
+            // Henter entiteter fra DAO
+            FrameDTO frameDTO = frameDAO.getById(frameId);
+            GearDTO gearDTO = gearDAO.getById(gearId);
+            WheelDTO wheelDTO = wheelDAO.getById(wheelId);
+            SaddleDTO saddleDTO = saddleDAO.getById(saddleId);
+
+            // Opretter BicycleDTO
+            BicycleDTO bicycleDTO = new BicycleDTO();
+            bicycleDTO.setBrand(bicycleCompleteDTO.getBrand());
+            bicycleDTO.setModel(bicycleCompleteDTO.getModel());
+            bicycleDTO.setSize(bicycleCompleteDTO.getSize());
+            bicycleDTO.setPrice(bicycleCompleteDTO.getPrice());
+            bicycleDTO.setWeight(bicycleCompleteDTO.getWeight());
+            bicycleDTO.setDescription(bicycleCompleteDTO.getDescription());
+            bicycleDTO.setFrame(frameDTO);
+            bicycleDTO.setGear(gearDTO);
+            bicycleDTO.setWheel(wheelDTO);
+            bicycleDTO.setSaddle(saddleDTO);
+
+            // Opdaterer BicycleDTO'en med alle detaljer
+            BicycleDTO updatedBicycleDTO = bicycleDAO.updateAllDetails(id, bicycleDTO);
+
+            if (updatedBicycleDTO != null) {
+                ctx.json(updatedBicycleDTO);
+            } else {
+                throw new NotFoundResponse("Bicycle not found");
+            }
+        } catch (NumberFormatException e) {
+            ctx.status(400).json(Map.of(
+                    "status", 400,
+                    "message", "Invalid bicycle ID",
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        } catch (NotFoundResponse e) {
+            ctx.status(404).json(Map.of(
+                    "status", 404,
+                    "message", e.getMessage(),
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        } catch (Throwable e) {
+            ctx.status(500).json(Map.of(
+                    "status", 500,
+                    "message", "Internal server error",
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        }
+    }
+
     public void delete(Context ctx) {
         try {
             int id = Integer.parseInt(ctx.pathParam("id"));

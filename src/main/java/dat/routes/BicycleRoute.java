@@ -27,6 +27,7 @@ public class BicycleRoute {
             // nedenstående virker fint men gider ikke dokumentere den i min API documentation
             // post("/{bicycleId}/frame/{frameId}/gear/{gearId}/wheel/{wheelId}/saddle/{saddleId}", bicycleController::addAllComponentsToBicycle, Role.USER);
             put("/{id}", bicycleController::update, Role.USER);
+            put("/alldetails/{id}", bicycleController::updateAllDetails, Role.USER);
             delete("/{id}", bicycleController::delete, Role.USER);
         };
     }

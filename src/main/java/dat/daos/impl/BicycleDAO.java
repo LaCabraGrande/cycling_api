@@ -1,5 +1,6 @@
 package dat.daos.impl;
 
+import dat.dtos.BicycleCompleteDTO;
 import dat.dtos.BicycleDTO;
 import dat.entities.*;
 import jakarta.persistence.EntityManager;
@@ -249,7 +250,6 @@ public class BicycleDAO {
             Bicycle bicycle = em.find(Bicycle.class, id);
 
             if (bicycle == null) {
-                // TODO Håndter, hvis cyklen ikke findes (f.eks. kast en undtagelse eller returnér null)
                 em.getTransaction().rollback();
                 return null;
             }
@@ -275,6 +275,56 @@ public class BicycleDAO {
             }
 
             // Merge opdateringerne og commit transaktionen
+            Bicycle mergedBicycle = em.merge(bicycle);
+            em.getTransaction().commit();
+            return new BicycleDTO(mergedBicycle);
+        } catch (Exception e) {
+            throw new RuntimeException("Error updating bicycle", e);
+        }
+    }
+
+    public BicycleDTO updateAllDetails(int id, BicycleDTO bicycleDTO) {
+        try (EntityManager em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+            Bicycle bicycle = em.find(Bicycle.class, id);
+
+            if (bicycle == null) {
+                em.getTransaction().rollback();
+                return null;
+            }
+
+            if (bicycleDTO.getBrand() != null) {
+                bicycle.setBrand(bicycleDTO.getBrand());
+            }
+            if (bicycleDTO.getModel() != null) {
+                bicycle.setModel(bicycleDTO.getModel());
+            }
+            if (bicycleDTO.getSize() > 0) {
+                bicycle.setSize(bicycleDTO.getSize());
+            }
+            if (bicycleDTO.getPrice() > 0) {
+                bicycle.setPrice(bicycleDTO.getPrice());
+            }
+            if (bicycleDTO.getWeight() > 0) {
+                bicycle.setWeight(bicycleDTO.getWeight());
+            }
+            if (bicycleDTO.getDescription() != null) {
+                bicycle.setDescription(bicycleDTO.getDescription());
+            }
+            if (bicycleDTO.getFrame() != null) {
+                bicycle.setFrame(new Frame(bicycleDTO.getFrame()));
+            }
+            if (bicycleDTO.getGear() != null) {
+                bicycle.setGear(new Gear(bicycleDTO.getGear()));
+            }
+            if (bicycleDTO.getWheel() != null) {
+                bicycle.setWheel(new Wheel(bicycleDTO.getWheel()));
+            }
+            if (bicycleDTO.getSaddle() != null) {
+                bicycle.setSaddle(new Saddle(bicycleDTO.getSaddle()));
+            }
+
+            // Her merge vi opdateringerne og committer transaktionen
             Bicycle mergedBicycle = em.merge(bicycle);
             em.getTransaction().commit();
             return new BicycleDTO(mergedBicycle);

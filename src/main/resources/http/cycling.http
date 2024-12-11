@@ -78,8 +78,26 @@ Authorization: Bearer {{jwt_token}}
   "weight": 7.5,
   "description": "Aero road bike",
   "frameId": 1,
-  "wheelId": 1,
   "gearId": 1,
+  "wheelId": 1,
+  "saddleId": 1
+}
+
+### Her opdaterer vi en cykel med en id på cyklen
+PUT http://localhost:7070/api/bicycles/alldetails/38
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "brand": "Cervélo",
+  "model": "S5",
+  "size": 56,
+  "price": 7000,
+  "weight": 7.5,
+  "description": "Aero road bike",
+  "frameId": 2,
+  "gearId": 3,
+  "wheelId": 1,
   "saddleId": 1
 }
 

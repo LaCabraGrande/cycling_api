@@ -67,6 +67,7 @@ public class Frame {
         this.size = frameDTO.getSize();
     }
 
+
     public void addBicycle(Bicycle bicycle) {
         this.bicycles.add(bicycle);
     }
