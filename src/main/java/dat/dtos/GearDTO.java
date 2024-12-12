@@ -17,6 +17,7 @@ public class GearDTO {
     private String model;
     private String material;
     private String type;
+    private String brakes;
     private int weight;
 
     // Constructor fra Gear-entity til DTO
@@ -26,6 +27,7 @@ public class GearDTO {
         this.model = gear.getModel();
         this.material = gear.getMaterial();
         this.type = gear.getType();
+        this.brakes = gear.getBrakes();
         this.weight = gear.getWeight();
     }
 

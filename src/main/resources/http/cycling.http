@@ -84,7 +84,7 @@ Authorization: Bearer {{jwt_token}}
 }
 
 ### Her opdaterer vi en cykel med en id på cyklen
-PUT http://localhost:7070/api/bicycles/alldetails/38
+PUT http://localhost:7070/api/bicycles/alldetails/30
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
@@ -282,10 +282,11 @@ Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Shimano",
-  "model": "105",
+  "model": "Shimano 105 R7100",
   "material": "Aluminium",
-  "type": "Electronic",
-  "weight": 1450
+  "type": "Mechanical",
+  "brakes": "Disc",
+  "weight": 3026
 }
 
 ### Her tilføjer vi en gear til en cykel og vi bruger cykel id og gear id
@@ -305,10 +306,11 @@ Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Shimano",
-  "model": "105",
+  "model": "Shimano 105 R7100",
   "material": "Aluminium",
-  "type": "Electronic",
-  "weight": 1650
+  "type": "Mechanical",
+  "brakes": "Disc",
+  "weight": 3000
 }
 
 ### Her sletter vi en gear ud fra id

@@ -7,8 +7,6 @@ import dat.entities.Gear;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
-import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 //@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
@@ -67,6 +65,7 @@ public class GearDAO implements IDAO<GearDTO> {
             Gear g = em.find(Gear.class, id);
             g.setBrand(gearDTO.getBrand());
             g.setType(gearDTO.getType());
+            g.setBrakes(gearDTO.getBrakes());
             g.setMaterial(gearDTO.getMaterial());
             g.setWeight(gearDTO.getWeight());
             g.setModel(gearDTO.getModel());
