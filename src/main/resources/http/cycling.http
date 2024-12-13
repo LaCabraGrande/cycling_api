@@ -51,6 +51,18 @@ Accept: application/json
 GET http://localhost:7070/api/bicycles/2
 Accept: application/json
 
+### Her filtrerer vi cykler baseret på udvalgte komponenter
+GET http://localhost:7070/api/bicycles/filter?saddleId=112&frameId=0&wheelId=0&gearId=0
+Accept: application/json
+
+### Her henter vi data til Sidebar
+GET http://localhost:7070/api/bicycles/filtercounts
+Accept: application/json
+
+### Her henter vi de cykler som går ind under de kriterier som brugeren har valgt
+GET http://localhost:7070/api/bicycles/filterbicycles?gearSeries=Shimano Dura-Ace&gearSeries=Shimano Ultegra&minPrice=0&maxPrice=18000
+Accept: application/json
+
 ### Her opretter vi en cykel
 POST http://localhost:7070/api/bicycles
 Content-Type: application/json
@@ -283,6 +295,7 @@ Authorization: Bearer {{jwt_token}}
 {
   "brand": "Shimano",
   "model": "Shimano 105 R7100",
+  "series": "Shimano 105",
   "material": "Aluminium",
   "type": "Mechanical",
   "brakes": "Disc",
@@ -307,6 +320,7 @@ Authorization: Bearer {{jwt_token}}
 {
   "brand": "Shimano",
   "model": "Shimano 105 R7100",
+  "series": "Shimano 105",
   "material": "Aluminium",
   "type": "Mechanical",
   "brakes": "Disc",

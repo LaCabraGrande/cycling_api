@@ -1,20 +1,22 @@
 package dat.daos.impl;
 
-import dat.dtos.BicycleCompleteDTO;
-import dat.dtos.BicycleDTO;
+import dat.dtos.*;
 import dat.entities.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
+import org.hibernate.Hibernate;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class BicycleDAO {
 
     private static BicycleDAO instance;
     private static EntityManagerFactory emf;
+    private final GearDAO gearDAO = GearDAO.getInstance(emf);
+    private final SaddleDAO saddleDAO = SaddleDAO.getInstance(emf);
+    private final WheelDAO wheelDAO = WheelDAO.getInstance(emf);
 
     public static BicycleDAO getInstance(EntityManagerFactory _emf) {
         if (instance == null) {
@@ -112,6 +114,106 @@ public class BicycleDAO {
             throw new RuntimeException("Error during filtering by components", e);
         }
     }
+
+    /**
+     * Hent cykler baseret på flere filtre.
+     */
+    public List<BicycleDTO> getBicyclesByFilters(Map<String, List<String>> filters, int minPrice, int maxPrice) {
+        List<BicycleDTO> bicyclesDTOS = new ArrayList<>();
+        try (EntityManager em = emf.createEntityManager()) {
+            em.getTransaction().begin();
+
+            // JPQL: Hent Bicycle entiteter, ikke DTO'er direkte
+            String jpql = "SELECT b FROM Bicycle b " +
+                    "LEFT JOIN FETCH b.gear g " +
+                    "LEFT JOIN FETCH b.saddle s " +
+                    "LEFT JOIN FETCH b.wheel w " +
+                    "LEFT JOIN FETCH b.frame f " +  // Sørg for at hente 'frame'
+                    "WHERE b.price BETWEEN :minPrice AND :maxPrice";
+
+            if (filters.containsKey("gearSeries")) {
+                jpql += " AND g.series IN :gearSeries";
+            }
+            if (filters.containsKey("saddleBrand")) {
+                jpql += " AND s.brand IN :saddleBrand";
+            }
+            if (filters.containsKey("wheelBrand")) {
+                jpql += " AND w.brand IN :wheelBrand";
+            }
+
+            TypedQuery<Bicycle> query = em.createQuery(jpql, Bicycle.class);
+            query.setParameter("minPrice", minPrice);
+            query.setParameter("maxPrice", maxPrice);
+
+            if (filters.containsKey("gearSeries")) {
+                query.setParameter("gearSeries", filters.get("gearSeries"));
+            }
+            if (filters.containsKey("saddleBrand")) {
+                query.setParameter("saddleBrand", filters.get("saddleBrand"));
+            }
+            if (filters.containsKey("wheelBrand")) {
+                query.setParameter("wheelBrand", filters.get("wheelBrand"));
+            }
+
+            List<Bicycle> bicycles = query.getResultList();
+
+            // Map Bicycle entiteter til BicycleDTO
+            for (Bicycle bicycle : bicycles) {
+                BicycleDTO dto = new BicycleDTO();
+                dto.setId(bicycle.getId());
+                dto.setBrand(bicycle.getBrand());
+                dto.setModel(bicycle.getModel());
+                dto.setSize(bicycle.getSize());
+                dto.setPrice(bicycle.getPrice());
+                dto.setWeight(bicycle.getWeight());
+                dto.setDescription(bicycle.getDescription());
+                dto.setFrame(new FrameDTO(bicycle.getFrame()));
+                dto.setGear(new GearDTO(bicycle.getGear()));
+                dto.setSaddle(new SaddleDTO(bicycle.getSaddle()));
+                dto.setWheel(new WheelDTO(bicycle.getWheel()));
+                bicyclesDTOS.add(dto);
+            }
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+           throw new RuntimeException("Error fetching bicycles by filters: " + e.getMessage());
+        }
+        return bicyclesDTOS;
+    }
+
+    // Metode til at hente gear, saddle og wheel counts
+    public FilterCountDTO getFilterCounts() {
+        // Hent gear, saddler og hjul data fra databasen (dummy data for eksempel)
+        List<GearDTO> gears = gearDAO.getAll();   // Eksempel på metode, der henter gear fra databasen
+        List<SaddleDTO> saddles = saddleDAO.getAll(); // Eksempel på metode, der henter saddles fra databasen
+        List<WheelDTO> wheels = wheelDAO.getAll();  // Eksempel på metode, der henter wheels fra databasen
+
+        // Tælling af gear efter serie
+        Map<String, Integer> gearSeriesCount = new HashMap<>();
+        for (GearDTO gear : gears) {
+            String series = gear.getSeries();
+            gearSeriesCount.put(series, gearSeriesCount.getOrDefault(series, 0) + 1);
+        }
+
+        // Tælling af sadler efter brand
+        Map<String, Integer> saddleBrandCount = new HashMap<>();
+        for (SaddleDTO saddle : saddles) {
+            String brand = saddle.getBrand();
+            saddleBrandCount.put(brand, saddleBrandCount.getOrDefault(brand, 0) + 1);
+        }
+
+        // Tælling af hjul efter brand
+        Map<String, Integer> wheelBrandCount = new HashMap<>();
+        for (WheelDTO wheel : wheels) {
+            String brand = wheel.getBrand();
+            wheelBrandCount.put(brand, wheelBrandCount.getOrDefault(brand, 0) + 1);
+        }
+
+        // Returner FilterCountDTO med de indsamlede data
+        return new FilterCountDTO(gearSeriesCount, saddleBrandCount, wheelBrandCount);
+    }
+
+
 
 
 

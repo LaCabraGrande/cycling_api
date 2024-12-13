@@ -26,6 +26,9 @@ public class Gear {
     @Column(name = "model", nullable = true)
     private String model;
 
+    @Column(name = "series", nullable = true)
+    private String series;
+
     @Column(name = "material", nullable = true)
     private String material;
 
@@ -46,9 +49,10 @@ public class Gear {
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
-    public Gear(String brand, String model, String material, String type, String brakes, int weight) {
+    public Gear(String brand, String model, String series, String material, String type, String brakes, int weight) {
         this.brand = brand;
         this.model = model;
+        this.series = series;
         this.material = material;
         this.type = type;
         this.brakes = brakes;
@@ -58,6 +62,7 @@ public class Gear {
     public Gear(GearDTO gearDTO) {
         this.id = gearDTO.getId();
         this.brand = gearDTO.getBrand();
+        this.series = gearDTO.getSeries();
         this.model = gearDTO.getModel();
         this.material = gearDTO.getMaterial();
         this.type = gearDTO.getType();

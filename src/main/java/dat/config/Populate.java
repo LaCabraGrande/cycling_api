@@ -227,9 +227,6 @@ public class Populate {
 
 
 
-
-
-
         // Opret hjul med modeller
         Wheel wheel1 = new Wheel("Zipp", "Carbon", "Disc", "Zipp 404 Firecrest", 1559, 23);
         Wheel wheel2 = new Wheel("Shimano", "Carbon", "Disc", "Shimano WH-R9270-C36", 1154, 21);
@@ -363,51 +360,51 @@ public class Populate {
 
 
         // Opret gear
-        Gear gear1 = new Gear("Shimano", "Shimano Dura-Ace Di2 R9270", "Carbon", "Electronic", "Disc", 2579);
-        Gear gear2 = new Gear("Shimano", "Shimano Dura-Ace Di2 R9170", "Carbon", "Electronic", "Disc",2350);
-        Gear gear3 = new Gear("Shimano", "Shimano Dura-Ace Di2 R9250", "Carbon", "Electronic", "Rim",2300);
-        Gear gear4 = new Gear("Shimano", "Shimano Dura-Ace Di2 R9200", "Carbon", "Electronic", "Rim", 2300);
-        Gear gear5 = new Gear("Shimano", "Shimano Dura-Ace R9200", "Carbon", "Mechanical", "Rim", 2200);
-        Gear gear6 = new Gear("Shimano", "Shimano Dura-Ace R9100", "Carbon", "Mechanical", "Rim",2300);
-        Gear gear7 = new Gear("Shimano", "Shimano Ultegra R8100", "Carbon", "Mechanical", "Rim", 2716);
-        Gear gear8 = new Gear("Shimano", "Shimano Ultegra R8000", "Carbon", "Mechanical", "Rim", 2400);
-        Gear gear9 = new Gear("Shimano", "Shimano Ultegra Di2 R8170", "Carbon", "Electronic", "Disc", 2700);
-        Gear gear10 = new Gear("Shimano", "Shimano Ultegra Di2 R8150", "Carbon", "Electronic", "Rim",2600);
-        Gear gear11 = new Gear("Shimano", "Shimano Ultegra Di2 R8100", "Carbon", "Electronic", "Rim", 2600);
-        Gear gear12 = new Gear("Shimano", "Shimano 105 Di2 R7170", "Aluminium", "Electronic", "Disc",3000);
-        Gear gear45 = new Gear("Shimano", "Shimano 105 Di2 R7150", "Aluminium", "Electronic", "Rim",3000);
-        Gear gear13 = new Gear("Shimano", "Shimano 105 R7100", "Aluminium", "Mechanical", "Rim",3026);
-        Gear gear14 = new Gear("Shimano", "Shimano 105 R7000", "Aluminium", "Mechanical", "Rim", 2700);
-        Gear gear15 = new Gear("Shimano", "Shimano Tiagra R4700", "Aluminium", "Mechanical", "Rim", 2800);
-        Gear gear16 = new Gear("Shimano", "Shimano Sora R3000", "Aluminium", "Mechanical", "Rim", 3000);
-        Gear gear17 = new Gear("Shimano", "Shimano Claris R2000", "Aluminium", "Mechanical", "Rim", 3200);
-        Gear gear18 = new Gear("Campagnolo", "Campagnolo Super Record EPS R12", "Carbon", "Electronic", "Disc", 2300);
-        Gear gear19 = new Gear("Campagnolo", "Campagnolo Super Record R12", "Carbon", "Mechanical", "Rim", 2400);
-        Gear gear20 = new Gear("Campagnolo", "Campagnolo Record EPS R12", "Carbon", "Electronic", "Disc", 2400);
-        Gear gear21 = new Gear("Campagnolo", "Campagnolo Record R12", "Carbon", "Mechanical", "Rim", 2500);
-        Gear gear22 = new Gear("Campagnolo", "Campagnolo Record 11-speed", "Carbon", "Mechanical", "Rim", 2400);
-        Gear gear23 = new Gear("Campagnolo", "Campagnolo Chorus EPS R12", "Aluminium", "Electronic", "Rim", 2850);
-        Gear gear24 = new Gear("Campagnolo", "Campagnolo Chorus R12", "Aluminium", "Mechanical", "Rim", 2850);
-        Gear gear25 = new Gear("Campagnolo", "Campagnolo Athena EPS R11", "Carbon", "Electronic", "Disc", 2800);
-        Gear gear26 = new Gear("Campagnolo", "Campagnolo Athena R11", "Aluminium", "Mechanical", "Rim", 2900);
-        Gear gear27 = new Gear("Campagnolo", "Campagnolo Potenza R11", "Aluminium", "Mechanical", "Rim", 2550);
-        Gear gear28 = new Gear("Campagnolo", "Campagnolo Centaur EPS R10", "Carbon", "Electronic", "Disc", 2650);
-        Gear gear29 = new Gear("Campagnolo", "Campagnolo Centaur R10", "Aluminium", "Mechanical", "Rim", 2500);
-        Gear gear30 = new Gear("Campagnolo", "Campagnolo Veloce R9", "Aluminium", "Mechanical", "Rim", 2400);
-        Gear gear31 = new Gear("Campagnolo", "Campagnolo Mirage R8", "Aluminium", "Mechanical", "Rim", 1900);
-        Gear gear32 = new Gear("Campagnolo", "Campagnolo Xenon 10", "Aluminium", "Mechanical", "Rim", 2200);
-        Gear gear33 = new Gear("Campagnolo", "Campagnolo C-Record", "Carbon", "Mechanical", "Rim", 1900);
-        Gear gear34 = new Gear("SRAM", "SRAM Red AXS", "Aluminium", "Electronic", "Disc", 2548);
-        Gear gear35 = new Gear("SRAM", "SRAM Red eTap AXS", "Carbon", "Electronic", "Disc", 2650);
-        Gear gear36 = new Gear("SRAM", "SRAM Red eTap 11-speed", "Carbon", "Electronic", "Disc", 2500);
-        Gear gear37 = new Gear("SRAM", "SRAM Force eTap AXS", "Aluminium", "Electronic", "Disc", 2800);
-        Gear gear38 = new Gear("SRAM", "SRAM Force AXS", "Aluminium", "Electronic", "Rim", 2600);
-        Gear gear39 = new Gear("SRAM", "SRAM Force 22", "Aluminium", "Mechanical", "Rim", 2500);
-        Gear gear40 = new Gear("SRAM", "SRAM Rival AXS", "Aluminium", "Electronic", "Rim", 2400);
-        Gear gear41 = new Gear("SRAM", "SRAM Rival 22", "Aluminium", "Mechanical", "Rim", 2200);
-        Gear gear42 = new Gear("SRAM", "SRAM Rival 1", "Aluminium", "Mechanical", "Disc", 2600);
-        Gear gear43 = new Gear("SRAM", "SRAM Apex", "Aluminium", "Mechanical", "Rim", 2750);
-        Gear gear44 = new Gear("SRAM", "SRAM Apex 1", "Aluminium", "Mechanical", "Disc", 2800);
+        Gear gear1 = new Gear("Shimano", "Shimano Dura-Ace Di2 R9270", "Shimano Dura-Ace","Carbon", "Electronic", "Disc", 2579);
+        Gear gear2 = new Gear("Shimano", "Shimano Dura-Ace Di2 R9170", "Shimano Dura-Ace", "Carbon", "Electronic", "Disc",2350);
+        Gear gear3 = new Gear("Shimano", "Shimano Dura-Ace Di2 R9250", "Shimano Dura-Ace", "Carbon", "Electronic", "Rim",2300);
+        Gear gear4 = new Gear("Shimano", "Shimano Dura-Ace Di2 R9200", "Shimano Dura-Ace", "Carbon", "Electronic", "Rim", 2300);
+        Gear gear5 = new Gear("Shimano", "Shimano Dura-Ace R9200", "Shimano Dura-Ace", "Carbon", "Mechanical", "Rim", 2200);
+        Gear gear6 = new Gear("Shimano", "Shimano Dura-Ace R9100", "Shimano Dura-Ace", "Carbon", "Mechanical", "Rim",2300);
+        Gear gear7 = new Gear("Shimano", "Shimano Ultegra R8100", "Shimano Ultegra", "Carbon", "Mechanical", "Rim", 2716);
+        Gear gear8 = new Gear("Shimano", "Shimano Ultegra R8000", "Shimano Ultegra", "Carbon", "Mechanical", "Rim", 2400);
+        Gear gear9 = new Gear("Shimano", "Shimano Ultegra Di2 R8170", "Shimano Ultegra", "Carbon", "Electronic", "Disc", 2700);
+        Gear gear10 = new Gear("Shimano", "Shimano Ultegra Di2 R8150", "Shimano Ultegra", "Carbon", "Electronic", "Rim",2600);
+        Gear gear11 = new Gear("Shimano", "Shimano Ultegra Di2 R8100", "Shimano Ultegra", "Carbon", "Electronic", "Rim", 2600);
+        Gear gear12 = new Gear("Shimano", "Shimano 105 Di2 R7170", "Shimano 105", "Aluminium", "Electronic", "Disc",3000);
+        Gear gear45 = new Gear("Shimano", "Shimano 105 Di2 R7150", "Shimano 105", "Aluminium", "Electronic", "Rim",3000);
+        Gear gear13 = new Gear("Shimano", "Shimano 105 R7100", "Shimano 105", "Aluminium", "Mechanical", "Rim",3026);
+        Gear gear14 = new Gear("Shimano", "Shimano 105 R7000", "Shimano 105", "Aluminium", "Mechanical", "Rim", 2700);
+        Gear gear15 = new Gear("Shimano", "Shimano Tiagra R4700", "Shimano Tiagra", "Aluminium", "Mechanical", "Rim", 2800);
+        Gear gear16 = new Gear("Shimano", "Shimano Sora R3000", "Shimano Sora", "Aluminium", "Mechanical", "Rim", 3000);
+        Gear gear17 = new Gear("Shimano", "Shimano Claris R2000", "Shimano Claris", "Aluminium", "Mechanical", "Rim", 3200);
+        Gear gear18 = new Gear("Campagnolo", "Campagnolo Super Record EPS R12", "Campagnolo Super Record", "Carbon", "Electronic", "Disc", 2300);
+        Gear gear19 = new Gear("Campagnolo", "Campagnolo Super Record R12", "Campagnolo Super Record", "Carbon", "Mechanical", "Rim", 2400);
+        Gear gear20 = new Gear("Campagnolo", "Campagnolo Record EPS R12", "Campagnolo Record", "Carbon", "Electronic", "Disc", 2400);
+        Gear gear21 = new Gear("Campagnolo", "Campagnolo Record R12", "Campagnolo Record", "Carbon", "Mechanical", "Rim", 2500);
+        Gear gear22 = new Gear("Campagnolo", "Campagnolo Record 11-speed", "Campagnolo Record", "Carbon", "Mechanical", "Rim", 2400);
+        Gear gear23 = new Gear("Campagnolo", "Campagnolo Chorus EPS R12", "Campagnolo Chorus", "Aluminium", "Electronic", "Rim", 2850);
+        Gear gear24 = new Gear("Campagnolo", "Campagnolo Chorus R12", "Campagnolo Chorus", "Aluminium", "Mechanical", "Rim", 2850);
+        Gear gear25 = new Gear("Campagnolo", "Campagnolo Athena EPS R11", "Campagnolo Athena", "Carbon", "Electronic", "Disc", 2800);
+        Gear gear26 = new Gear("Campagnolo", "Campagnolo Athena R11", "Campagnolo Athena", "Aluminium", "Mechanical", "Rim", 2900);
+        Gear gear27 = new Gear("Campagnolo", "Campagnolo Potenza R11", "Campagnolo Potenza", "Aluminium", "Mechanical", "Rim", 2550);
+        Gear gear28 = new Gear("Campagnolo", "Campagnolo Centaur EPS R10", "Campagnolo Centaur", "Carbon", "Electronic", "Disc", 2650);
+        Gear gear29 = new Gear("Campagnolo", "Campagnolo Centaur R10", "Campagnolo Centaur", "Aluminium", "Mechanical", "Rim", 2500);
+        Gear gear30 = new Gear("Campagnolo", "Campagnolo Veloce R9", "Campagnolo Veloce", "Aluminium", "Mechanical", "Rim", 2400);
+        Gear gear31 = new Gear("Campagnolo", "Campagnolo Mirage R8", "Campagnolo Mirage", "Aluminium", "Mechanical", "Rim", 1900);
+        Gear gear32 = new Gear("Campagnolo", "Campagnolo Xenon 10", "Campagnolo Xenon",  "Aluminium", "Mechanical", "Rim", 2200);
+        Gear gear33 = new Gear("Campagnolo", "Campagnolo C-Record", "Campagnolo C-Record", "Carbon", "Mechanical", "Rim", 1900);
+        Gear gear34 = new Gear("SRAM", "SRAM Red AXS", "SRAM Red","Aluminium", "Electronic", "Disc", 2548);
+        Gear gear35 = new Gear("SRAM", "SRAM Red eTap AXS", "SRAM Red", "Carbon", "Electronic", "Disc", 2650);
+        Gear gear36 = new Gear("SRAM", "SRAM Red eTap 11-speed", "SRAM Red", "Carbon", "Electronic", "Disc", 2500);
+        Gear gear37 = new Gear("SRAM", "SRAM Force eTap AXS", "SRAM Force", "Aluminium", "Electronic", "Disc", 2800);
+        Gear gear38 = new Gear("SRAM", "SRAM Force AXS", "SRAM Force", "Aluminium", "Electronic", "Rim", 2600);
+        Gear gear39 = new Gear("SRAM", "SRAM Force 22", "SRAM Force", "Aluminium", "Mechanical", "Rim", 2500);
+        Gear gear40 = new Gear("SRAM", "SRAM Rival AXS", "SRAM Rival", "Aluminium", "Electronic", "Rim", 2400);
+        Gear gear41 = new Gear("SRAM", "SRAM Rival 22", "SRAM Rival","Aluminium", "Mechanical", "Rim", 2200);
+        Gear gear42 = new Gear("SRAM", "SRAM Rival 1", "SRAM Rival", "Aluminium", "Mechanical", "Disc", 2600);
+        Gear gear43 = new Gear("SRAM", "SRAM Apex", "SRAM Apex", "Aluminium", "Mechanical", "Rim", 2750);
+        Gear gear44 = new Gear("SRAM", "SRAM Apex 1", "SRAM Apex","Aluminium", "Mechanical", "Disc", 2800);
 
 
         try (EntityManager em = emf.createEntityManager()) {
@@ -796,7 +793,6 @@ public class Populate {
             em.persist(gear42);
             em.persist(gear43);
             em.persist(gear44);
-            em.persist(gear45);
 
 
 

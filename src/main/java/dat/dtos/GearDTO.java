@@ -3,8 +3,6 @@ package dat.dtos;
 import dat.entities.Gear;
 import lombok.*;
 
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
@@ -15,6 +13,7 @@ public class GearDTO {
     private Long id;
     private String brand;
     private String model;
+    private String series;
     private String material;
     private String type;
     private String brakes;
@@ -25,6 +24,7 @@ public class GearDTO {
         this.id = gear.getId();
         this.brand = gear.getBrand();
         this.model = gear.getModel();
+        this.series = gear.getSeries();
         this.material = gear.getMaterial();
         this.type = gear.getType();
         this.brakes = gear.getBrakes();

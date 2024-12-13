@@ -10,10 +10,12 @@ import dat.entities.Bicycle;
 import io.javalin.http.Context;
 import io.javalin.http.NotFoundResponse;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,8 +43,8 @@ public class BicycleController implements IController<BicycleDTO> {
 
     public void getAll(Context ctx) {
         try {
-            List<BicycleDTO> bicycleDTOS = bicycleDAO.getAll();
-            ctx.json(bicycleDTOS);
+            List<BicycleDTO> bicyclesDTOS = bicycleDAO.getAll();
+            ctx.json(bicyclesDTOS);
         } catch (Exception e) {
             logger.error("Unknown error occurred", e);
             ctx.status(500).json(Map.of(
@@ -51,6 +53,11 @@ public class BicycleController implements IController<BicycleDTO> {
                     "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
             ));
         }
+    }
+
+    public void getFilterCounts(Context ctx) {
+        FilterCountDTO filterCountDTO = bicycleDAO.getFilterCounts();
+        ctx.json(filterCountDTO);
     }
 
     public void getById(Context ctx) {
@@ -113,6 +120,48 @@ public class BicycleController implements IController<BicycleDTO> {
             ctx.json(filteredBicycles);
         } catch (RuntimeException e) {
             ctx.status(500).result("An error occurred while filtering bicycles: " + e.getMessage());
+        }
+    }
+
+    public void getFilteredBicycles(Context ctx) {
+        try {
+            // Hent query-parametre fra Context
+            List<String> gearSeries = ctx.queryParams("gearSeries");
+            List<String> saddleBrand = ctx.queryParams("saddleBrand");
+            List<String> wheelBrand = ctx.queryParams("wheelBrand");
+
+            int minPrice = 0;
+            String minPriceParam = ctx.queryParam("minPrice");
+            if (minPriceParam != null && !minPriceParam.isEmpty()) {
+                minPrice = Integer.parseInt(minPriceParam);
+            }
+
+            int maxPrice = 50000;
+            String maxPriceParam = ctx.queryParam("maxPrice");
+            if (maxPriceParam != null && !maxPriceParam.isEmpty()) {
+                maxPrice = Integer.parseInt(maxPriceParam);
+            }
+
+            // Byg filter-mappe
+            Map<String, List<String>> filters = new HashMap<>();
+            if (!gearSeries.isEmpty()) {
+                filters.put("gearSeries", gearSeries);
+            }
+            if (!saddleBrand.isEmpty()) {
+                filters.put("saddleBrand", saddleBrand);
+            }
+            if (!wheelBrand.isEmpty()) {
+                filters.put("wheelBrand", wheelBrand);
+            }
+
+            // Kald DAO for at hente filtrerede cykler
+            List<BicycleDTO> bicyclesDTOS = bicycleDAO.getBicyclesByFilters(filters, minPrice, maxPrice);
+
+            // Returner resultat som JSON
+            ctx.json(bicyclesDTOS);
+        } catch (Exception e) {
+            // Returner fejlmeddelelse
+            ctx.status(500).json(Map.of("error", "Error fetching bicycles: " + e.getMessage()));
         }
     }
 

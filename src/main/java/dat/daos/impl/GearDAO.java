@@ -64,11 +64,12 @@ public class GearDAO implements IDAO<GearDTO> {
             em.getTransaction().begin();
             Gear g = em.find(Gear.class, id);
             g.setBrand(gearDTO.getBrand());
+            g.setModel(gearDTO.getModel());
+            g.setSeries(gearDTO.getSeries());
+            g.setMaterial(gearDTO.getMaterial());
             g.setType(gearDTO.getType());
             g.setBrakes(gearDTO.getBrakes());
-            g.setMaterial(gearDTO.getMaterial());
             g.setWeight(gearDTO.getWeight());
-            g.setModel(gearDTO.getModel());
             Gear mergedGear = em.merge(g);
             em.getTransaction().commit();
             return mergedGear != null ? new GearDTO(mergedGear) : null;
