@@ -31,7 +31,6 @@ public class Frame {
     @Column(name = "material", nullable = true)
     private String material;
 
-    // her tænker jeg at type er en enum som kunne være om den er sat op til disc eller bremser
     @Column(name = "type", nullable = true)
     private String type;
 
@@ -43,9 +42,9 @@ public class Frame {
 
     // skal læses som at et frame kan have mange cykler tilknyttet
     @OneToMany(mappedBy = "frame")
-    //@JsonIgnore
-    //@ToString.Exclude
-    //@JsonBackReference
+    @JsonIgnore
+    @ToString.Exclude
+    @JsonBackReference
     private Set<Bicycle> bicycles;
 
     public Frame(String brand, String model, String material, String type, int weight, int size) {

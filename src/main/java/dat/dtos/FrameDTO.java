@@ -13,7 +13,7 @@ public class FrameDTO {
     private String brand;
     private String model;
     private String material;
-    private String type;  // Hvis type er en enum, kan du ændre dette til den tilsvarende enum-type
+    private String type;
     private int weight;
     private int size;
 

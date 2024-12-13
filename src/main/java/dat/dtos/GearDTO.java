@@ -37,4 +37,18 @@ public class GearDTO {
         return new Gear(this);
     }
 
+    @Override
+    public String toString() {
+        return "GearDTO{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", series='" + series + '\'' +
+                ", material='" + material + '\'' +
+                ", type='" + type + '\'' +
+                ", brakes='" + brakes + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
+
 }

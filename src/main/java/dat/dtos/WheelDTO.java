@@ -33,4 +33,17 @@ public class WheelDTO {
     public Wheel toEntity() {
         return new Wheel(this);
     }
+
+    @Override
+    public String toString() {
+        return "WheelDTO{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", material='" + material + '\'' +
+                ", type='" + type + '\'' +
+                ", model='" + model + '\'' +
+                ", weight=" + weight +
+                ", size=" + size +
+                '}';
+    }
 }

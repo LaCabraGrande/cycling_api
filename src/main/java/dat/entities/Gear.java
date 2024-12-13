@@ -32,7 +32,6 @@ public class Gear {
     @Column(name = "material", nullable = true)
     private String material;
 
-    // her tænker jeg at type er en enum som kunne være elektronisk eller mekanisk
     @Column(name = "type", nullable = true)
     private String type;
 
@@ -72,5 +71,19 @@ public class Gear {
 
     public void addBicycle(Bicycle bicycle) {
         this.bicycles.add(bicycle);
+    }
+
+    @Override
+    public String toString() {
+        return "Gear{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", series='" + series + '\'' +
+                ", material='" + material + '\'' +
+                ", type='" + type + '\'' +
+                ", brakes='" + brakes + '\'' +
+                ", weight=" + weight +
+                '}';
     }
 }

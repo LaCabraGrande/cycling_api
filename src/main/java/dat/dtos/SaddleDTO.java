@@ -34,4 +34,16 @@ public class SaddleDTO {
         return new Saddle(this);
     }
 
+    @Override
+    public String toString() {
+        return "SaddleDTO{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", material='" + material + '\'' +
+                ", model='" + model + '\'' +
+                ", weight=" + weight +
+                ", width=" + width +
+                '}';
+    }
+
 }

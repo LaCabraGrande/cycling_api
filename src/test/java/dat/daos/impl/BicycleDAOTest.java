@@ -91,12 +91,14 @@ class BicycleDAOTest {
 
         frame1.setBrand("Cervelo");
         frame1.setType("Racing");
+        frame1.setModel("PS5");
         frame1.setMaterial("Carbon");
         frame1.setWeight(1);
         frame1.setSize(56);
 
         frame2.setBrand("Cannondale");
         frame2.setType("Climbing");
+        frame2.setModel("CAAD13");
         frame2.setMaterial("Aluminium");
         frame2.setWeight(15);
         frame2.setSize(54);
@@ -106,12 +108,14 @@ class BicycleDAOTest {
 
         gear1.setBrand("Shimano");
         gear1.setModel("Ultegra");
+        gear2.setSeries("Shimano Ultegra");
         gear1.setMaterial("Aluminium");
         gear1.setType("Racing");
         gear1.setWeight(1);
 
         gear2.setBrand("SRAM");
         gear2.setModel("Red");
+        gear2.setSeries("SRAM Red");
         gear2.setMaterial("Carbon");
         gear2.setType("Climbing");
         gear2.setWeight(1);
@@ -121,14 +125,17 @@ class BicycleDAOTest {
 
         wheel1.setBrand("Mavic");
         wheel1.setMaterial("Cosmic");
-        wheel1.setType("Racing");
-        wheel1.setWeight(1);
-        wheel1.setSize(700);
+        wheel1.setType("Disc");
+        wheel1.setModel("Cosmic Pro");
+        wheel1.setWeight(1540);
+        wheel1.setSize(23);
 
         wheel2.setBrand("Fulcrum");
         wheel2.setMaterial("Racing");
-        wheel2.setType("Climbing");
-        wheel2.setWeight(1);
+        wheel2.setType("Disc");
+        wheel2.setModel("Racing Zero");
+        wheel2.setWeight(1340);
+        wheel1.setSize(23);
 
         wheelDTO1 = wheelDAO.add(new WheelDTO(wheel1));
         wheelDTO2 = wheelDAO.add(new WheelDTO(wheel2));

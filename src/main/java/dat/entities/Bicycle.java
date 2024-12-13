@@ -117,4 +117,18 @@ public class Bicycle {
             saddle.getBicycles().add(this);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Bicycle{" +
+                "id=" + id +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", size=" + size +
+                ", price=" + price +
+                ", weight=" + weight +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
 }

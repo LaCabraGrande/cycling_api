@@ -25,7 +25,6 @@ public class Wheel {
     @Column(name = "material", nullable = true)
     private String material;
 
-    // her tænker jeg at type er en enum som kunne være om den er sat op til disc eller bremser
     @Column(name = "type", nullable = true)
     private String type;
 

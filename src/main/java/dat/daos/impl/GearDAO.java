@@ -50,14 +50,19 @@ public class GearDAO implements IDAO<GearDTO> {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             Gear gear = new Gear(gearDTO);
+            System.out.println("GearDTO: " + gearDTO);
             em.persist(gear);
+            System.out.println("Gear after persist: " + gear);  // Skal vise ID'et
             em.getTransaction().commit();
             return new GearDTO(gear);
         }
         catch (Exception e) {
+            System.out.println("Error adding gear: " + e.getMessage());
+
             throw new RuntimeException("Error adding gear", e);
         }
     }
+
 
     public GearDTO update(int id, GearDTO gearDTO) {
         try (EntityManager em = emf.createEntityManager()) {

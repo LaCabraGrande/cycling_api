@@ -252,7 +252,7 @@ Authorization: Bearer {{jwt_token}}
 }
 
 ### Her tilføjer vi en wheel til en cykel og vi bruger cykel id og wheel id
-POST http://localhost:7070/api/bicycles/15/wheel/3
+POST http://localhost:7070/api/bicycles/11/wheel/9
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
@@ -303,7 +303,7 @@ Authorization: Bearer {{jwt_token}}
 }
 
 ### Her tilføjer vi en gear til en cykel og vi bruger cykel id og gear id
-POST http://localhost:7070/api/bicycles/15/gear/3
+POST http://localhost:7070/api/bicycles/19/gear/7
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 

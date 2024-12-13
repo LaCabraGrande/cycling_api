@@ -58,22 +58,18 @@ public class BicycleDTO {
         this.weight = bicycle.getWeight();
         this.description = bicycle.getDescription();
 
-        System.out.println("Constructing BicycleDTO, frame: " + bicycle.getFrame());
         if (bicycle.getFrame() != null) {
             this.frame = new FrameDTO(bicycle.getFrame());
         }
 
-        System.out.println("Constructing BicycleDTO, gear: " + bicycle.getGear());
         if (bicycle.getGear() != null) {
             this.gear = new GearDTO(bicycle.getGear());
         }
 
-        System.out.println("Constructing BicycleDTO, wheel: " + bicycle.getWheel());
         if (bicycle.getWheel() != null) {
             this.wheel = new WheelDTO(bicycle.getWheel());
         }
 
-        System.out.println("Constructing BicycleDTO, saddle: " + bicycle.getSaddle());
         if (bicycle.getSaddle() != null) {
             this.saddle = new SaddleDTO(bicycle.getSaddle());
         }
@@ -107,6 +103,22 @@ public class BicycleDTO {
     @Override
     public int hashCode() {
         return Objects.hash(id, brand, model, size, price, weight, description, frame, gear, wheel, saddle);
+    }
+    @Override
+    public String toString() {
+        return "BicycleDTO{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", size=" + size +
+                ", price=" + price +
+                ", weight=" + weight +
+                ", description='" + description + '\'' +
+                ", frame=" + frame +
+                ", gear=" + gear +
+                ", wheel=" + wheel +
+                ", saddle=" + saddle +
+                '}';
     }
 
 }
