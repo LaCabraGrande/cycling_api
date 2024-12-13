@@ -372,39 +372,39 @@ public class Populate {
         Gear gear10 = new Gear("Shimano", "Shimano Ultegra Di2 R8150", "Shimano Ultegra", "Carbon", "Electronic", "Rim",2600);
         Gear gear11 = new Gear("Shimano", "Shimano Ultegra Di2 R8100", "Shimano Ultegra", "Carbon", "Electronic", "Rim", 2600);
         Gear gear12 = new Gear("Shimano", "Shimano 105 Di2 R7170", "Shimano 105", "Aluminium", "Electronic", "Disc",3000);
-        Gear gear45 = new Gear("Shimano", "Shimano 105 Di2 R7150", "Shimano 105", "Aluminium", "Electronic", "Rim",3000);
-        Gear gear13 = new Gear("Shimano", "Shimano 105 R7100", "Shimano 105", "Aluminium", "Mechanical", "Rim",3026);
-        Gear gear14 = new Gear("Shimano", "Shimano 105 R7000", "Shimano 105", "Aluminium", "Mechanical", "Rim", 2700);
-        Gear gear15 = new Gear("Shimano", "Shimano Tiagra R4700", "Shimano Tiagra", "Aluminium", "Mechanical", "Rim", 2800);
-        Gear gear16 = new Gear("Shimano", "Shimano Sora R3000", "Shimano Sora", "Aluminium", "Mechanical", "Rim", 3000);
-        Gear gear17 = new Gear("Shimano", "Shimano Claris R2000", "Shimano Claris", "Aluminium", "Mechanical", "Rim", 3200);
-        Gear gear18 = new Gear("Campagnolo", "Campagnolo Super Record EPS R12", "Campagnolo Super Record", "Carbon", "Electronic", "Disc", 2300);
-        Gear gear19 = new Gear("Campagnolo", "Campagnolo Super Record R12", "Campagnolo Super Record", "Carbon", "Mechanical", "Rim", 2400);
-        Gear gear20 = new Gear("Campagnolo", "Campagnolo Record EPS R12", "Campagnolo Record", "Carbon", "Electronic", "Disc", 2400);
-        Gear gear21 = new Gear("Campagnolo", "Campagnolo Record R12", "Campagnolo Record", "Carbon", "Mechanical", "Rim", 2500);
-        Gear gear22 = new Gear("Campagnolo", "Campagnolo Record 11-speed", "Campagnolo Record", "Carbon", "Mechanical", "Rim", 2400);
-        Gear gear23 = new Gear("Campagnolo", "Campagnolo Chorus EPS R12", "Campagnolo Chorus", "Aluminium", "Electronic", "Rim", 2850);
-        Gear gear24 = new Gear("Campagnolo", "Campagnolo Chorus R12", "Campagnolo Chorus", "Aluminium", "Mechanical", "Rim", 2850);
-        Gear gear25 = new Gear("Campagnolo", "Campagnolo Athena EPS R11", "Campagnolo Athena", "Carbon", "Electronic", "Disc", 2800);
-        Gear gear26 = new Gear("Campagnolo", "Campagnolo Athena R11", "Campagnolo Athena", "Aluminium", "Mechanical", "Rim", 2900);
-        Gear gear27 = new Gear("Campagnolo", "Campagnolo Potenza R11", "Campagnolo Potenza", "Aluminium", "Mechanical", "Rim", 2550);
-        Gear gear28 = new Gear("Campagnolo", "Campagnolo Centaur EPS R10", "Campagnolo Centaur", "Carbon", "Electronic", "Disc", 2650);
-        Gear gear29 = new Gear("Campagnolo", "Campagnolo Centaur R10", "Campagnolo Centaur", "Aluminium", "Mechanical", "Rim", 2500);
-        Gear gear30 = new Gear("Campagnolo", "Campagnolo Veloce R9", "Campagnolo Veloce", "Aluminium", "Mechanical", "Rim", 2400);
-        Gear gear31 = new Gear("Campagnolo", "Campagnolo Mirage R8", "Campagnolo Mirage", "Aluminium", "Mechanical", "Rim", 1900);
-        Gear gear32 = new Gear("Campagnolo", "Campagnolo Xenon 10", "Campagnolo Xenon",  "Aluminium", "Mechanical", "Rim", 2200);
-        Gear gear33 = new Gear("Campagnolo", "Campagnolo C-Record", "Campagnolo C-Record", "Carbon", "Mechanical", "Rim", 1900);
-        Gear gear34 = new Gear("SRAM", "SRAM Red AXS", "SRAM Red","Aluminium", "Electronic", "Disc", 2548);
-        Gear gear35 = new Gear("SRAM", "SRAM Red eTap AXS", "SRAM Red", "Carbon", "Electronic", "Disc", 2650);
-        Gear gear36 = new Gear("SRAM", "SRAM Red eTap 11-speed", "SRAM Red", "Carbon", "Electronic", "Disc", 2500);
-        Gear gear37 = new Gear("SRAM", "SRAM Force eTap AXS", "SRAM Force", "Aluminium", "Electronic", "Disc", 2800);
-        Gear gear38 = new Gear("SRAM", "SRAM Force AXS", "SRAM Force", "Aluminium", "Electronic", "Rim", 2600);
-        Gear gear39 = new Gear("SRAM", "SRAM Force 22", "SRAM Force", "Aluminium", "Mechanical", "Rim", 2500);
-        Gear gear40 = new Gear("SRAM", "SRAM Rival AXS", "SRAM Rival", "Aluminium", "Electronic", "Rim", 2400);
-        Gear gear41 = new Gear("SRAM", "SRAM Rival 22", "SRAM Rival","Aluminium", "Mechanical", "Rim", 2200);
-        Gear gear42 = new Gear("SRAM", "SRAM Rival 1", "SRAM Rival", "Aluminium", "Mechanical", "Disc", 2600);
-        Gear gear43 = new Gear("SRAM", "SRAM Apex", "SRAM Apex", "Aluminium", "Mechanical", "Rim", 2750);
-        Gear gear44 = new Gear("SRAM", "SRAM Apex 1", "SRAM Apex","Aluminium", "Mechanical", "Disc", 2800);
+        Gear gear13 = new Gear("Shimano", "Shimano 105 Di2 R7150", "Shimano 105", "Aluminium", "Electronic", "Rim",3000);
+        Gear gear14 = new Gear("Shimano", "Shimano 105 R7100", "Shimano 105", "Aluminium", "Mechanical", "Rim",3026);
+        Gear gear15 = new Gear("Shimano", "Shimano 105 R7000", "Shimano 105", "Aluminium", "Mechanical", "Rim", 2700);
+        Gear gear16 = new Gear("Shimano", "Shimano Tiagra R4700", "Shimano Tiagra", "Aluminium", "Mechanical", "Rim", 2800);
+        Gear gear17 = new Gear("Shimano", "Shimano Sora R3000", "Shimano Sora", "Aluminium", "Mechanical", "Rim", 3000);
+        Gear gear18 = new Gear("Shimano", "Shimano Claris R2000", "Shimano Claris", "Aluminium", "Mechanical", "Rim", 3200);
+        Gear gear19 = new Gear("Campagnolo", "Campagnolo Super Record EPS R12", "Campagnolo Super Record", "Carbon", "Electronic", "Disc", 2300);
+        Gear gear20 = new Gear("Campagnolo", "Campagnolo Super Record R12", "Campagnolo Super Record", "Carbon", "Mechanical", "Rim", 2400);
+        Gear gear21 = new Gear("Campagnolo", "Campagnolo Record EPS R12", "Campagnolo Record", "Carbon", "Electronic", "Disc", 2400);
+        Gear gear22 = new Gear("Campagnolo", "Campagnolo Record R12", "Campagnolo Record", "Carbon", "Mechanical", "Rim", 2500);
+        Gear gear23 = new Gear("Campagnolo", "Campagnolo Record 11-speed", "Campagnolo Record", "Carbon", "Mechanical", "Rim", 2400);
+        Gear gear24 = new Gear("Campagnolo", "Campagnolo Chorus EPS R12", "Campagnolo Chorus", "Aluminium", "Electronic", "Rim", 2850);
+        Gear gear25 = new Gear("Campagnolo", "Campagnolo Chorus R12", "Campagnolo Chorus", "Aluminium", "Mechanical", "Rim", 2850);
+        Gear gear26 = new Gear("Campagnolo", "Campagnolo Athena EPS R11", "Campagnolo Athena", "Carbon", "Electronic", "Disc", 2800);
+        Gear gear27 = new Gear("Campagnolo", "Campagnolo Athena R11", "Campagnolo Athena", "Aluminium", "Mechanical", "Rim", 2900);
+        Gear gear28 = new Gear("Campagnolo", "Campagnolo Potenza R11", "Campagnolo Potenza", "Aluminium", "Mechanical", "Rim", 2550);
+        Gear gear29 = new Gear("Campagnolo", "Campagnolo Centaur EPS R10", "Campagnolo Centaur", "Carbon", "Electronic", "Disc", 2650);
+        Gear gear30 = new Gear("Campagnolo", "Campagnolo Centaur R10", "Campagnolo Centaur", "Aluminium", "Mechanical", "Rim", 2500);
+        Gear gear31 = new Gear("Campagnolo", "Campagnolo Veloce R9", "Campagnolo Veloce", "Aluminium", "Mechanical", "Rim", 2400);
+        Gear gear32 = new Gear("Campagnolo", "Campagnolo Mirage R8", "Campagnolo Mirage", "Aluminium", "Mechanical", "Rim", 1900);
+        Gear gear33 = new Gear("Campagnolo", "Campagnolo Xenon 10", "Campagnolo Xenon",  "Aluminium", "Mechanical", "Rim", 2200);
+        Gear gear34 = new Gear("Campagnolo", "Campagnolo C-Record", "Campagnolo C-Record", "Carbon", "Mechanical", "Rim", 1900);
+        Gear gear35 = new Gear("SRAM", "SRAM Red AXS", "SRAM Red","Aluminium", "Electronic", "Disc", 2548);
+        Gear gear36 = new Gear("SRAM", "SRAM Red eTap AXS", "SRAM Red", "Carbon", "Electronic", "Disc", 2650);
+        Gear gear37 = new Gear("SRAM", "SRAM Red eTap 11-speed", "SRAM Red", "Carbon", "Electronic", "Disc", 2500);
+        Gear gear38 = new Gear("SRAM", "SRAM Force eTap AXS", "SRAM Force", "Aluminium", "Electronic", "Disc", 2800);
+        Gear gear39 = new Gear("SRAM", "SRAM Force AXS", "SRAM Force", "Aluminium", "Electronic", "Rim", 2600);
+        Gear gear40 = new Gear("SRAM", "SRAM Force 22", "SRAM Force", "Aluminium", "Mechanical", "Rim", 2500);
+        Gear gear41 = new Gear("SRAM", "SRAM Rival AXS", "SRAM Rival", "Aluminium", "Electronic", "Rim", 2400);
+        Gear gear42 = new Gear("SRAM", "SRAM Rival 22", "SRAM Rival","Aluminium", "Mechanical", "Rim", 2200);
+        Gear gear43 = new Gear("SRAM", "SRAM Rival 1", "SRAM Rival", "Aluminium", "Mechanical", "Disc", 2600);
+        Gear gear44 = new Gear("SRAM", "SRAM Apex", "SRAM Apex", "Aluminium", "Mechanical", "Rim", 2750);
+        Gear gear45 = new Gear("SRAM", "SRAM Apex 1", "SRAM Apex","Aluminium", "Mechanical", "Disc", 2800);
 
 
         try (EntityManager em = emf.createEntityManager()) {
@@ -793,6 +793,7 @@ public class Populate {
             em.persist(gear42);
             em.persist(gear43);
             em.persist(gear44);
+            em.persist(gear45);
 
 
 
@@ -839,26 +840,26 @@ public class Populate {
             Bicycle bicycle40 = new Bicycle("Bianchi", "Oltre XR3", 57, 4800, 7.4, "Aero road bike", frame9, gear2, wheel1, saddle1);
             Bicycle bicycle41 = new Bicycle("Specialized", "S-Works Tarmac SL6", 56, 8000, 6.7, "Aero road bike", frame61, gear1, wheel1, saddle1);
             Bicycle bicycle42 = new Bicycle("De Rosa", "Merak Grafite Disc", 56, 6000, 6.7, "Aero road bike", frame76, gear1, wheel44, saddle42);
-            Bicycle bicycle45 = new Bicycle("De Rosa", "Settanta Carbon Disc", 56, 7000, 6.7, "Aero road bike", frame75, gear1, wheel44, saddle42);
-            Bicycle bicycle46 = new Bicycle("De Rosa", "Idol Red Grade Disc", 56, 6100, 6.7, "Aero road bike", frame77, gear1, wheel44, saddle42);
-            Bicycle bicycle47 = new Bicycle("De Rosa", "838 Rosso Rosso Disc", 56, 3100, 7.2, "Aero road bike", frame1, gear11, wheel46, saddle43);
-            Bicycle bicycle48 = new Bicycle("Giant", "Defy Advanced", 55, 3000, 7.9, "Endurance bike", frame37, gear6, wheel3, saddle4);
-            Bicycle bicycle49 = new Bicycle("Scott", "Addict RC Ultimate", 56, 13500, 6.7, "Lightweight road bike", frame55, gear35, wheel88, saddle113);
-            Bicycle bicycle50 = new Bicycle("Scott", "Foil RC Ultimate", 56, 16000, 7.2, "Aero Road bike", frame55, gear12, wheel124, saddle104);
-            Bicycle bicycle51 = new Bicycle("Scott", "Foil RC Pro", 56, 11100, 7.3, "Aero Road bike", frame80, gear1, wheel21, saddle108);
-            Bicycle bicycle52 = new Bicycle("Scott", "Foil RC 10", 56, 6930, 7.9, "Aero Road bike", frame80, gear10, wheel124, saddle115);
-            Bicycle bicycle53 = new Bicycle("Scott", "Foil RC 20", 56, 6000, 8.4, "Aero Road bike", frame80, gear40, wheel127, saddle104);
-            Bicycle bicycle54 = new Bicycle("Scott", "Foil RC 30", 56, 5330, 8.5, "Aero Road bike", frame55, gear12, wheel124, saddle104);
-            Bicycle bicycle55 = new Bicycle("Scott", "Addict RC Ultimate", 56, 14670, 6.7, "Aero Road bike", frame55, gear1, wheel1, saddle5);
-            Bicycle bicycle56 = new Bicycle("Scott", "Addict RC Pro", 56, 9600, 7.2, "Aero Road bike", frame79, gear1, wheel23, saddle107);
-            Bicycle bicycle57 = new Bicycle("Scott", "Addict RC 10", 56, 6930, 7.9, "Aero Road bike", frame55, gear1, wheel1, saddle5);
-            Bicycle bicycle58 = new Bicycle("Scott", "Addict RC 15", 56, 6670, 7.6, "Aero Road bike", frame80, gear10, wheel126, saddle114);
-            Bicycle bicycle59 = new Bicycle("Scott", "Addict RC 20", 56, 5330, 7.6, "Aero Road bike", frame80, gear10, wheel125, saddle114);
-            Bicycle bicycle60 = new Bicycle("Scott", "Addict RC 30", 56, 5330, 7.7, "Aero Road bike", frame80, gear40, wheel125, saddle114);
-            Bicycle bicycle61 = new Bicycle("Scott", "Addict RC 40", 56, 4800, 7.6, "Aero Road bike", frame80, gear45, wheel128, saddle114);
-            Bicycle bicycle62 = new Bicycle("Scott", "Addict 10", 56, 4000, 8.7, "Aero Road bike", frame82, gear40, wheel128, saddle112);
-            Bicycle bicycle63 = new Bicycle("Scott", "Addict 20", 56, 3600, 8.7, "Aero Road bike", frame82, gear45, wheel128, saddle112);
-            Bicycle bicycle64 = new Bicycle("Scott", "Addict 30", 56, 2935, 8.6, "Aero Road bike", frame82, gear14, wheel128, saddle112);
+            Bicycle bicycle43 = new Bicycle("De Rosa", "Settanta Carbon Disc", 56, 7000, 6.7, "Aero road bike", frame75, gear1, wheel44, saddle42);
+            Bicycle bicycle44 = new Bicycle("De Rosa", "Idol Red Grade Disc", 56, 6100, 6.7, "Aero road bike", frame77, gear1, wheel44, saddle42);
+            Bicycle bicycle45 = new Bicycle("De Rosa", "838 Rosso Rosso Disc", 56, 3100, 7.2, "Aero road bike", frame1, gear11, wheel46, saddle43);
+            Bicycle bicycle46 = new Bicycle("Giant", "Defy Advanced", 55, 3000, 7.9, "Endurance bike", frame37, gear6, wheel3, saddle4);
+            Bicycle bicycle47 = new Bicycle("Scott", "Addict RC Ultimate", 56, 13500, 6.7, "Lightweight road bike", frame55, gear35, wheel88, saddle113);
+            Bicycle bicycle48 = new Bicycle("Scott", "Foil RC Ultimate", 56, 16000, 7.2, "Aero Road bike", frame55, gear12, wheel124, saddle104);
+            Bicycle bicycle49 = new Bicycle("Scott", "Foil RC Pro", 56, 11100, 7.3, "Aero Road bike", frame80, gear1, wheel21, saddle108);
+            Bicycle bicycle50 = new Bicycle("Scott", "Foil RC 10", 56, 6930, 7.9, "Aero Road bike", frame80, gear10, wheel124, saddle115);
+            Bicycle bicycle51 = new Bicycle("Scott", "Foil RC 20", 56, 6000, 8.4, "Aero Road bike", frame80, gear40, wheel127, saddle104);
+            Bicycle bicycle52 = new Bicycle("Scott", "Foil RC 30", 56, 5330, 8.5, "Aero Road bike", frame55, gear12, wheel124, saddle104);
+            Bicycle bicycle53 = new Bicycle("Scott", "Addict RC Ultimate", 56, 14670, 6.7, "Aero Road bike", frame55, gear1, wheel1, saddle5);
+            Bicycle bicycle54 = new Bicycle("Scott", "Addict RC Pro", 56, 9600, 7.2, "Aero Road bike", frame79, gear1, wheel23, saddle107);
+            Bicycle bicycle55 = new Bicycle("Scott", "Addict RC 10", 56, 6930, 7.9, "Aero Road bike", frame55, gear1, wheel1, saddle5);
+            Bicycle bicycle56 = new Bicycle("Scott", "Addict RC 15", 56, 6670, 7.6, "Aero Road bike", frame80, gear10, wheel126, saddle114);
+            Bicycle bicycle57 = new Bicycle("Scott", "Addict RC 20", 56, 5330, 7.6, "Aero Road bike", frame80, gear10, wheel125, saddle114);
+            Bicycle bicycle58 = new Bicycle("Scott", "Addict RC 30", 56, 5330, 7.7, "Aero Road bike", frame80, gear40, wheel125, saddle114);
+            Bicycle bicycle59 = new Bicycle("Scott", "Addict RC 40", 56, 4800, 7.6, "Aero Road bike", frame80, gear45, wheel128, saddle114);
+            Bicycle bicycle60 = new Bicycle("Scott", "Addict 10", 56, 4000, 8.7, "Aero Road bike", frame82, gear40, wheel128, saddle112);
+            Bicycle bicycle61 = new Bicycle("Scott", "Addict 20", 56, 3600, 8.7, "Aero Road bike", frame82, gear45, wheel128, saddle112);
+            Bicycle bicycle62 = new Bicycle("Scott", "Addict 30", 56, 2935, 8.6, "Aero Road bike", frame82, gear14, wheel128, saddle112);
 
 
 
@@ -906,6 +907,8 @@ public class Populate {
             em.persist(bicycle40);
             em.persist(bicycle41);
             em.persist(bicycle42);
+            em.persist(bicycle43);
+            em.persist(bicycle44);
             em.persist(bicycle45);
             em.persist(bicycle46);
             em.persist(bicycle47);
@@ -924,12 +927,6 @@ public class Populate {
             em.persist(bicycle60);
             em.persist(bicycle61);
             em.persist(bicycle62);
-            em.persist(bicycle63);
-            em.persist(bicycle64);
-
-
-
-
 
 
 

@@ -183,35 +183,50 @@ public class BicycleDAO {
 
     // Metode til at hente gear, saddle og wheel counts
     public FilterCountDTO getFilterCounts() {
-        // Hent gear, saddler og hjul data fra databasen (dummy data for eksempel)
-        List<GearDTO> gears = gearDAO.getAll();   // Eksempel på metode, der henter gear fra databasen
-        List<SaddleDTO> saddles = saddleDAO.getAll(); // Eksempel på metode, der henter saddles fra databasen
-        List<WheelDTO> wheels = wheelDAO.getAll();  // Eksempel på metode, der henter wheels fra databasen
+        // Hent saddles og wheels data fra databasen
+        List<SaddleDTO> saddles = saddleDAO.getAll(); // Hent saddles fra databasen
+        List<WheelDTO> wheels = wheelDAO.getAll();  // Hent hjul fra databasen
 
-        // Tælling af gear efter serie
+        // Hent alle cykler fra databasen
+        List<BicycleDTO> bicycles = this.getAll(); // Brug this.getAll() i BicycleDAO, da metoden er i BicycleDAO
+
+        // Tælling af gear efter gear-serie baseret på cyklerne
         Map<String, Integer> gearSeriesCount = new HashMap<>();
-        for (GearDTO gear : gears) {
-            String series = gear.getSeries();
-            gearSeriesCount.put(series, gearSeriesCount.getOrDefault(series, 0) + 1);
+        for (BicycleDTO bicycle : bicycles) {
+            // Få gear-serien for den aktuelle cykel
+            String gearSeries = bicycle.getGear().getSeries(); // Antager at BicycleDTO har et GearDTO som en egenskab
+
+            // Tæl cykler med denne gear-serie
+            gearSeriesCount.put(gearSeries, gearSeriesCount.getOrDefault(gearSeries, 0) + 1);
         }
 
-        // Tælling af sadler efter brand
+        // Tælling af saddel-brands baseret på cyklerne
         Map<String, Integer> saddleBrandCount = new HashMap<>();
-        for (SaddleDTO saddle : saddles) {
-            String brand = saddle.getBrand();
-            saddleBrandCount.put(brand, saddleBrandCount.getOrDefault(brand, 0) + 1);
+        for (BicycleDTO bicycle : bicycles) {
+            // Få sadel-brand for den aktuelle cykel
+            String saddleBrand = bicycle.getSaddle().getBrand(); // Antager at BicycleDTO har et SaddleDTO som en egenskab
+
+            // Tæl cykler med dette saddle-brand
+            saddleBrandCount.put(saddleBrand, saddleBrandCount.getOrDefault(saddleBrand, 0) + 1);
         }
 
-        // Tælling af hjul efter brand
+        // Tælling af wheel-brands baseret på cyklerne
         Map<String, Integer> wheelBrandCount = new HashMap<>();
-        for (WheelDTO wheel : wheels) {
-            String brand = wheel.getBrand();
-            wheelBrandCount.put(brand, wheelBrandCount.getOrDefault(brand, 0) + 1);
+        for (BicycleDTO bicycle : bicycles) {
+            // Få wheel-brand for den aktuelle cykel
+            String wheelBrand = bicycle.getWheel().getBrand(); // Antager at BicycleDTO har et WheelDTO som en egenskab
+
+            // Tæl cykler med dette wheel-brand
+            wheelBrandCount.put(wheelBrand, wheelBrandCount.getOrDefault(wheelBrand, 0) + 1);
         }
 
         // Returner FilterCountDTO med de indsamlede data
         return new FilterCountDTO(gearSeriesCount, saddleBrandCount, wheelBrandCount);
     }
+
+
+
+
 
 
 
