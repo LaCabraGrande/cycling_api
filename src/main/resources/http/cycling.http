@@ -65,13 +65,10 @@ GET http://localhost:7070/api/bicycles/filterbicycles?gearSeries=Shimano Dura-Ac
 Accept: application/json
 
 ### Her henter vi sidebarens data baseret på de valgte kriterier
-//GET http://localhost:7070/api/bicycles/filtercounts?gearSeries=Shimano%20Dura-Ace&gearSeries=Shimano%20Ultegra&saddleBrand=Syncros&saddleBrand=Fi'zi:k&wheelType=Rim
-GET http://localhost:7070/api/bicycles/filtercounts?wheelType=Disc&wheelBrand=Zipp
-
-//GET http://localhost:7070/api/bicycles/filtercounts?gear=Shimano+Ultegra
-
-//GET http://bicycle.thegreenway.dk/api/bicycles/filtercounts?gearSeries=Shimano%20Dura-Ace&gearSeries=Shimano%20Ultegra&saddleBrand=Syncros
+GET http://localhost:7070/api/bicycles/filtercounts?gearSeries=Shimano+Ultegra&gearSeries=Shimano+Dura-Ace&gearSeries=Shimano+105
 Accept: application/json
+//GET http://localhost:7070/api/bicycles/filtercounts?gearSeries=Shimano+Ultegra&gearSeries=Shimano+Dura-Ace
+
 
 ### Her opretter vi en cykel
 POST http://localhost:7070/api/bicycles

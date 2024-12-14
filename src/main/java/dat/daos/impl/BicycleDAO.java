@@ -5,7 +5,6 @@ import dat.entities.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
-import org.hibernate.Hibernate;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -81,8 +80,6 @@ public class BicycleDAO {
             return new BicycleDTO(bicycle);
         }
     }
-
-
 
 
     public BicycleDTO getById(int id) {
@@ -195,14 +192,10 @@ public class BicycleDAO {
 
             em.getTransaction().commit();
         } catch (Exception e) {
-           throw new RuntimeException("Error fetching bicycles by filters: " + e.getMessage());
+            throw new RuntimeException("Error fetching bicycles by filters: " + e.getMessage());
         }
         return bicyclesDTOS;
     }
-
-
-
-
 
 
     public FilterCountDTO getFilteredCounts(Map<String, List<String>> filters) {
@@ -293,9 +286,50 @@ public class BicycleDAO {
         Map<String, Integer> bicycleTypeCount = new HashMap<>();
         Map<String, Integer> wheelTypeCount = new HashMap<>();
 
+//        for (String gearSeries : allGearSeries) {
+//            int count = 0;
+//            for (BicycleDTO bicycle : bicycles) {
+//                if (gearSeries.equals(bicycle.getGear().getSeries())) {
+//                    count++;
+//                }
+//            }
+//            gearSeriesCount.put(gearSeries, count);
+//        }
+
+        List<BicycleDTO> listToUse;
+
+        // Flag for at tjekke, om alle nøgler kun er "gearSeries" og har værdier
+        boolean onlyGearSeriesSelected = true;
+
+        // Gennemløb alle entries i filters og udskriv dem
+        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
+            String key = entry.getKey();
+            List<String> value = entry.getValue();
+
+            // Udskriv nøgle og dens tilhørende værdi
+            System.out.println("Filter key: " + key);
+            System.out.println("Filter value: " + (value != null ? value : "null"));
+
+            // Hvis værdien ikke er tom, tjek om nøglen er "gearSeries"
+            if (value != null && !value.isEmpty() && !"gearSeries".equals(key)) {
+                onlyGearSeriesSelected = false; // Der er et filter, der ikke er "gearSeries"
+            }
+        }
+
+        // Udskriv resultatet af evalueringen
+        System.out.println("All keys with non-empty values are 'gearSeries': " + onlyGearSeriesSelected);
+
+        // Brug den passende liste baseret på resultatet
+        if (onlyGearSeriesSelected) {
+            System.out.println("Using bicycleDTOS (only 'gearSeries' selected).");
+            listToUse = bicycleDTOS;
+        } else {
+            System.out.println("Using bicycles (other filters are present).");
+            listToUse = bicycles;
+        }
         for (String gearSeries : allGearSeries) {
             int count = 0;
-            for (BicycleDTO bicycle : bicycles) {
+            for (BicycleDTO bicycle : listToUse) {
                 if (gearSeries.equals(bicycle.getGear().getSeries())) {
                     count++;
                 }
@@ -352,6 +386,7 @@ public class BicycleDAO {
             }
             wheelTypeCount.put(wheelType, count);
         }
+
 
         // Price interval tælling
         Map<String, Integer> priceIntervalCount = initializeCountMap(filters.get("priceInterval"), bicycles, "priceInterval", getAllPriceIntervals());
@@ -488,22 +523,6 @@ public class BicycleDAO {
 //                priceRangeCount
 //        );
 //    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public Bicycle addFrameToBicycle(int bicycleId, int frameId) {
@@ -730,7 +749,7 @@ public class BicycleDAO {
             if (bicycle != null) {
                 Frame frame = bicycle.getFrame();
                 if (frame != null) {
-                frame.getBicycles().remove(bicycle);
+                    frame.getBicycles().remove(bicycle);
                 }
                 Gear gear = bicycle.getGear();
                 if (gear != null) {
@@ -764,8 +783,7 @@ public class BicycleDAO {
         try (EntityManager em = emf.createEntityManager()) {
             Frame frame = em.find(Frame.class, integer);
             return frame != null;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             throw new RuntimeException("Error validating frame primary key", e);
         }
     }
