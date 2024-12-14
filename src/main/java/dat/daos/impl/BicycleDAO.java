@@ -128,7 +128,8 @@ public class BicycleDAO {
                     "LEFT JOIN FETCH b.gear g " +
                     "LEFT JOIN FETCH b.saddle s " +
                     "LEFT JOIN FETCH b.wheel w " +
-                    "LEFT JOIN FETCH b.frame f " +  // Sørg for at hente 'frame'
+                    "LEFT JOIN FETCH b.frame f " +
+                    // Sørg for at hente 'frame'
                     "WHERE b.price BETWEEN :minPrice AND :maxPrice";
 
             if (filters.containsKey("gearSeries")) {
@@ -139,6 +140,15 @@ public class BicycleDAO {
             }
             if (filters.containsKey("wheelBrand")) {
                 jpql += " AND w.brand IN :wheelBrand";
+            }
+            if (filters.containsKey("bicycleBrand")) {
+                jpql += " AND b.brand IN :bicycleBrand";
+            }
+            if (filters.containsKey("bicycleType")) {
+                jpql += " AND g.type IN :bicycleType";
+            }
+            if (filters.containsKey("wheelType")) {
+                jpql += " AND w.type IN :wheelType";
             }
 
             TypedQuery<Bicycle> query = em.createQuery(jpql, Bicycle.class);
@@ -153,6 +163,15 @@ public class BicycleDAO {
             }
             if (filters.containsKey("wheelBrand")) {
                 query.setParameter("wheelBrand", filters.get("wheelBrand"));
+            }
+            if (filters.containsKey("bicycleBrand")) {
+                query.setParameter("bicycleBrand", filters.get("bicycleBrand"));
+            }
+            if (filters.containsKey("bicycleType")) {
+                query.setParameter("bicycleType", filters.get("bicycleType"));
+            }
+            if (filters.containsKey("wheelType")) {
+                query.setParameter("wheelType", filters.get("wheelType"));
             }
 
             List<Bicycle> bicycles = query.getResultList();

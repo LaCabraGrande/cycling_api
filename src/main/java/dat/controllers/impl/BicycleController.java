@@ -163,6 +163,10 @@ public class BicycleController implements IController<BicycleDTO> {
             List<String> gearSeries = ctx.queryParams("gearSeries");
             List<String> saddleBrand = ctx.queryParams("saddleBrand");
             List<String> wheelBrand = ctx.queryParams("wheelBrand");
+            List<String> bicycleBrand = ctx.queryParams("bicycleBrand");
+            List<String> bicycleType = ctx.queryParams("bicycleType");
+            List<String> wheelType = ctx.queryParams("wheelType");
+
 
             int minPrice = 0;
             String minPriceParam = ctx.queryParam("minPrice");
@@ -187,6 +191,16 @@ public class BicycleController implements IController<BicycleDTO> {
             if (!wheelBrand.isEmpty()) {
                 filters.put("wheelBrand", wheelBrand);
             }
+            if (!bicycleBrand.isEmpty()) {
+                filters.put("bicycleBrand", bicycleBrand);
+            }
+            if (!bicycleType.isEmpty()) {
+                filters.put("bicycleType", bicycleType);
+            }
+            if (!wheelType.isEmpty()) {
+                filters.put("wheelType", wheelType);
+            }
+
 
             // Kald DAO for at hente filtrerede cykler
             List<BicycleDTO> bicyclesDTOS = bicycleDAO.getBicyclesByFilters(filters, minPrice, maxPrice);

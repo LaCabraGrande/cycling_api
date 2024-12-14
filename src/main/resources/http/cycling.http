@@ -60,11 +60,16 @@ GET http://localhost:7070/api/bicycles/filtercounts
 Accept: application/json
 
 ### Her henter vi de cykler som går ind under de kriterier som brugeren har valgt
-GET http://localhost:7070/api/bicycles/filterbicycles?gearSeries=Shimano Dura-Ace&gearSeries=Shimano Ultegra&minPrice=0&maxPrice=18000
+//GET http://localhost:7070/api/bicycles/filterbicycles?gearSeries=Shimano Dura-Ace&gearSeries=Shimano Ultegra&minPrice=0&maxPrice=18000
+GET http://localhost:7070/api/bicycles/filterbicycles?gearSeries=Shimano Dura-Ace&gearSeries=Shimano Ultegra&minPrice=0&maxPrice=6000&wheelType=Disc&wheelBrand=Syncros&saddleBrand=Syncros
 Accept: application/json
 
 ### Her henter vi sidebarens data baseret på de valgte kriterier
-GET http://localhost:7070/api/bicycles/filtercounts?gearSeries=Shimano%20Dura-Ace&gearSeries=Shimano%20Ultegra&saddleBrand=Syncros&saddleBrand=Fi'zi:k
+//GET http://localhost:7070/api/bicycles/filtercounts?gearSeries=Shimano%20Dura-Ace&gearSeries=Shimano%20Ultegra&saddleBrand=Syncros&saddleBrand=Fi'zi:k&wheelType=Rim
+GET http://localhost:7070/api/bicycles/filtercounts?wheelType=Disc&wheelBrand=Zipp
+
+//GET http://localhost:7070/api/bicycles/filtercounts?gear=Shimano+Ultegra
+
 //GET http://bicycle.thegreenway.dk/api/bicycles/filtercounts?gearSeries=Shimano%20Dura-Ace&gearSeries=Shimano%20Ultegra&saddleBrand=Syncros
 Accept: application/json
 
