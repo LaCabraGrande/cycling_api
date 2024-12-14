@@ -17,7 +17,7 @@ public class BicycleRoute {
             get("/populate", bicycleController::populate, Role.ANYONE);
             get("/filter", bicycleController::filterByComponents, Role.ANYONE);
             get("/filterbicycles", bicycleController::getFilteredBicycles, Role.ANYONE);
-            get("/filtercounts", bicycleController::getFilterCounts, Role.ANYONE);
+            get("/filtercounts", bicycleController::getFilteredCounts, Role.ANYONE);
             get("/", bicycleController::getAll, Role.ANYONE);
             get("/{id}", bicycleController::getById, Role.ANYONE);
             post("/", bicycleController::create, Role.USER);

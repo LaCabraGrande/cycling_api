@@ -181,48 +181,301 @@ public class BicycleDAO {
         return bicyclesDTOS;
     }
 
-    // Metode til at hente gear, saddle og wheel counts
-    public FilterCountDTO getFilterCounts() {
-        // Hent saddles og wheels data fra databasen
-        List<SaddleDTO> saddles = saddleDAO.getAll(); // Hent saddles fra databasen
-        List<WheelDTO> wheels = wheelDAO.getAll();  // Hent hjul fra databasen
 
+
+
+
+
+    public FilterCountDTO getFilteredCounts(Map<String, List<String>> filters) {
         // Hent alle cykler fra databasen
-        List<BicycleDTO> bicycles = this.getAll(); // Brug this.getAll() i BicycleDAO, da metoden er i BicycleDAO
+        List<BicycleDTO> bicycles = this.getAll();
 
-        // Tælling af gear efter gear-serie baseret på cyklerne
-        Map<String, Integer> gearSeriesCount = new HashMap<>();
-        for (BicycleDTO bicycle : bicycles) {
-            // Få gear-serien for den aktuelle cykel
-            String gearSeries = bicycle.getGear().getSeries(); // Antager at BicycleDTO har et GearDTO som en egenskab
+        // Filtrér data dynamisk baseret på de modtagne filtre
+        List<BicycleDTO> filteredBicycles = bicycles.stream()
+                .filter(bicycle -> filters.entrySet().stream()
+                        .allMatch(entry -> matchesFilter(entry.getKey(), entry.getValue(), bicycle)))
+                .collect(Collectors.toList());
 
-            // Tæl cykler med denne gear-serie
-            gearSeriesCount.put(gearSeries, gearSeriesCount.getOrDefault(gearSeries, 0) + 1);
-        }
-
-        // Tælling af saddel-brands baseret på cyklerne
-        Map<String, Integer> saddleBrandCount = new HashMap<>();
-        for (BicycleDTO bicycle : bicycles) {
-            // Få sadel-brand for den aktuelle cykel
-            String saddleBrand = bicycle.getSaddle().getBrand(); // Antager at BicycleDTO har et SaddleDTO som en egenskab
-
-            // Tæl cykler med dette saddle-brand
-            saddleBrandCount.put(saddleBrand, saddleBrandCount.getOrDefault(saddleBrand, 0) + 1);
-        }
-
-        // Tælling af wheel-brands baseret på cyklerne
-        Map<String, Integer> wheelBrandCount = new HashMap<>();
-        for (BicycleDTO bicycle : bicycles) {
-            // Få wheel-brand for den aktuelle cykel
-            String wheelBrand = bicycle.getWheel().getBrand(); // Antager at BicycleDTO har et WheelDTO som en egenskab
-
-            // Tæl cykler med dette wheel-brand
-            wheelBrandCount.put(wheelBrand, wheelBrandCount.getOrDefault(wheelBrand, 0) + 1);
-        }
-
-        // Returner FilterCountDTO med de indsamlede data
-        return new FilterCountDTO(gearSeriesCount, saddleBrandCount, wheelBrandCount);
+        // Beregn tællingerne baseret på den filtrerede liste
+        return calculateFilterCounts(filteredBicycles, filters);
     }
+
+    private boolean matchesFilter(String key, List<String> values, BicycleDTO bicycle) {
+        if (values == null || values.isEmpty()) {
+            return true;
+        }
+
+        switch (key) {
+            case "gearSeries":
+                return values.stream().anyMatch(value -> bicycle.getGear().getSeries().equalsIgnoreCase(value));
+            case "saddleBrand":
+                return values.stream().anyMatch(value -> bicycle.getSaddle().getBrand().equalsIgnoreCase(value));
+            case "wheelBrand":
+                return values.stream().anyMatch(value -> bicycle.getWheel().getBrand().equalsIgnoreCase(value));
+            case "bicycleBrand":
+                return values.stream().anyMatch(value -> bicycle.getBrand().equalsIgnoreCase(value));
+            case "bicycleType":
+                return values.stream().anyMatch(value -> bicycle.getGear().getType().equalsIgnoreCase(value));
+            case "wheelType":
+                return values.stream().anyMatch(value -> bicycle.getWheel().getType().equalsIgnoreCase(value));
+            case "priceInterval":
+                int price = bicycle.getPrice();
+                return values.stream().anyMatch(value -> matchesPriceInterval(value, price));
+            default:
+                return false;
+        }
+    }
+
+    private boolean matchesPriceInterval(String interval, int price) {
+        switch (interval) {
+            case "0-3000":
+                return price >= 0 && price <= 3000;
+            case "3000-5000":
+                return price > 3000 && price <= 5000;
+            case "5000-7000":
+                return price > 5000 && price <= 7000;
+            case "7000-9000":
+                return price > 7000 && price <= 9000;
+            case "at least 9000":
+                return price >= 9000;
+            default:
+                return false;
+        }
+    }
+
+    // Her beregner jeg antallet af komponenter baseret på de filtrede cykler som er bicycles og skaber en FilterCountDTO som jeg returnerer
+    private FilterCountDTO calculateFilterCounts(List<BicycleDTO> bicycles, Map<String, List<String>> filters) {
+        // Her henter jeg alle mulige gear-serier fra databasen
+        List<BicycleDTO> bicycleDTOS = this.getAll();
+        Set<String> allGearSeries = bicycleDTOS.stream()
+                .map(bicycle -> bicycle.getGear().getSeries())
+                .collect(Collectors.toSet());
+        Set<String> allSaddleBrands = bicycleDTOS.stream()
+                .map(bicycle -> bicycle.getSaddle().getBrand())
+                .collect(Collectors.toSet());
+        Set<String> allWheelBrands = bicycleDTOS.stream()
+                .map(bicycle -> bicycle.getWheel().getBrand())
+                .collect(Collectors.toSet());
+        Set<String> allBicycleBrands = bicycleDTOS.stream()
+                .map(BicycleDTO::getBrand)
+                .collect(Collectors.toSet());
+        Set<String> allBicycleTypes = bicycleDTOS.stream()
+                .map(bicycle -> bicycle.getGear().getType())
+                .collect(Collectors.toSet());
+        Set<String> allWheelTypes = bicycleDTOS.stream()
+                .map(bicycle -> bicycle.getWheel().getType())
+                .collect(Collectors.toSet());
+
+
+        Map<String, Integer> gearSeriesCount = new HashMap<>();
+        Map<String, Integer> saddleBrandCount = new HashMap<>();
+        Map<String, Integer> wheelBrandCount = new HashMap<>();
+        Map<String, Integer> bicycleBrandCount = new HashMap<>();
+        Map<String, Integer> bicycleTypeCount = new HashMap<>();
+        Map<String, Integer> wheelTypeCount = new HashMap<>();
+
+        for (String gearSeries : allGearSeries) {
+            int count = 0;
+            for (BicycleDTO bicycle : bicycles) {
+                if (gearSeries.equals(bicycle.getGear().getSeries())) {
+                    count++;
+                }
+            }
+            gearSeriesCount.put(gearSeries, count);
+        }
+
+        for (String saddleBrand : allSaddleBrands) {
+            int count = 0;
+            for (BicycleDTO bicycle : bicycles) {
+                if (saddleBrand.equals(bicycle.getSaddle().getBrand())) {
+                    count++;
+                }
+            }
+            saddleBrandCount.put(saddleBrand, count);
+        }
+
+        for (String wheelBrand : allWheelBrands) {
+            int count = 0;
+            for (BicycleDTO bicycle : bicycles) {
+                if (wheelBrand.equals(bicycle.getWheel().getBrand())) {
+                    count++;
+                }
+            }
+            wheelBrandCount.put(wheelBrand, count);
+        }
+
+        for (String bicycleBrand : allBicycleBrands) {
+            int count = 0;
+            for (BicycleDTO bicycle : bicycles) {
+                if (bicycleBrand.equals(bicycle.getBrand())) {
+                    count++;
+                }
+            }
+            bicycleBrandCount.put(bicycleBrand, count);
+        }
+
+        for (String bicycleType : allBicycleTypes) {
+            int count = 0;
+            for (BicycleDTO bicycle : bicycles) {
+                if (bicycleType.equals(bicycle.getGear().getType())) {
+                    count++;
+                }
+            }
+            bicycleTypeCount.put(bicycleType, count);
+        }
+
+        for (String wheelType : allWheelTypes) {
+            int count = 0;
+            for (BicycleDTO bicycle : bicycles) {
+                if (wheelType.equals(bicycle.getWheel().getType())) {
+                    count++;
+                }
+            }
+            wheelTypeCount.put(wheelType, count);
+        }
+
+        // Price interval tælling
+        Map<String, Integer> priceIntervalCount = initializeCountMap(filters.get("priceInterval"), bicycles, "priceInterval", getAllPriceIntervals());
+        for (BicycleDTO bicycle : bicycles) {
+            int price = bicycle.getPrice();
+            String priceInterval = getPriceInterval(price);
+            priceIntervalCount.put(priceInterval, priceIntervalCount.getOrDefault(priceInterval, 0) + 1);
+        }
+
+        // Returner DTO'en med antal for de forskellige komponenter
+        return new FilterCountDTO(
+                gearSeriesCount,
+                saddleBrandCount,
+                wheelBrandCount,
+                bicycleBrandCount,
+                bicycleTypeCount,
+                wheelTypeCount,
+                priceIntervalCount
+        );
+    }
+
+
+    // Helper-metode til at initialisere en tællings-map med mulige værdier
+    private Map<String, Integer> initializeCountMap(List<String> filterValues, List<BicycleDTO> bicycles, String filterKey, Set<String> allPossibleValues) {
+        Map<String, Integer> countMap = new HashMap<>();
+
+        // Hvis der ikke er nogen specifikke filtre, initialiserer vi med alle mulige værdier for det relevante filter
+        if (filterValues == null || filterValues.isEmpty()) {
+            // Brug alle mulige værdier (uanset om de er i cyklerne eller ej)
+            for (String value : allPossibleValues) {
+                countMap.put(value, 0);  // Initialiser tællingen som 0
+            }
+        } else {
+            // Hvis der er specifikke filtre, initialiserer vi kun de filtrerede værdier
+            for (String value : filterValues) {
+                countMap.put(value, 0);  // Initialiser tællingen for hver værdi som 0
+            }
+        }
+
+        return countMap;
+    }
+
+    private Set<String> getAllPriceIntervals() {
+        return Set.of("0-3000", "3000-5000", "5000-7000", "7000-9000", "at least 9000");
+    }
+
+    private String getPriceInterval(int price) {
+        if (price <= 3000) return "0-3000";
+        if (price <= 5000) return "3000-5000";
+        if (price <= 7000) return "5000-7000";
+        if (price <= 9000) return "7000-9000";
+        return "at least 9000";
+    }
+
+
+    // Metode til at hente gear, saddle og wheel counts
+//    public FilterCountDTO getFilterCounts() {
+//        // Hent data fra databasen
+//        List<BicycleDTO> bicycles = this.getAll();
+//
+//        // Gear-serie tælling
+//        Map<String, Integer> gearSeriesCount = new HashMap<>();
+//        for (BicycleDTO bicycle : bicycles) {
+//            String gearSeries = bicycle.getGear().getSeries();
+//            gearSeriesCount.put(gearSeries, gearSeriesCount.getOrDefault(gearSeries, 0) + 1);
+//        }
+//
+//        // Saddle-brand tælling
+//        Map<String, Integer> saddleBrandCount = new HashMap<>();
+//        for (BicycleDTO bicycle : bicycles) {
+//            String saddleBrand = bicycle.getSaddle().getBrand();
+//            saddleBrandCount.put(saddleBrand, saddleBrandCount.getOrDefault(saddleBrand, 0) + 1);
+//        }
+//
+//        // Wheel-brand tælling
+//        Map<String, Integer> wheelBrandCount = new HashMap<>();
+//        for (BicycleDTO bicycle : bicycles) {
+//            String wheelBrand = bicycle.getWheel().getBrand();
+//            wheelBrandCount.put(wheelBrand, wheelBrandCount.getOrDefault(wheelBrand, 0) + 1);
+//        }
+//
+//        // Bicycle-brand tælling
+//        Map<String, Integer> bicycleBrandCount = new HashMap<>();
+//        for (BicycleDTO bicycle : bicycles) {
+//            String bicycleBrand = bicycle.getBrand();
+//            bicycleBrandCount.put(bicycleBrand, bicycleBrandCount.getOrDefault(bicycleBrand, 0) + 1);
+//        }
+//
+//        // Tælling på antal Bicycles med Mekanisk eller Elektronisk gear
+//        Map<String, Integer> bicycleTypeCount = new HashMap<>();
+//        for (BicycleDTO bicycle : bicycles) {
+//            String bicycleType = bicycle.getGear().getType();
+//            bicycleTypeCount.put(bicycleType, bicycleTypeCount.getOrDefault(bicycleType, 0) + 1);
+//        }
+//
+//        // Wheel-type tælling
+//        Map<String, Integer> wheelTypeCount = new HashMap<>();
+//        for (BicycleDTO bicycle : bicycles) {
+//            String wheelType = bicycle.getWheel().getType();
+//            wheelTypeCount.put(wheelType, wheelTypeCount.getOrDefault(wheelType, 0) + 1);
+//        }
+//
+//        // Prisinterval tælling
+//        Map<String, Integer> priceRangeCount = new HashMap<>();
+//        priceRangeCount.put("0-3000", 0);
+//        priceRangeCount.put("3000-5000", 0);
+//        priceRangeCount.put("5000-7000", 0);
+//        priceRangeCount.put("7000-9000", 0);
+//        priceRangeCount.put("at least 9000", 0);
+//
+//        for (BicycleDTO bicycle : bicycles) {
+//            double price = bicycle.getPrice(); // Antager BicycleDTO har et price-felt
+//            if (price < 3000) {
+//                priceRangeCount.put("0-3000", priceRangeCount.get("0-3000") + 1);
+//            } else if (price < 5000) {
+//                priceRangeCount.put("3000-5000", priceRangeCount.get("3000-5000") + 1);
+//            } else if (price < 7000) {
+//                priceRangeCount.put("5000-7000", priceRangeCount.get("5000-7000") + 1);
+//            } else if (price < 9000) {
+//                priceRangeCount.put("7000-9000", priceRangeCount.get("7000-9000") + 1);
+//            } else {
+//                priceRangeCount.put("at least 9000", priceRangeCount.get("at least 9000") + 1);
+//            }
+//        }
+//
+//        // Returner den opdaterede DTO
+//        return new FilterCountDTO(
+//                gearSeriesCount,
+//                saddleBrandCount,
+//                wheelBrandCount,
+//                bicycleBrandCount,
+//                bicycleTypeCount,
+//                wheelTypeCount,
+//                priceRangeCount
+//        );
+//    }
+
+
+
+
+
+
+
 
 
 

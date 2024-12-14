@@ -55,9 +55,43 @@ public class BicycleController implements IController<BicycleDTO> {
         }
     }
 
-    public void getFilterCounts(Context ctx) {
-        FilterCountDTO filterCountDTO = bicycleDAO.getFilterCounts();
-        ctx.json(filterCountDTO);
+//    public void getFilterCounts(Context ctx) {
+//        FilterCountDTO filterCountDTO = bicycleDAO.getFilterCounts();
+//        ctx.json(filterCountDTO);
+//    }
+
+    // Modtag filtrene via Context
+    public void getFilteredCounts(Context ctx) {
+        try {
+            // Hent query-parametre fra Context
+            List<String> gearSeries = ctx.queryParams("gearSeries");
+            List<String> saddleBrand = ctx.queryParams("saddleBrand");
+            List<String> wheelBrand = ctx.queryParams("wheelBrand");
+            List<String> bicycleBrand = ctx.queryParams("bicycleBrand");
+            List<String> bicycleType = ctx.queryParams("bicycleType");
+            List<String> wheelType = ctx.queryParams("wheelType");
+            List<String> priceInterval = ctx.queryParams("priceInterval");
+
+            // Konverter de modtagne filtre til en Map
+            Map<String, List<String>> filters = Map.of(
+                    "gearSeries", gearSeries,
+                    "saddleBrand", saddleBrand,
+                    "wheelBrand", wheelBrand,
+                    "bicycleBrand", bicycleBrand,
+                    "bicycleType", bicycleType,
+                    "wheelType", wheelType,
+                    "priceInterval", priceInterval
+            );
+
+            // Brug DAO til at hente filtrerede tællinger
+            FilterCountDTO filterCountDTO = bicycleDAO.getFilteredCounts(filters);
+
+            // Returner resultatet som JSON
+            ctx.json(filterCountDTO);
+        } catch (Exception e) {
+            // Håndter eventuelle fejl
+            ctx.status(500).result("Error processing request: " + e.getMessage());
+        }
     }
 
     public void getById(Context ctx) {
