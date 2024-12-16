@@ -166,6 +166,7 @@ public class BicycleController implements IController<BicycleDTO> {
             List<String> bicycleBrand = ctx.queryParams("bicycleBrand");
             List<String> bicycleType = ctx.queryParams("bicycleType");
             List<String> wheelType = ctx.queryParams("wheelType");
+            List<String> priceInterval = ctx.queryParams("priceInterval");
 
 
             int minPrice = 0;
@@ -199,6 +200,9 @@ public class BicycleController implements IController<BicycleDTO> {
             }
             if (!wheelType.isEmpty()) {
                 filters.put("wheelType", wheelType);
+            }
+            if (!priceInterval.isEmpty()) {
+                filters.put("priceInterval", priceInterval);
             }
 
 

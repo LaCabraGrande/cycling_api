@@ -113,22 +113,41 @@ public class BicycleDAO {
     }
 
     /**
-     * Hent cykler baseret på flere filtre.
+     * Hent cykler baseret på flere filtre og priceInterval.
      */
-    public List<BicycleDTO> getBicyclesByFilters(Map<String, List<String>> filters, int minPrice, int maxPrice) {
+    public List<BicycleDTO> getBicyclesByFilters(Map<String, List<String>> filters, int minPris, int maxPris) {
         List<BicycleDTO> bicyclesDTOS = new ArrayList<>();
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
 
-            // JPQL: Hent Bicycle entiteter, ikke DTO'er direkte
+            // Grundlæggende JPQL forespørgsel
             String jpql = "SELECT b FROM Bicycle b " +
                     "LEFT JOIN FETCH b.gear g " +
                     "LEFT JOIN FETCH b.saddle s " +
                     "LEFT JOIN FETCH b.wheel w " +
                     "LEFT JOIN FETCH b.frame f " +
-                    // Sørg for at hente 'frame'
-                    "WHERE b.price BETWEEN :minPrice AND :maxPrice";
+                    "WHERE 1=1"; // Brug 1=1 for at gøre det nemt at tilføje dynamiske betingelser
 
+            // Prisintervalfilter
+            if (filters.containsKey("priceInterval")) {
+                List<String> intervals = filters.get("priceInterval");
+                List<String> conditions = new ArrayList<>();
+                for (String interval : intervals) {
+                    if ("at least 9000".equals(interval)) {
+                        conditions.add("b.price >= 9000");
+                    } else if (interval.matches("\\d+-\\d+")) {
+                        String[] parts = interval.split("-");
+                        int minPrice = Integer.parseInt(parts[0]);
+                        int maxPrice = Integer.parseInt(parts[1]);
+                        conditions.add("(b.price BETWEEN " + minPrice + " AND " + maxPrice + ")");
+                    }
+                }
+                if (!conditions.isEmpty()) {
+                    jpql += " AND (" + String.join(" OR ", conditions) + ")";
+                }
+            }
+
+            // Andre filtre
             if (filters.containsKey("gearSeries")) {
                 jpql += " AND g.series IN :gearSeries";
             }
@@ -148,10 +167,10 @@ public class BicycleDAO {
                 jpql += " AND w.type IN :wheelType";
             }
 
+            // Opret forespørgsel
             TypedQuery<Bicycle> query = em.createQuery(jpql, Bicycle.class);
-            query.setParameter("minPrice", minPrice);
-            query.setParameter("maxPrice", maxPrice);
 
+            // Sæt parametre
             if (filters.containsKey("gearSeries")) {
                 query.setParameter("gearSeries", filters.get("gearSeries"));
             }
@@ -171,6 +190,7 @@ public class BicycleDAO {
                 query.setParameter("wheelType", filters.get("wheelType"));
             }
 
+            // Hent resultater
             List<Bicycle> bicycles = query.getResultList();
 
             // Map Bicycle entiteter til BicycleDTO
@@ -196,6 +216,7 @@ public class BicycleDAO {
         }
         return bicyclesDTOS;
     }
+
 
 
     public FilterCountDTO getFilteredCounts(Map<String, List<String>> filters) {
