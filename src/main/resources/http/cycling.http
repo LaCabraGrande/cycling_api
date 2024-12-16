@@ -60,7 +60,8 @@ GET http://localhost:7070/api/bicycles/filtercounts
 Accept: application/json
 
 ### Her henter vi de cykler som går ind under de kriterier som brugeren har valgt
-GET http://localhost:7070/api/bicycles/filterbicycles?gearSeries=Shimano Dura-Ace&gearSeries=Shimano Ultegra&priceInterval=3000-4000&priceInterval=4000-5000
+GET http://localhost:7070/api/bicycles/filterbicycles?gearSeries=Shimano Ultegra
+//GET http://localhost:7070/api/bicycles/filterbicycles?gearSeries=Shimano Dura-Ace&gearSeries=Shimano Ultegra&priceInterval=3000-4000&priceInterval=4000-5000
 //GET http://localhost:7070/api/bicycles/filterbicycles?gearSeries=Shimano Dura-Ace&gearSeries=Shimano Ultegra&minPrice=0&maxPrice=6000&wheelType=Disc&wheelBrand=Syncros&saddleBrand=Syncros
 Accept: application/json
 

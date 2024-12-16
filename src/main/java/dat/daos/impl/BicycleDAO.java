@@ -138,7 +138,7 @@ public class BicycleDAO {
                     } else if (interval.matches("\\d+-\\d+")) {
                         String[] parts = interval.split("-");
                         int minPrice = Integer.parseInt(parts[0]);
-                        int maxPrice = Integer.parseInt(parts[1]);
+                        int maxPrice = Integer.parseInt(parts[1])-1;
                         conditions.add("(b.price BETWEEN " + minPrice + " AND " + maxPrice + ")");
                     }
                 }
