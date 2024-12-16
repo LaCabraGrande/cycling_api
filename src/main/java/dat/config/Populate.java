@@ -99,6 +99,15 @@ public class Populate {
         Frame frame76 = new Frame("De Rosa", "Merak", "Carbon", "Disc", 1290, 56);
         Frame frame77 = new Frame("De Rosa", "Idol Disc", "Carbon", "Disc", 1370, 56);
         Frame frame78 = new Frame("Colnago", "C 64", "Carbon", "Disc", 1140, 56);
+        Frame frame83 = new Frame("Giant", "TCR Advanced SL", "Carbon", "Disc", 1250, 56);
+        Frame frame84 = new Frame("Giant", "TCR Advanced PRO", "Carbon", "Disc", 1250, 56);
+        Frame frame85 = new Frame("Giant", "Defy Advanced SL", "Carbon", "Disc", 1250, 56);
+        Frame frame86 = new Frame("Giant", "Propel Advanced Pro", "Carbon", "Disc", 1250, 56);
+        Frame frame87 = new Frame("Giant", "Propel Advanced SL", "Carbon", "Disc", 1250, 56);
+        Frame frame88 = new Frame("Canyon", "Ultimate CFR", "Carbon", "Disc", 1211, 56);
+        Frame frame89 = new Frame("Pinarello", "TorayCa T900 UD", "Carbon", "Disc", 1200, 58);
+        Frame frame90 = new Frame("Felt", "Felt FR 4.0", "Carbon", "Disc", 1250, 56);
+
 
 
 
@@ -110,7 +119,7 @@ public class Populate {
         Saddle saddle2 = new Saddle("Selle Italia", "Foam", "Flite Boost TM Superflow", 233, 135);
         Saddle saddle3 = new Saddle("Selle Italia", "Leather", "Flite", 300, 155);
         Saddle saddle4 = new Saddle("Specialized", "Foam", "Power", 250, 143);
-        Saddle saddle5 = new Saddle("Prologo", "Foam", "Dimension", 220, 145);
+        Saddle saddle5 = new Saddle("Prologo", "Foam", "Dimension 143 Nack", 220, 145);
         Saddle saddle6 = new Saddle("Fabric", "Synthetic", "Scoop", 180, 130);
         Saddle saddle7 = new Saddle("Giant", "Synthetic", "Contact", 160, 145);
         Saddle saddle8 = new Saddle("Trek", "Synthetic", "Bontrager Ajna", 200, 138);
@@ -223,6 +232,12 @@ public class Populate {
         Saddle saddle115 = new Saddle("Syncros", "Foam", "Syncros Belcarra V 2.0 Cutout", 260, 140);
         Saddle saddle116 = new Saddle("Syncros", "Foam", "Syncros Tofino V 1.0", 165, 140);
         Saddle saddle117 = new Saddle("Syncros", "Foam", "Syncros Tofino V 1.5", 180, 145);
+        Saddle saddle118 = new Saddle("Cadex", "Foam", "Cadex Amp", 129, 145);
+        Saddle saddle119 = new Saddle("Cadex", "Foam", "Cadex Boost", 138, 149);
+        Saddle saddle120 = new Saddle("Giant", "Foam", "Giant Fleet SL", 200, 145);
+        Saddle saddle121 = new Saddle("Giant", "Foam", "Giant Fleet SLR", 220, 145);
+
+
 
 
 
@@ -347,15 +362,37 @@ public class Populate {
         Wheel wheel117 = new Wheel("Reynolds", "Carbon", "Disc", "Reynolds Blacklabel 46 Pro", 1397, 21);
         Wheel wheel118 = new Wheel("Reynolds", "Carbon", "Disc", "Reynolds Blacklabel 60 Pro", 1500, 21);
         Wheel wheel119 = new Wheel("DT Swiss", "Carbon", "Disc", "DT Swiss ERC 1100 DICUT 45", 1300, 25);
-        Wheel wheel120 = new Wheel("Syncros", "Carbon", "Disc", "Capital SL Aero, 60mm", 1315, 25);
-        Wheel wheel121 = new Wheel("Syncros", "Carbon", "Disc", "Capital SL, 40mm", 1170, 25);
-        Wheel wheel122 = new Wheel("Syncros", "Carbon", "Disc", "Capital 1.0s Aero, 60mm", 1470, 25);
-        Wheel wheel123 = new Wheel("Syncros", "Carbon", "Disc", "Capital 1.0s, 40mm", 1335, 25);
-        Wheel wheel124 = new Wheel("Syncros", "Carbon", "Disc", "Capital 1.0 Aero, 60mm", 1630, 23);
-        Wheel wheel125 = new Wheel("Syncros", "Carbon", "Disc", "Capital 1.0, 40mm", 1480, 25);
-        Wheel wheel126 = new Wheel("Syncros", "Carbon", "Disc", "Capital 1.0, 35mm", 1574, 25);
-        Wheel wheel127 = new Wheel("Syncros", "Carbon", "Disc", "Capital 1.0, 50mm", 1634, 25);
-        Wheel wheel128 = new Wheel("Syncros", "Carbon", "Disc", "RP2.0, 50mm", 1770, 25);
+        Wheel wheel120 = new Wheel("Syncros", "Carbon", "Disc", "Syncros Capital SL Aero, 60mm", 1315, 25);
+        Wheel wheel121 = new Wheel("Syncros", "Carbon", "Disc", "Syncros Capital SL, 40mm", 1170, 25);
+        Wheel wheel122 = new Wheel("Syncros", "Carbon", "Disc", "Syncros Capital 1.0s Aero, 60mm", 1470, 25);
+        Wheel wheel123 = new Wheel("Syncros", "Carbon", "Disc", "Syncros Capital 1.0s, 40mm", 1335, 25);
+        Wheel wheel124 = new Wheel("Syncros", "Carbon", "Disc", "Syncros Capital 1.0 Aero, 60mm", 1630, 23);
+        Wheel wheel125 = new Wheel("Syncros", "Carbon", "Disc", "Syncros Capital 1.0, 40mm", 1480, 25);
+        Wheel wheel126 = new Wheel("Syncros", "Carbon", "Disc", "Syncros Capital 1.0, 35mm", 1574, 25);
+        Wheel wheel127 = new Wheel("Syncros", "Carbon", "Disc", "Syncros Capital 1.0, 50mm", 1634, 25);
+        Wheel wheel128 = new Wheel("Syncros", "Carbon", "Disc", "Syncros RP2.0, 50mm", 1770, 25);
+        Wheel wheel129 = new Wheel("Giant", "Carbon", "Disc", "Giant XCR 0 29", 1487, 25);
+        Wheel wheel130 = new Wheel("Giant", "Carbon", "Disc", "Giant CXR X1", 1430, 25);
+        Wheel wheel131 = new Wheel("Giant", "Carbon", "Disc", "Giant SLR 1 50 Disc", 1518, 22);
+        Wheel wheel132 = new Wheel("Giant", "Carbon", "Disc", "Giant SLR 1 65 Disc", 1639, 21);
+        Wheel wheel133 = new Wheel("Giant", "Carbon", "Disc", "Giant SLR 1 40 Disc", 1440, 22);
+        Wheel wheel134 = new Wheel("Giant", "Carbon", "Disc", "Giant CXR 1", 1398, 25);
+        Wheel wheel135 = new Wheel("Giant", "Carbon", "Disc", "Giant XCR 1 29", 1456, 30);
+        Wheel wheel136 = new Wheel("Giant", "Carbon", "Disc", "Giant SLR 1 36 Disc", 1442, 22);
+        Wheel wheel137 = new Wheel("Giant", "Carbon", "Disc", "Giant SLR 2 50 Disc", 1686, 22);
+        Wheel wheel138 = new Wheel("Giant", "Carbon", "Disc", "Giant CXR 2", 1518, 25);
+        Wheel wheel139 = new Wheel("Giant", "Carbon", "Disc", "Giant SLR 2 65 Disc", 1726, 22);
+        Wheel wheel140 = new Wheel("Giant", "Carbon", "Disc", "Giant SLR 2 36 Disc", 1535, 22);
+        Wheel wheel141 = new Wheel("Giant", "Carbon", "Disc", "Giant XCR 2 29", 1639, 25);
+        Wheel wheel142 = new Wheel("Giant", "Carbon", "Disc", "Giant TRX 2 29", 1809, 30);
+        Wheel wheel143 = new Wheel("Giant", "Carbon", "Disc", "Giant P-R2 Disc", 1998, 20);
+        Wheel wheel145 = new Wheel("Cadex", "Carbon", "Disc", "Cadex 50 Ultra", 1349, 22);
+        Wheel wheel146 = new Wheel("Cadex", "Carbon", "Disc", "Cadex 65 Disc", 1501, 22);
+        Wheel wheel147 = new Wheel("Cadex", "Carbon", "Disc", "Cadex 36 Ultra", 1299, 22);
+        Wheel wheel148 = new Wheel("Cadex", "Carbon", "Disc", "Cadex Max 40", 1249, 22);
+        Wheel wheel149 = new Wheel("Cadex", "Carbon", "Disc", "Cadex 42 Disc", 1327, 20);
+        Wheel wheel150 = new Wheel("Giant", "Carbon", "Disc", "Giant SLR 0 40", 1339, 22);
+        Wheel wheel151 = new Wheel("Pinarello", "Carbon", "Disc", "MOST ULTRAFAST 40 DISC", 1590, 22);
 
 
 
@@ -493,6 +530,16 @@ public class Populate {
             em.persist(frame80);
             em.persist(frame81);
             em.persist(frame82);
+            em.persist(frame83);
+            em.persist(frame84);
+            em.persist(frame85);
+            em.persist(frame86);
+            em.persist(frame87);
+            em.persist(frame88);
+            em.persist(frame89);
+            em.persist(frame90);
+
+
 
 
             // Gemmer saddel
@@ -613,6 +660,11 @@ public class Populate {
             em.persist(saddle115);
             em.persist(saddle116);
             em.persist(saddle117);
+            em.persist(saddle118);
+            em.persist(saddle119);
+            em.persist(saddle120);
+            em.persist(saddle121);
+
 
 
             // Gemmer hjul
@@ -744,6 +796,29 @@ public class Populate {
             em.persist(wheel126);
             em.persist(wheel127);
             em.persist(wheel128);
+            em.persist(wheel129);
+            em.persist(wheel130);
+            em.persist(wheel131);
+            em.persist(wheel132);
+            em.persist(wheel133);
+            em.persist(wheel134);
+            em.persist(wheel135);
+            em.persist(wheel136);
+            em.persist(wheel137);
+            em.persist(wheel138);
+            em.persist(wheel139);
+            em.persist(wheel140);
+            em.persist(wheel141);
+            em.persist(wheel142);
+            em.persist(wheel143);
+            em.persist(wheel145);
+            em.persist(wheel146);
+            em.persist(wheel147);
+            em.persist(wheel148);
+            em.persist(wheel149);
+            em.persist(wheel150);
+            em.persist(wheel151);
+
 
 
 
@@ -797,6 +872,7 @@ public class Populate {
 
 
 
+
             // Opretter cykler og tilføjer komponenter
             Bicycle bicycle1 = new Bicycle("Trek", "Domane SL6", 56, 3500, 9.3, "Endurance road bike", frame66, gear1, wheel41, saddle41);
             Bicycle bicycle2 = new Bicycle("Canyon", "Ultimate CF SLX 9 Di2", 54, 9000, 6.8, "Lightweight racing bike", frame24, gear6, wheel106, saddle82);
@@ -834,32 +910,41 @@ public class Populate {
             Bicycle bicycle34 = new Bicycle("Giant", "Defy", 55, 3300, 7.5, "Endurance bike", frame37, gear3, wheel2, saddle4);
             Bicycle bicycle35 = new Bicycle("Bianchi", "Impulso", 56, 2900, 7.9, "Versatile road bike", frame8, gear3, wheel1, saddle6);
             Bicycle bicycle36 = new Bicycle("Specialized", "Roubaix", 58, 5000, 6.9, "Endurance road bike", frame57, gear1, wheel1, saddle2);
-            Bicycle bicycle37 = new Bicycle("Felt", "VR FRD", 55, 4200, 7.2, "Endurance road bike", frame31, gear2, wheel2, saddle3);
-            Bicycle bicycle38 = new Bicycle("Pinarello", "Dogma F7", 58, 6000, 7.6, "Aero road bike", frame47, gear1, wheel42, saddle1);
-            Bicycle bicycle39 = new Bicycle("Giant", "TCR Advanced Pro", 54, 4000, 7.8, "Lightweight racing bike", frame36, gear1, wheel2, saddle2);
-            Bicycle bicycle40 = new Bicycle("Bianchi", "Oltre XR3", 57, 4800, 7.4, "Aero road bike", frame9, gear2, wheel1, saddle1);
-            Bicycle bicycle41 = new Bicycle("Specialized", "S-Works Tarmac SL6", 56, 8000, 6.7, "Aero road bike", frame61, gear1, wheel1, saddle1);
-            Bicycle bicycle42 = new Bicycle("De Rosa", "Merak Grafite Disc", 56, 6000, 6.7, "Aero road bike", frame76, gear1, wheel44, saddle42);
-            Bicycle bicycle43 = new Bicycle("De Rosa", "Settanta Carbon Disc", 56, 7000, 6.7, "Aero road bike", frame75, gear1, wheel44, saddle42);
-            Bicycle bicycle44 = new Bicycle("De Rosa", "Idol Red Grade Disc", 56, 6100, 6.7, "Aero road bike", frame77, gear1, wheel44, saddle42);
-            Bicycle bicycle45 = new Bicycle("De Rosa", "838 Rosso Rosso Disc", 56, 3100, 7.2, "Aero road bike", frame1, gear11, wheel46, saddle43);
-            Bicycle bicycle46 = new Bicycle("Giant", "Defy Advanced", 55, 3000, 7.9, "Endurance bike", frame37, gear6, wheel3, saddle4);
-            Bicycle bicycle47 = new Bicycle("Scott", "Addict RC Ultimate", 56, 13500, 6.7, "Lightweight road bike", frame55, gear35, wheel88, saddle113);
-            Bicycle bicycle48 = new Bicycle("Scott", "Foil RC Ultimate", 56, 16000, 7.2, "Aero Road bike", frame55, gear12, wheel124, saddle104);
-            Bicycle bicycle49 = new Bicycle("Scott", "Foil RC Pro", 56, 11100, 7.3, "Aero Road bike", frame80, gear1, wheel21, saddle108);
-            Bicycle bicycle50 = new Bicycle("Scott", "Foil RC 10", 56, 6930, 7.9, "Aero Road bike", frame80, gear10, wheel124, saddle115);
-            Bicycle bicycle51 = new Bicycle("Scott", "Foil RC 20", 56, 6000, 8.4, "Aero Road bike", frame80, gear40, wheel127, saddle104);
-            Bicycle bicycle52 = new Bicycle("Scott", "Foil RC 30", 56, 5330, 8.5, "Aero Road bike", frame55, gear12, wheel124, saddle104);
-            Bicycle bicycle53 = new Bicycle("Scott", "Addict RC Ultimate", 56, 14670, 6.7, "Aero Road bike", frame55, gear1, wheel1, saddle5);
-            Bicycle bicycle54 = new Bicycle("Scott", "Addict RC Pro", 56, 9600, 7.2, "Aero Road bike", frame79, gear1, wheel23, saddle107);
-            Bicycle bicycle55 = new Bicycle("Scott", "Addict RC 10", 56, 6930, 7.9, "Aero Road bike", frame55, gear1, wheel1, saddle5);
-            Bicycle bicycle56 = new Bicycle("Scott", "Addict RC 15", 56, 6670, 7.6, "Aero Road bike", frame80, gear10, wheel126, saddle114);
-            Bicycle bicycle57 = new Bicycle("Scott", "Addict RC 20", 56, 5330, 7.6, "Aero Road bike", frame80, gear10, wheel125, saddle114);
-            Bicycle bicycle58 = new Bicycle("Scott", "Addict RC 30", 56, 5330, 7.7, "Aero Road bike", frame80, gear40, wheel125, saddle114);
-            Bicycle bicycle59 = new Bicycle("Scott", "Addict RC 40", 56, 4800, 7.6, "Aero Road bike", frame80, gear45, wheel128, saddle114);
-            Bicycle bicycle60 = new Bicycle("Scott", "Addict 10", 56, 4000, 8.7, "Aero Road bike", frame82, gear40, wheel128, saddle112);
-            Bicycle bicycle61 = new Bicycle("Scott", "Addict 20", 56, 3600, 8.7, "Aero Road bike", frame82, gear45, wheel128, saddle112);
-            Bicycle bicycle62 = new Bicycle("Scott", "Addict 30", 56, 2935, 8.6, "Aero Road bike", frame82, gear14, wheel128, saddle112);
+            Bicycle bicycle37 = new Bicycle("Felt", "FR Advanced + Dura-Ace", 55, 4200, 7.2, "https://www.tradeinn.com/bikeinn/da/felt-fr-advanced--24s-dura-ace-di2-2024-landevejscykel/140874202/p?srsltid=AfmBOort12W9rfjbKCePVIiqbd6zuO9wfdv6ZNXd689f5O96Ru4LPV_p", frame90, gear2, wheel38, saddle5);
+            Bicycle bicycle38 = new Bicycle("Pinarello", "Dogma F7", 58, 7000, 7.6, "https://ciclicorsa.com/shop/f7-disc-2024-shimano-ultegra-di2-2x12-db-complete-bike/", frame89, gear10, wheel151, saddle78);
+            Bicycle bicycle39 = new Bicycle("Canyon", "Ultimate CFR AXS", 54, 10500, 7.8, "https://www.canyon.com/de-de/rennrad/race-rennrad/ultimate/cfr/ultimate-cfr-axs/3858.html?dwvar_3858_pv_rahmenfarbe=R102_P07", frame88, gear35, wheel88, saddle78);
+            Bicycle bicycle40 = new Bicycle("Bianchi", "Oltre XR3 Disc", 57, 6480, 7.4, "https://veloseven.com/road/1793-bianchi-oltre-xr3-disc-shimano-ultegra.html", frame9, gear10, wheel31, saddle29);
+            Bicycle bicycle41 = new Bicycle("Specialized", "S-Works Tarmac SL6", 56, 8000, 6.7, "https://www.specialized.com/dk/da/s-works-tarmac-sl6-disc-sram-etap/p/154553?color=227220-154553&searchText=90619-0244", frame61, gear1, wheel1, saddle1);
+            Bicycle bicycle42 = new Bicycle("De Rosa", "Merak Grafite Disc", 56, 6000, 6.7, "https://www.derosa.dk/de-rosa-landevejcykler/merak-grafite-disc", frame76, gear1, wheel44, saddle42);
+            Bicycle bicycle43 = new Bicycle("De Rosa", "Settanta Carbon Disc", 56, 7000, 6.7, "https://www.derosa.dk/de-rosa-landevejcykler/70-settanta-carbon-disc", frame75, gear1, wheel44, saddle42);
+            Bicycle bicycle44 = new Bicycle("De Rosa", "Idol Red Grade Disc", 56, 6100, 6.7, "https://www.derosa.dk/de-rosa-landevejcykler/idol-red-grade-disc", frame77, gear1, wheel44, saddle42);
+            Bicycle bicycle45 = new Bicycle("De Rosa", "838 Rosso Rosso Disc", 56, 3100, 7.2, "https://www.derosa.dk/de-rosa-landevejcykler/838-rosso-rosso-disc-kampagnetilbud", frame1, gear11, wheel46, saddle43);
+            Bicycle bicycle46 = new Bicycle("Giant", "Defy Advanced 1", 55, 3000, 8.9, "https://www.designcykler.dk/shop/giant-defy-advanced-17301p.html", frame37, gear13, wheel3, saddle4);
+            Bicycle bicycle47 = new Bicycle("Scott", "Addict RC Ultimate", 56, 13500, 6.7, "https://www.fribikeshop.dk/prod/77-290355/scott-addict-rc-ultimate-raw-carbon-racercykel", frame55, gear35, wheel88, saddle113);
+            Bicycle bicycle48 = new Bicycle("Scott", "Foil RC Ultimate", 56, 16000, 7.2, "https://www.fribikeshop.dk/prod/77-290342/scott-foil-rc-ultimate-raw-carbon-racercykel", frame55, gear12, wheel124, saddle104);
+            Bicycle bicycle49 = new Bicycle("Scott", "Foil RC Pro", 56, 11100, 7.3, "https://www.fribikeshop.dk/prod/77-290343/scott-foil-rc-pro-team-blue-racercykel", frame80, gear1, wheel21, saddle108);
+            Bicycle bicycle50 = new Bicycle("Scott", "Foil RC 10", 56, 6930, 7.9, "https://www.fribikeshop.dk/prod/77-293186/scott-foil-rc-10-carbon-raw-racercykel", frame80, gear10, wheel124, saddle115);
+            Bicycle bicycle51 = new Bicycle("Scott", "Foil RC 20", 56, 6000, 8.4, "https://www.fribikeshop.dk/prod/77-290345/scott-foil-rc-20-prism-grey-green-gloss-racercykel", frame80, gear40, wheel127, saddle104);
+            Bicycle bicycle52 = new Bicycle("Scott", "Foil RC 30", 56, 5330, 8.5, "https://www.fribikeshop.dk/prod/77-290346/scott-foil-rc-30-red-tint-racercykel", frame55, gear12, wheel124, saddle104);
+            Bicycle bicycle53 = new Bicycle("Scott", "Addict RC Ultimate", 56, 14670, 6.7, "https://www.fribikeshop.dk/prod/77-290355/scott-addict-rc-ultimate-raw-carbon-racercykel", frame55, gear36, wheel1, saddle5);
+            Bicycle bicycle54 = new Bicycle("Scott", "Addict RC Pro", 56, 9600, 7.2, "https://www.fribikeshop.dk/prod/77-290356/scott-addict-rc-pro-team-blue-racercykel", frame79, gear1, wheel23, saddle107);
+            Bicycle bicycle55 = new Bicycle("Scott", "Addict RC 10", 56, 6930, 7.9, "https://www.fribikeshop.dk/prod/77-4232418096/scott-addict-rc-10-sunbeam-black-racercykel", frame55, gear1, wheel1, saddle5);
+            Bicycle bicycle56 = new Bicycle("Scott", "Addict RC 15", 56, 6670, 7.6, "https://www.fribikeshop.dk/prod/77-290359/scott-addict-rc-15-raw-carbon-racercykel", frame80, gear10, wheel126, saddle114);
+            Bicycle bicycle57 = new Bicycle("Scott", "Addict RC 20", 56, 5330, 7.6, "https://www.fribikeshop.dk/prod/77-290360/scott-addict-rc-20-prism-aqua-blue-racercykel", frame80, gear10, wheel125, saddle114);
+            Bicycle bicycle58 = new Bicycle("Scott", "Addict RC 30", 56, 5330, 7.7, "https://www.fribikeshop.dk/prod/77-4232503020/scott-addict-rc-30-carbon-black-racercykel", frame80, gear40, wheel125, saddle114);
+            Bicycle bicycle59 = new Bicycle("Scott", "Addict RC 40", 56, 4800, 7.6, "https://www.fribikeshop.dk/prod/77-290362/scott-addict-rc-40-prism-komodo-racercykel", frame80, gear45, wheel128, saddle114);
+            Bicycle bicycle60 = new Bicycle("Scott", "Addict 10", 56, 4000, 8.7, "https://www.fribikeshop.dk/prod/77-290364/scott-addict-10-raw-carbon-racercykel", frame82, gear40, wheel128, saddle112);
+            Bicycle bicycle61 = new Bicycle("Scott", "Addict 20", 56, 3600, 8.7, "https://www.fribikeshop.dk/prod/77-290366/scott-addict-20-prism-aqua-blue-racercykel", frame82, gear45, wheel128, saddle112);
+            Bicycle bicycle62 = new Bicycle("Scott", "Addict 30", 56, 2935, 8.6, "https://www.fribikeshop.dk/prod/77-290369/scott-addict-30-prism-komodo-racercykel", frame82, gear14, wheel128, saddle112);
+            Bicycle bicycle63 = new Bicycle("Giant", "Propel Advanced SL", 54, 12000, 7.0, "https://www.giant-bicycles.com/dk/propel-advanced-sl-0", frame83, gear35, wheel145, saddle118);
+            Bicycle bicycle64 = new Bicycle("Giant", "Propel Advanced Pro 0 Di2", 54, 8000, 7.3, "https://www.giant-bicycles.com/dk/propel-advanced-pro-0-di2-2025", frame84, gear9, wheel131, saddle120);
+            Bicycle bicycle65 = new Bicycle("Giant", "Propel Advanced Pro 1", 54, 6000, 7.0, "https://www.giant-bicycles.com/dk/propel-advanced-pro-1-2025", frame85, gear36, wheel131, saddle120);
+            Bicycle bicycle66 = new Bicycle("Giant", "Propel Advanced 1", 54, 4500, 8.4, "https://www.giant-bicycles.com/dk/propel-advanced-1-2025", frame87, gear36, wheel137, saddle120);
+            Bicycle bicycle67 = new Bicycle("Giant", "TCR Advanced SL 0", 54, 12000, 6.5, "https://www.giant-bicycles.com/dk/propel-advanced-sl-0", frame83, gear35, wheel148, saddle118);
+            Bicycle bicycle68 = new Bicycle("Giant", "TCR Advanced SL 1", 54, 7300, 6.4, "https://www.giant-bicycles.com/dk/tcr-advanced-sl-1-2025", frame83, gear10, wheel150, saddle121);
+            Bicycle bicycle69 = new Bicycle("Giant", "TCR Advanced Pro 0 Di2", 54, 6300, 7.3, "https://www.giant-bicycles.com/dk/tcr-advanced-pro-0-di2-2025", frame84, gear10, wheel150, saddle120);
+            Bicycle bicycle70 = new Bicycle("Giant", "TCR Advanced Pro 0 AXS", 54, 6600, 7.3, "https://www.giant-bicycles.com/dk/tcr-advanced-pro-0-axs-2025", frame84, gear39, wheel150, saddle120);
+            Bicycle bicycle71 = new Bicycle("Giant", "TCR Advanced SL Disc 0", 54, 12600, 7.5, "https://www.giant-bicycles.com/dk/tcr-advanced-sl-disc-0-2023", frame84, gear1, wheel149, saddle121);
 
 
 
@@ -927,6 +1012,16 @@ public class Populate {
             em.persist(bicycle60);
             em.persist(bicycle61);
             em.persist(bicycle62);
+            em.persist(bicycle63);
+            em.persist(bicycle64);
+            em.persist(bicycle65);
+            em.persist(bicycle66);
+            em.persist(bicycle67);
+            em.persist(bicycle68);
+            em.persist(bicycle69);
+            em.persist(bicycle70);
+            em.persist(bicycle71);
+
 
 
 
