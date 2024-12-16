@@ -66,7 +66,7 @@ GET http://localhost:7070/api/bicycles/filterbicycles?priceInterval=3000-4000&pr
 Accept: application/json
 
 ### Her henter vi sidebarens data baseret på de valgte kriterier
-GET http://localhost:7070/api/bicycles/filtercounts?priceInterval=3000-4000&priceInterval=4000-5000
+GET http://localhost:7070/api/bicycles/filtercounts?priceInterval=3000-4000&priceInterval=4000-5000&wheelType=Disc
 
 //GET http://localhost:7070/api/bicycles/filtercounts?priceInterval=3000-4000&gearSeries=Shimano+Ultegra&gearSeries=Shimano+Dura-Ace&gearSeries=Shimano+105&priceInterval=4000-5000
 //GET http://localhost:7070/api/bicycles/filtercounts?gearSeries=Shimano+Ultegra&gearSeries=Shimano+Dura-Ace

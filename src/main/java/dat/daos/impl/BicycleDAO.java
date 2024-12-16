@@ -516,8 +516,8 @@ public class BicycleDAO {
             int count = 0;
             for (BicycleDTO bicycle : listToUse) {
                 int price = bicycle.getPrice();
-                String bicycleInterval = getPriceInterval(price);
-                if (priceInterval.equals(bicycleInterval)) {
+                String bicyclePriceInterval = getPriceInterval(price);
+                if (priceInterval.equals(bicyclePriceInterval)) {
                     count++;
                 }
             }
@@ -559,7 +559,7 @@ public class BicycleDAO {
             List<String> value = entry.getValue();
 
             // Hvis der er et andet filter end wheelType valgt, sæt onlyWheelTypeSelected til false
-            if (value != null && !value.isEmpty() && !searchCategory.equals(key) && !"wheelType".equals(key)) {
+            if (value != null && !value.isEmpty() && !searchCategory.equals(key)) {
                 onlyWheelTypeSelected = false;
             }
         }
