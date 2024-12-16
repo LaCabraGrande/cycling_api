@@ -213,10 +213,6 @@ public class BicycleController implements IController<BicycleDTO> {
         }
     }
 
-
-
-
-
     public void create(Context ctx) {
         try {
             BicycleDTO bicycleDTO = ctx.bodyAsClass(BicycleDTO.class);

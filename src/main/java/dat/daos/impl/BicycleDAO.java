@@ -242,12 +242,18 @@ public class BicycleDAO {
         switch (interval) {
             case "0-3000":
                 return price >= 0 && price <= 3000;
-            case "3000-5000":
-                return price > 3000 && price <= 5000;
-            case "5000-7000":
-                return price > 5000 && price <= 7000;
-            case "7000-9000":
-                return price > 7000 && price <= 9000;
+            case "3000-4000":
+                return price > 3000 && price <= 4000;
+            case "4000-5000":
+                return price > 4000 && price <= 5000;
+            case "5000-6000":
+                return price > 5000 && price <= 6000;
+            case "6000-7000":
+                return price > 6000 && price <= 7000;
+            case "7000-8000":
+                return price > 7000 && price <= 8000;
+            case "8000-9000":
+                return price > 8000 && price <= 9000;
             case "at least 9000":
                 return price >= 9000;
             default:
@@ -387,8 +393,7 @@ public class BicycleDAO {
             wheelTypeCount.put(wheelType, count);
         }
 
-
-        // Price interval tælling
+        // Her initialiserer vi en tællings-map med mulige værdier
         Map<String, Integer> priceIntervalCount = initializeCountMap(filters.get("priceInterval"), bicycles, "priceInterval", getAllPriceIntervals());
         for (BicycleDTO bicycle : bicycles) {
             int price = bicycle.getPrice();
@@ -396,7 +401,20 @@ public class BicycleDAO {
             priceIntervalCount.put(priceInterval, priceIntervalCount.getOrDefault(priceInterval, 0) + 1);
         }
 
-        // Returner DTO'en med antal for de forskellige komponenter
+        // Her sætter vi rækkefølgen for priskategorierne
+        List<String> customOrder = List.of("0-3000", "3000-4000", "4000-5000", "5000-6000", "6000-7000", "7000-8000", "8000-9000", "at least 9000");
+
+        // Her opretter vi en ny LinkedHashMap, der holder styr på rækkefølgen
+        Map<String, Integer> sortedPriceIntervalCount = new LinkedHashMap<>();
+
+        // Her tilføjer vi priskategorierne i den ønskede rækkefølge
+        for (String interval : customOrder) {
+            if (priceIntervalCount.containsKey(interval)) {
+                sortedPriceIntervalCount.put(interval, priceIntervalCount.get(interval));
+            }
+        }
+
+        // Her returnerer vi DTO'en med antal for de forskellige komponenter
         return new FilterCountDTO(
                 gearSeriesCount,
                 saddleBrandCount,
@@ -404,7 +422,7 @@ public class BicycleDAO {
                 bicycleBrandCount,
                 bicycleTypeCount,
                 wheelTypeCount,
-                priceIntervalCount
+                sortedPriceIntervalCount
         );
     }
 
@@ -430,14 +448,17 @@ public class BicycleDAO {
     }
 
     private Set<String> getAllPriceIntervals() {
-        return Set.of("0-3000", "3000-5000", "5000-7000", "7000-9000", "at least 9000");
+        return Set.of("0-3000", "3000-4000", "4000-5000", "5000-6000", "6000-7000", "7000-8000", "8000-9000", "at least 9000");
     }
 
     private String getPriceInterval(int price) {
         if (price <= 3000) return "0-3000";
-        if (price <= 5000) return "3000-5000";
-        if (price <= 7000) return "5000-7000";
-        if (price <= 9000) return "7000-9000";
+        if (price <= 4000) return "3000-4000";
+        if (price <= 5000) return "4000-5000";
+        if (price <= 6000) return "5000-6000";
+        if (price <= 7000) return "6000-7000";
+        if (price <= 8000) return "7000-8000";
+        if (price <= 9000) return "8000-9000";
         return "at least 9000";
     }
 

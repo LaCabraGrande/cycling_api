@@ -65,7 +65,7 @@ GET http://localhost:7070/api/bicycles/filterbicycles?gearSeries=Shimano Dura-Ac
 Accept: application/json
 
 ### Her henter vi sidebarens data baseret på de valgte kriterier
-GET http://localhost:7070/api/bicycles/filtercounts?gearSeries=Shimano+Ultegra&gearSeries=Shimano+Dura-Ace&gearSeries=Shimano+105
+GET http://localhost:7070/api/bicycles/filtercounts?gearSeries=Shimano+Ultegra&gearSeries=Shimano+Dura-Ace&gearSeries=Shimano+105&saddleBrand=Syncros
 Accept: application/json
 //GET http://localhost:7070/api/bicycles/filtercounts?gearSeries=Shimano+Ultegra&gearSeries=Shimano+Dura-Ace
 
