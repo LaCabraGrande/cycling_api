@@ -262,19 +262,19 @@ public class BicycleDAO {
     private boolean matchesPriceInterval(String interval, int price) {
         switch (interval) {
             case "0-3000":
-                return price >= 0 && price <= 3000;
+                return price >= 0 && price < 3000;
             case "3000-4000":
-                return price > 3000 && price <= 4000;
+                return price >= 3000 && price < 4000;
             case "4000-5000":
-                return price > 4000 && price <= 5000;
+                return price >= 4000 && price < 5000;
             case "5000-6000":
-                return price > 5000 && price <= 6000;
+                return price >= 5000 && price < 6000;
             case "6000-7000":
-                return price > 6000 && price <= 7000;
+                return price >= 6000 && price < 7000;
             case "7000-8000":
-                return price > 7000 && price <= 8000;
+                return price >= 7000 && price < 8000;
             case "8000-9000":
-                return price > 8000 && price <= 9000;
+                return price >= 8000 && price < 9000;
             case "at least 9000":
                 return price >= 9000;
             default:
@@ -325,35 +325,24 @@ public class BicycleDAO {
 
         List<BicycleDTO> listToUse;
 
-        // Flag for at tjekke, om alle nøgler kun er "gearSeries" og har værdier
-        boolean onlyGearSeriesSelected = true;
-
-        // Gennemløb alle entries i filters og udskriv dem
-        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
-            String key = entry.getKey();
-            List<String> value = entry.getValue();
-
-            // Udskriv nøgle og dens tilhørende værdi
-            System.out.println("Filter key: " + key);
-            System.out.println("Filter value: " + (value != null ? value : "null"));
-
-            // Hvis værdien ikke er tom, tjek om nøglen er "gearSeries"
-            if (value != null && !value.isEmpty() && !"gearSeries".equals(key)) {
-                onlyGearSeriesSelected = false; // Der er et filter, der ikke er "gearSeries"
-            }
-        }
-
-        // Udskriv resultatet af evalueringen
-        System.out.println("All keys with non-empty values are 'gearSeries': " + onlyGearSeriesSelected);
-
-        // Brug den passende liste baseret på resultatet
-        if (onlyGearSeriesSelected) {
-            System.out.println("Using bicycleDTOS (only 'gearSeries' selected).");
-            listToUse = bicycleDTOS;
-        } else {
-            System.out.println("Using bicycles (other filters are present).");
-            listToUse = bicycles;
-        }
+//        boolean onlyGearSeriesSelected = true;
+//
+//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
+//            String key = entry.getKey();
+//            List<String> value = entry.getValue();
+//
+//            // Hvis værdien ikke er tom, tjek om nøglen er "gearSeries"
+//            if (value != null && !value.isEmpty() && !"gearSeries".equals(key)) {
+//                onlyGearSeriesSelected = false; // Der er et filter, der ikke er "gearSeries"
+//            }
+//        }
+//
+//        if (onlyGearSeriesSelected) {
+//            listToUse = bicycleDTOS;
+//        } else {
+//            listToUse = bicycles;
+//        }
+        listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "gearSeries");
         for (String gearSeries : allGearSeries) {
             int count = 0;
             for (BicycleDTO bicycle : listToUse) {
@@ -364,9 +353,29 @@ public class BicycleDAO {
             gearSeriesCount.put(gearSeries, count);
         }
 
+//        boolean onlySaddleBrandSelected = true;
+//
+//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
+//            String key = entry.getKey();
+//            List<String> value = entry.getValue();
+//
+//            if (value != null && !value.isEmpty() && !"saddleBrand".equals(key)) {
+//                onlySaddleBrandSelected = false;
+//            }
+//        }
+//
+//        if (onlySaddleBrandSelected) {
+//            listToUse = bicycleDTOS;
+//        } else {
+//            listToUse = bicycles;
+//        }
+
+
+        listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "saddleBrand");
+
         for (String saddleBrand : allSaddleBrands) {
             int count = 0;
-            for (BicycleDTO bicycle : bicycles) {
+            for (BicycleDTO bicycle : listToUse) {
                 if (saddleBrand.equals(bicycle.getSaddle().getBrand())) {
                     count++;
                 }
@@ -374,9 +383,26 @@ public class BicycleDAO {
             saddleBrandCount.put(saddleBrand, count);
         }
 
+
+
+//        boolean onlyWheelBrandSelected = true;
+//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
+//            String key = entry.getKey();
+//            List<String> value = entry.getValue();
+//
+//            if (value != null && !value.isEmpty() && !"wheelBrand".equals(key)) {
+//                onlyWheelBrandSelected = false;
+//            }
+//        }
+//        if (onlyWheelBrandSelected) {
+//            listToUse = bicycleDTOS;
+//        } else {
+//            listToUse = bicycles;
+//        }
+        listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "wheelBrand");
         for (String wheelBrand : allWheelBrands) {
             int count = 0;
-            for (BicycleDTO bicycle : bicycles) {
+            for (BicycleDTO bicycle : listToUse) {
                 if (wheelBrand.equals(bicycle.getWheel().getBrand())) {
                     count++;
                 }
@@ -384,9 +410,24 @@ public class BicycleDAO {
             wheelBrandCount.put(wheelBrand, count);
         }
 
+//        boolean onlyBicycleBrandSelected = true;
+//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
+//            String key = entry.getKey();
+//            List<String> value = entry.getValue();
+//
+//            if (value != null && !value.isEmpty() && !"bicycleBrand".equals(key)) {
+//                onlyBicycleBrandSelected = false;
+//            }
+//        }
+//        if (onlyBicycleBrandSelected) {
+//            listToUse = bicycleDTOS;
+//        } else {
+//            listToUse = bicycles;
+//        }
+        listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "bicycleBrand");
         for (String bicycleBrand : allBicycleBrands) {
             int count = 0;
-            for (BicycleDTO bicycle : bicycles) {
+            for (BicycleDTO bicycle : listToUse) {
                 if (bicycleBrand.equals(bicycle.getBrand())) {
                     count++;
                 }
@@ -394,9 +435,25 @@ public class BicycleDAO {
             bicycleBrandCount.put(bicycleBrand, count);
         }
 
+//        boolean onlyBicycleTypeSelected = true;
+//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
+//            String key = entry.getKey();
+//            List<String> value = entry.getValue();
+//
+//            if (value != null && !value.isEmpty() && !"bicycleType".equals(key)) {
+//                onlyBicycleTypeSelected = false;
+//            }
+//        }
+//        if (onlyBicycleTypeSelected) {
+//            listToUse = bicycleDTOS;
+//        } else {
+//            listToUse = bicycles;
+//        }
+
+        listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "bicycleType");
         for (String bicycleType : allBicycleTypes) {
             int count = 0;
-            for (BicycleDTO bicycle : bicycles) {
+            for (BicycleDTO bicycle : listToUse) {
                 if (bicycleType.equals(bicycle.getGear().getType())) {
                     count++;
                 }
@@ -404,9 +461,25 @@ public class BicycleDAO {
             bicycleTypeCount.put(bicycleType, count);
         }
 
+//        boolean onlyWheelTypeSelected = true;
+//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
+//            String key = entry.getKey();
+//            List<String> value = entry.getValue();
+//
+//            if (value != null && !value.isEmpty() && !"wheelType".equals(key)) {
+//                onlyWheelTypeSelected = false;
+//            }
+//        }
+//        if (onlyWheelTypeSelected) {
+//            listToUse = bicycleDTOS;
+//        } else {
+//            listToUse = bicycles;
+//        }
+
+        listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "wheelType");
         for (String wheelType : allWheelTypes) {
             int count = 0;
-            for (BicycleDTO bicycle : bicycles) {
+            for (BicycleDTO bicycle : listToUse) {
                 if (wheelType.equals(bicycle.getWheel().getType())) {
                     count++;
                 }
@@ -421,12 +494,27 @@ public class BicycleDAO {
 //            String priceInterval = getPriceInterval(price);
 //            priceIntervalCount.put(priceInterval, priceIntervalCount.getOrDefault(priceInterval, 0) + 1);
 //        }
+//        boolean onlyPriceIntervalSelected = true;
+//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
+//            String key = entry.getKey();
+//            List<String> value = entry.getValue();
+//
+//            if (value != null && !value.isEmpty() && !"priceInterval".equals(key)) {
+//                onlyPriceIntervalSelected = false;
+//            }
+//        }
+//        if (onlyPriceIntervalSelected) {
+//            listToUse = bicycleDTOS;
+//        } else {
+//            listToUse = bicycles;
+//        }
 
+        listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "priceInterval");
         Map<String, Integer> priceIntervalCount = new HashMap<>();
 
         for (String priceInterval : getAllPriceIntervals()) {
             int count = 0;
-            for (BicycleDTO bicycle : bicycles) {
+            for (BicycleDTO bicycle : listToUse) {
                 int price = bicycle.getPrice();
                 String bicycleInterval = getPriceInterval(price);
                 if (priceInterval.equals(bicycleInterval)) {
@@ -462,6 +550,24 @@ public class BicycleDAO {
         );
     }
 
+    private List<BicycleDTO> determineListToUse(Map<String, List<String>> filters, List<BicycleDTO> bicycles, List<BicycleDTO> bicycleDTOS, String searchCategory) {
+        boolean onlyWheelTypeSelected = true;
+
+        // Tjek om kun wheelType filteret er valgt
+        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
+            String key = entry.getKey();
+            List<String> value = entry.getValue();
+
+            // Hvis der er et andet filter end wheelType valgt, sæt onlyWheelTypeSelected til false
+            if (value != null && !value.isEmpty() && !searchCategory.equals(key) && !"wheelType".equals(key)) {
+                onlyWheelTypeSelected = false;
+            }
+        }
+
+        // Hvis kun wheelType eller den valgte kategori er valgt, returner bicycleDTOS, ellers returner bicycles
+        return onlyWheelTypeSelected ? bicycleDTOS : bicycles;
+    }
+
 
     // Helper-metode til at initialisere en tællings-map med mulige værdier
     private Map<String, Integer> initializeCountMap(List<String> filterValues, List<BicycleDTO> bicycles, String filterKey, Set<String> allPossibleValues) {
@@ -488,13 +594,13 @@ public class BicycleDAO {
     }
 
     private String getPriceInterval(int price) {
-        if (price <= 3000) return "0-3000";
-        if (price <= 4000) return "3000-4000";
-        if (price <= 5000) return "4000-5000";
-        if (price <= 6000) return "5000-6000";
-        if (price <= 7000) return "6000-7000";
-        if (price <= 8000) return "7000-8000";
-        if (price <= 9000) return "8000-9000";
+        if (price < 3000) return "0-3000";
+        if (price < 4000) return "3000-4000";
+        if (price < 5000) return "4000-5000";
+        if (price < 6000) return "5000-6000";
+        if (price < 7000) return "6000-7000";
+        if (price < 8000) return "7000-8000";
+        if (price < 9000) return "8000-9000";
         return "at least 9000";
     }
 
