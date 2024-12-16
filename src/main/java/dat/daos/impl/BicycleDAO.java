@@ -393,13 +393,28 @@ public class BicycleDAO {
             wheelTypeCount.put(wheelType, count);
         }
 
-        // Her initialiserer vi en tællings-map med mulige værdier
-        Map<String, Integer> priceIntervalCount = initializeCountMap(filters.get("priceInterval"), bicycles, "priceInterval", getAllPriceIntervals());
-        for (BicycleDTO bicycle : bicycles) {
-            int price = bicycle.getPrice();
-            String priceInterval = getPriceInterval(price);
-            priceIntervalCount.put(priceInterval, priceIntervalCount.getOrDefault(priceInterval, 0) + 1);
+//        // Her initialiserer vi en tællings-map med mulige værdier
+//        Map<String, Integer> priceIntervalCount = initializeCountMap(filters.get("priceInterval"), bicycles, "priceInterval", getAllPriceIntervals());
+//        for (BicycleDTO bicycle : bicycles) {
+//            int price = bicycle.getPrice();
+//            String priceInterval = getPriceInterval(price);
+//            priceIntervalCount.put(priceInterval, priceIntervalCount.getOrDefault(priceInterval, 0) + 1);
+//        }
+
+        Map<String, Integer> priceIntervalCount = new HashMap<>();
+
+        for (String priceInterval : getAllPriceIntervals()) {
+            int count = 0;
+            for (BicycleDTO bicycle : bicycles) {
+                int price = bicycle.getPrice();
+                String bicycleInterval = getPriceInterval(price);
+                if (priceInterval.equals(bicycleInterval)) {
+                    count++;
+                }
+            }
+            priceIntervalCount.put(priceInterval, count);
         }
+
 
         // Her sætter vi rækkefølgen for priskategorierne
         List<String> customOrder = List.of("0-3000", "3000-4000", "4000-5000", "5000-6000", "6000-7000", "7000-8000", "8000-9000", "at least 9000");
