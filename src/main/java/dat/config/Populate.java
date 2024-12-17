@@ -115,6 +115,8 @@ public class Populate {
         Frame frame96 = new Frame("Trek", "600 Series OCLV-kulfiber", "Carbon", "Disc", 1300, 56, "admin");
         Frame frame97 = new Frame("Trek", "500 Series OCLV-kulfiber", "Carbon", "Disc", 1350, 56, "admin");
         Frame frame98 = new Frame("Specialized", "FACT 12r carbon fiber", "Carbon", "Disc", 1250, 56, "admin");
+        Frame frame99 = new Frame("BMC", "Teammachine R 01 Premium", "Carbon", "Disc", 1300, 56, "admin");
+        Frame frame100 = new Frame("Pinarello", "TorayCa M40X", "Carbon", "Disc", 1150, 56, "admin");
 
 
         // Opret saddel
@@ -248,6 +250,7 @@ public class Populate {
         Saddle saddle128 = new Saddle("Bontrager", "Steel", "Verse Short Comp", 291, 145, "admin");
         Saddle saddle129 = new Saddle("Specialized", "Carbon","Specialized S-Works Power", 159, 143, "admin");
         Saddle saddle130 = new Saddle("Specialized", "Carbon", "Specialized Power Expert", 200, 143, "admin");
+        Saddle saddle131 = new Saddle("Pinarello", "Carbon", "Pinarello LYNXS Ultrafast Superflow", 190, 145, "admin");
 
 
         // Opret hjul med modeller
@@ -417,6 +420,9 @@ public class Populate {
         Wheel wheel165 = new Wheel("Bontrager", "Carbon", "Disc", "Bontrager Aeolus Pro 37", 1785, 23, "admin");
         Wheel wheel166 = new Wheel("Bontrager", "Carbon", "Disc", "Bontrager Paradigm Comp 25 TLR", 1780, 25, "admin");
         Wheel wheel167 = new Wheel("Roval", "Carbon", "Disc", "Roval CLX 50 Disc", 1430, 23, "admin");
+        Wheel wheel168 = new Wheel("BMC", "Carbon", "Disc", "CRD-501 SL Carbon", 1690, 25, "admin");
+        Wheel wheel169 = new Wheel("Reynolds", "Carbon", "Disc", "Reynolds AR 41 DB", 1690, 25, "admin");
+        Wheel wheel170 = new Wheel("Princeton", "Carbon", "Disc", "PRINCETON PEAK 4550 DB", 1280, 21, "admin");
 
 
         // Opret gear
@@ -561,6 +567,16 @@ public class Populate {
             em.persist(frame88);
             em.persist(frame89);
             em.persist(frame90);
+            em.persist(frame91);
+            em.persist(frame92);
+            em.persist(frame93);
+            em.persist(frame94);
+            em.persist(frame95);
+            em.persist(frame96);
+            em.persist(frame97);
+            em.persist(frame98);
+            em.persist(frame99);
+            em.persist(frame100);
 
 
 
@@ -687,6 +703,17 @@ public class Populate {
             em.persist(saddle119);
             em.persist(saddle120);
             em.persist(saddle121);
+            em.persist(saddle122);
+            em.persist(saddle123);
+            em.persist(saddle124);
+            em.persist(saddle125);
+            em.persist(saddle126);
+            em.persist(saddle127);
+            em.persist(saddle128);
+            em.persist(saddle129);
+            em.persist(saddle130);
+            em.persist(saddle131);
+
 
 
 
@@ -856,6 +883,11 @@ public class Populate {
             em.persist(wheel164);
             em.persist(wheel165);
             em.persist(wheel166);
+            em.persist(wheel167);
+            em.persist(wheel168);
+            em.persist(wheel169);
+            em.persist(wheel170);
+
 
 
 
@@ -946,12 +978,14 @@ public class Populate {
             Bicycle bicycle14 = new Bicycle("Cannondale", "SuperSix Hi-MOD Disc Ultegra Di2", 56, 10300, 7.3, "https://www.cannondale.com/en/bikes/road/race/supersix-evo/supersix-evo-hi-mod-disc-ultegra-di2-c11201u", "admin", frame16, gear10, wheel159, saddle58);
             Bicycle bicycle321 = new Bicycle("Cannondale", "SuperSix EVO Carbon Disc Force AXS", 56, 10300, 7.3, "https://www.cannondale.com/en/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-force-axs", "admin", frame16, gear39, wheel160, saddle69);
 
-            Bicycle bicycle159 = new Bicycle("BMC", "Teammachine SLR01", 56, 7000, 6.5, "Aero road bike", "admin", frame10, gear1, wheel1, saddle5);
-            Bicycle bicycle21 = new Bicycle("BMC", "Roadmachine", 56, 3500, 7.5, "Lightweight", "admin", frame11, gear1, wheel1, saddle11);
+            Bicycle bicycle159 = new Bicycle("BMC", "Teammachine R 01 TWO", 56, 14000, 7.1, "https://bmc-switzerland.com/collections/road-racing-bikes-teammachine-r-01/products/teammachine-r-01-two-bikes-bmc-24-10628-001", "admin", frame99, gear1, wheel52, saddle53);
+            Bicycle bicycle21 = new Bicycle("BMC", "Teammachine R 01 ONE", 56, 15000, 7.0, "https://bmc-switzerland.com/collections/road-racing-bikes-teammachine-r-01/products/teammachine-r-01-one-bikes-bmc-24-10628-005", "admin", frame99, gear35, wheel52, saddle11);
+            Bicycle bicycle28 = new Bicycle("BMC", "Timemachine R 01 LTD", 56, 15000, 7.0, "https://bmc-switzerland.com/collections/road-racing-bikes-teammachine-r-01/products/teammachine-r-01-ltd-bikes-bmc-24-10628-003", "admin", frame99, gear35, wheel52, saddle62);
+            Bicycle bicycle23 = new Bicycle("BMC", "Teammachine R 01 THREE", 56, 9500, 7.3, "https://bmc-switzerland.com/collections/road-racing-bikes-teammachine-r-01/products/teammachine-r-01-three-bikes-bmc-24-10628-006", "admin", frame99, gear38, wheel168, saddle11);
+            Bicycle bicycle25 = new Bicycle("BMC", "Teammachine R 01 FOUR", 56, 9000, 7.5, "https://bmc-switzerland.com/collections/road-racing-bikes-teammachine-r-01/products/teammachine-r-01-four-bikes-bmc-24-10628-002", "admin", frame99, gear10, wheel1, saddle11);
 
-
-            Bicycle bicycle23 = new Bicycle("Colnago", "V3Rs Disc", 56, 8000, 6.9, "Aero road bike", "admin", frame74, gear2, wheel1, saddle6);
-            Bicycle bicycle25 = new Bicycle("Colnago", "C59", 58, 6400, 6.5, "Road bike", "admin", frame28, gear1, wheel1, saddle1);
+            Bicycle bicycle232 = new Bicycle("Colnago", "V3Rs Disc", 56, 8000, 6.9, "Aero road bike", "admin", frame74, gear2, wheel1, saddle6);
+            Bicycle bicycle254 = new Bicycle("Colnago", "C59", 58, 6400, 6.5, "Road bike", "admin", frame28, gear1, wheel1, saddle1);
             Bicycle bicycle26 = new Bicycle("Colnago", "C64 Disc", 56, 7900, 7.0, "Premium road bike", "admin", frame29, gear2, wheel1, saddle23);
             Bicycle bicycle701 = new Bicycle("Colnago", "C64", 58, 7000, 7.2, "Road bike", "admin", frame78, gear21, wheel64, saddle5);
 
@@ -960,14 +994,16 @@ public class Populate {
             Bicycle bicycle229 = new Bicycle("Cervélo", "R3", 56, 4800, 7.0, "Versatile racing bike", "admin", frame26, gear2, wheel1, saddle6);
             Bicycle bicycle16 = new Bicycle("Cervélo", "R5", 58, 6500, 7.1, "Lightweight", "admin", frame25, gear1, wheel1, saddle6);
 
-            Bicycle bicycle28 = new Bicycle("Pinarello", "F10", 54, 7500, 6.7, "Aero road bike", "admin", frame73, gear2, wheel1, saddle5);
-            Bicycle bicycle29 = new Bicycle("Pinarello", "Paris", 56, 5900, 7.3, "Touring bike", "admin", frame48, gear1, wheel1, saddle9);
+            Bicycle bicycle281 = new Bicycle("Pinarello", "New Dogma F Super Record WRL", 54, 7500, 6.7, "https://pinarello.com/global/en/bikes/road/competition/new-dogma-f/new-dogma-f-dura-ace-di2", "admin", frame100, gear1, wheel170, saddle131);
+            Bicycle bicycle282 = new Bicycle("Pinarello", "New Dogma F SRAM Red eTap AXS", 54, 7500, 6.7, "https://pinarello.com/global/en/bikes/road/competition/new-dogma-f/new-dogma-f-sram-red-etap-axs", "admin", frame100, gear36, wheel170, saddle131);
+            Bicycle bicycle283 = new Bicycle("Pinarello", "New Dogma F Dura-Ace Di2", 54, 7500, 6.7, "https://pinarello.com/global/en/bikes/road/competition/new-dogma-f/new-dogma-f-super-record-wrl", "admin", frame100, gear19, wheel64, saddle131);
+            Bicycle bicycle29 = new Bicycle("Pinarello", "Paris", 56, 4300, 7.3, "https://heino-cykler.dk/products/pinarello-paris-disc-racercykel-2023-105-di2-blue-steel?srsltid=AfmBOoqg6NJH2UEFcr8SzmyJrnrZLLugkK3dYKSG7qFpqTyVmDL_MQla", "admin", frame48, gear1, wheel1, saddle9);
             Bicycle bicycle38 = new Bicycle("Pinarello", "Dogma F7", 58, 7000, 7.6, "https://ciclicorsa.com/shop/f7-disc-2024-shimano-ultegra-di2-2x12-db-complete-bike/", "admin", frame89, gear10, wheel151, saddle78);
-            Bicycle bicycle398 = new Bicycle("Pinarello", "Dogma F12", 58, 10500, 7.6, "Aero road bike", "admin", frame47, gear26, wheel42, saddle1);
+            Bicycle bicycle398 = new Bicycle("Pinarello", "Dogma F12", 58, 12500, 7.6, "https://perpcykler.dk/shop/pinarello-dogma-f12-disc-di2-sort-roed-55-cm/", "admin", frame47, gear26, wheel42, saddle1);
 
-            Bicycle bicycle373 = new Bicycle("Felt", "F5", 56, 2900, 8.2, "Lightweight racing bike", "admin", frame32, gear1, wheel2, saddle6);
+            Bicycle bicycle373 = new Bicycle("Felt", "FR Advanced + Ultegra", 56, 2900, 8.2, "https://www.feltbicycles.com/en-dk/bikes/road-bikes/fr-road-race/fr-advanced-%2B-ultegradi2.color.3D3D3F000001.html", "admin", frame90, gear9, wheel29, saddle5);
             Bicycle bicycle37 = new Bicycle("Felt", "FR Advanced + Dura-Ace", 55, 4200, 7.2, "https://www.tradeinn.com/bikeinn/da/felt-fr-advanced--24s-dura-ace-di2-2024-landevejscykel/140874202/p?srsltid=AfmBOort12W9rfjbKCePVIiqbd6zuO9wfdv6ZNXd689f5O96Ru4LPV_p", "admin", frame90, gear2, wheel38, saddle5);
-            Bicycle bicycle909 = new Bicycle("Felt", "FR FRD", 55, 6000, 6.9, "Road bike", "admin", frame31, gear2, wheel2, saddle1);
+            Bicycle bicycle909 = new Bicycle("Felt", "FR Advanced 105 Di2", 55, 6000, 6.9, "https://www.feltbicycles.com/en-dk/bikes/road-bikes/fr-road-race/fr-advanced-105-di2.color.163CF9000001.html", "admin", frame90, gear12, wheel169, saddle5);
 
             Bicycle bicycle502 = new Bicycle("Bianchi", "Oltre XR4", 57, 6000, 7.0, "https://www.bianchi.com/store/fr_EN/yqb17-oltre-xr4-ultegra-di2-11sp-7.html", "admin", frame9, gear1, wheel24, saddle1);
             Bicycle bicycle35 = new Bicycle("Bianchi", "Oltre RC Dura-Ace", 56, 2900, 7.9, "https://www.bianchi.com/store/fr_EN/yub21-oltrerc-dura-acedi212sp-0.html", "admin", frame8, gear1, wheel1, saddle6);
@@ -1102,6 +1138,14 @@ public class Populate {
             em.persist(bicycle373);
             em.persist(bicycle429);
             em.persist(bicycle539);
+            em.persist(bicycle682);
+            em.persist(bicycle281);
+            em.persist(bicycle282);
+            em.persist(bicycle283);
+            em.persist(bicycle232);
+            em.persist(bicycle254);
+            em.persist(bicycle26);
+
 
 
             em.getTransaction().commit();
