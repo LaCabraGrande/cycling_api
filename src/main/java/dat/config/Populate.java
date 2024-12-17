@@ -117,6 +117,8 @@ public class Populate {
         Frame frame98 = new Frame("Specialized", "FACT 12r carbon fiber", "Carbon", "Disc", 1250, 56, "admin");
         Frame frame99 = new Frame("BMC", "Teammachine R 01 Premium", "Carbon", "Disc", 1300, 56, "admin");
         Frame frame100 = new Frame("Pinarello", "TorayCa M40X", "Carbon", "Disc", 1150, 56, "admin");
+        Frame frame101 = new Frame("Cervelo", "Cervélo All-Carbon", "Carbon", "Disc", 1400, 56, "admin");
+        Frame frame102 = new Frame("Cervelo", "Caledonia-5", "Carbon", "Disc", 1400, 56, "admin");
 
 
         // Opret saddel
@@ -251,6 +253,7 @@ public class Populate {
         Saddle saddle129 = new Saddle("Specialized", "Carbon","Specialized S-Works Power", 159, 143, "admin");
         Saddle saddle130 = new Saddle("Specialized", "Carbon", "Specialized Power Expert", 200, 143, "admin");
         Saddle saddle131 = new Saddle("Pinarello", "Carbon", "Pinarello LYNXS Ultrafast Superflow", 190, 145, "admin");
+        Saddle saddle132 = new Saddle("Prologo", "Carbon", "Prologo Nago R4 PAS", 139, 137, "admin");
 
 
         // Opret hjul med modeller
@@ -577,7 +580,8 @@ public class Populate {
             em.persist(frame98);
             em.persist(frame99);
             em.persist(frame100);
-
+            em.persist(frame101);
+            em.persist(frame102);
 
 
 
@@ -957,7 +961,6 @@ public class Populate {
             Bicycle bicycle34 = new Bicycle("Canyon", "Aeroad CF SLX 7 Di2", 55, 10500, 7.3, "https://www.canyon.com/da-dk/landevejs-cykler-/aerocykler/aeroad/aeroad-cf-slx/aeroad-cf-slx-7-di2/3963.html?dwvar_3963_pv_rahmenfarbe=R107_P01", "admin", frame17, gear13, wheel55, saddle78);
             Bicycle bicycle11 = new Bicycle("Canyon", "Aeroad CF SLX 8 Di2", 56, 6400, 7.9, "https://www.canyon.com/da-dk/landevejs-cykler-/aerocykler/aeroad/aeroad-cf-slx/aeroad-cf-slx-8-di2/3965.html", "admin", frame17, gear11, wheel54, saddle82);
 
-
             Bicycle bicycle1 = new Bicycle("Trek", "Domane SLR 9 AXS Gen 4", 56, 13500, 7.5, "https://www.trekbikes.com/dk/da_DK/cykler/landevejscykler/topydende-landevejscykler/domane/domane-slr/domane-slr-9-axs-gen-4/p/48021/?colorCode=grey", "admin", frame94, gear35, wheel162, saddle31);
             Bicycle bicycle7 = new Bicycle("Trek", "Domane SL 7 Gen 4", 56, 6400, 8.3, "https://www.trekbikes.com/dk/da_DK/cykler/landevejscykler/topydende-landevejscykler/domane/domane-slr/domane-slr-7/p/33141/?colorCode=black", "admin", frame97, gear10, wheel165, saddle128);
             Bicycle bicycle15 = new Bicycle("Trek", "Domane SL 6 Gen 4", 56, 4100, 8.9, "https://www.trekbikes.com/dk/da_DK/cykler/landevejscykler/topydende-landevejscykler/domane/domane-sl/domane-sl-6-gen-4/p/47131/?colorCode=bluedark", "admin", frame97, gear13, wheel166, saddle128);
@@ -989,10 +992,22 @@ public class Populate {
             Bicycle bicycle26 = new Bicycle("Colnago", "C64 Disc", 56, 7900, 7.0, "Premium road bike", "admin", frame29, gear2, wheel1, saddle23);
             Bicycle bicycle701 = new Bicycle("Colnago", "C64", 58, 7000, 7.2, "Road bike", "admin", frame78, gear21, wheel64, saddle5);
 
-            Bicycle bicycle27 = new Bicycle("Cervélo", "S5", 54, 6500, 6.6, "Aero road bike", "admin", frame72, gear2, wheel1, saddle5);
-            Bicycle bicycle243 = new Bicycle("Cervélo", "S3", 56, 5500, 6.4, "Aero road bike", "admin", frame15, gear2, wheel1, saddle5);
-            Bicycle bicycle229 = new Bicycle("Cervélo", "R3", 56, 4800, 7.0, "Versatile racing bike", "admin", frame26, gear2, wheel1, saddle6);
-            Bicycle bicycle16 = new Bicycle("Cervélo", "R5", 58, 6500, 7.1, "Lightweight", "admin", frame25, gear1, wheel1, saddle6);
+            Bicycle bicycle27 = new Bicycle("Cervélo", "S5 2025 Five Black", 54, 6500, 6.6, "https://www.cervelo.com/en-US/bikes/s5", "admin", frame101, gear9, wheel153, saddle5);
+            Bicycle bicycle243 = new Bicycle("Cervélo", "S5 Red eTap AXS", 56, 13000, 6.4, "https://www.cervelo.com/en-US/bikes/s5", "admin", frame101, gear36, wheel153, saddle78);
+            Bicycle bicycle229 = new Bicycle("Cervélo", "S5 Dura Ace Di2", 56, 13000, 7.0, "https://www.cervelo.com/en-US/bikes/s5", "admin", frame101, gear2, wheel153, saddle78);
+            Bicycle bicycle16 = new Bicycle("Cervélo", "S5 Force eTap AXS", 58, 9000, 7.1, "https://www.cervelo.com/en-US/bikes/s5", "admin", frame101, gear39, wheel153, saddle97);
+            Bicycle bicycle311 = new Bicycle("Cervélo", "R5 Red eTap AXS", 56, 13000, 7.1, "https://www.cervelo.com/en-US/bikes/r5", "admin", frame101, gear36, wheel153, saddle97);
+            Bicycle bicycle411 = new Bicycle("Cervélo", "R5 Dura Ace Di2", 56, 13000, 7.1, "https://www.cervelo.com/en-US/bikes/r5", "admin", frame101, gear2, wheel153, saddle97);
+            Bicycle bicycle421 = new Bicycle("Cervélo", "R5 Force eTap AXS", 56, 9000, 7.1, "https://www.cervelo.com/en-US/bikes/r5", "admin", frame101, gear39, wheel153, saddle97);
+            Bicycle bicycle431 = new Bicycle("Cervélo", "R5 Ultegra Di2", 56, 9000, 7.1, "https://www.cervelo.com/en-US/bikes/r5", "admin", frame101, gear10, wheel153, saddle97);
+            Bicycle bicycle441 = new Bicycle("Cervélo", "Soloist Ultegra Di2", 56, 6800, 7.1, "https://www.cervelo.com/en-US/bikes/soloist", "admin", frame101, gear10, wheel152, saddle132);
+            Bicycle bicycle451 = new Bicycle("Cervélo", "Soloist Force AXS", 56, 6800, 7.1, "https://www.cervelo.com/en-US/bikes/soloist", "admin", frame101, gear39, wheel152, saddle132);
+            Bicycle bicycle461 = new Bicycle("Cervélo", "Soloist Force AXS 1", 56, 6900, 7.1, "https://www.cervelo.com/en-US/bikes/soloist", "admin", frame101, gear36, wheel152, saddle132);
+            Bicycle bicycle471 = new Bicycle("Cervélo", "Soloist Rival AXS", 56, 6000, 7.1, "https://www.cervelo.com/en-US/bikes/soloist", "admin", frame101, gear41, wheel152, saddle132);
+            Bicycle bicycle481 = new Bicycle("Cervélo", "Caledonia 5 Red AXS", 56, 12000, 7.1, "https://www.cervelo.com/en-US/bikes/caledonia-5", "admin", frame101, gear35, wheel152, saddle97);
+            Bicycle bicycle491 = new Bicycle("Cervélo", "Caledonia 5 Ultegra Di2", 56, 8700, 7.1, "https://www.cervelo.com/en-US/bikes/caledonia-5", "admin", frame101, gear10, wheel152, saddle97);
+            Bicycle bicycle501 = new Bicycle("Cervélo", "Caledonia 5 Force AXS", 56, 8700, 7.1, "https://www.cervelo.com/en-US/bikes/caledonia-5", "admin", frame101, gear39, wheel152, saddle97);
+            Bicycle bicycle511 = new Bicycle("Cervélo", "Caledonia 5 Dura-Ace Di2", 56, 12000, 7.1, "https://www.cervelo.com/en-US/bikes/caledonia-5", "admin", frame101, gear1, wheel152, saddle97);
 
             Bicycle bicycle281 = new Bicycle("Pinarello", "New Dogma F Super Record WRL", 54, 7500, 6.7, "https://pinarello.com/global/en/bikes/road/competition/new-dogma-f/new-dogma-f-dura-ace-di2", "admin", frame100, gear1, wheel170, saddle131);
             Bicycle bicycle282 = new Bicycle("Pinarello", "New Dogma F SRAM Red eTap AXS", 54, 7500, 6.7, "https://pinarello.com/global/en/bikes/road/competition/new-dogma-f/new-dogma-f-sram-red-etap-axs", "admin", frame100, gear36, wheel170, saddle131);
@@ -1145,6 +1160,18 @@ public class Populate {
             em.persist(bicycle232);
             em.persist(bicycle254);
             em.persist(bicycle26);
+            em.persist(bicycle311);
+            em.persist(bicycle411);
+            em.persist(bicycle421);
+            em.persist(bicycle431);
+            em.persist(bicycle441);
+            em.persist(bicycle451);
+            em.persist(bicycle461);
+            em.persist(bicycle471);
+            em.persist(bicycle481);
+            em.persist(bicycle491);
+            em.persist(bicycle501);
+            em.persist(bicycle511);
 
 
 
