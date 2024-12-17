@@ -14,6 +14,7 @@ public class WheelRoute {
         return () -> {
             get("/", wheelController::getAll, Role.ANYONE);
             get("/{id}", wheelController::getById, Role.ANYONE);
+            get("createdByUser/{username}", wheelController::getByUser, Role.ANYONE);
             post("/", wheelController::create, Role.USER);
             put("/{id}", wheelController::update, Role.USER);
             delete("/{id}", wheelController::delete, Role.USER);

@@ -14,6 +14,7 @@ public class GearRoute {
         return () -> {
             get("/", gearController::getAll, Role.ANYONE);
             get("/{id}", gearController::getById, Role.ANYONE);
+            get("createdByUser/{username}", gearController::getByUser, Role.ANYONE);
             post("/", gearController::create, Role.USER);
             put("/{id}",  gearController::update, Role.USER);
             delete("/{id}",  gearController::delete, Role.USER);

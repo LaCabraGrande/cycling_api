@@ -40,6 +40,9 @@ public class Frame {
     @Column(name = "size", nullable = true)
     private int size;
 
+    @Column(name = "username", nullable = true)
+    private String username;
+
     // skal læses som at et frame kan have mange cykler tilknyttet
     @OneToMany(mappedBy = "frame")
     @JsonIgnore
@@ -47,13 +50,14 @@ public class Frame {
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
-    public Frame(String brand, String model, String material, String type, int weight, int size) {
+    public Frame(String brand, String model, String material, String type, int weight, int size, String username) {
         this.brand = brand;
         this.model = model;
         this.material = material;
         this.type = type;
         this.weight = weight;
         this.size = size;
+        this.username = username;
     }
 
     public Frame(FrameDTO frameDTO) {
@@ -64,6 +68,7 @@ public class Frame {
         this.type = frameDTO.getType();
         this.weight = frameDTO.getWeight();
         this.size = frameDTO.getSize();
+        this.username = frameDTO.getUsername();
     }
 
 

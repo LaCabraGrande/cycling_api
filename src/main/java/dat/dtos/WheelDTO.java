@@ -18,6 +18,7 @@ public class WheelDTO {
     private String model;
     private int weight;
     private int size;
+    private String username;
 
     // Constructor fra Wheel-entity til DTO
     public WheelDTO(Wheel wheel) {
@@ -28,6 +29,7 @@ public class WheelDTO {
         this.model = wheel.getModel();
         this.weight = wheel.getWeight();
         this.size = wheel.getSize();
+        this.username = wheel.getUsername();
     }
 
     public Wheel toEntity() {
@@ -44,6 +46,7 @@ public class WheelDTO {
                 ", model='" + model + '\'' +
                 ", weight=" + weight +
                 ", size=" + size +
+                ", username='" + username + '\'' +
                 '}';
     }
 }

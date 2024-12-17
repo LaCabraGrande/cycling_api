@@ -14,6 +14,7 @@ public class SaddleRoute {
         return () -> {
             get("/", saddleController::getAll, Role.ANYONE);
             get("/{id}", saddleController::getById, Role.ANYONE);
+            get("createdByUser/{username}", saddleController::getByUser, Role.ANYONE);
             post("/",saddleController::create, Role.USER);
             put("/{id}", saddleController::update, Role.USER);
             delete("/{id}",saddleController::delete, Role.USER);

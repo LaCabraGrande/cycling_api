@@ -48,7 +48,11 @@ GET http://localhost:7070/api/bicycles
 Accept: application/json
 
 ### Her henter vi en cykel ud fra id på cyklen
-GET http://localhost:7070/api/bicycles/2
+GET http://localhost:7070/api/bicycles/3
+Accept: application/json
+
+### Her henter vi de cykler som brugeren har oprettet
+GET http://localhost:7070/api/bicycles/createdByUser/user
 Accept: application/json
 
 ### Her filtrerer vi cykler baseret på udvalgte komponenter
@@ -72,20 +76,20 @@ GET http://localhost:7070/api/bicycles/filtercounts?priceInterval=3000-4000&pric
 //GET http://localhost:7070/api/bicycles/filtercounts?gearSeries=Shimano+Ultegra&gearSeries=Shimano+Dura-Ace
 Accept: application/json
 
-
-### Her opretter vi en cykel
+### Her opretter en bruger en cykel
 POST http://localhost:7070/api/bicycles
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
-    {
-    "brand": "Cervélo",
-    "model": "S5",
-    "size": 56,
-    "price": 8000,
-    "weight": 7.5,
-    "description": "Aero road bike"
-    }
+{
+  "brand": "Cervélo - Test",
+  "model": "S5",
+  "size": 56,
+  "price": 8000,
+  "weight": 7.5,
+  "description": "Aero road bike",
+  "username": "user"
+}
 
 ### Her opretter vi en cykel og inkluderer ramme, hjul, gear og sadel
 POST http://localhost:7070/api/bicycles/withcomponents
@@ -102,7 +106,8 @@ Authorization: Bearer {{jwt_token}}
   "frameId": 1,
   "gearId": 1,
   "wheelId": 1,
-  "saddleId": 1
+  "saddleId": 1,
+  "username": "user"
 }
 
 ### Her opdaterer vi en cykel med en id på cyklen
@@ -149,7 +154,11 @@ GET http://localhost:7070/api/frames
 ### Her henter vi en frame ud fra id
 GET http://localhost:7070/api/frames/1
 
-### Her opretter vi en frame
+### Her henter vi de frames som brugeren har oprettet
+GET http://localhost:7070/api/frames/createdByUser/user
+Accept: application/json
+
+### Her opretter en bruger en frame
 POST http://localhost:7070/api/frames
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
@@ -160,7 +169,8 @@ Authorization: Bearer {{jwt_token}}
   "material": "Aluminium",
   "type": "Rim",
   "weight": 1500,
-  "size": 56
+  "size": 56,
+  "username": "user"
 }
 
 ### Her tilføjer vi en frame til en cykel og vi bruger cykel id og frame id
@@ -174,7 +184,7 @@ Authorization: Bearer {{jwt_token}}
 }
 
 ### Her opdaterer vi en frame ud fra id
-PUT http://localhost:7070/api/frames/3
+PUT http://localhost:7070/api/frames/4
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
@@ -199,7 +209,10 @@ GET http://localhost:7070/api/saddles
 ### Her henter vi en saddle ud fra id
 GET http://localhost:7070/api/saddles/1
 
-### Her opretter vi en saddle
+### Her henter vi de saddles som brugeren har oprettet
+GET http://localhost:7070/api/saddles/createdByUser/user
+
+### Her opretter en bruger en saddle
 POST http://localhost:7070/api/saddles
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
@@ -209,7 +222,8 @@ Authorization: Bearer {{jwt_token}}
   "material": "Carbon",
   "model": "Power",
   "weight": 143,
-  "width": 150
+  "width": 150,
+  "username": "user"
 }
 
 ### Her tilføjer vi en saddle til en cykel og vi bruger cykel id og saddle id
@@ -223,7 +237,7 @@ Authorization: Bearer {{jwt_token}}
 }
 
 ### Her opdaterer vi en saddle ud fra id
-PUT http://localhost:7070/api/saddles/3
+PUT http://localhost:7070/api/saddles/4
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
@@ -247,7 +261,10 @@ GET http://localhost:7070/api/wheels
 ### Her henter vi en wheel ud fra id
 GET http://localhost:7070/api/wheels/1
 
-### Her opretter vi en wheel
+### Her henter vi de wheels som brugeren har oprettet
+GET http://localhost:7070/api/wheels/createdByUser/user
+
+### Her opretter en bruger et wheel
 POST http://localhost:7070/api/wheels
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
@@ -258,7 +275,8 @@ Authorization: Bearer {{jwt_token}}
   "type": "Disc",
   "model": "303 Firecrest",
   "weight": 1500,
-  "size": 25
+  "size": 25,
+  "username": "user"
 }
 
 ### Her tilføjer vi en wheel til en cykel og vi bruger cykel id og wheel id
@@ -272,7 +290,7 @@ Authorization: Bearer {{jwt_token}}
 }
 
 ### Her opdaterer vi en wheel ud fra id
-PUT http://localhost:7070/api/wheels/3
+PUT http://localhost:7070/api/wheels/4
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
 
@@ -297,7 +315,10 @@ GET http://localhost:7070/api/gears
 ### Her henter vi en gear ud fra id
 GET http://localhost:7070/api/gears/1
 
-### Her opretter vi en gear
+### Her henter vi de gears som brugeren har oprettet
+GET http://localhost:7070/api/gears/createdByUser/user
+
+### Her opretter en bruger et gear
 POST http://localhost:7070/api/gears
 Content-Type: application/json
 Authorization: Bearer {{jwt_token}}
@@ -309,7 +330,8 @@ Authorization: Bearer {{jwt_token}}
   "material": "Aluminium",
   "type": "Mechanical",
   "brakes": "Disc",
-  "weight": 3026
+  "weight": 3026,
+  "username": "user"
 }
 
 ### Her tilføjer vi en gear til en cykel og vi bruger cykel id og gear id

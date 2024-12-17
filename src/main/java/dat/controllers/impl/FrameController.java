@@ -66,6 +66,19 @@ public class FrameController implements IController<IController> {
         }
     }
 
+    public void getByUser(Context ctx) {
+        try {
+            String username = ctx.pathParam("username");
+            ctx.json(frameDAO.getByUser(username));
+        } catch (Exception e) {
+            ctx.status(500).json(Map.of(
+                    "status", 500,
+                    "message", "Internal server error: " + e.getMessage(),
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        }
+    }
+
     public void create(Context ctx) {
         try {
             FrameDTO frameDTO = ctx.bodyAsClass(FrameDTO.class);

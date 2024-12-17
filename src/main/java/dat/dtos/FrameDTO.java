@@ -16,6 +16,7 @@ public class FrameDTO {
     private String type;
     private int weight;
     private int size;
+    private String username;
 
 
     // Constructor fra Frame-entity til DTO
@@ -27,6 +28,7 @@ public class FrameDTO {
         this.type = frame.getType();
         this.weight = frame.getWeight();
         this.size = frame.getSize();
+        this.username = frame.getUsername();
     }
 
     public Frame toEntity() {

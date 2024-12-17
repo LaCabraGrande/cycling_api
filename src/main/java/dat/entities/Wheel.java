@@ -37,19 +37,23 @@ public class Wheel {
     @Column(name = "size", nullable = true)
     private int size;
 
+    @Column(name = "username", nullable = true)
+    private String username;
+
     @OneToMany(mappedBy = "wheel")
     @JsonIgnore
     @ToString.Exclude
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
-    public Wheel(String brand, String material, String type, String model, int weight, int size) {
+    public Wheel(String brand, String material, String type, String model, int weight, int size, String username) {
         this.brand = brand;
         this.material = material;
         this.type = type;
         this.model = model;
         this.weight = weight;
         this.size = size;
+        this.username = username;
     }
 
     public Wheel(WheelDTO wheelDTO) {
@@ -60,6 +64,7 @@ public class Wheel {
         this.model = wheelDTO.getModel();
         this.weight = wheelDTO.getWeight();
         this.size = wheelDTO.getSize();
+        this.username = wheelDTO.getUsername();
     }
 
     public void addBicycle(Bicycle bicycle) {

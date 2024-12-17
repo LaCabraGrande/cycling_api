@@ -18,6 +18,7 @@ public class SaddleDTO {
     private String model;
     private int weight;
     private int width;
+    private String username;
 
 
     // Constructor fra Saddle-entity til DTO
@@ -28,6 +29,7 @@ public class SaddleDTO {
         this.model = saddle.getModel();
         this.weight = saddle.getWeight();
         this.width = saddle.getWidth();
+        this.username = saddle.getUsername();
     }
 
     public Saddle toEntity() {
@@ -43,6 +45,7 @@ public class SaddleDTO {
                 ", model='" + model + '\'' +
                 ", weight=" + weight +
                 ", width=" + width +
+                ", username='" + username + '\'' +
                 '}';
     }
 

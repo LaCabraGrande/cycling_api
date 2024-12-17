@@ -67,6 +67,31 @@ public class WheelController implements IController<IController> {
         }
     }
 
+    public void getByUser(Context ctx) {
+        try {
+            String username = ctx.pathParam("username");
+            ctx.json(wheelDAO.getByUser(username));
+        } catch (NumberFormatException e) {
+            ctx.status(400).json(Map.of(
+                    "status", 400,
+                    "message", "Invalid user ID format.",
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        } catch (NotFoundResponse e) {
+            ctx.status(404).json(Map.of(
+                    "status", 404,
+                    "message", e.getMessage(),
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        } catch (Exception e) {
+            ctx.status(500).json(Map.of(
+                    "status", 500,
+                    "message", "Internal server error: " + e.getMessage(),
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        }
+    }
+
     public void create(Context ctx) {
         try {
             WheelDTO wheelDTO = ctx.bodyAsClass(WheelDTO.class);

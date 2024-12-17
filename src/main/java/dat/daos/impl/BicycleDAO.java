@@ -71,6 +71,7 @@ public class BicycleDAO {
                     bicycleDTO.getPrice(),
                     bicycleDTO.getWeight(),
                     bicycleDTO.getDescription(),
+                    bicycleDTO.getUsername(),
                     frame, gear, wheel, saddle
             );
             em.persist(bicycle);
@@ -95,6 +96,16 @@ public class BicycleDAO {
             return query.getResultList();
         } catch (Exception e) {
             throw new RuntimeException("Error fetching bicycles", e);
+        }
+    }
+
+    public List<BicycleDTO> getBicyclesCreatedByUser(String username) {
+        try (EntityManager em = emf.createEntityManager()) {
+            TypedQuery<BicycleDTO> query = em.createQuery("SELECT new dat.dtos.BicycleDTO(r) FROM Bicycle r WHERE r.username = :username", BicycleDTO.class);
+            query.setParameter("username", username);
+            return query.getResultList();
+        } catch (Exception e) {
+            throw new RuntimeException("Error fetching bicycles created by user", e);
         }
     }
 
@@ -904,11 +915,11 @@ public class BicycleDAO {
         }
     }
 
-    public Bicycle delete(int id) {
+    public BicycleDTO delete(int id) {
         try (EntityManager em = emf.createEntityManager()) {
             em.getTransaction().begin();
             Bicycle bicycle = em.find(Bicycle.class, id);
-            // TODO Håndter, hvis cyklen ikke findes (f.eks. kast en undtagelse eller returnér null)
+            BicycleDTO deletedBicycle = new BicycleDTO(bicycle);
             if (bicycle != null) {
                 Frame frame = bicycle.getFrame();
                 if (frame != null) {
@@ -938,7 +949,7 @@ public class BicycleDAO {
                 em.remove(bicycle);
             }
             em.getTransaction().commit();
-            return bicycle;
+            return deletedBicycle;
         }
     }
 

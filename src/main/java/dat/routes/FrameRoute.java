@@ -14,6 +14,7 @@ public class FrameRoute {
         return () -> {
             get("/", frameController::getAll, Role.ANYONE);
             get("/{id}", frameController::getById, Role.ANYONE);
+            get("createdByUser/{username}", frameController::getByUser, Role.ANYONE);
             post("/", frameController::create, Role.USER);
             put("/{id}", frameController::update, Role.USER);
             delete("/{id}", frameController::delete, Role.USER);

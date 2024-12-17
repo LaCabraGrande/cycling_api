@@ -26,6 +26,7 @@ public class Bicycle {
     private int price;
     private double weight;
     private String description;
+    private String username;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonManagedReference  // Ejer af relationen
@@ -44,23 +45,25 @@ public class Bicycle {
     private Saddle saddle;
 
     // Constructor til oprettelse af ny Bicycle uden komponenter
-    public Bicycle(String brand, String model, int size, int price, double weight, String description) {
+    public Bicycle(String brand, String model, int size, int price, double weight, String description, String username) {
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.price = price;
         this.weight = weight;
         this.description = description;
+        this.username = username;
     }
 
     // Constructor til oprettelse af ny Bicycle med komponenter
-    public Bicycle(String brand, String model, int size, int price, double weight, String description, Frame frame, Gear gear, Wheel wheel, Saddle saddle) {
+    public Bicycle(String brand, String model, int size, int price, double weight, String description, String username, Frame frame, Gear gear, Wheel wheel, Saddle saddle) {
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.price = price;
         this.weight = weight;
         this.description = description;
+        this.username = username;
         this.frame = frame;
         this.gear = gear;
         this.wheel = wheel;
@@ -76,6 +79,7 @@ public class Bicycle {
         this.price = bicycleDTO.getPrice();
         this.weight = bicycleDTO.getWeight();
         this.description = bicycleDTO.getDescription();
+        this.username = bicycleDTO.getUsername();
         if(bicycleDTO.getFrame() != null) {
             this.frame = bicycleDTO.getFrame().toEntity();
         }
@@ -128,6 +132,7 @@ public class Bicycle {
                 ", price=" + price +
                 ", weight=" + weight +
                 ", description='" + description + '\'' +
+                ", username='" + username + '\'' +
                 '}';
     }
 

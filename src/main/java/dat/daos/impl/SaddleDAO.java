@@ -36,6 +36,17 @@ public class SaddleDAO implements IDAO<SaddleDTO> {
         }
     }
 
+    public List<SaddleDTO> getByUser(String username) {
+        try (EntityManager em = emf.createEntityManager()) {
+            TypedQuery<SaddleDTO> query = em.createQuery("SELECT new dat.dtos.SaddleDTO(s) FROM Saddle s WHERE s.username = :username", SaddleDTO.class);
+            query.setParameter("username", username);
+            return query.getResultList();
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error fetching saddle", e);
+        }
+    }
+
     @Override
     public List<SaddleDTO> getAll() {
         try (EntityManager em = emf.createEntityManager()) {

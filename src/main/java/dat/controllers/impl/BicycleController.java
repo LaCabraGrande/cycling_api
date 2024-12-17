@@ -125,6 +125,21 @@ public class BicycleController implements IController<BicycleDTO> {
         }
     }
 
+    public void getBicyclesCreatedByUser(Context ctx) {
+        try {
+            String username = ctx.pathParam("username");
+            List<BicycleDTO> bicyclesDTOS = bicycleDAO.getBicyclesCreatedByUser(username);
+            ctx.json(bicyclesDTOS);
+        } catch (Exception e) {
+            logger.error("Unknown error occurred", e);
+            ctx.status(500).json(Map.of(
+                    "status", 500,
+                    "message", "Internal server error",
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        }
+    }
+
     public void filterByComponents(Context ctx) {
         int saddleId = 0;
         int frameId = 0;
@@ -237,6 +252,26 @@ public class BicycleController implements IController<BicycleDTO> {
         }
     }
 
+    public void createByUser(Context ctx) {
+        try {
+            BicycleDTO bicycleDTO = ctx.bodyAsClass(BicycleDTO.class);
+            BicycleDTO savedResellerDTO = bicycleDAO.add(bicycleDTO);
+            ctx.status(201).json(savedResellerDTO);
+        } catch (Exception e) {
+            ctx.status(400).json(Map.of(
+                    "status", 400,
+                    "message", "Invalid bicycle data",
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        } catch (Throwable e) {
+            ctx.status(500).json(Map.of(
+                    "status", 500,
+                    "message", "Internal server error",
+                    "timestamp", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        }
+    }
+
     public void createWithComponents(Context ctx) {
         try {
             BicycleCompleteDTO bicycleCompleteDTO = ctx.bodyAsClass(BicycleCompleteDTO.class);
@@ -260,6 +295,7 @@ public class BicycleController implements IController<BicycleDTO> {
             bicycleDTO.setPrice(bicycleCompleteDTO.getPrice());
             bicycleDTO.setWeight(bicycleCompleteDTO.getWeight());
             bicycleDTO.setDescription(bicycleCompleteDTO.getDescription());
+            bicycleDTO.setUsername(bicycleCompleteDTO.getUsername());
             bicycleDTO.setFrame(frameDTO);
             bicycleDTO.setGear(gearDTO);
             bicycleDTO.setWheel(wheelDTO);
@@ -512,7 +548,7 @@ public class BicycleController implements IController<BicycleDTO> {
     public void delete(Context ctx) {
         try {
             int id = Integer.parseInt(ctx.pathParam("id"));
-            Bicycle bicycle = bicycleDAO.delete(id);
+            BicycleDTO bicycle = bicycleDAO.delete(id);
             if (bicycle != null) {
                 String jsonResponse = String.format("{\"Message\": \"Bicycle deleted\", \"bicycle\": %s}",
                         OBJECT_MAPPER.writeValueAsString(bicycle));

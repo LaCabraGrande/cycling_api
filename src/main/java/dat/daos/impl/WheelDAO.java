@@ -37,6 +37,17 @@ public class WheelDAO implements IDAO<WheelDTO> {
         }
     }
 
+    public List<WheelDTO> getByUser(String username) {
+        try (EntityManager em = emf.createEntityManager()) {
+            TypedQuery<WheelDTO> query = em.createQuery("SELECT new dat.dtos.WheelDTO(w) FROM Wheel w WHERE w.username = :username", WheelDTO.class);
+            query.setParameter("username", username);
+            return query.getResultList();
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error fetching wheel", e);
+        }
+    }
+
     @Override
     public List<WheelDTO> getAll() {
         try (EntityManager em = emf.createEntityManager()) {

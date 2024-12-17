@@ -34,6 +34,18 @@ public class GearDAO implements IDAO<GearDTO> {
         }
     }
 
+    public List<GearDTO> getByUser(String username) {
+        try (EntityManager em = emf.createEntityManager()) {
+            TypedQuery<GearDTO> query = em.createQuery("SELECT new dat.dtos.GearDTO(g) FROM Gear g WHERE g.username = :username", GearDTO.class);
+            query.setParameter("username", username);
+            return query.getResultList();
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error fetching gear", e);
+        }
+    }
+
+
     @Override
     public List<GearDTO> getAll() {
         try (EntityManager em = emf.createEntityManager()) {

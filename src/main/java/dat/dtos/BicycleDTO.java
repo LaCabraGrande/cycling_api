@@ -19,13 +19,14 @@ public class BicycleDTO {
     private int price;
     private double weight;
     private String description;
+    private String username;
     private FrameDTO frame;
     private GearDTO gear;
     private WheelDTO wheel;
     private SaddleDTO saddle;
 
     // Constructor med alle felter
-    public BicycleDTO(int id, String brand, String model, int size, int price, double weight , String description, FrameDTO frame, GearDTO gear, WheelDTO wheel, SaddleDTO saddle) {
+    public BicycleDTO(int id, String brand, String model, int size, int price, double weight , String description, String username, FrameDTO frame, GearDTO gear, WheelDTO wheel, SaddleDTO saddle) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -33,19 +34,21 @@ public class BicycleDTO {
         this.price = price;
         this.weight = weight;
         this.description = description;
+        this.username = username;
         this.frame = frame;
         this.gear = gear;
         this.wheel = wheel;
         this.saddle = saddle;
     }
 
-    public BicycleDTO(String brand, String model, int size, int price, double weight, String description) {
+    public BicycleDTO(String brand, String model, int size, int price, double weight, String description, String username) {
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.price = price;
         this.weight = weight;
         this.description = description;
+        this.username = username;
     }
 
     // Constructor baseret på Bicycle-entitet
@@ -57,6 +60,7 @@ public class BicycleDTO {
         this.price = bicycle.getPrice();
         this.weight = bicycle.getWeight();
         this.description = bicycle.getDescription();
+        this.username = bicycle.getUsername();
 
         if (bicycle.getFrame() != null) {
             this.frame = new FrameDTO(bicycle.getFrame());
@@ -93,6 +97,7 @@ public class BicycleDTO {
                 Objects.equals(brand, that.brand) &&
                 Objects.equals(model, that.model) &&
                 Objects.equals(description, that.description) &&
+                Objects.equals(username, that.username) &&
                 Objects.equals(frame, that.frame) &&
                 Objects.equals(gear, that.gear) &&
                 Objects.equals(wheel, that.wheel) &&
@@ -102,7 +107,7 @@ public class BicycleDTO {
     // Overrider hashCode til at inkludere alle felter
     @Override
     public int hashCode() {
-        return Objects.hash(id, brand, model, size, price, weight, description, frame, gear, wheel, saddle);
+        return Objects.hash(id, brand, model, size, price, weight, description, username, frame, gear, wheel, saddle);
     }
     @Override
     public String toString() {
@@ -114,6 +119,7 @@ public class BicycleDTO {
                 ", price=" + price +
                 ", weight=" + weight +
                 ", description='" + description + '\'' +
+                ", username='" + username + '\'' +
                 ", frame=" + frame +
                 ", gear=" + gear +
                 ", wheel=" + wheel +

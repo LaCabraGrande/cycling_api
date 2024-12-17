@@ -1,6 +1,7 @@
 package dat.daos.impl;
 
 import dat.daos.IDAO;
+import dat.dtos.BicycleDTO;
 import dat.dtos.FrameDTO;
 import dat.entities.Bicycle;
 import dat.entities.Frame;
@@ -31,6 +32,17 @@ public class FrameDAO implements IDAO<FrameDTO> {
             Frame frame = em.find(Frame.class, id);
             //
             return frame != null ? new FrameDTO(frame) : null;
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Error fetching frame", e);
+        }
+    }
+
+    public List<FrameDTO> getByUser(String username) {
+        try (EntityManager em = emf.createEntityManager()) {
+            TypedQuery<FrameDTO> query = em.createQuery("SELECT new dat.dtos.FrameDTO(p) FROM Frame p WHERE p.username = :username", FrameDTO.class);
+            query.setParameter("username", username);
+            return query.getResultList();
         }
         catch (Exception e) {
             throw new RuntimeException("Error fetching frame", e);

@@ -35,18 +35,22 @@ public class Saddle {
     @Column(name = "width", nullable = true)
     private int width;
 
+    @Column(name = "username", nullable = true)
+    private String username;
+
     @OneToMany(mappedBy = "saddle")
     @JsonIgnore
     @ToString.Exclude
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
-    public Saddle(String brand, String material, String model, int weight, int width) {
+    public Saddle(String brand, String material, String model, int weight, int width, String username) {
         this.brand = brand;
         this.material = material;
         this.model = model;
         this.weight = weight;
         this.width = width;
+        this.username = username;
     }
 
     public Saddle(SaddleDTO saddleDTO) {
@@ -56,6 +60,7 @@ public class Saddle {
         this.model = saddleDTO.getModel();
         this.weight = saddleDTO.getWeight();
         this.width = saddleDTO.getWidth();
+        this.username = saddleDTO.getUsername();
     }
 
     public void addBicycle(Bicycle bicycle) {

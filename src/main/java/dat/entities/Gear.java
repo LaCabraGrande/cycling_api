@@ -41,6 +41,9 @@ public class Gear {
     @Column(name = "weight", nullable = true)
     private int weight;
 
+    @Column(name = "username", nullable = true)
+    private String username;
+
 
     @OneToMany(mappedBy = "gear")
     @JsonIgnore
@@ -48,7 +51,7 @@ public class Gear {
     @JsonBackReference
     private Set<Bicycle> bicycles;
 
-    public Gear(String brand, String model, String series, String material, String type, String brakes, int weight) {
+    public Gear(String brand, String model, String series, String material, String type, String brakes, int weight, String username) {
         this.brand = brand;
         this.model = model;
         this.series = series;
@@ -56,6 +59,7 @@ public class Gear {
         this.type = type;
         this.brakes = brakes;
         this.weight = weight;
+        this.username = username;
     }
 
     public Gear(GearDTO gearDTO) {
@@ -67,6 +71,7 @@ public class Gear {
         this.type = gearDTO.getType();
         this.brakes = gearDTO.getBrakes();
         this.weight = gearDTO.getWeight();
+        this.username = gearDTO.getUsername();
     }
 
     public void addBicycle(Bicycle bicycle) {
@@ -84,6 +89,7 @@ public class Gear {
                 ", type='" + type + '\'' +
                 ", brakes='" + brakes + '\'' +
                 ", weight=" + weight +
+                ", username='" + username + '\'' +
                 '}';
     }
 }
