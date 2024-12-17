@@ -104,6 +104,7 @@ class BicycleRouteTest {
         bicycle1.setPrice(1000);
         bicycle1.setWeight(10);
         bicycle1.setDescription("The ultimate racing bike");
+        bicycle1.setUsername("user");
 
         bicycle2.setBrand("Cannondale");
         bicycle2.setModel("CAAD13");
@@ -111,6 +112,7 @@ class BicycleRouteTest {
         bicycle2.setPrice(2000);
         bicycle2.setWeight(9);
         bicycle2.setDescription("The ultimate climbing bike");
+        bicycle2.setUsername("user");
 
         // Opret BicycleDTOs fra Bicycle-objekterne
         bicycleDTO1 = bicycleDAO.add(new BicycleDTO(bicycle1));
@@ -125,6 +127,7 @@ class BicycleRouteTest {
         frame1.setMaterial("Carbon");
         frame1.setWeight(1);
         frame1.setSize(56);
+        frame1.setUsername("user");
 
         frame2.setBrand("Cannondale");
         frame2.setType("Climbing");
@@ -132,6 +135,7 @@ class BicycleRouteTest {
         frame2.setMaterial("Aluminium");
         frame2.setWeight(15);
         frame2.setSize(54);
+        frame2.setUsername("user");
 
         // Opret FrameDTOs fra Frame-objekterne
         frameDTO1 = frameDAO.add(new FrameDTO(frame1));
@@ -146,6 +150,8 @@ class BicycleRouteTest {
         gear1.setMaterial("Aluminium");
         gear1.setType("Racing");
         gear1.setWeight(24321);
+        gear1.setBrakes("Disc");
+        gear1.setUsername("user");
 
         gear2.setBrand("SRAM");
         gear2.setModel("Red");
@@ -153,6 +159,8 @@ class BicycleRouteTest {
         gear2.setMaterial("Carbon");
         gear2.setType("Climbing");
         gear2.setWeight(234231);
+        gear2.setBrakes("Rim");
+        gear2.setUsername("user");
 
         // Opret GearDTOs fra Gear-objekterne
         gearDTO1 = gearDAO.add(new GearDTO(gear1));
@@ -167,6 +175,7 @@ class BicycleRouteTest {
         wheel1.setModel("Cosmic Pro");
         wheel1.setWeight(1540);
         wheel1.setSize(23);
+        wheel1.setUsername("user");
 
         wheel2.setBrand("Fulcrum");
         wheel2.setMaterial("Racing");
@@ -174,6 +183,7 @@ class BicycleRouteTest {
         wheel2.setModel("Racing Zero");
         wheel2.setWeight(1340);
         wheel2.setSize(23);
+        wheel2.setUsername("user");
 
         // Opret WheelDTOs fra Wheel-objekterne
         wheelDTO1 = wheelDAO.add(new WheelDTO(wheel1));
@@ -185,12 +195,14 @@ class BicycleRouteTest {
         saddle1.setModel("Power");
         saddle1.setWeight(200);
         saddle1.setWidth(142);
+        saddle1.setUsername("user");
 
         saddle2.setBrand("Selle Italia");
         saddle2.setMaterial("Leather");
         saddle2.setModel("Flite");
         saddle2.setWeight(250);
         saddle2.setWidth(140);
+        saddle2.setUsername("user");
 
         // Opret SaddleDTOs fra Saddle-objekterne
         saddleDTO1 = saddleDAO.add(new SaddleDTO(saddle1));
@@ -262,7 +274,7 @@ class BicycleRouteTest {
 
     @Test
     void testAddBicycle() {
-        BicycleDTO b4 = new BicycleDTO("Scott", "test", 58, 4500, 7.8, "The top bike from Scott for road racing");
+        BicycleDTO b4 = new BicycleDTO("Scott", "test", 58, 4500, 7.8, "The top bike from Scott for road racing", "user");
 
         BicycleDTO bicycleDTO =
                 given()
@@ -286,7 +298,7 @@ class BicycleRouteTest {
 
     @Test
     void testUpdateBicycle() {
-        BicycleDTO b4 = new BicycleDTO("Canyon", "CF 10", 62, 5000, 7.2, "The ultimate aero bike from Canyon for road racing");
+        BicycleDTO b4 = new BicycleDTO("Canyon", "CF 10", 62, 5000, 7.2, "The ultimate aero bike from Canyon for road racing", "user");
 
         BicycleDTO bicycleDTO =
                 given()
@@ -306,6 +318,7 @@ class BicycleRouteTest {
         assertThat(bicycleDTO.getPrice(), equalTo(b4.getPrice()));
         assertThat(bicycleDTO.getWeight(), equalTo(b4.getWeight()));
         assertThat(bicycleDTO.getDescription(), equalTo(b4.getDescription()));
+        assertThat(bicycleDTO.getUsername(), equalTo(b4.getUsername()));
     }
 
     @Test
