@@ -252,7 +252,7 @@ public class BicycleController implements IController<BicycleDTO> {
         }
     }
 
-    public void createByUser(Context ctx) {
+    public void createdByUser(Context ctx) {
         try {
             BicycleDTO bicycleDTO = ctx.bodyAsClass(BicycleDTO.class);
             BicycleDTO savedResellerDTO = bicycleDAO.add(bicycleDTO);

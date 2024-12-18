@@ -52,7 +52,7 @@ GET http://localhost:7070/api/bicycles/3
 Accept: application/json
 
 ### Her henter vi de cykler som brugeren har oprettet
-GET http://localhost:7070/api/bicycles/createdByUser/user
+GET http://localhost:7070/api/bicycles/createdbyuser/user
 Accept: application/json
 
 ### Her filtrerer vi cykler baseret på udvalgte komponenter
@@ -103,11 +103,11 @@ Authorization: Bearer {{jwt_token}}
   "price": 8000,
   "weight": 7.5,
   "description": "Aero road bike",
+  "username": "user",
   "frameId": 1,
   "gearId": 1,
   "wheelId": 1,
-  "saddleId": 1,
-  "username": "user"
+  "saddleId": 1
 }
 
 ### Her opdaterer vi en cykel med en id på cyklen
@@ -155,7 +155,7 @@ GET http://localhost:7070/api/frames
 GET http://localhost:7070/api/frames/1
 
 ### Her henter vi de frames som brugeren har oprettet
-GET http://localhost:7070/api/frames/createdByUser/user
+GET http://localhost:7070/api/frames/createdbyuser/user
 Accept: application/json
 
 ### Her opretter en bruger en frame
@@ -210,7 +210,7 @@ GET http://localhost:7070/api/saddles
 GET http://localhost:7070/api/saddles/1
 
 ### Her henter vi de saddles som brugeren har oprettet
-GET http://localhost:7070/api/saddles/createdByUser/user
+GET http://localhost:7070/api/saddles/createdbyuser/user
 
 ### Her opretter en bruger en saddle
 POST http://localhost:7070/api/saddles
@@ -262,7 +262,7 @@ GET http://localhost:7070/api/wheels
 GET http://localhost:7070/api/wheels/1
 
 ### Her henter vi de wheels som brugeren har oprettet
-GET http://localhost:7070/api/wheels/createdByUser/user
+GET http://localhost:7070/api/wheels/createdbyuser/user
 
 ### Her opretter en bruger et wheel
 POST http://localhost:7070/api/wheels
@@ -316,7 +316,7 @@ GET http://localhost:7070/api/gears
 GET http://localhost:7070/api/gears/1
 
 ### Her henter vi de gears som brugeren har oprettet
-GET http://localhost:7070/api/gears/createdByUser/user
+GET http://localhost:7070/api/gears/createdbyuser/user
 
 ### Her opretter en bruger et gear
 POST http://localhost:7070/api/gears
