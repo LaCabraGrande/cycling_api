@@ -52,7 +52,7 @@ GET http://localhost:7070/api/bicycles/3
 Accept: application/json
 
 ### Her henter vi de cykler som brugeren har oprettet
-GET http://localhost:7070/api/bicycles/createdbyuser/user
+GET http://localhost:7070/api/bicycles/createdbyuser/admin
 Accept: application/json
 
 ### Her filtrerer vi cykler baseret på udvalgte komponenter
@@ -325,8 +325,8 @@ Authorization: Bearer {{jwt_token}}
 
 {
   "brand": "Shimano",
-  "model": "Shimano 105 R7100",
   "series": "Shimano 105",
+  "model": "Shimano 105 R7100",
   "material": "Aluminium",
   "type": "Mechanical",
   "brakes": "Disc",
