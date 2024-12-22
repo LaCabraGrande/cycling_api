@@ -721,6 +721,8 @@ public class Populate {
             em.persist(saddle129);
             em.persist(saddle130);
             em.persist(saddle131);
+            em.persist(saddle132);
+            em.persist(saddle133);
 
 
 
@@ -895,6 +897,8 @@ public class Populate {
             em.persist(wheel168);
             em.persist(wheel169);
             em.persist(wheel170);
+            em.persist(wheel171);
+            em.persist(wheel172);
 
 
 
@@ -1180,6 +1184,12 @@ public class Populate {
             em.persist(bicycle491);
             em.persist(bicycle501);
             em.persist(bicycle511);
+            em.persist(bicycle405);
+            em.persist(bicycle406);
+            em.persist(bicycle407);
+            em.persist(bicycle408);
+            em.persist(bicycle409);
+
 
 
 
