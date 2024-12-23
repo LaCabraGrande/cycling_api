@@ -120,6 +120,10 @@ public class Populate {
         Frame frame101 = new Frame("Cervelo", "Cervélo All-Carbon", "Carbon", "Disc", 1400, 56, "admin");
         Frame frame102 = new Frame("Cervelo", "Caledonia-5", "Carbon", "Disc", 1400, 56, "admin");
         Frame frame103 = new Frame("Koga", "Lightweight FEM optimized", "Carbon", "Disc", 1150, 56, "admin");
+        Frame frame104 = new Frame("Ridley", "Noah Disc", "Carbon", "Disc", 1100, 56, "admin");
+        Frame frame105 = new Frame("Ridley", "Fenix", "Carbon", "Disc", 1111, 56, "admin");
+        Frame frame106 = new Frame("Ridley", "Falcn RS", "Carbon", "Disc", 1060, 56, "admin");
+        Frame frame107 = new Frame("Ridley", "Noah Fast Disc", "Carbon", "Disc", 1100, 56, "admin");
 
 
         // Opret saddel
@@ -256,6 +260,9 @@ public class Populate {
         Saddle saddle131 = new Saddle("Pinarello", "Carbon", "LYNXS Ultrafast Superflow", 190, 145, "admin");
         Saddle saddle132 = new Saddle("Prologo", "Carbon", "Prologo Nago R4 PAS", 139, 137, "admin");
         Saddle saddle133 = new Saddle("Selle San Marco", "Carbon", "Selle San Marco Shortfit 2.0 Racing", 210, 140, "admin");
+        Saddle saddle134 = new Saddle("Selle Italia", "Manganese", "XR Gel Flow", 322, 129, "admin");
+        Saddle saddle135 = new Saddle("Selle Italia", "Manganese", "Y", 277, 142, "admin");
+        Saddle saddle136 = new Saddle("Selle Italia", "Manganese", "Model X", 315, 145, "admin");
 
 
         // Opret hjul med modeller
@@ -430,6 +437,10 @@ public class Populate {
         Wheel wheel170 = new Wheel("Princeton", "Carbon", "Disc", "PRINCETON PEAK 4550 DB", 1280, 21, "admin");
         Wheel wheel171 = new Wheel("Koga", "Carbon", "Disc", "KOGA 50mm", 1690, 25, "admin");
         Wheel wheel172 = new Wheel("Koga", "Carbon", "Disc", "KOGA 40mm", 1590, 25, "admin");
+        Wheel wheel173 = new Wheel("Ridley", "Carbon", "Disc", "Forza Levanto DB", 1535, 19, "admin");
+        Wheel wheel174 = new Wheel("Ridley", "Aluminium", "Disc", "Forza Norte DB", 1670, 20, "admin");
+        Wheel wheel175 = new Wheel("DT Swiss", "Carbon", "Disc", "DT SWISS ERC 1600", 1500, 23, "admin");
+        Wheel wheel176 = new Wheel("Ridley", "Carbon", "Disc", "Forza Vardar DB", 1490, 17, "admin");
 
 
         // Opret gear
@@ -586,6 +597,11 @@ public class Populate {
             em.persist(frame100);
             em.persist(frame101);
             em.persist(frame102);
+            em.persist(frame103);
+            em.persist(frame104);
+            em.persist(frame105);
+            em.persist(frame106);
+            em.persist(frame107);
 
 
 
@@ -723,6 +739,9 @@ public class Populate {
             em.persist(saddle131);
             em.persist(saddle132);
             em.persist(saddle133);
+            em.persist(saddle134);
+            em.persist(saddle135);
+            em.persist(saddle136);
 
 
 
@@ -899,10 +918,10 @@ public class Populate {
             em.persist(wheel170);
             em.persist(wheel171);
             em.persist(wheel172);
-
-
-
-
+            em.persist(wheel173);
+            em.persist(wheel174);
+            em.persist(wheel175);
+            em.persist(wheel176);
 
 
 
@@ -1077,6 +1096,14 @@ public class Populate {
             Bicycle bicycle407 = new Bicycle("Koga", "Kinsei Prestige", 56, 4300, 8.9, "https://www.fribikeshop.dk/prod/79-kkrt0000/koga-kinsei-prestige-grey-black-racercykel", "admin", frame103, gear13, wheel56, saddle133);
             Bicycle bicycle408 = new Bicycle("Koga", "Kinsei Pro", 56, 9100, 7.9, "https://www.fribikeshop.dk/prod/79-kkpo0101/koga-kinsei-pro-orange-black-racercykel", "admin", frame103, gear1, wheel52, saddle133);
             Bicycle bicycle409 = new Bicycle("Koga", "Kinsei Prime", 56, 5500, 8.5, "https://www.fribikeshop.dk/prod/79-kkpm0000/koga-kinsei-prime-black-racercykel", "admin", frame103, gear9, wheel71, saddle133);
+            Bicycle bicycle798 = new Bicycle("Ridley", "Noah Disc Rival AXS Tour Limited Edition", 56, 5500, 8, "https://www.fribikeshop.dk/prod/79-kkpm0000/koga-kinsei-prime-black-racercykel", "admin", frame104, gear41, wheel173, saddle134);
+            Bicycle bicycle799 = new Bicycle("Ridley", "Fenix SLIC 105 Di2", 56, 4400, 8, "https://www.fribikeshop.dk/prod/107-sbifsdrid808/ridley-fenix-slic-105-di2-dark-teal-metallic-racercykel", "admin", frame105, gear13, wheel174, saddle134);
+            Bicycle bicycle800 = new Bicycle("Ridley", "Fenix SLIC Ultegra Di2", 56, 5000, 7.5, "https://www.fribikeshop.dk/prod/107-sbifsdrid808/ridley-fenix-slic-105-di2-dark-teal-metallic-racercykel", "admin", frame105, gear10, wheel173, saddle100);
+            Bicycle bicycle801 = new Bicycle("Ridley", "Fenix SLIC Ultegra", 56, 4100, 7.5, "https://www.fribikeshop.dk/prod/107-sbifsdrid908/ridley-fenix-slic-ultegra-sort-racercykel", "admin", frame105, gear11, wheel174, saddle135);
+            Bicycle bicycle802 = new Bicycle("Ridley", "Falcn RS Force AXS", 56, 8900, 7.4, "https://www.fribikeshop.dk/prod/107-sbifrsrid001/ridley-falcn-rs-force-axs-battleship-grey-racercykel", "admin", frame106, gear38, wheel54, saddle100);
+            Bicycle bicycle803 = new Bicycle("Ridley", "Noah Disc Rival AXS", 56, 6045, 7.5, "https://www.fribikeshop.dk/prod/107-sbinhdrid120/ridley-noah-disc-rival-axs-white-racercykel", "admin", frame104, gear41, wheel175, saddle135);
+            Bicycle bicycle804 = new Bicycle("Ridley", "Noah Fast Disc Ultegra DI2", 56, 8300, 7.5, "https://www.fribikeshop.dk/prod/107-sbinhdrid120/ridley-noah-disc-rival-axs-white-racercykel", "admin", frame107, gear9, wheel176, saddle123);
+            Bicycle bicycle805 = new Bicycle("Ridley", "Noah Disc Ultegra", 56, 6000, 7.5, "https://www.fribikeshop.dk/prod/107-sbinhdrid169/ridley-noah-disc-ultegra-battleship-grey-racercykel", "admin", frame104, gear11, wheel46, saddle136);
 
 
             em.persist(bicycle1);
@@ -1189,6 +1216,15 @@ public class Populate {
             em.persist(bicycle407);
             em.persist(bicycle408);
             em.persist(bicycle409);
+            em.persist(bicycle798);
+            em.persist(bicycle799);
+            em.persist(bicycle800);
+            em.persist(bicycle801);
+            em.persist(bicycle802);
+            em.persist(bicycle803);
+            em.persist(bicycle804);
+            em.persist(bicycle805);
+
 
 
 
