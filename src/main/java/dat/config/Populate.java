@@ -129,6 +129,8 @@ public class Populate {
         Frame frame110 = new Frame("Specialized", "Aethos FACT 10r", "Carbon", "Disc", 1100, 56, "admin");
         Frame frame111 = new Frame("Specialized", "Aethos FACT 9r", "Carbon", "Disc", 1200, 56, "admin");
         Frame frame112 = new Frame("Bianchi", "Oltre XR3", "Carbon", "Disc", 1450, 56, "admin");
+        Frame frame113 = new Frame("Focus", "Max Carbon", "Carbon", "Disc", 1265, 56, "admin");
+        Frame frame114 = new Frame("Focus", "Aero Carbon", "Carbon", "Disc", 1365, 56, "admin");
 
 
 
@@ -275,6 +277,8 @@ public class Populate {
         Saddle saddle137 = new Saddle("Specialized", "Manganese", "Specialized Power Comp", 247, 143, "admin");
         Saddle saddle138 = new Saddle("Specialized", "Manganese", "Specialized Power Expert", 214, 143, "admin");
         Saddle saddle139 = new Saddle("Fi'zi:k", "Carbon", "Vento Antares R7", 227, 142, "admin");
+        Saddle saddle140 = new Saddle("Fi'zi:k", "Carbon", "Vento Argo R5", 225, 140, "admin");
+        Saddle saddle141 = new Saddle("Selle Royal", "Carbon", "Selle Royal Groove SRX", 280, 150, "admin");
 
 
         // Opret hjul med modeller
@@ -455,6 +459,9 @@ public class Populate {
         Wheel wheel176 = new Wheel("Ridley", "Carbon", "Disc", "Forza Vardar DB", 1490, 17, "admin");
         Wheel wheel177 = new Wheel("DT Swiss", "Aluminium", "Disc", "DT R470 Disc", 1810, 20, "admin");
         Wheel wheel178 = new Wheel("DT Swiss", "Aluminium", "Disc", "DT G540 Disc", 1990, 28, "admin");
+        Wheel wheel179 = new Wheel("DT Swiss", "Carbon", "Disc", "DT SWISS ERC 1400", 1477, 23, "admin");
+        Wheel wheel180 = new Wheel("Novatec", "Carbon", "Disc", "Novatec R4-CL 45", 1586, 21, "admin");
+        Wheel wheel181 = new Wheel("Alexrims", "Aluminium", "Disc", "Alexrims Boondocks 5", 1830, 21, "admin");
 
 
 
@@ -617,6 +624,13 @@ public class Populate {
             em.persist(frame105);
             em.persist(frame106);
             em.persist(frame107);
+            em.persist(frame108);
+            em.persist(frame109);
+            em.persist(frame110);
+            em.persist(frame111);
+            em.persist(frame112);
+            em.persist(frame113);
+            em.persist(frame114);
 
 
 
@@ -757,7 +771,11 @@ public class Populate {
             em.persist(saddle134);
             em.persist(saddle135);
             em.persist(saddle136);
-
+            em.persist(saddle137);
+            em.persist(saddle138);
+            em.persist(saddle139);
+            em.persist(saddle140);
+            em.persist(saddle141);
 
 
 
@@ -937,6 +955,12 @@ public class Populate {
             em.persist(wheel174);
             em.persist(wheel175);
             em.persist(wheel176);
+            em.persist(wheel177);
+            em.persist(wheel178);
+            em.persist(wheel179);
+            em.persist(wheel180);
+            em.persist(wheel181);
+
 
 
 
@@ -1131,6 +1155,14 @@ public class Populate {
             Bicycle bicycle206 = new Bicycle("Ridley", "Noah Fast Disc Ultegra DI2", 56, 8300, 7.5, "https://www.fribikeshop.dk/prod/107-sbinhdrid120/ridley-noah-disc-rival-axs-white-racercykel", "admin", frame107, gear9, wheel176, saddle123);
             Bicycle bicycle207 = new Bicycle("Ridley", "Noah Disc Ultegra", 56, 6000, 7.5, "https://www.fribikeshop.dk/prod/107-sbinhdrid169/ridley-noah-disc-ultegra-battleship-grey-racercykel", "admin", frame104, gear11, wheel46, saddle136);
 
+            Bicycle bicycle210 = new Bicycle("Focus", "Izalco Max 9.0", 56, 10000, 7.1, "https://www.focus-bikes.com/de_en/izalco-max-9-0?color_combo=138904&frame_shape=&frame_size=&ipmc_battery_watt_hours=", "admin", frame113, gear35, wheel1, saddle47);
+            Bicycle bicycle211 = new Bicycle("Focus", "Izalco Max 9.9", 56, 9000, 7.2, "https://www.focus-bikes.com/de_en/izalco-max-9-9?color_combo=139357&frame_shape=126346&frame_size=&ipmc_battery_watt_hours=", "admin", frame113, gear1, wheel179, saddle47);
+            Bicycle bicycle212 = new Bicycle("Focus", "Izalco Max 9.7", 56, 6050, 8.2, "https://www.focus-bikes.com/de_en/izalco-max-9-7?color_combo=139252&frame_shape=126346&frame_size=&ipmc_battery_watt_hours=", "admin", frame113, gear41, wheel175, saddle140);
+            Bicycle bicycle213 = new Bicycle("Focus", "Izalco Max 9.8", 56, 6500, 7.4, "https://www.focus-bikes.com/de_en/izalco-max-9-8?color_combo=139273&frame_shape=126346&frame_size=&ipmc_battery_watt_hours=", "admin", frame113, gear10, wheel175, saddle140);
+            Bicycle bicycle214 = new Bicycle("Focus", "Izalco Max 8.9", 56, 4500, 8.2, "https://www.focus-bikes.com/de_en/izalco-max-8-9?color_combo=139273&frame_shape=126346&frame_size=&ipmc_battery_watt_hours=", "admin", frame114, gear13, wheel180, saddle54);
+            Bicycle bicycle215 = new Bicycle("Focus", "Izalco Max 8.8", 56, 4000, 8.9, "https://www.focus-bikes.com/de_en/izalco-max-8-8?color_combo=139360&frame_shape=126346&frame_size=&ipmc_battery_watt_hours=", "admin", frame114, gear14, wheel180, saddle141);
+            Bicycle bicycle216 = new Bicycle("Focus", "Izalco Max 8.7", 56, 2800, 8.9, "https://www.focus-bikes.com/de_en/izalco-max-8-7?color_combo=139360&frame_shape=126346&frame_size=&ipmc_battery_watt_hours=", "admin", frame114, gear14, wheel181, saddle141);
+
 
             em.persist(bicycle1);
             em.persist(bicycle2);
@@ -1273,6 +1305,15 @@ public class Populate {
             em.persist(bicycle205);
             em.persist(bicycle206);
             em.persist(bicycle207);
+
+            em.persist(bicycle210);
+            em.persist(bicycle211);
+            em.persist(bicycle212);
+            em.persist(bicycle213);
+            em.persist(bicycle214);
+            em.persist(bicycle215);
+            em.persist(bicycle216);
+
 
 
 
