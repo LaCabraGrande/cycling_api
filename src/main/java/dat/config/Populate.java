@@ -131,6 +131,11 @@ public class Populate {
         Frame frame112 = new Frame("Bianchi", "Oltre XR3", "Carbon", "Disc", 1450, 56, "admin");
         Frame frame113 = new Frame("Focus", "Max Carbon", "Carbon", "Disc", 1265, 56, "admin");
         Frame frame114 = new Frame("Focus", "Aero Carbon", "Carbon", "Disc", 1365, 56, "admin");
+        Frame frame115 = new Frame("Orbea", "Orbea Orca carbon OMX", "Carbon", "Disc", 1110, 56, "admin");
+        Frame frame116 = new Frame("Orbea", "Orbea Orca Aero Carbon OMX", "Carbon", "Disc", 1110, 56, "admin");
+        Frame frame117 = new Frame("Argon 18", "Krypton 18", "Carbon", "Disc", 1275, 56, "admin");
+        Frame frame118 = new Frame("Argon 18", "Sum Pro", "Carbon", "Disc", 1155, 56, "admin");
+        Frame frame119 = new Frame("Argon 18", "Sum", "Carbon", "Disc", 1350, 56, "admin");
 
 
 
@@ -279,6 +284,11 @@ public class Populate {
         Saddle saddle139 = new Saddle("Fi'zi:k", "Carbon", "Vento Antares R7", 227, 142, "admin");
         Saddle saddle140 = new Saddle("Fi'zi:k", "Carbon", "Vento Argo R5", 225, 140, "admin");
         Saddle saddle141 = new Saddle("Selle Royal", "Carbon", "Selle Royal Groove SRX", 280, 150, "admin");
+        Saddle saddle142 = new Saddle("Prologo", "Carbon", "Prologo Scratch M5 Pas T2.0", 245, 140, "admin");
+        Saddle saddle143 = new Saddle("Repente", "Carbon", "Repente Quasar", 170, 142, "admin");
+        Saddle saddle144 = new Saddle("Repente", "Carbon", "Repente Quasar S 2.0", 240, 142, "admin");
+        Saddle saddle145 = new Saddle("Prologo", "Carbon", "Prologo Scratch M5 Tirox", 174, 140, "admin");
+        Saddle saddle146 = new Saddle("Repente", "Carbon", "Repente Prime 3.0", 165, 142, "admin");
 
 
         // Opret hjul med modeller
@@ -462,6 +472,13 @@ public class Populate {
         Wheel wheel179 = new Wheel("DT Swiss", "Carbon", "Disc", "DT SWISS ERC 1400", 1477, 23, "admin");
         Wheel wheel180 = new Wheel("Novatec", "Carbon", "Disc", "Novatec R4-CL 45", 1586, 21, "admin");
         Wheel wheel181 = new Wheel("Alexrims", "Aluminium", "Disc", "Alexrims Boondocks 5", 1830, 21, "admin");
+        Wheel wheel182 = new Wheel("OQua", "Carbon", "Disc", "Oqua RP45LTD", 1390, 21, "admin");
+        Wheel wheel183 = new Wheel("OQua", "Carbon", "Disc", "Oqua RP35LTD", 1370, 21, "admin");
+        Wheel wheel184 = new Wheel("OQua", "Carbon", "Disc", "Oqua RP57LTD", 1520, 21, "admin");
+        Wheel wheel185 = new Wheel("OQua", "Carbon", "Disc", "Oqua RP45TEAM", 1425, 21, "admin");
+        Wheel wheel186 = new Wheel("Scope", "Carbon", "Disc", "Scope R4", 1569, 21, "admin");
+        Wheel wheel187 = new Wheel("Argon 18", "Carbon", "Disc", "ATTEN L42", 1580, 21, "admin");
+        Wheel wheel188 = new Wheel("Scope", "Carbon", "Disc", "Scope Artech A4", 1200, 25, "admin");
 
 
 
@@ -631,7 +648,11 @@ public class Populate {
             em.persist(frame112);
             em.persist(frame113);
             em.persist(frame114);
-
+            em.persist(frame115);
+            em.persist(frame116);
+            em.persist(frame117);
+            em.persist(frame118);
+            em.persist(frame119);
 
 
             // Gemmer saddel
@@ -776,6 +797,11 @@ public class Populate {
             em.persist(saddle139);
             em.persist(saddle140);
             em.persist(saddle141);
+            em.persist(saddle142);
+            em.persist(saddle143);
+            em.persist(saddle144);
+            em.persist(saddle145);
+            em.persist(saddle146);
 
 
 
@@ -960,7 +986,13 @@ public class Populate {
             em.persist(wheel179);
             em.persist(wheel180);
             em.persist(wheel181);
-
+            em.persist(wheel182);
+            em.persist(wheel183);
+            em.persist(wheel184);
+            em.persist(wheel185);
+            em.persist(wheel186);
+            em.persist(wheel187);
+            em.persist(wheel188);
 
 
 
@@ -1163,6 +1195,32 @@ public class Populate {
             Bicycle bicycle215 = new Bicycle("Focus", "Izalco Max 8.8", 56, 4000, 8.9, "https://www.focus-bikes.com/de_en/izalco-max-8-8?color_combo=139360&frame_shape=126346&frame_size=&ipmc_battery_watt_hours=", "admin", frame114, gear14, wheel180, saddle141);
             Bicycle bicycle216 = new Bicycle("Focus", "Izalco Max 8.7", 56, 2800, 8.9, "https://www.focus-bikes.com/de_en/izalco-max-8-7?color_combo=139360&frame_shape=126346&frame_size=&ipmc_battery_watt_hours=", "admin", frame114, gear14, wheel181, saddle141);
 
+            Bicycle bicycle220 = new Bicycle("Orbea", "ORCA M10i REPLICA", 56, 11500, 6.7, "https://www.orbea.com/dk-da/brands/orca-m10i-replica", "admin", frame115, gear1, wheel182, saddle83);
+            Bicycle bicycle221 = new Bicycle("Orbea", "ORCA M10iLTD PWR", 56, 10999, 7.1, "https://www.orbea.com/dk-en/bicycles/road/orca/cat/orca-m10iltd-pwr", "admin", frame115, gear1, wheel183, saddle47);
+            Bicycle bicycle222 = new Bicycle("Orbea", "ORCA M11eLTD PWR", 56, 10999, 6.7, "https://www.orbea.com/dk-en/bicycles/road/orca/cat/orca-m20iltd", "admin", frame115, gear35, wheel183, saddle47);
+            Bicycle bicycle223 = new Bicycle("Orbea", "ORCA M21ELTD PWR", 56, 8399, 6.7, "https://www.orbea.com/dk-en/bicycles/road/orca/cat/orca-m21eltd-pwr", "admin", frame115, gear38, wheel182, saddle47);
+            Bicycle bicycle224 = new Bicycle("Orbea", "ORCA M20iLTD", 56, 6999, 7.8, "https://www.orbea.com/dk-en/bicycles/road/orca/cat/orca-m20iltd-pwr", "admin", frame115, gear10, wheel182, saddle47);
+            Bicycle bicycle225 = new Bicycle("Orbea", "ORCA AERO M10i REPLICA", 56, 10999, 7.3, "https://www.orbea.com/dk-en/bicycles/road/orca-aero/cat/orca-aero-m10i-replica", "admin", frame116, gear1, wheel184, saddle83);
+            Bicycle bicycle226 = new Bicycle("Orbea", "ORCA AERO M11eLTD", 56, 10499, 6.7, "https://www.orbea.com/dk-en/bicycles/road/orca-aero/cat/orca-aero-m11eltd", "admin", frame116, gear35, wheel184, saddle47);
+            Bicycle bicycle227 = new Bicycle("Orbea", "ORCA AERO M10iLTD", 56, 10999, 8.1, "https://www.orbea.com/dk-en/bicycles/road/orca-aero/cat/orca-aero-m10iltd", "admin", frame116, gear1, wheel184, saddle47);
+            Bicycle bicycle228 = new Bicycle("Orbea", "ORCA AERO M21eLTD", 56, 6699, 8.1, "https://www.orbea.com/dk-en/bicycles/road/orca-aero/cat/orca-aero-m21eltd", "admin", frame116, gear38, wheel185, saddle142);
+            Bicycle bicycle229 = new Bicycle("Orbea", "ORCA AERO M20iLTD", 56, 6299, 8.3, "https://www.orbea.com/dk-en/bicycles/road/orca-aero/cat/orca-aero-m20iltd", "admin", frame116, gear10, wheel185, saddle142);
+
+            Bicycle bicycle240 = new Bicycle("Argon18", "Krypton Pro", 56, 13500, 7.6, "https://www.argon18.com/en-dk/bikes/all-road/krypton-pro/sram-red", "admin", frame117, gear35, wheel88, saddle143);
+            Bicycle bicycle241 = new Bicycle("Argon18", "Krypton Force AXS", 56, 6800, 7.6, "https://www.argon18.com/en-dk/bikes/all-road/krypton/sram-force", "admin", frame117, gear35, wheel186, saddle144);
+            Bicycle bicycle242 = new Bicycle("Argon18", "Krypton Ultegra Di2", 56, 6300, 7.6, "https://www.argon18.com/en-dk/bikes/all-road/krypton/shimano-ultegra-di2", "admin", frame117, gear9, wheel186, saddle143);
+            Bicycle bicycle243 = new Bicycle("Argon18", "Krypton Rival AXS", 56, 5500, 7.6, "https://www.argon18.com/en-dk/bikes/all-road/krypton/sram-rival-axs-2", "admin", frame117, gear41, wheel187, saddle144);
+            Bicycle bicycle244 = new Bicycle("Argon18", "Krypton 105 Di2", 56, 5000, 7.6, "https://www.argon18.com/en-dk/bikes/all-road/krypton/shimano-105", "admin", frame117, gear13, wheel186, saddle145);
+            Bicycle bicycle245 = new Bicycle("Argon18", "Sum Pro Dura-Ace Di2", 56, 12500, 7.6, "https://www.argon18.com/en-dk/bikes/road/sum-pro/shimano-dura-ace-di2", "admin", frame118, gear1, wheel188, saddle143);
+            Bicycle bicycle246 = new Bicycle("Argon18", "Sum Pro Red AXS", 56, 13500, 7.6, "https://www.argon18.com/en-dk/bikes/road/sum-pro/sram-red-axs", "admin", frame118, gear35, wheel85, saddle146);
+            Bicycle bicycle247 = new Bicycle("Argon18", "Sum Pro Ultegra Di2", 56, 8750, 7.6, "https://www.argon18.com/en-dk/bikes/road/sum-pro/shimano-ultegra-di2-2", "admin", frame118, gear9, wheel54, saddle143);
+            Bicycle bicycle248 = new Bicycle("Argon18", "Sum Pro Force AXS", 56, 9500, 7.6, "https://www.argon18.com/en-dk/bikes/road/sum-pro/sram-force-axs-2", "admin", frame118, gear38, wheel1, saddle143);
+            Bicycle bicycle249 = new Bicycle("Argon18", "Sum Force AXS", 56, 7000, 7.6, "https://www.argon18.com/en-dk/bikes/road/sum/sram-force-axs-2", "admin", frame119, gear38, wheel186, saddle143);
+            Bicycle bicycle250 = new Bicycle("Argon18", "Sum 105 Di2", 56, 5000, 7.6, "https://www.argon18.com/en-dk/bikes/road/sum/shimano-105-2", "admin", frame119, gear13, wheel186, saddle145);
+            Bicycle bicycle251 = new Bicycle("Argon18", "Sum Ultegra Di2", 56, 6500, 7.6, "https://www.argon18.com/en-dk/bikes/road/sum/shimano-ultegra-di2-3", "admin", frame119, gear9, wheel186, saddle143);
+            Bicycle bicycle252 = new Bicycle("Argon18", "Sum Rival AXS", 56, 5250, 7.6, "https://www.argon18.com/en-dk/bikes/road/sum/sram-rival-axs-2", "admin", frame119, gear41, wheel186, saddle143);
+
+
 
             em.persist(bicycle1);
             em.persist(bicycle2);
@@ -1313,6 +1371,33 @@ public class Populate {
             em.persist(bicycle214);
             em.persist(bicycle215);
             em.persist(bicycle216);
+
+            em.persist(bicycle220);
+            em.persist(bicycle221);
+            em.persist(bicycle222);
+            em.persist(bicycle223);
+            em.persist(bicycle224);
+            em.persist(bicycle225);
+            em.persist(bicycle226);
+            em.persist(bicycle227);
+            em.persist(bicycle228);
+            em.persist(bicycle229);
+
+            em.persist(bicycle240);
+            em.persist(bicycle241);
+            em.persist(bicycle242);
+            em.persist(bicycle243);
+            em.persist(bicycle244);
+            em.persist(bicycle245);
+            em.persist(bicycle246);
+            em.persist(bicycle247);
+            em.persist(bicycle248);
+            em.persist(bicycle249);
+            em.persist(bicycle250);
+            em.persist(bicycle251);
+            em.persist(bicycle252);
+
+
 
 
 
