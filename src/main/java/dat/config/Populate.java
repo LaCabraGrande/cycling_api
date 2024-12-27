@@ -136,6 +136,18 @@ public class Populate {
         Frame frame117 = new Frame("Argon 18", "Krypton 18", "Carbon", "Disc", 1275, 56, "admin");
         Frame frame118 = new Frame("Argon 18", "Sum Pro", "Carbon", "Disc", 1155, 56, "admin");
         Frame frame119 = new Frame("Argon 18", "Sum", "Carbon", "Disc", 1350, 56, "admin");
+        Frame frame120 = new Frame("Merida", "Reacto CF5 IV", "Carbon", "Disc", 1435, 56, "admin");
+        Frame frame121 = new Frame("Merida", "Reacto CF3 IV", "Carbon", "Disc", 1645, 56, "admin");
+        Frame frame122 = new Frame("Merida", "Scultura CF5 V", "Carbon", "Disc", 1220, 56, "admin");
+        Frame frame123 = new Frame("Merida", "Scultura CF3 V", "Carbon", "Disc", 1430, 56, "admin");
+        Frame frame124 = new Frame("Principia", "Full Monocoque Carbon", "Carbon", "Disc", 1330, 56, "admin");
+        Frame frame125 = new Frame("Cube","Litening C:68X® Air Monocoque", "Carbon", "Disc", 1410, 56, "admin");
+        Frame frame126 = new Frame("Cube","Litening C:68X® Aero Monocoque", "Carbon", "Disc", 1440, 56, "admin");
+        Frame frame127 = new Frame("Cube","C:62® Advanced Twin Mold", "Carbon", "Disc", 1460, 56, "admin");
+        Frame frame128 = new Frame("Cube","C:62® Twin Mold", "Carbon", "Disc", 1580, 56, "admin");
+        Frame frame129 = new Frame("Cube","Aluminium 6061 T4/T6 Superlite", "Aluminium", "Disc", 1520, 56, "admin");
+
+
 
 
 
@@ -175,7 +187,7 @@ public class Populate {
         Saddle saddle30 = new Saddle("Selle Italia", "Carbon", "SLR Tekno", 400, 130, "admin");
         Saddle saddle31 = new Saddle("Bontrager", "Synthetic", "Verse Short Pro", 180, 145, "admin");
         Saddle saddle32 = new Saddle("Selle Italia", "Foam", "SLR TM", 233, 131, "admin");
-        Saddle saddle33 = new Saddle("Ritchey", "Carbon", "Comp", 240, 140, "admin");
+        Saddle saddle33 = new Saddle("Ritchey", "Carbon", "Comp Streem", 240, 140, "admin");
         Saddle saddle34 = new Saddle("Fi'zi:k", "Synthetic", "Arione 00", 140, 124, "admin");
         Saddle saddle35 = new Saddle("Brooks", "Leather", "Swift", 300, 160, "admin");
         Saddle saddle36 = new Saddle("Colnago", "Foam", "Prologo X10", 230, 145, "admin");
@@ -289,6 +301,11 @@ public class Populate {
         Saddle saddle144 = new Saddle("Repente", "Carbon", "Repente Quasar S 2.0", 240, 142, "admin");
         Saddle saddle145 = new Saddle("Prologo", "Carbon", "Prologo Scratch M5 Tirox", 174, 140, "admin");
         Saddle saddle146 = new Saddle("Repente", "Carbon", "Repente Prime 3.0", 165, 142, "admin");
+        Saddle saddle147 = new Saddle("Merida", "Manganese", "Expert SL Short", 245, 140, "admin");
+        Saddle saddle148 = new Saddle("Acid", "Carbon", "Acid Nuance SLT Carbon", 172, 150, "admin");
+        Saddle saddle149 = new Saddle("Acid", "Carbon", "Acid Nuance Pro", 185, 150, "admin");
+        Saddle saddle150 = new Saddle("Acid", "Carbon", "Acid Nuance Lite", 200, 150, "admin");
+
 
 
         // Opret hjul med modeller
@@ -458,15 +475,15 @@ public class Populate {
         Wheel wheel165 = new Wheel("Bontrager", "Carbon", "Disc", "Bontrager Aeolus Pro 37", 1785, 23, "admin");
         Wheel wheel166 = new Wheel("Bontrager", "Carbon", "Disc", "Bontrager Paradigm Comp 25 TLR", 1780, 25, "admin");
         Wheel wheel167 = new Wheel("Roval", "Carbon", "Disc", "Roval CLX 50 Disc", 1430, 23, "admin");
-        Wheel wheel168 = new Wheel("BMC", "Carbon", "Disc", "CRD-501 SL Carbon", 1690, 25, "admin");
+        Wheel wheel168 = new Wheel("BMC", "Carbon", "Disc", "BMC CRD-501 SL Carbon", 1690, 25, "admin");
         Wheel wheel169 = new Wheel("Reynolds", "Carbon", "Disc", "Reynolds AR 41 DB", 1690, 25, "admin");
         Wheel wheel170 = new Wheel("Princeton", "Carbon", "Disc", "PRINCETON PEAK 4550 DB", 1280, 21, "admin");
         Wheel wheel171 = new Wheel("Koga", "Carbon", "Disc", "KOGA 50mm", 1690, 25, "admin");
         Wheel wheel172 = new Wheel("Koga", "Carbon", "Disc", "KOGA 40mm", 1590, 25, "admin");
-        Wheel wheel173 = new Wheel("Ridley", "Carbon", "Disc", "Forza Levanto DB", 1535, 19, "admin");
-        Wheel wheel174 = new Wheel("Ridley", "Aluminium", "Disc", "Forza Norte DB", 1670, 20, "admin");
+        Wheel wheel173 = new Wheel("Ridley", "Carbon", "Disc", "Ridley Forza Levanto DB", 1535, 19, "admin");
+        Wheel wheel174 = new Wheel("Ridley", "Aluminium", "Disc", "Ridley Forza Norte DB", 1670, 20, "admin");
         Wheel wheel175 = new Wheel("DT Swiss", "Carbon", "Disc", "DT SWISS ERC 1600", 1500, 23, "admin");
-        Wheel wheel176 = new Wheel("Ridley", "Carbon", "Disc", "Forza Vardar DB", 1490, 17, "admin");
+        Wheel wheel176 = new Wheel("Ridley", "Carbon", "Disc", "Ridley Forza Vardar DB", 1490, 17, "admin");
         Wheel wheel177 = new Wheel("DT Swiss", "Aluminium", "Disc", "DT R470 Disc", 1810, 20, "admin");
         Wheel wheel178 = new Wheel("DT Swiss", "Aluminium", "Disc", "DT G540 Disc", 1990, 28, "admin");
         Wheel wheel179 = new Wheel("DT Swiss", "Carbon", "Disc", "DT SWISS ERC 1400", 1477, 23, "admin");
@@ -477,9 +494,23 @@ public class Populate {
         Wheel wheel184 = new Wheel("OQua", "Carbon", "Disc", "Oqua RP57LTD", 1520, 21, "admin");
         Wheel wheel185 = new Wheel("OQua", "Carbon", "Disc", "Oqua RP45TEAM", 1425, 21, "admin");
         Wheel wheel186 = new Wheel("Scope", "Carbon", "Disc", "Scope R4", 1569, 21, "admin");
-        Wheel wheel187 = new Wheel("Argon 18", "Carbon", "Disc", "ATTEN L42", 1580, 21, "admin");
+        Wheel wheel187 = new Wheel("Argon 18", "Carbon", "Disc", "Argon 18 ATTEN L42", 1580, 21, "admin");
         Wheel wheel188 = new Wheel("Scope", "Carbon", "Disc", "Scope Artech A4", 1200, 25, "admin");
-
+        Wheel wheel189 = new Wheel("Merida", "Carbon", "Disc", "Merida Team SL45", 1730, 25, "admin");
+        Wheel wheel190 = new Wheel("Vision", "Carbon", "Disc", "Vision SC55", 1512, 19, "admin");
+        Wheel wheel191 = new Wheel("Vision", "Aluminium", "Rim", "Vision Team 35 Comp SL", 1740, 19, "admin");
+        Wheel wheel192 = new Wheel("Merida", "Aluminium", "Disc", "Merida Expert CW", 1840, 19, "admin");
+        Wheel wheel193 = new Wheel("Reynolds", "Carbon", "Disc", "Reynolds Blacklabel 46 Expert DB", 1397, 21, "admin");
+        Wheel wheel194 = new Wheel("Reynolds", "Carbon", "Disc", "Reynolds AR 46 DB", 1604, 21, "admin");
+        Wheel wheel195 = new Wheel("Vision", "Carbon", "Disc", "Vision SC 30 DB", 1480, 19, "admin");
+        Wheel wheel196 = new Wheel("Miche", "Carbon", "Disc", "Miche Reflex DX", 1940, 19, "admin");
+        Wheel wheel197 = new Wheel("Newmen", "Carbon", "Disc", "Newmen Streem C.35/38 VONOA Carbon", 1035, 22, "admin");
+        Wheel wheel198 = new Wheel("Newmen", "Carbon", "Disc", "Newmen Streem S.60/66 VONOA Carbon", 1355, 22, "admin");
+        Wheel wheel199 = new Wheel("Newmen", "Carbon", "Disc", "Newmen Streem A.49/54 Carbon", 1460, 22, "admin");
+        Wheel wheel200 = new Wheel("Newmen", "Carbon", "Disc", "Newmen Advanced A.38 Carbon", 1366, 19, "admin");
+        Wheel wheel201 = new Wheel("Newmen", "Carbon", "Disc", "Newmen Evolution SL R.35", 1750, 22, "admin");
+        Wheel wheel202 = new Wheel("Cube", "Aluminium", "Rim", "CUBE RA 2.3 Aero Disc", 1850, 22, "admin");
+        Wheel wheel203 = new Wheel("Newmen", "Carbon", "Disc", "Newmen Advanced A.50 Carbon", 1470, 23, "admin");
 
 
         // Opret gear
@@ -653,6 +684,17 @@ public class Populate {
             em.persist(frame117);
             em.persist(frame118);
             em.persist(frame119);
+            em.persist(frame120);
+            em.persist(frame121);
+            em.persist(frame122);
+            em.persist(frame123);
+            em.persist(frame124);
+            em.persist(frame125);
+            em.persist(frame126);
+            em.persist(frame127);
+            em.persist(frame128);
+            em.persist(frame129);
+
 
 
             // Gemmer saddel
@@ -802,6 +844,10 @@ public class Populate {
             em.persist(saddle144);
             em.persist(saddle145);
             em.persist(saddle146);
+            em.persist(saddle147);
+            em.persist(saddle148);
+            em.persist(saddle149);
+            em.persist(saddle150);
 
 
 
@@ -993,6 +1039,23 @@ public class Populate {
             em.persist(wheel186);
             em.persist(wheel187);
             em.persist(wheel188);
+            em.persist(wheel189);
+            em.persist(wheel190);
+            em.persist(wheel191);
+            em.persist(wheel192);
+            em.persist(wheel193);
+            em.persist(wheel194);
+            em.persist(wheel195);
+            em.persist(wheel196);
+            em.persist(wheel197);
+            em.persist(wheel198);
+            em.persist(wheel199);
+            em.persist(wheel200);
+            em.persist(wheel201);
+            em.persist(wheel202);
+            em.persist(wheel203);
+
+
 
 
 
@@ -1220,6 +1283,47 @@ public class Populate {
             Bicycle bicycle251 = new Bicycle("Argon18", "Sum Ultegra Di2", 56, 6500, 7.6, "https://www.argon18.com/en-dk/bikes/road/sum/shimano-ultegra-di2-3", "admin", frame119, gear9, wheel186, saddle143);
             Bicycle bicycle252 = new Bicycle("Argon18", "Sum Rival AXS", 56, 5250, 7.6, "https://www.argon18.com/en-dk/bikes/road/sum/sram-rival-axs-2", "admin", frame119, gear41, wheel186, saddle143);
 
+            Bicycle bicycle260 = new Bicycle("Merida", "Reacto Team", 56, 9500, 7.3, "https://www.merida-bikes.com/en/bike/3080/reacto-team", "admin", frame120, gear1, wheel107, saddle142);
+            Bicycle bicycle261 = new Bicycle("Merida", "Reacto 9000", 56, 7800, 7.7, "https://www.merida-bikes.com/en/bike/4851/reacto-9000", "admin", frame120, gear9, wheel115, saddle142);
+            Bicycle bicycle262 = new Bicycle("Merida", "Reacto 8000", 56, 6050, 8.0, "https://www.merida-bikes.com/en/bike/4852/reacto-8000", "admin", frame121, gear9, wheel115, saddle142);
+            Bicycle bicycle263 = new Bicycle("Merida", "Reacto 7000", 56, 5200, 8.4, "https://www.merida-bikes.com/en/bike/4130/reacto-7000", "admin", frame121, gear36, wheel189, saddle147);
+            Bicycle bicycle264 = new Bicycle("Merida", "Reacto 6000", 56, 4500, 8.6, "https://www.merida-bikes.com/en/bike/4131/reacto-6000", "admin", frame121, gear12, wheel190, saddle147);
+            Bicycle bicycle265 = new Bicycle("Merida", "Reacto 5000", 56, 3140, 9.0, "https://www.merida-bikes.com/en/bike/4132/reacto-5000", "admin", frame121, gear12, wheel191, saddle147);
+            Bicycle bicycle266 = new Bicycle("Merida", "Reacto 4000", 56, 2500, 9.0, "https://www.merida-bikes.com/en/bike/3080/reacto-team", "admin", frame121, gear14, wheel192, saddle147);
+            Bicycle bicycle267 = new Bicycle("Merida", "Scultura Team", 56, 9600, 7.2, "https://www.merida-bikes.com/en/bike/4858/scultura-team", "admin", frame122, gear1, wheel110, saddle142);
+            Bicycle bicycle268 = new Bicycle("Merida", "Scultura 10K", 56, 9950, 7.0, "https://www.merida-bikes.com/en/bike/4857/scultura-10k", "admin", frame122, gear35, wheel88, saddle142);
+            Bicycle bicycle269 = new Bicycle("Merida", "Scultura 9000", 56, 8120, 7.0, "https://www.merida-bikes.com/en/bike/4859/scultura-9000", "admin", frame122, gear9, wheel193, saddle142);
+            Bicycle bicycle270 = new Bicycle("Merida", "Scultura 8000", 56, 6600, 7.6, "https://www.merida-bikes.com/en/bike/4860/scultura-8000", "admin", frame123, gear9, wheel194, saddle142);
+            Bicycle bicycle271 = new Bicycle("Merida", "Scultura 7000", 56, 5100, 8.1, "https://www.merida-bikes.com/en/bike/4861/scultura-7000", "admin", frame123, gear36, wheel195, saddle147);
+            Bicycle bicycle272 = new Bicycle("Merida", "Scultura 6000", 56, 3150, 8.2, "https://www.merida-bikes.com/en/bike/4862/scultura-6000", "admin", frame123, gear12, wheel195, saddle147);
+            Bicycle bicycle273 = new Bicycle("Merida", "Scultura 5000", 56, 2500, 8.7, "https://www.merida-bikes.com/en/bike/4863/scultura-5000", "admin", frame123, gear12, wheel191, saddle147);
+            Bicycle bicycle274 = new Bicycle("Merida", "Scultura 4000", 56, 2000, 8.8, "https://www.merida-bikes.com/en/bike/4864/scultura-4000", "admin", frame123, gear14, wheel192, saddle147);
+
+            Bicycle bicycle280 = new Bicycle("Principia", "Road Carbon RD4", 56, 5100, 8.0, "https://principiabikes.com/road/road-carbon/road-carbon-rd4---black-pg-2285", "admin", frame124, gear38, wheel196, saddle33);
+            Bicycle bicycle281 = new Bicycle("Principia", "Road Carbon RD3", 56, 3200, 8.4, "https://principiabikes.com/road/road-carbon/road-carbon-rd3---green-pg-2283", "admin", frame124, gear13, wheel196, saddle33);
+            Bicycle bicycle282 = new Bicycle("Principia", "Road Carbon RD2", 56, 3999, 8.5, "https://principiabikes.com/road/road-carbon/road-carbon-rd2---green-pg-1537", "admin", frame124, gear10, wheel196, saddle33);
+            Bicycle bicycle283 = new Bicycle("Principia", "Road Carbon RD1", 56, 2699, 9.0, "https://principiabikes.com/road/road-carbon/road-carbon-rd1---black-pg-1534", "admin", frame124, gear15, wheel196, saddle33);
+
+            Bicycle bicycle290 = new Bicycle("Cube", "LITENING AIR C:68X SLT", 56, 7500, 6.5, "https://www.cube.eu/dk-en/cube-litening-air-c-68x-slt-liquidlava-n-black/828400", "admin", frame125, gear1, wheel197, saddle148);
+            Bicycle bicycle291 = new Bicycle("Cube", "LITENING AIR C:68X SLX", 56, 7500, 6.6, "https://www.cube.eu/dk-en/cube-litening-air-c-68x-slx-chromeblue-n-carbon/828300", "admin", frame125, gear35, wheel197, saddle148);
+            Bicycle bicycle292 = new Bicycle("Cube", "LITENING AIR C:68X Race", 56, 5500, 7.1, "https://www.cube.eu/dk-en/cube-litening-air-c-68x-race-blackline/828200", "admin", frame125, gear9, wheel197, saddle148);
+            Bicycle bicycle293 = new Bicycle("Cube", "LITENING AERO C:68X SLT", 56, 7299, 7.3, "https://www.cube.eu/dk-en/cube-litening-aero-c-68x-slt-solareclipse-n-carbon/827300", "admin", frame126, gear1, wheel198, saddle148);
+            Bicycle bicycle294 = new Bicycle("Cube", "LITENING AERO C:68X SLX", 56, 7299, 7.3, "https://www.cube.eu/dk-en/cube-litening-aero-c-68x-slx-chromeblue-n-liquidblue/827200", "admin", frame126, gear35, wheel198, saddle148);
+            Bicycle bicycle295 = new Bicycle("Cube", "LITENING AERO C:68X Race", 56, 5299, 7.8, "https://www.cube.eu/dk-en/cube-litening-aero-c-68x-race-blackline/827100", "admin", frame126, gear9, wheel198, saddle149);
+            Bicycle bicycle296 = new Bicycle("Cube", "AGREE C:62 SLT", 56, 4999, 7.4, "https://www.cube.eu/dk-en/cube-attain-gtc-slt-carbonnflashred/827000", "admin", frame127, gear1, wheel199, saddle148);
+            Bicycle bicycle297 = new Bicycle("Cube", "AGREE C:62 SLX", 56, 3999, 7.4, "https://www.cube.eu/dk-en/cube-agree-c-62-slx-liquidred-n-prism/826400", "admin", frame127, gear39, wheel199, saddle148);
+            Bicycle bicycle298 = new Bicycle("Cube", "AGREE C:62 Pro", 56, 3299, 8.0, "https://www.cube.eu/dk-en/cube-agree-c-62-pro-polarlight-n-aquagreen/826210", "admin", frame127, gear9, wheel203, saddle149);
+            Bicycle bicycle299 = new Bicycle("Cube", "AGREE C:62 Race", 56, 3699, 7.7, "https://www.cube.eu/dk-en/cube-agree-c-62-race-flashlime-n-black/826300", "admin", frame127, gear9, wheel199, saddle149);
+            Bicycle bicycle300 = new Bicycle("Cube", "AGREE C:62 One", 56, 2799, 8.9, "https://www.cube.eu/dk-en/cube-agree-c-62-one-foggrey-n-grey/826100", "admin", frame127, gear13, wheel201, saddle149);
+            Bicycle bicycle301 = new Bicycle("Cube", "ATTAIN C:62 SLT", 56, 2999, 7.9, "https://www.cube.eu/de-en/cube-attain-c-62-slt-carbon-n-rainbow/825600", "admin", frame128, gear9, wheel200, saddle149);
+            Bicycle bicycle302 = new Bicycle("Cube", "ATTAIN C:62 SLX", 56, 2499, 8.7, "https://www.cube.eu/dk-en/cube-attain-c-62-slx-cotton-n-grey/825500", "admin", frame128, gear12, wheel201, saddle149);
+            Bicycle bicycle303 = new Bicycle("Cube", "ATTAIN C:62 Race", 56, 1699, 9.3, "https://www.cube.eu/de-en/cube-attain-c-62-race-blackline/825400", "admin", frame128, gear14, wheel202, saddle149);
+            Bicycle bicycle304 = new Bicycle("Cube", "ATTAIN C:62 Pro", 56, 899, 10.5, "https://www.cube.eu/dk-en/cube-attain-pro-hyperpurple-n-helio/825110", "admin", frame129, gear18, wheel202, saddle150);
+
+
+
+
+
 
 
             em.persist(bicycle1);
@@ -1396,6 +1500,46 @@ public class Populate {
             em.persist(bicycle250);
             em.persist(bicycle251);
             em.persist(bicycle252);
+
+            em.persist(bicycle260);
+            em.persist(bicycle261);
+            em.persist(bicycle262);
+            em.persist(bicycle263);
+            em.persist(bicycle264);
+            em.persist(bicycle265);
+            em.persist(bicycle266);
+            em.persist(bicycle267);
+            em.persist(bicycle268);
+            em.persist(bicycle269);
+            em.persist(bicycle270);
+            em.persist(bicycle271);
+            em.persist(bicycle272);
+            em.persist(bicycle273);
+            em.persist(bicycle274);
+
+            em.persist(bicycle280);
+            em.persist(bicycle281);
+            em.persist(bicycle282);
+            em.persist(bicycle283);
+
+            em.persist(bicycle290);
+            em.persist(bicycle291);
+            em.persist(bicycle292);
+            em.persist(bicycle293);
+            em.persist(bicycle294);
+            em.persist(bicycle295);
+            em.persist(bicycle296);
+            em.persist(bicycle297);
+            em.persist(bicycle298);
+            em.persist(bicycle299);
+            em.persist(bicycle300);
+            em.persist(bicycle301);
+            em.persist(bicycle302);
+            em.persist(bicycle303);
+            em.persist(bicycle304);
+
+
+
 
 
 
