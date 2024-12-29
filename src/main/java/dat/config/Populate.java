@@ -146,6 +146,9 @@ public class Populate {
         Frame frame127 = new Frame("Cube","C:62® Advanced Twin Mold", "Carbon", "Disc", 1460, 56, "admin");
         Frame frame128 = new Frame("Cube","C:62® Twin Mold", "Carbon", "Disc", 1580, 56, "admin");
         Frame frame129 = new Frame("Cube","Aluminium 6061 T4/T6 Superlite", "Aluminium", "Disc", 1520, 56, "admin");
+        Frame frame130 = new Frame("Fuji","Kasane All Road C15 carbon", "Carbon", "Disc", 1560, 56, "admin");
+        Frame frame131 = new Frame("Fuji","Kasane C10 high-modulus", "Carbon", "Disc", 1650, 56, "admin");
+        Frame frame132 = new Frame("Rondo","HVRT 2.0 FLY CARBON", "Carbon", "Disc", 1750, 56, "admin");
 
 
 
@@ -305,6 +308,9 @@ public class Populate {
         Saddle saddle148 = new Saddle("Acid", "Carbon", "Acid Nuance SLT Carbon", 172, 150, "admin");
         Saddle saddle149 = new Saddle("Acid", "Carbon", "Acid Nuance Pro", 185, 150, "admin");
         Saddle saddle150 = new Saddle("Acid", "Carbon", "Acid Nuance Lite", 200, 150, "admin");
+        Saddle saddle151 = new Saddle("Selle Italia", "Manganese", "X3 Boost", 287, 148, "admin");
+        Saddle saddle152 = new Saddle("Fi'zi:k", "Manganese", "Fizik Aliante Delta", 271, 142, "admin");
+        Saddle saddle153 = new Saddle("Prologo", "Manganese", "Prologo Nago RS STN", 236, 134, "admin");
 
 
 
@@ -511,6 +517,13 @@ public class Populate {
         Wheel wheel201 = new Wheel("Newmen", "Carbon", "Disc", "Newmen Evolution SL R.35", 1750, 22, "admin");
         Wheel wheel202 = new Wheel("Cube", "Aluminium", "Rim", "CUBE RA 2.3 Aero Disc", 1850, 22, "admin");
         Wheel wheel203 = new Wheel("Newmen", "Carbon", "Disc", "Newmen Advanced A.50 Carbon", 1470, 23, "admin");
+        Wheel wheel204 = new Wheel("Vision", "Carbon", "Disc", "Vision Tech TC40", 1650, 19, "admin");
+        Wheel wheel205 = new Wheel("Oval", "Aluminium", "Disc", "Oval Concepts 524 Disc", 1885, 19, "admin");
+        Wheel wheel206 = new Wheel("Oval", "Aluminium", "Disc", "Oval Concepts 324 Disc", 1943, 19, "admin");
+        Wheel wheel207 = new Wheel("Hunt", "Carbon", "Disc", "HUNT X Carbon Limitless", 1380, 23, "admin");
+        Wheel wheel208 = new Wheel("Hunt", "Carbon", "Disc", "HUNT 34 Aero Wide", 1565, 20, "admin");
+        Wheel wheel209 = new Wheel("Cannondale", "Carbon", "Disc", "HollowGram R SL 64", 1660, 21, "admin");
+        Wheel wheel210 = new Wheel("Vision", "Carbon", "Disc", "Vision SC55", 1512, 19, "admin");
 
 
         // Opret gear
@@ -694,6 +707,9 @@ public class Populate {
             em.persist(frame127);
             em.persist(frame128);
             em.persist(frame129);
+            em.persist(frame130);
+            em.persist(frame131);
+            em.persist(frame132);
 
 
 
@@ -848,6 +864,9 @@ public class Populate {
             em.persist(saddle148);
             em.persist(saddle149);
             em.persist(saddle150);
+            em.persist(saddle151);
+            em.persist(saddle152);
+            em.persist(saddle153);
 
 
 
@@ -1054,6 +1073,13 @@ public class Populate {
             em.persist(wheel201);
             em.persist(wheel202);
             em.persist(wheel203);
+            em.persist(wheel204);
+            em.persist(wheel205);
+            em.persist(wheel206);
+            em.persist(wheel207);
+            em.persist(wheel208);
+            em.persist(wheel209);
+            em.persist(wheel210);
 
 
 
@@ -1133,11 +1159,14 @@ public class Populate {
 
             Bicycle bicycle40 = new Bicycle("Cannondale", "SuperSix EVO LAB71 Team", 56, 14500, 7.2, "https://www.all4cycling.com/en/products/cannondale-supersix-evo-lab71-ef-team-edition", "admin", frame91, gear1, wheel107, saddle5);
             Bicycle bicycle41 = new Bicycle("Cannondale", "SuperSix EVO LAB71", 56, 14000, 7.2, "https://www.cannondale-parts.de/cannondale-SuperSix-EVO-LAB71/en", "admin", frame91, gear35, wheel152, saddle29);
-            Bicycle bicycle42 = new Bicycle("Cannondale", "SuperSix EVO 1", 56, 5200, 7.8, "https://www.smartcykler.dk/cykler/racercykler/carbon-racer/cannondale-supersix-evo-1/", "admin", frame16, gear39, wheel157, saddle123);
-            Bicycle bicycle43 = new Bicycle("Cannondale", "SuperSix EVO 2", 56, 2000, 7.5, "https://www.smartcykler.dk/cykler/racercykler/carbon-racer/cannondale-supersix-evo-2/", "admin", frame16, gear10, wheel158, saddle124);
-            Bicycle bicycle44 = new Bicycle("Cannondale", "SuperSix Hi-MOD Disc Dura-Ace Di2", 56, 10300, 6.9, "https://www.cannondale.com/en/bikes/road/race/supersix-evo/supersix-evo-hi-mod-disc-dura-ace-di2-c11101u", "admin", frame16, gear1, wheel159, saddle59);
-            Bicycle bicycle45 = new Bicycle("Cannondale", "SuperSix Hi-MOD Disc Ultegra Di2", 56, 10300, 7.3, "https://www.cannondale.com/en/bikes/road/race/supersix-evo/supersix-evo-hi-mod-disc-ultegra-di2-c11201u", "admin", frame16, gear10, wheel159, saddle58);
-            Bicycle bicycle46 = new Bicycle("Cannondale", "SuperSix EVO Carbon Disc Force AXS", 56, 10300, 7.3, "https://www.cannondale.com/en/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-force-axs", "admin", frame16, gear39, wheel160, saddle69);
+            Bicycle bicycle42 = new Bicycle("Cannondale", "SuperSix EVO 1", 56, 6999, 7.8, "https://www.smartcykler.dk/cykler/racercykler/carbon-racer/cannondale-supersix-evo-1/", "admin", frame16, gear39, wheel157, saddle123);
+            Bicycle bicycle43 = new Bicycle("Cannondale", "SuperSix EVO 2", 56, 8100, 7.7, "https://www.smartcykler.dk/cykler/racercykler/carbon-racer/cannondale-supersix-evo-2-2/", "admin", frame16, gear10, wheel158, saddle124);
+            Bicycle bicycle44 = new Bicycle("Cannondale", "SuperSix EVO 3", 56, 3999, 8.1, "https://www.smartcykler.dk/cykler/racercykler/carbon-racer/cannondale-supersix-evo-3/", "admin", frame16, gear13, wheel177, saddle153);
+            Bicycle bicycle45 = new Bicycle("Cannondale", "SuperSix EVO Carbon Disc Force AXS", 56, 10300, 7.3, "https://www.cannondale.com/en/bikes/road/race/supersix-evo/supersix-evo-carbon-disc-force-axs", "admin", frame16, gear39, wheel160, saddle69);
+            Bicycle bicycle46 = new Bicycle("Cannondale", "SuperSix EVO Hi-MOD Dura-Ace Di2", 56, 10999, 6.9, "https://www.cannondale.com/en/bikes/road/race/supersix-evo/supersix-evo-hi-mod-disc-dura-ace-di2-c11101u", "admin", frame16, gear1, wheel159, saddle59);
+            Bicycle bicycle47 = new Bicycle("Cannondale", "SuperSix EVO Hi-MOD Ultegra Di2", 56, 9600, 7.3, "https://www.cannondale.com/en/bikes/road/race/supersix-evo/supersix-evo-hi-mod-disc-ultegra-di2-c11201u", "admin", frame16, gear10, wheel159, saddle58);
+            Bicycle bicycle48 = new Bicycle("Cannondale", "SuperSix HI-MOD Red eTap AXS", 56, 13499, 7.3, "https://www.cannondale.com/en/bikes/road/race/systemsix/systemsix-hi-mod-red-etap-axs", "admin", frame16, gear36, wheel209, saddle59);
+            Bicycle bicycle49 = new Bicycle("Cannondale", "SuperSix Carbon Ultegra", 56, 6800, 7.3, "https://www.cannondale.com/en/bikes/road/race/systemsix/systemsix-carbon-ultegra", "admin", frame16, gear11, wheel210, saddle152);
 
             Bicycle bicycle50 = new Bicycle("BMC", "Teammachine R 01 TWO", 56, 14000, 7.1, "https://bmc-switzerland.com/collections/road-racing-bikes-teammachine-r-01/products/teammachine-r-01-two-bikes-bmc-24-10628-001", "admin", frame99, gear1, wheel52, saddle53);
             Bicycle bicycle51 = new Bicycle("BMC", "Teammachine R 01 ONE", 56, 15000, 7.0, "https://bmc-switzerland.com/collections/road-racing-bikes-teammachine-r-01/products/teammachine-r-01-one-bikes-bmc-24-10628-005", "admin", frame99, gear35, wheel52, saddle11);
@@ -1320,10 +1349,13 @@ public class Populate {
             Bicycle bicycle303 = new Bicycle("Cube", "ATTAIN C:62 Race", 56, 1699, 9.3, "https://www.cube.eu/de-en/cube-attain-c-62-race-blackline/825400", "admin", frame128, gear14, wheel202, saddle149);
             Bicycle bicycle304 = new Bicycle("Cube", "ATTAIN C:62 Pro", 56, 899, 10.5, "https://www.cube.eu/dk-en/cube-attain-pro-hyperpurple-n-helio/825110", "admin", frame129, gear18, wheel202, saddle150);
 
+            Bicycle bicycle310 = new Bicycle("Fuji", "Kasane 1.3", 56, 5799, 8.1, "https://fujibikes.eu/collections/all-bikes/products/2022-kasane-1-3", "admin", frame130, gear10, wheel204, saddle136);
+            Bicycle bicycle311 = new Bicycle("Fuji", "Grand Fondo 1.1", 56, 3599, 8.4, "https://fujibikes.eu/collections/all-bikes/products/2022-kasane-1-5", "admin", frame131, gear11, wheel205, saddle151);
+            Bicycle bicycle312 = new Bicycle("Fuji", "Grand Fondo 1.3", 56, 2999, 9.3, "https://fujibikes.eu/collections/all-bikes/products/2022-gran-fondo-1-3", "admin", frame131, gear14, wheel206, saddle151);
 
-
-
-
+            Bicycle bicycle320 = new Bicycle("Rondo", "HVRT CFO", 56, 9399, 7.8, "https://26bikes.com/shop/bikes/gravel-road/prod/rondo-hvrt-cf0-22", "admin", frame132, gear36, wheel207, saddle133);
+            Bicycle bicycle321 = new Bicycle("Rondo", "HVRT CF1", 56, 6499, 8.0, "https://26bikes.com/shop/bikes/gravel-road/prod/rondo-hvrt-cf1-22", "admin", frame132, gear41, wheel207, saddle133);
+            Bicycle bicycle322 = new Bicycle("Rondo", "HVRT CF2", 56, 4299, 8.6, "https://26bikes.com/shop/bikes/gravel-road/prod/rondo-hvrt-cf2-22", "admin", frame132, gear41, wheel208, saddle133);
 
 
             em.persist(bicycle1);
@@ -1356,6 +1388,9 @@ public class Populate {
             em.persist(bicycle44);
             em.persist(bicycle45);
             em.persist(bicycle46);
+            em.persist(bicycle47);
+            em.persist(bicycle48);
+            em.persist(bicycle49);
 
             em.persist(bicycle50);
             em.persist(bicycle51);
@@ -1537,6 +1572,15 @@ public class Populate {
             em.persist(bicycle302);
             em.persist(bicycle303);
             em.persist(bicycle304);
+
+            em.persist(bicycle310);
+            em.persist(bicycle311);
+            em.persist(bicycle312);
+
+            em.persist(bicycle320);
+            em.persist(bicycle321);
+            em.persist(bicycle322);
+
 
 
 

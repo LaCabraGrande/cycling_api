@@ -297,62 +297,34 @@ public class BicycleDAO {
     private FilterCountDTO calculateFilterCounts(List<BicycleDTO> bicycles, Map<String, List<String>> filters) {
         // Her henter jeg alle mulige gear-serier fra databasen
         List<BicycleDTO> bicycleDTOS = this.getAll();
-        Set<String> allGearSeries = bicycleDTOS.stream()
+        Set<String> allGearSeries = new TreeSet<>(bicycleDTOS.stream()
                 .map(bicycle -> bicycle.getGear().getSeries())
-                .collect(Collectors.toSet());
-        Set<String> allSaddleBrands = bicycleDTOS.stream()
+                .collect(Collectors.toSet()));
+        Set<String> allSaddleBrands = new TreeSet<>(bicycleDTOS.stream()
                 .map(bicycle -> bicycle.getSaddle().getBrand())
-                .collect(Collectors.toSet());
-        Set<String> allWheelBrands = bicycleDTOS.stream()
+                .collect(Collectors.toSet()));
+        Set<String> allWheelBrands = new TreeSet<>(bicycleDTOS.stream()
                 .map(bicycle -> bicycle.getWheel().getBrand())
-                .collect(Collectors.toSet());
-        Set<String> allBicycleBrands = bicycleDTOS.stream()
+                .collect(Collectors.toSet()));
+        Set<String> allBicycleBrands = new TreeSet<>(bicycleDTOS.stream()
                 .map(BicycleDTO::getBrand)
-                .collect(Collectors.toSet());
-        Set<String> allBicycleTypes = bicycleDTOS.stream()
+                .collect(Collectors.toSet()));
+        Set<String> allBicycleTypes = new TreeSet<>(bicycleDTOS.stream()
                 .map(bicycle -> bicycle.getGear().getType())
-                .collect(Collectors.toSet());
-        Set<String> allWheelTypes = bicycleDTOS.stream()
+                .collect(Collectors.toSet()));
+        Set<String> allWheelTypes = new TreeSet<>(bicycleDTOS.stream()
                 .map(bicycle -> bicycle.getWheel().getType())
-                .collect(Collectors.toSet());
+                .collect(Collectors.toSet()));
 
-
-        Map<String, Integer> gearSeriesCount = new HashMap<>();
-        Map<String, Integer> saddleBrandCount = new HashMap<>();
-        Map<String, Integer> wheelBrandCount = new HashMap<>();
-        Map<String, Integer> bicycleBrandCount = new HashMap<>();
-        Map<String, Integer> bicycleTypeCount = new HashMap<>();
-        Map<String, Integer> wheelTypeCount = new HashMap<>();
-
-//        for (String gearSeries : allGearSeries) {
-//            int count = 0;
-//            for (BicycleDTO bicycle : bicycles) {
-//                if (gearSeries.equals(bicycle.getGear().getSeries())) {
-//                    count++;
-//                }
-//            }
-//            gearSeriesCount.put(gearSeries, count);
-//        }
+        Map<String, Integer> gearSeriesCount = new TreeMap<>();
+        Map<String, Integer> saddleBrandCount = new TreeMap<>();
+        Map<String, Integer> wheelBrandCount = new TreeMap<>();
+        Map<String, Integer> bicycleBrandCount = new TreeMap<>();
+        Map<String, Integer> bicycleTypeCount = new TreeMap<>();
+        Map<String, Integer> wheelTypeCount = new TreeMap<>();
 
         List<BicycleDTO> listToUse;
 
-//        boolean onlyGearSeriesSelected = true;
-//
-//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
-//            String key = entry.getKey();
-//            List<String> value = entry.getValue();
-//
-//            // Hvis værdien ikke er tom, tjek om nøglen er "gearSeries"
-//            if (value != null && !value.isEmpty() && !"gearSeries".equals(key)) {
-//                onlyGearSeriesSelected = false; // Der er et filter, der ikke er "gearSeries"
-//            }
-//        }
-//
-//        if (onlyGearSeriesSelected) {
-//            listToUse = bicycleDTOS;
-//        } else {
-//            listToUse = bicycles;
-//        }
         listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "gearSeries");
         for (String gearSeries : allGearSeries) {
             int count = 0;
@@ -364,26 +336,7 @@ public class BicycleDAO {
             gearSeriesCount.put(gearSeries, count);
         }
 
-//        boolean onlySaddleBrandSelected = true;
-//
-//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
-//            String key = entry.getKey();
-//            List<String> value = entry.getValue();
-//
-//            if (value != null && !value.isEmpty() && !"saddleBrand".equals(key)) {
-//                onlySaddleBrandSelected = false;
-//            }
-//        }
-//
-//        if (onlySaddleBrandSelected) {
-//            listToUse = bicycleDTOS;
-//        } else {
-//            listToUse = bicycles;
-//        }
-
-
         listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "saddleBrand");
-
         for (String saddleBrand : allSaddleBrands) {
             int count = 0;
             for (BicycleDTO bicycle : listToUse) {
@@ -394,22 +347,6 @@ public class BicycleDAO {
             saddleBrandCount.put(saddleBrand, count);
         }
 
-
-
-//        boolean onlyWheelBrandSelected = true;
-//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
-//            String key = entry.getKey();
-//            List<String> value = entry.getValue();
-//
-//            if (value != null && !value.isEmpty() && !"wheelBrand".equals(key)) {
-//                onlyWheelBrandSelected = false;
-//            }
-//        }
-//        if (onlyWheelBrandSelected) {
-//            listToUse = bicycleDTOS;
-//        } else {
-//            listToUse = bicycles;
-//        }
         listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "wheelBrand");
         for (String wheelBrand : allWheelBrands) {
             int count = 0;
@@ -421,20 +358,6 @@ public class BicycleDAO {
             wheelBrandCount.put(wheelBrand, count);
         }
 
-//        boolean onlyBicycleBrandSelected = true;
-//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
-//            String key = entry.getKey();
-//            List<String> value = entry.getValue();
-//
-//            if (value != null && !value.isEmpty() && !"bicycleBrand".equals(key)) {
-//                onlyBicycleBrandSelected = false;
-//            }
-//        }
-//        if (onlyBicycleBrandSelected) {
-//            listToUse = bicycleDTOS;
-//        } else {
-//            listToUse = bicycles;
-//        }
         listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "bicycleBrand");
         for (String bicycleBrand : allBicycleBrands) {
             int count = 0;
@@ -445,21 +368,6 @@ public class BicycleDAO {
             }
             bicycleBrandCount.put(bicycleBrand, count);
         }
-
-//        boolean onlyBicycleTypeSelected = true;
-//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
-//            String key = entry.getKey();
-//            List<String> value = entry.getValue();
-//
-//            if (value != null && !value.isEmpty() && !"bicycleType".equals(key)) {
-//                onlyBicycleTypeSelected = false;
-//            }
-//        }
-//        if (onlyBicycleTypeSelected) {
-//            listToUse = bicycleDTOS;
-//        } else {
-//            listToUse = bicycles;
-//        }
 
         listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "bicycleType");
         for (String bicycleType : allBicycleTypes) {
@@ -472,21 +380,6 @@ public class BicycleDAO {
             bicycleTypeCount.put(bicycleType, count);
         }
 
-//        boolean onlyWheelTypeSelected = true;
-//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
-//            String key = entry.getKey();
-//            List<String> value = entry.getValue();
-//
-//            if (value != null && !value.isEmpty() && !"wheelType".equals(key)) {
-//                onlyWheelTypeSelected = false;
-//            }
-//        }
-//        if (onlyWheelTypeSelected) {
-//            listToUse = bicycleDTOS;
-//        } else {
-//            listToUse = bicycles;
-//        }
-
         listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "wheelType");
         for (String wheelType : allWheelTypes) {
             int count = 0;
@@ -497,28 +390,6 @@ public class BicycleDAO {
             }
             wheelTypeCount.put(wheelType, count);
         }
-
-//        // Her initialiserer vi en tællings-map med mulige værdier
-//        Map<String, Integer> priceIntervalCount = initializeCountMap(filters.get("priceInterval"), bicycles, "priceInterval", getAllPriceIntervals());
-//        for (BicycleDTO bicycle : bicycles) {
-//            int price = bicycle.getPrice();
-//            String priceInterval = getPriceInterval(price);
-//            priceIntervalCount.put(priceInterval, priceIntervalCount.getOrDefault(priceInterval, 0) + 1);
-//        }
-//        boolean onlyPriceIntervalSelected = true;
-//        for (Map.Entry<String, List<String>> entry : filters.entrySet()) {
-//            String key = entry.getKey();
-//            List<String> value = entry.getValue();
-//
-//            if (value != null && !value.isEmpty() && !"priceInterval".equals(key)) {
-//                onlyPriceIntervalSelected = false;
-//            }
-//        }
-//        if (onlyPriceIntervalSelected) {
-//            listToUse = bicycleDTOS;
-//        } else {
-//            listToUse = bicycles;
-//        }
 
         listToUse = determineListToUse(filters, bicycles, bicycleDTOS, "priceInterval");
         Map<String, Integer> priceIntervalCount = new HashMap<>();
@@ -614,90 +485,6 @@ public class BicycleDAO {
         if (price < 9000) return "8000-9000";
         return "at least 9000";
     }
-
-
-    // Metode til at hente gear, saddle og wheel counts
-//    public FilterCountDTO getFilterCounts() {
-//        // Hent data fra databasen
-//        List<BicycleDTO> bicycles = this.getAll();
-//
-//        // Gear-serie tælling
-//        Map<String, Integer> gearSeriesCount = new HashMap<>();
-//        for (BicycleDTO bicycle : bicycles) {
-//            String gearSeries = bicycle.getGear().getSeries();
-//            gearSeriesCount.put(gearSeries, gearSeriesCount.getOrDefault(gearSeries, 0) + 1);
-//        }
-//
-//        // Saddle-brand tælling
-//        Map<String, Integer> saddleBrandCount = new HashMap<>();
-//        for (BicycleDTO bicycle : bicycles) {
-//            String saddleBrand = bicycle.getSaddle().getBrand();
-//            saddleBrandCount.put(saddleBrand, saddleBrandCount.getOrDefault(saddleBrand, 0) + 1);
-//        }
-//
-//        // Wheel-brand tælling
-//        Map<String, Integer> wheelBrandCount = new HashMap<>();
-//        for (BicycleDTO bicycle : bicycles) {
-//            String wheelBrand = bicycle.getWheel().getBrand();
-//            wheelBrandCount.put(wheelBrand, wheelBrandCount.getOrDefault(wheelBrand, 0) + 1);
-//        }
-//
-//        // Bicycle-brand tælling
-//        Map<String, Integer> bicycleBrandCount = new HashMap<>();
-//        for (BicycleDTO bicycle : bicycles) {
-//            String bicycleBrand = bicycle.getBrand();
-//            bicycleBrandCount.put(bicycleBrand, bicycleBrandCount.getOrDefault(bicycleBrand, 0) + 1);
-//        }
-//
-//        // Tælling på antal Bicycles med Mekanisk eller Elektronisk gear
-//        Map<String, Integer> bicycleTypeCount = new HashMap<>();
-//        for (BicycleDTO bicycle : bicycles) {
-//            String bicycleType = bicycle.getGear().getType();
-//            bicycleTypeCount.put(bicycleType, bicycleTypeCount.getOrDefault(bicycleType, 0) + 1);
-//        }
-//
-//        // Wheel-type tælling
-//        Map<String, Integer> wheelTypeCount = new HashMap<>();
-//        for (BicycleDTO bicycle : bicycles) {
-//            String wheelType = bicycle.getWheel().getType();
-//            wheelTypeCount.put(wheelType, wheelTypeCount.getOrDefault(wheelType, 0) + 1);
-//        }
-//
-//        // Prisinterval tælling
-//        Map<String, Integer> priceRangeCount = new HashMap<>();
-//        priceRangeCount.put("0-3000", 0);
-//        priceRangeCount.put("3000-5000", 0);
-//        priceRangeCount.put("5000-7000", 0);
-//        priceRangeCount.put("7000-9000", 0);
-//        priceRangeCount.put("at least 9000", 0);
-//
-//        for (BicycleDTO bicycle : bicycles) {
-//            double price = bicycle.getPrice(); // Antager BicycleDTO har et price-felt
-//            if (price < 3000) {
-//                priceRangeCount.put("0-3000", priceRangeCount.get("0-3000") + 1);
-//            } else if (price < 5000) {
-//                priceRangeCount.put("3000-5000", priceRangeCount.get("3000-5000") + 1);
-//            } else if (price < 7000) {
-//                priceRangeCount.put("5000-7000", priceRangeCount.get("5000-7000") + 1);
-//            } else if (price < 9000) {
-//                priceRangeCount.put("7000-9000", priceRangeCount.get("7000-9000") + 1);
-//            } else {
-//                priceRangeCount.put("at least 9000", priceRangeCount.get("at least 9000") + 1);
-//            }
-//        }
-//
-//        // Returner den opdaterede DTO
-//        return new FilterCountDTO(
-//                gearSeriesCount,
-//                saddleBrandCount,
-//                wheelBrandCount,
-//                bicycleBrandCount,
-//                bicycleTypeCount,
-//                wheelTypeCount,
-//                priceRangeCount
-//        );
-//    }
-
 
     public Bicycle addFrameToBicycle(int bicycleId, int frameId) {
         try (EntityManager em = emf.createEntityManager()) {
