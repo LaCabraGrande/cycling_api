@@ -149,12 +149,14 @@ public class Populate {
         Frame frame130 = new Frame("Fuji","Kasane All Road C15 carbon", "Carbon", "Disc", 1560, 56, "admin");
         Frame frame131 = new Frame("Fuji","Kasane C10 high-modulus", "Carbon", "Disc", 1650, 56, "admin");
         Frame frame132 = new Frame("Rondo","HVRT 2.0 FLY CARBON", "Carbon", "Disc", 1750, 56, "admin");
-
-
-
-
-
-
+        Frame frame133 = new Frame("Rose","Xlite 06 Frameset", "Carbon", "Disc", 1750, 56, "admin");
+        Frame frame134 = new Frame("Rose","XLITE 04 DISC, carbon", "Carbon", "Disc", 1400, 56, "admin");
+        Frame frame135 = new Frame("Rose","REVEAL SIX DISC", "Carbon", "Disc", 1400, 56, "admin");
+        Frame frame136 = new Frame("Rose","REVEAL FOUR DISC", "Carbon", "Disc", 1480, 56, "admin");
+        Frame frame137 = new Frame("Felt","AR 3.0", "Carbon", "Disc", 2300, 56, "admin");
+        Frame frame138 = new Frame("Pronghorn","Road Carbon Aero", "Carbon", "Disc", 1530, 56, "admin");
+        Frame frame139 = new Frame("Pronghorn","Road Carbon SL", "Carbon", "Disc", 1330, 56, "admin");
+        Frame frame140 = new Frame("Pronghorn","Performance AL", "Aluminium", "Disc", 1730, 56, "admin");
 
 
         // Opret saddel
@@ -280,7 +282,7 @@ public class Populate {
         Saddle saddle120 = new Saddle("Giant", "Carbon", "Giant Fleet SL", 220, 145, "admin");
         Saddle saddle121 = new Saddle("Giant", "Carbon", "Giant Fleet SLR", 180, 145, "admin");
         Saddle saddle122 = new Saddle("Giant", "Steel", "Giant Approach", 310, 145, "admin");
-        Saddle saddle123 = new Saddle("Prologo", "Carbon", "Prologo Dimension TiRox NDR", 215, 143, "admin");
+        Saddle saddle123 = new Saddle("Prologo", "Carbon", "Prologo Dimension Tirox NDR", 215, 143, "admin");
         Saddle saddle124 = new Saddle("Prologo", "Carbon", "Prologo Dimension NDR", 212, 143, "admin");
         Saddle saddle125 = new Saddle("Bontrager", "Carbon", "Bontrager Aeolus RSL", 142, 145, "admin");
         Saddle saddle126 = new Saddle("Bontrager", "Carbon", "Bontrager Aeolus Pro", 170, 145, "admin");
@@ -311,6 +313,10 @@ public class Populate {
         Saddle saddle151 = new Saddle("Selle Italia", "Manganese", "X3 Boost", 287, 148, "admin");
         Saddle saddle152 = new Saddle("Fi'zi:k", "Manganese", "Fizik Aliante Delta", 271, 142, "admin");
         Saddle saddle153 = new Saddle("Prologo", "Manganese", "Prologo Nago RS STN", 236, 134, "admin");
+        Saddle saddle154 = new Saddle("Fi'zi:k", "Composite Carbon", "Antares Versus Evo 00 Adaptive", 168, 139, "admin");
+        Saddle saddle155 = new Saddle("Selle San Marco", "Manganese", "Monza", 242, 140, "admin");
+        Saddle saddle156 = new Saddle("Selle San Marco", "Carbon", "Aspide Racing", 177, 132, "admin");
+        Saddle saddle157 = new Saddle("Selle San Marco", "Carbon", "Superleggera", 110, 135, "admin");
 
 
 
@@ -524,6 +530,15 @@ public class Populate {
         Wheel wheel208 = new Wheel("Hunt", "Carbon", "Disc", "HUNT 34 Aero Wide", 1565, 20, "admin");
         Wheel wheel209 = new Wheel("Cannondale", "Carbon", "Disc", "HollowGram R SL 64", 1660, 21, "admin");
         Wheel wheel210 = new Wheel("Vision", "Carbon", "Disc", "Vision SC55", 1512, 19, "admin");
+        Wheel wheel211 = new Wheel("Rose", "Carbon", "Disc", "Rose RC Sixty", 1650, 21, "admin");
+        Wheel wheel212 = new Wheel("Rose", "Aluminium", "Disc", "Rose RC Thirty Light", 1600, 19, "admin");
+        Wheel wheel213 = new Wheel("Rose", "Carbon", "Disc", "Rose RC-Forty Disc", 1440, 19, "admin");
+        Wheel wheel214 = new Wheel("Rose", "Aluminium", "Disc", "ROSE R25", 1590, 19, "admin");
+        Wheel wheel215 = new Wheel("Classified", "Carbon", "Disc", "Classified R50 Carbon", 1415, 23, "admin");
+        Wheel wheel216 = new Wheel("Devox", "Aluminium", "Disc", "Devox RDS.A1", 1975, 23, "admin");
+        Wheel wheel217 = new Wheel("Reynolds", "Carbon", "Disc", "Reynolds AR 58/62 X DB", 1730, 21, "admin");
+        Wheel wheel218 = new Wheel("DT Swiss", "Aluminium", "Disc", "DT Swiss E1800 Spline", 1764, 21, "admin");
+        Wheel wheel219 = new Wheel("Pronghorn", "Carbon", "Disc", "Pronghorn Avalanche - 44mm", 1425, 22, "admin");
 
 
         // Opret gear
@@ -710,7 +725,14 @@ public class Populate {
             em.persist(frame130);
             em.persist(frame131);
             em.persist(frame132);
-
+            em.persist(frame133);
+            em.persist(frame134);
+            em.persist(frame135);
+            em.persist(frame136);
+            em.persist(frame137);
+            em.persist(frame138);
+            em.persist(frame139);
+            em.persist(frame140);
 
 
             // Gemmer saddel
@@ -867,6 +889,10 @@ public class Populate {
             em.persist(saddle151);
             em.persist(saddle152);
             em.persist(saddle153);
+            em.persist(saddle154);
+            em.persist(saddle155);
+            em.persist(saddle156);
+            em.persist(saddle157);
 
 
 
@@ -1080,8 +1106,15 @@ public class Populate {
             em.persist(wheel208);
             em.persist(wheel209);
             em.persist(wheel210);
-
-
+            em.persist(wheel211);
+            em.persist(wheel212);
+            em.persist(wheel213);
+            em.persist(wheel214);
+            em.persist(wheel215);
+            em.persist(wheel216);
+            em.persist(wheel217);
+            em.persist(wheel218);
+            em.persist(wheel219);
 
 
 
@@ -1203,15 +1236,17 @@ public class Populate {
             Bicycle bicycle94 = new Bicycle("Pinarello", "Dogma F7", 58, 7000, 7.6, "https://ciclicorsa.com/shop/f7-disc-2024-shimano-ultegra-di2-2x12-db-complete-bike/", "admin", frame89, gear10, wheel151, saddle78);
             Bicycle bicycle95 = new Bicycle("Pinarello", "Dogma F12", 58, 12500, 7.6, "https://perpcykler.dk/shop/pinarello-dogma-f12-disc-di2-sort-roed-55-cm/", "admin", frame47, gear26, wheel42, saddle1);
 
-            Bicycle bicycle100 = new Bicycle("Felt", "FR Advanced + Ultegra", 56, 2900, 8.2, "https://www.feltbicycles.com/en-dk/bikes/road-bikes/fr-road-race/fr-advanced-%2B-ultegradi2.color.3D3D3F000001.html", "admin", frame90, gear9, wheel29, saddle5);
-            Bicycle bicycle101 = new Bicycle("Felt", "FR Advanced + Dura-Ace", 55, 4200, 7.2, "https://www.tradeinn.com/bikeinn/da/felt-fr-advanced--24s-dura-ace-di2-2024-landevejscykel/140874202/p?srsltid=AfmBOort12W9rfjbKCePVIiqbd6zuO9wfdv6ZNXd689f5O96Ru4LPV_p", "admin", frame90, gear2, wheel38, saddle5);
-            Bicycle bicycle102 = new Bicycle("Felt", "FR Advanced 105 Di2", 55, 6000, 6.9, "https://www.feltbicycles.com/en-dk/bikes/road-bikes/fr-road-race/fr-advanced-105-di2.color.163CF9000001.html", "admin", frame90, gear12, wheel169, saddle5);
-
-            Bicycle bicycle111 = new Bicycle("Bianchi", "Oltre XR4", 57, 10500, 7.0, "https://www.bianchi.com/store/int_EN/yrb15-oltre-xr4-dura-ace-di2-4.html", "admin", frame9, gear1, wheel113, saddle62);
-            Bicycle bicycle112 = new Bicycle("Bianchi", "Oltre RC Dura-Ace", 56, 13300, 7.9, "https://www.bianchi.com/store/fr_EN/yub21-oltrerc-dura-acedi212sp-0.html", "admin", frame8, gear1, wheel1, saddle6);
-            Bicycle bicycle113 = new Bicycle("Bianchi", "Oltre RC SRAM Red", 57, 13900, 7.4, "https://www.bianchi.com/store/it_EN/ysb20-oltrerc-sramredetapaxsdisc12sp-3.html", "admin", frame9, gear36, wheel31, saddle29);
-            Bicycle bicycle114 = new Bicycle("Bianchi", "Oltre XR3 Disc", 57, 8050, 7.4, "https://www.bianchi.com/store/au_EN/ypbk7-oltre-xr3-disc-ultegra-11sp-52-36-3.html", "admin", frame9, gear10, wheel31, saddle29);
-            Bicycle bicycle115 = new Bicycle("Bianchi", "Oltre XR3 Ultegra Di2", 57, 8100, 8.2, "https://www.bianchi.com/store/fr_EN/yqb17-oltre-xr4-ultegra-di2-11sp-7.html", "admin", frame112, gear9, wheel24, saddle139);
+            Bicycle bicycle100 = new Bicycle("Felt", "FR Advanced + Dura-Ace", 55, 11999, 6.9, "https://www.tradeinn.com/bikeinn/da/felt-fr-advanced--24s-dura-ace-di2-2024-landevejscykel/140874202/p?srsltid=AfmBOort12W9rfjbKCePVIiqbd6zuO9wfdv6ZNXd689f5O96Ru4LPV_p", "admin", frame90, gear1, wheel38, saddle5);
+            Bicycle bicycle101 = new Bicycle("Felt", "FR Advanced + Ultegra", 56, 7499, 7.5, "https://www.feltbicycles.com/en-dk/bikes/road-bikes/fr-road-race/fr-advanced-%2B-ultegradi2.color.3D3D3F000001.html", "admin", frame90, gear9, wheel29, saddle5);
+            Bicycle bicycle102 = new Bicycle("Felt", "FR Advanced Ultegra", 55, 6599, 7.7, "https://www.feltbicycles.com/en-us/bikes/road-bikes/fr-road-race/fr-advanced-ultegradi2.color.E9EFEF000001.html", "admin", frame90, gear9, wheel69, saddle5);
+            Bicycle bicycle103 = new Bicycle("Felt", "FR Advanced 105 Di2", 55, 4999, 8.0, "https://www.feltbicycles.com/en-dk/bikes/road-bikes/fr-road-race/fr-advanced-105-di2.color.163CF9000001.html", "admin", frame90, gear12, wheel169, saddle5);
+            Bicycle bicycle104 = new Bicycle("Felt", "FR Advanced 105", 55, 2999, 8.4, "https://www.feltbicycles.com/en-us/bikes/road-bikes/fr-road-race/fr-advanced-105.color.00353dE9EFEF.html", "admin", frame90, gear14, wheel216, saddle5);
+            Bicycle bicycle105 = new Bicycle("Felt", "AR FRD Ultimate RED eTap AXS", 56, 12999, 7.7, "https://www.feltbicycles.com/en-us/bikes/road-bikes/ar-aero-road/ar-frd-ultimate-redetapaxs.color.3E3A3B.html", "admin", frame137, gear36, wheel85, saddle5);
+            Bicycle bicycle106 = new Bicycle("Felt", "AR FRD Ultimate Dura-Ace Di2", 56, 11999, 7.6, "https://www.feltbicycles.com/en-us/bikes/road-bikes/ar-aero-road/ar-frd-ultimate-duraacedi2.color.3E3A3B.html", "admin", frame137, gear1, wheel38, saddle5);
+            Bicycle bicycle107 = new Bicycle("Felt", "AR FRD Ultimate Ultegra Di2", 56, 8999, 7.8, "https://www.feltbicycles.com/en-us/bikes/road-bikes/ar-aero-road/ar-frd-ultimate-ultegradi2.color.3E3A3B.html", "admin", frame137, gear9, wheel29, saddle5);
+            Bicycle bicycle108 = new Bicycle("Felt", "AR Advanced Ultegra Di2", 56, 6499, 8.3, "https://www.feltbicycles.com/en-us/bikes/road-bikes/ar-aero-road/ar-frd-ultimate-ultegra.color.3E3A3B.html", "admin", frame137, gear9, wheel217, saddle5);
+            Bicycle bicycle109 = new Bicycle("Felt", "AR Advanced 105 Di2", 56, 5199, 8.3, "https://www.feltbicycles.com/en-us/bikes/road-bikes/ar-aero-road/ar-advanced-105-di2.color.FFFFFF.html", "admin", frame137, gear13, wheel217, saddle5);
+            Bicycle bicycle110 = new Bicycle("Felt", "AR Advanced 105", 56, 3499, 8.9, "https://www.feltbicycles.com/en-us/bikes/road-bikes/ar-aero-road/ar-advanced-105.color.272525.html", "admin", frame137, gear14, wheel216, saddle5);
 
             Bicycle bicycle121 = new Bicycle("Specialized", "S-Works Aethos", 56, 13100, 6.3, "https://www.specialized.com/dk/da/s-works-aethos--sram-red-axs/p/4221535?color=5432894-4221535", "admin", frame110, gear1, wheel79, saddle4);
             Bicycle bicycle122 = new Bicycle("Specialized", "S-Works Aethos Pro", 56, 8400, 6.8, "https://www.specialized.com/dk/da/s-works-aethos--sram-red-axs/p/4221535?color=5432894-4221535", "admin", frame110, gear9, wheel81, saddle4);
@@ -1270,7 +1305,7 @@ public class Populate {
             Bicycle bicycle193 = new Bicycle("Koga", "Kinsei Pro", 56, 9100, 7.9, "https://www.fribikeshop.dk/prod/79-kkpo0101/koga-kinsei-pro-orange-black-racercykel", "admin", frame103, gear1, wheel52, saddle133);
             Bicycle bicycle194 = new Bicycle("Koga", "Kinsei Prime", 56, 5500, 8.5, "https://www.fribikeshop.dk/prod/79-kkpm0000/koga-kinsei-prime-black-racercykel", "admin", frame103, gear9, wheel71, saddle133);
 
-            Bicycle bicycle200 = new Bicycle("Ridley", "Noah Disc Rival AXS Tour Limited Edition", 56, 5500, 8, "https://www.fribikeshop.dk/prod/79-kkpm0000/koga-kinsei-prime-black-racercykel", "admin", frame104, gear41, wheel173, saddle134);
+            Bicycle bicycle200 = new Bicycle("Ridley", "Noah Disc Rival AXS Tour Limited Ed.", 56, 5500, 8, "https://www.fribikeshop.dk/prod/79-kkpm0000/koga-kinsei-prime-black-racercykel", "admin", frame104, gear41, wheel173, saddle134);
             Bicycle bicycle201 = new Bicycle("Ridley", "Fenix SLIC 105 Di2", 56, 4400, 8, "https://www.fribikeshop.dk/prod/107-sbifsdrid808/ridley-fenix-slic-105-di2-dark-teal-metallic-racercykel", "admin", frame105, gear13, wheel174, saddle134);
             Bicycle bicycle202 = new Bicycle("Ridley", "Fenix SLIC Ultegra Di2", 56, 5000, 7.5, "https://www.fribikeshop.dk/prod/107-sbifsdrid808/ridley-fenix-slic-105-di2-dark-teal-metallic-racercykel", "admin", frame105, gear10, wheel173, saddle100);
             Bicycle bicycle203 = new Bicycle("Ridley", "Fenix SLIC Ultegra", 56, 4100, 7.5, "https://www.fribikeshop.dk/prod/107-sbifsdrid908/ridley-fenix-slic-ultegra-sort-racercykel", "admin", frame105, gear11, wheel174, saddle135);
@@ -1357,6 +1392,52 @@ public class Populate {
             Bicycle bicycle321 = new Bicycle("Rondo", "HVRT CF1", 56, 6499, 8.0, "https://26bikes.com/shop/bikes/gravel-road/prod/rondo-hvrt-cf1-22", "admin", frame132, gear41, wheel207, saddle133);
             Bicycle bicycle322 = new Bicycle("Rondo", "HVRT CF2", 56, 4299, 8.6, "https://26bikes.com/shop/bikes/gravel-road/prod/rondo-hvrt-cf2-22", "admin", frame132, gear41, wheel208, saddle133);
 
+            Bicycle bicycle330 = new Bicycle("Rose", "Xlite 06 Ultegra Di2", 56, 5499, 7.2, "https://www.rosebikes.dk/bikes/road/race/xlite#xlite06", "admin", frame133, gear9, wheel211, saddle99);
+            Bicycle bicycle331 = new Bicycle("Rose", "Xlite Unltd Classified Kittel Edition", 56, 8999, 7.0, "https://www.rosebikes.com/rose-xlite-unltd-classified-kittel-edition-2715321", "admin", frame133, gear1, wheel211, saddle99);
+            Bicycle bicycle332 = new Bicycle("Rose", "Xlite Unltd Dura-Ace Di2", 56, 7999, 6.9, "https://www.rosebikes.com/rose-xlite-unltd-dura-ace-di2-2708105", "admin", frame133, gear1, wheel52, saddle154);
+            Bicycle bicycle333 = new Bicycle("Rose", "Xlite Unltd Red eTap AXS", 56, 7999, 6.9, "https://www.rosebikes.com/rose-xlite-unltd-red-etap-axs-2708247", "admin", frame133, gear36, wheel85, saddle154);
+            Bicycle bicycle334 = new Bicycle("Rose", "Xlite 06 Force AXS", 56, 5799, 7.2, "https://www.rosebikes.com/rose-xlite-06-force-axs-2715778?product_shape=borealis+green+%2F+chalk", "admin", frame133, gear38, wheel215, saddle99);
+            Bicycle bicycle335 = new Bicycle("Rose", "Xlite 06 Dura-Ace Di2", 56, 6999, 6.9, "https://www.rosebikes.com/rose-xlite-06-dura-ace-di2-2715777?product_shape=borealis+green+%2F+chalk", "admin", frame133, gear1, wheel211, saddle99);
+            Bicycle bicycle336 = new Bicycle("Rose", "Xlite 06 Red AXS", 56, 7999, 6.9, "https://www.rosebikes.com/rose-xlite-06-red-axs-2715779?product_shape=borealis+green+%2F+chalk", "admin", frame133, gear35, wheel211, saddle99);
+            Bicycle bicycle337 = new Bicycle("Rose", "Xlite 04 Rival AXS", 56, 3599, 8.1, "https://www.rosebikes.com/rose-xlite-04-rival-axs-2715774?product_shape=bottermelk+fresh", "admin", frame134, gear41, wheel212, saddle136);
+            Bicycle bicycle338 = new Bicycle("Rose", "Xlite 04 105 Di2", 56, 3599, 8.0, "https://www.rosebikes.com/rose-xlite-04-105-di2-2715537?product_shape=chalk", "admin", frame134, gear13, wheel212, saddle136);
+            Bicycle bicycle339 = new Bicycle("Rose", "Reveal 06 Ultegra Di2", 56, 5199, 7.6, "https://www.rosebikes.com/rose-xlite-04-ultegra-2715536?product_shape=chalk", "admin", frame135, gear10, wheel213, saddle96);
+            Bicycle bicycle340 = new Bicycle("Rose", "Reveal 04 Rival AXS", 56, 3499, 8.4, "https://www.rosebikes.com/rose-reveal-04-rival-axs-2722258?product_shape=matt+radiator+grey", "admin", frame136, gear41, wheel214, saddle136);
+            Bicycle bicycle341 = new Bicycle("Rose", "Reveal 04 105 Di2", 56, 3299, 8.2, "https://www.rosebikes.com/rose-reveal-04-105-di2-2722257?product_shape=orange+utan", "admin", frame136, gear13, wheel214, saddle136);
+
+            Bicycle bicycle350 = new Bicycle("Bianchi", "Oltre XR4", 57, 10500, 7.0, "https://www.bianchi.com/store/int_EN/yrb15-oltre-xr4-dura-ace-di2-4.html", "admin", frame9, gear1, wheel113, saddle62);
+            Bicycle bicycle351 = new Bicycle("Bianchi", "Oltre RC Dura-Ace", 56, 13300, 7.9, "https://www.bianchi.com/store/fr_EN/yub21-oltrerc-dura-acedi212sp-0.html", "admin", frame8, gear1, wheel1, saddle6);
+            Bicycle bicycle352 = new Bicycle("Bianchi", "Oltre RC SRAM Red", 57, 13900, 7.4, "https://www.bianchi.com/store/it_EN/ysb20-oltrerc-sramredetapaxsdisc12sp-3.html", "admin", frame9, gear36, wheel31, saddle29);
+            Bicycle bicycle353 = new Bicycle("Bianchi", "Oltre XR3 Disc", 57, 8050, 7.4, "https://www.bianchi.com/store/au_EN/ypbk7-oltre-xr3-disc-ultegra-11sp-52-36-3.html", "admin", frame9, gear10, wheel31, saddle29);
+            Bicycle bicycle354 = new Bicycle("Bianchi", "Oltre XR3 Ultegra Di2", 57, 8100, 8.2, "https://www.bianchi.com/store/fr_EN/yqb17-oltre-xr4-ultegra-di2-11sp-7.html", "admin", frame112, gear9, wheel24, saddle139);
+
+            Bicycle bicycle360 = new Bicycle("Pronghorn", "Road Aero – Rival AXS", 56, 4155, 8.6, "https://pronghorn.dk/produkt/carbon-road-aero-sram-rival-axs", "admin", frame138, gear41, wheel218, saddle155);
+            Bicycle bicycle361 = new Bicycle("Pronghorn", "Road Aero – Shimano 105", 56, 4155, 8.4, "https://pronghorn.dk/produkt/carbon-road-aero-shimano-105-di2-7170-2x12", "admin", frame138, gear12, wheel218, saddle155);
+            Bicycle bicycle362 = new Bicycle("Pronghorn", "Road Aero – Ultegra Di2", 56, 4960, 8.0, "https://pronghorn.dk/produkt/carbon-road-aero-ultegra-di2-8170-2x12", "admin", frame138, gear9, wheel218, saddle155);
+            Bicycle bicycle363 = new Bicycle("Pronghorn", "Road Aero – Force AXS", 56, 4960, 8.2, "https://pronghorn.dk/produkt/carbon-road-aero-sram-force-axs-d2", "admin", frame138, gear38, wheel218, saddle155);
+            Bicycle bicycle364 = new Bicycle("Pronghorn", "Road Aero – Rival AXS - Carbon", 56, 5230, 8.1, "https://pronghorn.dk/produkt/carbon-road-aero-sram-rival-axs-full-carbon-edition", "admin", frame138, gear41, wheel219, saddle155);
+            Bicycle bicycle365 = new Bicycle("Pronghorn", "Road Aero – 105 Di2 - Carbon", 56, 5230, 7.9, "https://pronghorn.dk/produkt/carbon-road-aero-shimano-105-di2-7170-2x12-full-carbon-edition", "admin", frame138, gear12, wheel219, saddle155);
+            Bicycle bicycle366 = new Bicycle("Pronghorn", "Road Aero – Ultegra Di2 - Carbon", 56, 6570, 7.5, "https://pronghorn.dk/produkt/carbon-road-aero-ultegra-di2-8170-2x12-full-carbon-edition", "admin", frame138, gear9, wheel179, saddle156);
+            Bicycle bicycle367 = new Bicycle("Pronghorn", "Road Aero – Force AXS - Carbon", 56, 6570, 7.6, "https://pronghorn.dk/produkt/carbon-road-aero-sram-force-axs-d2-full-carbon-edition", "admin", frame138, gear38, wheel179, saddle156);
+            Bicycle bicycle368 = new Bicycle("Pronghorn", "Road Aero – Red AXS - Carbon", 56, 8040, 7.4, "https://pronghorn.dk/produkt/carbon-road-aero-sram-red-axs-e1-full-carbon-edition", "admin", frame138, gear35, wheel179, saddle156);
+            Bicycle bicycle369 = new Bicycle("Pronghorn", "Road Aero – Dura-Ace Di2 - Carbon", 56, 8040, 7.2, "https://pronghorn.dk/produkt/carbon-road-aero-dura-ace-di2-9270-full-carbon-edition", "admin", frame138, gear2, wheel179, saddle156);
+            Bicycle bicycle370 = new Bicycle("Pronghorn", "Road Aero – Red E1 AXS - Full Upgrade", 56, 10720, 7.4, "https://pronghorn.dk/produkt/carbon-road-aero-sram-red-e1-axs-full-upgrade-edition", "admin", frame138, gear35, wheel52, saddle156);
+            Bicycle bicycle371 = new Bicycle("Pronghorn", "Road SL – Rival AXS", 56, 3750, 8.4, "https://pronghorn.dk/produkt/road-sl-sram-rival-axs", "admin", frame139, gear41, wheel218, saddle155);
+            Bicycle bicycle372 = new Bicycle("Pronghorn", "Road SL – 105 Di2", 56, 3750, 8.2, "https://pronghorn.dk/produkt/road-sl-shimano-105-di2-7170-2x12", "admin", frame139, gear12, wheel218, saddle155);
+            Bicycle bicycle373 = new Bicycle("Pronghorn", "Road SL – Ultegra Di2", 56, 4760, 7.6, "https://pronghorn.dk/produkt/road-sl-shimano-ultegra-di2-8170", "admin", frame139, gear9, wheel218, saddle155);
+            Bicycle bicycle374 = new Bicycle("Pronghorn", "Road SL – Force AXS", 56, 4760, 7.8, "https://pronghorn.dk/produkt/road-sl-sram-force-axs-d2", "admin", frame139, gear38, wheel218, saddle155);
+            Bicycle bicycle375 = new Bicycle("Pronghorn", "Road SL – Rival AXS - Carbon", 56, 4825, 7.9, "https://pronghorn.dk/produkt/road-sl-sram-rival-axs-full-carbon-edition", "admin", frame139, gear41, wheel219, saddle156);
+            Bicycle bicycle376 = new Bicycle("Pronghorn", "Road SL – 105 Di2 - Carbon", 56, 4825, 7.7, "https://pronghorn.dk/produkt/road-sl-shimano-105-di2-7170-2x12-full-carbon-edition", "admin", frame139, gear12, wheel219, saddle155);
+            Bicycle bicycle377 = new Bicycle("Pronghorn", "Road SL – Ultegra Di2 - Carbon", 56, 6165, 7.3, "https://pronghorn.dk/produkt/road-sl-shimano-ultegra-di2-8170-full-carbon-edition", "admin", frame139, gear9, wheel179, saddle156);
+            Bicycle bicycle378 = new Bicycle("Pronghorn", "Road SL – Force AXS - Carbon", 56, 6165, 7.5, "https://pronghorn.dk/produkt/road-sl-sram-force-axs-d2-full-carbon-edition", "admin", frame139, gear38, wheel179, saddle156);
+            Bicycle bicycle379 = new Bicycle("Pronghorn", "Road SL – Red eTap AXS - Carbon", 56, 7640, 7.1, "https://pronghorn.dk/produkt/road-sl-sram-red-axs-e1-full-carbon-edition", "admin", frame139, gear35, wheel179, saddle157);
+            Bicycle bicycle380 = new Bicycle("Pronghorn", "Road SL – Dura-Ace Di2 - Carbon", 56, 7640, 6.9, "https://pronghorn.dk/produkt/road-sl-shimano-dura-ace-di2-9270-full-carbon-edition", "admin", frame139, gear2, wheel179, saddle157);
+            Bicycle bicycle381 = new Bicycle("Pronghorn", "Performance AL Road - Rival eTap AXS", 56, 3620, 9.1, "https://pronghorn.dk/produkt/performance-al-road-sram-rival-e-tap-axs-2x12-carbon-wheel-edition", "admin", frame140, gear41, wheel219, saddle155);
+            Bicycle bicycle382 = new Bicycle("Pronghorn", "Performance AL Road - 105 Di2", 56, 3620, 9.1, "https://pronghorn.dk/produkt/performance-al-road-shimano-105-di2-7170-2x12-carbon-wheel-edition", "admin", frame140, gear12, wheel219, saddle155);
+            Bicycle bicycle383 = new Bicycle("Pronghorn", "Performance AL Road - Ultegra Di2", 56, 4630, 8.5, "https://pronghorn.dk/produkt/performance-al-road-shimano-ultegra-di2-8170-2x12-carbon-wheel-edition", "admin", frame140, gear9, wheel219, saddle155);
+
+
+
 
             em.persist(bicycle1);
             em.persist(bicycle2);
@@ -1430,12 +1511,14 @@ public class Populate {
             em.persist(bicycle100);
             em.persist(bicycle101);
             em.persist(bicycle102);
-
-            em.persist(bicycle111);
-            em.persist(bicycle112);
-            em.persist(bicycle113);
-            em.persist(bicycle114);
-            em.persist(bicycle115);
+            em.persist(bicycle103);
+            em.persist(bicycle104);
+            em.persist(bicycle105);
+            em.persist(bicycle106);
+            em.persist(bicycle107);
+            em.persist(bicycle108);
+            em.persist(bicycle109);
+            em.persist(bicycle110);
 
             em.persist(bicycle121);
             em.persist(bicycle122);
@@ -1580,6 +1663,51 @@ public class Populate {
             em.persist(bicycle320);
             em.persist(bicycle321);
             em.persist(bicycle322);
+
+            em.persist(bicycle330);
+            em.persist(bicycle331);
+            em.persist(bicycle332);
+            em.persist(bicycle333);
+            em.persist(bicycle334);
+            em.persist(bicycle335);
+            em.persist(bicycle336);
+            em.persist(bicycle337);
+            em.persist(bicycle338);
+            em.persist(bicycle339);
+            em.persist(bicycle340);
+            em.persist(bicycle341);
+
+            em.persist(bicycle350);
+            em.persist(bicycle351);
+            em.persist(bicycle352);
+            em.persist(bicycle353);
+            em.persist(bicycle354);
+
+            em.persist(bicycle360);
+            em.persist(bicycle361);
+            em.persist(bicycle362);
+            em.persist(bicycle363);
+            em.persist(bicycle364);
+            em.persist(bicycle365);
+            em.persist(bicycle366);
+            em.persist(bicycle367);
+            em.persist(bicycle368);
+            em.persist(bicycle369);
+            em.persist(bicycle370);
+            em.persist(bicycle371);
+            em.persist(bicycle372);
+            em.persist(bicycle373);
+            em.persist(bicycle374);
+            em.persist(bicycle375);
+            em.persist(bicycle376);
+            em.persist(bicycle377);
+            em.persist(bicycle378);
+            em.persist(bicycle379);
+            em.persist(bicycle380);
+            em.persist(bicycle381);
+            em.persist(bicycle382);
+            em.persist(bicycle383);
+
 
 
 
