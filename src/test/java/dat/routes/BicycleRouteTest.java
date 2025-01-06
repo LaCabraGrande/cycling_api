@@ -103,7 +103,7 @@ class BicycleRouteTest {
         bicycle1.setSize(56);
         bicycle1.setPrice(1000);
         bicycle1.setWeight(10);
-        bicycle1.setDescription("The ultimate racing bike");
+        bicycle1.setLink("The ultimate racing bike");
         bicycle1.setUsername("user");
 
         bicycle2.setBrand("Cannondale");
@@ -111,7 +111,7 @@ class BicycleRouteTest {
         bicycle2.setSize(54);
         bicycle2.setPrice(2000);
         bicycle2.setWeight(9);
-        bicycle2.setDescription("The ultimate climbing bike");
+        bicycle2.setLink("The ultimate climbing bike");
         bicycle2.setUsername("user");
 
         // Opret BicycleDTOs fra Bicycle-objekterne
@@ -293,7 +293,7 @@ class BicycleRouteTest {
         assertThat(bicycleDTO.getSize(), equalTo(b4.getSize()));
         assertThat(bicycleDTO.getPrice(), equalTo(b4.getPrice()));
         assertThat(bicycleDTO.getWeight(), equalTo(b4.getWeight()));
-        assertThat(bicycleDTO.getDescription(), equalTo(b4.getDescription()));
+        assertThat(bicycleDTO.getLink(), equalTo(b4.getLink()));
     }
 
     @Test
@@ -317,7 +317,7 @@ class BicycleRouteTest {
         assertThat(bicycleDTO.getSize(), equalTo(b4.getSize()));
         assertThat(bicycleDTO.getPrice(), equalTo(b4.getPrice()));
         assertThat(bicycleDTO.getWeight(), equalTo(b4.getWeight()));
-        assertThat(bicycleDTO.getDescription(), equalTo(b4.getDescription()));
+        assertThat(bicycleDTO.getLink(), equalTo(b4.getLink()));
         assertThat(bicycleDTO.getUsername(), equalTo(b4.getUsername()));
     }
 
