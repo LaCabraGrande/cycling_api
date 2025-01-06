@@ -77,14 +77,14 @@ class BicycleDAOTest {
         bicycle1.setSize(56);
         bicycle1.setPrice(1000);
         bicycle1.setWeight(10);
-        bicycle1.setDescription("The ultimate racing bike");
+        bicycle1.setLink("The ultimate racing bike");
 
         bicycle2.setBrand("Cannondale");
         bicycle2.setModel("CAAD13");
         bicycle2.setSize(54);
         bicycle2.setPrice(2000);
         bicycle2.setWeight(9);
-        bicycle2.setDescription("The ultimate climbing bike");
+        bicycle2.setLink("The ultimate climbing bike");
 
         bicycleDTO1 = bicycleDAO.add(new BicycleDTO(bicycle1));
         bicycleDTO2 = bicycleDAO.add(new BicycleDTO(bicycle2));
@@ -240,7 +240,7 @@ class BicycleDAOTest {
         newBicycleDTO.setSize(56);
         newBicycleDTO.setPrice(3000);
         newBicycleDTO.setWeight(8);
-        newBicycleDTO.setDescription("The ultimate allround bike");
+        newBicycleDTO.setLink("The ultimate allround bike");
 
         BicycleDTO addedBicycleDTO = bicycleDAO.add(newBicycleDTO);
         Assertions.assertNotNull(addedBicycleDTO);
@@ -280,7 +280,7 @@ class BicycleDAOTest {
         bicycleDTO.setSize(56);
         bicycleDTO.setPrice(3000);
         bicycleDTO.setWeight(8);
-        bicycleDTO.setDescription("The ultimate allround bike");
+        bicycleDTO.setLink("The ultimate allround bike");
 
         BicycleDTO updatedBicycleDTO = bicycleDAO.update(Math.toIntExact(bicycleDTO.getId()), bicycleDTO);
         Assertions.assertNotNull(updatedBicycleDTO);
