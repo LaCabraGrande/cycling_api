@@ -70,7 +70,7 @@ public class BicycleDAO {
                     bicycleDTO.getSize(),
                     bicycleDTO.getPrice(),
                     bicycleDTO.getWeight(),
-                    bicycleDTO.getDescription(),
+                    bicycleDTO.getLink(),
                     bicycleDTO.getUsername(),
                     frame, gear, wheel, saddle
             );
@@ -213,7 +213,7 @@ public class BicycleDAO {
                 dto.setSize(bicycle.getSize());
                 dto.setPrice(bicycle.getPrice());
                 dto.setWeight(bicycle.getWeight());
-                dto.setDescription(bicycle.getDescription());
+                dto.setLink(bicycle.getLink());
                 dto.setFrame(new FrameDTO(bicycle.getFrame()));
                 dto.setGear(new GearDTO(bicycle.getGear()));
                 dto.setSaddle(new SaddleDTO(bicycle.getSaddle()));
@@ -639,8 +639,8 @@ public class BicycleDAO {
             if (bicycleDTO.getWeight() > 0) {
                 bicycle.setWeight(bicycleDTO.getWeight());
             }
-            if (bicycleDTO.getDescription() != null) {
-                bicycle.setDescription(bicycleDTO.getDescription());
+            if (bicycleDTO.getLink() != null) {
+                bicycle.setLink(bicycleDTO.getLink());
             }
 
             // Merge opdateringerne og commit transaktionen
@@ -677,8 +677,8 @@ public class BicycleDAO {
             if (bicycleDTO.getWeight() > 0) {
                 bicycle.setWeight(bicycleDTO.getWeight());
             }
-            if (bicycleDTO.getDescription() != null) {
-                bicycle.setDescription(bicycleDTO.getDescription());
+            if (bicycleDTO.getLink() != null) {
+                bicycle.setLink(bicycleDTO.getLink());
             }
             if (bicycleDTO.getFrame() != null) {
                 bicycle.setFrame(new Frame(bicycleDTO.getFrame()));

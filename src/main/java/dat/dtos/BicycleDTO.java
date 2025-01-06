@@ -18,7 +18,7 @@ public class BicycleDTO {
     private int size;
     private int price;
     private double weight;
-    private String description;
+    private String link;
     private String username;
     private FrameDTO frame;
     private GearDTO gear;
@@ -26,14 +26,14 @@ public class BicycleDTO {
     private SaddleDTO saddle;
 
     // Constructor med alle felter
-    public BicycleDTO(int id, String brand, String model, int size, int price, double weight , String description, String username, FrameDTO frame, GearDTO gear, WheelDTO wheel, SaddleDTO saddle) {
+    public BicycleDTO(int id, String brand, String model, int size, int price, double weight , String link, String username, FrameDTO frame, GearDTO gear, WheelDTO wheel, SaddleDTO saddle) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.price = price;
         this.weight = weight;
-        this.description = description;
+        this.link = link;
         this.username = username;
         this.frame = frame;
         this.gear = gear;
@@ -41,13 +41,13 @@ public class BicycleDTO {
         this.saddle = saddle;
     }
 
-    public BicycleDTO(String brand, String model, int size, int price, double weight, String description, String username) {
+    public BicycleDTO(String brand, String model, int size, int price, double weight, String link, String username) {
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.price = price;
         this.weight = weight;
-        this.description = description;
+        this.link = link;
         this.username = username;
     }
 
@@ -59,7 +59,7 @@ public class BicycleDTO {
         this.size = bicycle.getSize();
         this.price = bicycle.getPrice();
         this.weight = bicycle.getWeight();
-        this.description = bicycle.getDescription();
+        this.link = bicycle.getLink();
         this.username = bicycle.getUsername();
 
         if (bicycle.getFrame() != null) {
@@ -96,7 +96,7 @@ public class BicycleDTO {
                 Double.compare(that.weight, weight) == 0 &&
                 Objects.equals(brand, that.brand) &&
                 Objects.equals(model, that.model) &&
-                Objects.equals(description, that.description) &&
+                Objects.equals(link, that.link) &&
                 Objects.equals(username, that.username) &&
                 Objects.equals(frame, that.frame) &&
                 Objects.equals(gear, that.gear) &&
@@ -107,7 +107,7 @@ public class BicycleDTO {
     // Overrider hashCode til at inkludere alle felter
     @Override
     public int hashCode() {
-        return Objects.hash(id, brand, model, size, price, weight, description, username, frame, gear, wheel, saddle);
+        return Objects.hash(id, brand, model, size, price, weight, link, username, frame, gear, wheel, saddle);
     }
     @Override
     public String toString() {
@@ -118,7 +118,7 @@ public class BicycleDTO {
                 ", size=" + size +
                 ", price=" + price +
                 ", weight=" + weight +
-                ", description='" + description + '\'' +
+                ", link='" + link + '\'' +
                 ", username='" + username + '\'' +
                 ", frame=" + frame +
                 ", gear=" + gear +

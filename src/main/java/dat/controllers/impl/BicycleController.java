@@ -294,7 +294,7 @@ public class BicycleController implements IController<BicycleDTO> {
             bicycleDTO.setSize(bicycleCompleteDTO.getSize());
             bicycleDTO.setPrice(bicycleCompleteDTO.getPrice());
             bicycleDTO.setWeight(bicycleCompleteDTO.getWeight());
-            bicycleDTO.setDescription(bicycleCompleteDTO.getDescription());
+            bicycleDTO.setLink(bicycleCompleteDTO.getLink());
             bicycleDTO.setUsername(bicycleCompleteDTO.getUsername());
             bicycleDTO.setFrame(frameDTO);
             bicycleDTO.setGear(gearDTO);
@@ -510,7 +510,7 @@ public class BicycleController implements IController<BicycleDTO> {
             bicycleDTO.setSize(bicycleCompleteDTO.getSize());
             bicycleDTO.setPrice(bicycleCompleteDTO.getPrice());
             bicycleDTO.setWeight(bicycleCompleteDTO.getWeight());
-            bicycleDTO.setDescription(bicycleCompleteDTO.getDescription());
+            bicycleDTO.setLink(bicycleCompleteDTO.getLink());
             bicycleDTO.setFrame(frameDTO);
             bicycleDTO.setGear(gearDTO);
             bicycleDTO.setWheel(wheelDTO);

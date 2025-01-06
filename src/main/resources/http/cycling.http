@@ -87,7 +87,7 @@ Authorization: Bearer {{jwt_token}}
   "size": 56,
   "price": 8000,
   "weight": 7.5,
-  "description": "Aero road bike",
+  "link": "Aero road bike",
   "username": "user"
 }
 
@@ -102,7 +102,7 @@ Authorization: Bearer {{jwt_token}}
   "size": 56,
   "price": 8000,
   "weight": 7.5,
-  "description": "Aero road bike",
+  "link": "Aero road bike",
   "username": "user",
   "frameId": 1,
   "gearId": 1,
@@ -121,7 +121,7 @@ Authorization: Bearer {{jwt_token}}
   "size": 56,
   "price": 7000,
   "weight": 7.5,
-  "description": "Aero road bike",
+  "link": "Aero road bike",
   "frameId": 2,
   "gearId": 3,
   "wheelId": 1,
@@ -139,7 +139,7 @@ Authorization: Bearer {{jwt_token}}
   "size": 56,
   "price": 7600,
   "weight": 6.8,
-  "description": "Ultra-lightweight race bike"
+  "link": "Ultra-lightweight race bike"
 }
 
 ### Her sletter vi en cykel ud fra id

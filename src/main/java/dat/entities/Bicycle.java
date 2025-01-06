@@ -25,7 +25,7 @@ public class Bicycle {
     private int size;
     private int price;
     private double weight;
-    private String description;
+    private String link;
     private String username;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -45,24 +45,24 @@ public class Bicycle {
     private Saddle saddle;
 
     // Constructor til oprettelse af ny Bicycle uden komponenter
-    public Bicycle(String brand, String model, int size, int price, double weight, String description, String username) {
+    public Bicycle(String brand, String model, int size, int price, double weight, String link, String username) {
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.price = price;
         this.weight = weight;
-        this.description = description;
+        this.link = link;
         this.username = username;
     }
 
     // Constructor til oprettelse af ny Bicycle med komponenter
-    public Bicycle(String brand, String model, int size, int price, double weight, String description, String username, Frame frame, Gear gear, Wheel wheel, Saddle saddle) {
+    public Bicycle(String brand, String model, int size, int price, double weight, String link, String username, Frame frame, Gear gear, Wheel wheel, Saddle saddle) {
         this.brand = brand;
         this.model = model;
         this.size = size;
         this.price = price;
         this.weight = weight;
-        this.description = description;
+        this.link = link;
         this.username = username;
         this.frame = frame;
         this.gear = gear;
@@ -78,7 +78,7 @@ public class Bicycle {
         this.size = bicycleDTO.getSize();
         this.price = bicycleDTO.getPrice();
         this.weight = bicycleDTO.getWeight();
-        this.description = bicycleDTO.getDescription();
+        this.link = bicycleDTO.getLink();
         this.username = bicycleDTO.getUsername();
         if(bicycleDTO.getFrame() != null) {
             this.frame = bicycleDTO.getFrame().toEntity();
@@ -131,7 +131,7 @@ public class Bicycle {
                 ", size=" + size +
                 ", price=" + price +
                 ", weight=" + weight +
-                ", description='" + description + '\'' +
+                ", link='" + link + '\'' +
                 ", username='" + username + '\'' +
                 '}';
     }
