@@ -7,6 +7,7 @@ import dat.controllers.IController;
 import dat.daos.impl.*;
 import dat.dtos.*;
 import dat.entities.Bicycle;
+import dat.utils.JsonUtil;
 import io.javalin.http.Context;
 import io.javalin.http.NotFoundResponse;
 import jakarta.persistence.EntityManagerFactory;
@@ -82,6 +83,16 @@ public class BicycleController implements IController<BicycleDTO> {
                     "wheelType", wheelType,
                     "priceInterval", priceInterval
             );
+
+            boolean noFiltersActive = filters.values().stream().allMatch(List::isEmpty);
+
+            if (noFiltersActive) {
+                logger.info("📦 Ingen aktive filtre – sender initial_filtercounts.json");
+                String json = JsonUtil.loadStaticJson("static/initial_filtercounts.json");
+                ctx.contentType("application/json").result(json);
+                return;
+            }
+
 
             // Brug DAO til at hente filtrerede tællinger
             FilterCountDTO filterCountDTO = bicycleDAO.getFilteredCounts(filters);
@@ -220,6 +231,14 @@ public class BicycleController implements IController<BicycleDTO> {
                 filters.put("priceInterval", priceInterval);
             }
 
+            if (filters.isEmpty()) {
+                String filename = "static/initial_bicycles.json";
+                logger.info("📦 Ingen aktive filtre - sender initial_bicycles.json");
+                //String json = JsonUtil.loadStaticJson(filename);
+                String json = JsonUtil.loadStaticJson("static/initial_bicycles.json");
+                ctx.contentType("application/json").result(json);
+                return;
+            }
 
             // Kald DAO for at hente filtrerede cykler
             List<BicycleDTO> bicyclesDTOS = bicycleDAO.getBicyclesByFilters(filters, minPrice, maxPrice);

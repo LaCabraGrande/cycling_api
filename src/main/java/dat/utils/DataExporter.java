@@ -29,7 +29,7 @@ public class DataExporter {
 
             // Gem filer
             JsonUtil.toJsonFile("src/main/resources/static/initial_filtercounts.json", filterCount);
-            JsonUtil.toJsonFile("src/main/resources/static/initial_bicyclesummaries.json", bicyclesDTOS);
+            JsonUtil.toJsonFile("src/main/resources/static/initial_bicycles.json", bicyclesDTOS);
 
 
             logger.info("✅ Initiale JSON-filer gemt med succes.");
