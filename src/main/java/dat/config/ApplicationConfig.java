@@ -53,11 +53,9 @@ public class ApplicationConfig {
         app.exception(Exception.class, ApplicationConfig::generalExceptionHandler);
         app.exception(ApiException.class, ApplicationConfig::apiExceptionHandler);
         app.beforeMatched(accessController::accessHandler);
-        //app.beforeMatched(ctx -> accessController.accessHandler(ctx));
         app.before(ApplicationConfig::corsHeaders);
         app.options("/*", ApplicationConfig::corsHeadersOptions);
         app.start(ApiProps.PORT);
-        //app.start(port);
     }
 
     public static void stopServer(Javalin app) {

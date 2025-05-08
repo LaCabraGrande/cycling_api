@@ -38,6 +38,12 @@
     <dependencies>
 
         <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.github.Hartmannsolution</groupId>
             <artifactId>TokenSecurity</artifactId>
             <version>${token.security.version}</version>

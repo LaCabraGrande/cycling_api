@@ -5,14 +5,13 @@ import dat.routes.BicycleRoute;
 import dat.security.entities.Role;
 import dat.security.entities.User;
 import dat.utils.ApiProps;
-import dat.utils.Utils;
 import jakarta.persistence.EntityManagerFactory;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-
 import java.util.Properties;
+
 
 public class HibernateConfig {
 
@@ -86,7 +85,7 @@ public class HibernateConfig {
     private static Properties setBaseProperties(Properties props) {
         props.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         props.put("hibernate.connection.driver_class", "org.postgresql.Driver");
-        props.put("hibernate.hbm2ddl.auto", "create");
+        props.put("hibernate.hbm2ddl.auto", "update");
         props.put("hibernate.current_session_context_class", "thread");
         props.put("hibernate.show_sql", "true");
         props.put("hibernate.format_sql", "true");
